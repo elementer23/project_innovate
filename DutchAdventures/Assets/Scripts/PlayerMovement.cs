@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 change;
     private Animator animator;
 
+    private Vector2 pointToMoveTo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
+        if(Input.GetMouseButton(0))
+        {
+            pointToMoveTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            change = pointToMoveTo - myRigidbody.position;
+        }
+        
+        if (change.sqrMagnitude > 0.1f)
+        {
+            change = pointToMoveTo - myRigidbody.position;
+        } else
+        {
+            change = Vector2.zero;
+        }
+        //change.x = Input.GetAxisRaw("Horizontal");
+        //change.y = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
