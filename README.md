@@ -4,6 +4,7 @@ The github repository for Dutch Adventures, a game made by first year NHL Stende
 NHL Stenden Emmen  
 10-5-2022  
 
+Made by:  
 - Jesk Aikema
 - Leroy Kats
 - Rick Vinke
