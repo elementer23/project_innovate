@@ -23,8 +23,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            pointToMoveTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            change = pointToMoveTo - myRigidbody.position;
+            RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+            
+            if(hit.transform.tag == "Ground")
+            {
+                pointToMoveTo = hit.point;
+                change = pointToMoveTo - myRigidbody.position;
+            }
         }
         
         if (change.sqrMagnitude > 0.1f)
@@ -34,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         {
             change = Vector2.zero;
         }
+
         //change.x = Input.GetAxisRaw("Horizontal");
         //change.y = Input.GetAxisRaw("Vertical");
     }
