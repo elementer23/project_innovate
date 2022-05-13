@@ -10,6 +10,8 @@ public class NPCController : MonoBehaviour
     public GameObject dialogPrefab;
     [HideInInspector]
     public GameObject questPrefab;
+    [HideInInspector]
+    public GameObject questIconPrefab;
     public Quest quest;
     public string dialog;
 
@@ -17,6 +19,11 @@ public class NPCController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+
+        if(quest.description != string.Empty)
+        {
+            Instantiate(questIconPrefab, transform);
+        }
     }
 
     void Update()
