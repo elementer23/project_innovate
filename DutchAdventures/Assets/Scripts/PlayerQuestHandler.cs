@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerQuestHandler : MonoBehaviour
 {
-    public Quest[] quests = new Quest[5];
+    public List<Quest> questList = new List<Quest>();
 
     void Start()
     {

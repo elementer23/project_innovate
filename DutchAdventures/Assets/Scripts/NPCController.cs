@@ -41,9 +41,8 @@ public class NPCController : MonoBehaviour
                 if (!canvas.Find("Questbox(Clone)"))
                 {
                     GameObject obj = Instantiate(questPrefab, canvas);
-                    QuestHandler qhandler = obj.GetComponent<QuestHandler>();
-
-                    qhandler.quest = quest;
+                    DialogHandler dhandler = obj.GetComponent<DialogHandler>();
+                    dhandler.dialog = dialog;
                 }
             }
             else

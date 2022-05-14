@@ -21,7 +21,6 @@ public class DialogHandler : MonoBehaviour
 
     private void Update()
     {
-
         bool isOverUI = EventSystem.current.IsPointerOverGameObject();
         if (!isFinished)
         {

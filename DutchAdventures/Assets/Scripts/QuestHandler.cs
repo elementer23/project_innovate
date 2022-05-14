@@ -6,15 +6,16 @@ using UnityEngine;
 public class QuestHandler : MonoBehaviour
 {
     public Quest quest;
-    private DialogHandler handler; 
+    private DialogHandler handler;
+    private PlayerQuestHandler player;
 
     [SerializeField]
     private CanvasGroup btns;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         handler = GetComponent<DialogHandler>();
-        handler.dialog = quest.description;
         btns.alpha = 0;
     }
 
@@ -26,6 +27,7 @@ public class QuestHandler : MonoBehaviour
 
     public void acceptBtn()
     {
+        
         Debug.Log("accept");
     }
 }
