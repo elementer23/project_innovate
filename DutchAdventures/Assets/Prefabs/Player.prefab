@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 937706891
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 509553041, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
   m_Color: {r: 0.76862746, g: 0.23529412, b: 0.23529412, a: 1}
   m_FlipX: 0
@@ -154,9 +154,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 937706891
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: -704612933, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
   m_Color: {r: 0.33333334, g: 0.5254902, b: 0.7254902, a: 1}
   m_FlipX: 0
@@ -238,9 +238,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 937706891
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 925555429, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
   m_Color: {r: 0.41568628, g: 0.28235295, b: 0.20392157, a: 1}
   m_FlipX: 0
@@ -332,8 +332,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 937706891
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
   m_Color: {r: 0.9098039, g: 0.83137256, b: 0.69803923, a: 1}
@@ -438,32 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0952b2600824d0a4a8a37e5e4db5ad5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests:
-  - title: 
-    description: 
-    rewardCoins: 0
-    rewardItem: 0
-    itemIndex: 0
-  - title: 
-    description: 
-    rewardCoins: 0
-    rewardItem: 0
-    itemIndex: 0
-  - title: 
-    description: 
-    rewardCoins: 0
-    rewardItem: 0
-    itemIndex: 0
-  - title: 
-    description: 
-    rewardCoins: 0
-    rewardItem: 0
-    itemIndex: 0
-  - title: 
-    description: 
-    rewardCoins: 0
-    rewardItem: 0
-    itemIndex: 0
+  quests: []
 --- !u!114 &5100570244111080917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,9 +522,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 937706891
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: -615904343, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
   m_Color: {r: 0.41568628, g: 0.28235295, b: 0.20392157, a: 1}
   m_FlipX: 0

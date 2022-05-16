@@ -511,8 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest:
-    title: Title
-    description: Description
+    title: '[ERROR]'
+    description: '[ERROR]'
     rewardCoins: 5
     rewardItem: 0
     itemIndex: 0
