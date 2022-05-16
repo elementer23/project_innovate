@@ -21,27 +21,31 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             //Cast a ray from the camera out towards the ground.
             RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
-            
+
             //Check if the mouse is not over any UI element
             bool isOverUI = EventSystem.current.IsPointerOverGameObject();
-            
+
             //If the object hit by the ray is of the "Ground" tag and the mouse is not over UI
-            if(hit.transform.tag == "Ground" && !isOverUI)
+            if (hit)
             {
-                //Set the point to move towards to the point where the ray hit
-                pointToMoveTo = hit.point;
-                change = pointToMoveTo - myRigidbody.position;
+                if (hit.transform.tag == "Ground" && !isOverUI)
+                {
+                    //Set the point to move towards to the point where the ray hit
+                    pointToMoveTo = hit.point;
+                    change = pointToMoveTo - myRigidbody.position;
+                }
             }
         }
-        
+
         if (change.sqrMagnitude > 0.1f)
         {
             change = pointToMoveTo - myRigidbody.position;
-        } else
+        }
+        else
         {
             change = Vector2.zero;
         }
@@ -51,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateAnimationAndMove();
     }
-    void UpdateAnimationAndMove() 
+    void UpdateAnimationAndMove()
     {
         if (change != Vector2.zero)
         {
@@ -66,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void MoveCharacter() 
+    void MoveCharacter()
     {
         myRigidbody.MovePosition(myRigidbody.position + change.normalized * speed * Time.deltaTime);
     }
