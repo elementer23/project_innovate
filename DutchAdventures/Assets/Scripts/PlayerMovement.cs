@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
+            
             RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             
             if(hit.transform.tag == "Ground")
