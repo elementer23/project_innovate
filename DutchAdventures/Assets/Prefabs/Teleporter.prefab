@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7353614472014701494}
   - component: {fileID: 1758088466}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: b8eaf69acdd50f249af27ce87b4e52f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.42352942}
   m_FlipX: 0
@@ -155,6 +155,8 @@ MonoBehaviour:
   buildIndex: 1
   minDist: 2
   pointer: {fileID: 936745023006705076}
+  isOverworld: 1
+  playerSpawn: {fileID: 11400000, guid: 077d4e0df2c62944a9fb445f81f176db, type: 2}
 --- !u!65 &1329357656726033515
 BoxCollider:
   m_ObjectHideFlags: 0

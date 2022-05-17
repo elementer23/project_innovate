@@ -12,6 +12,7 @@ public class Quest
     public bool rewardItem;
     public int itemIndex;
 
+    //Quest constructor
     public Quest(string title, string desc, string npcName, int coins, bool rewardItem, int itemIndex)
     {
         this.title = title;

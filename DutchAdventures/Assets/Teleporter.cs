@@ -17,8 +17,10 @@ public class Teleporter : MonoBehaviour
     
     private void Start()
     {
+        //If the player is in the normal world, i.e. not in a building:
         if (isOverworld)
         {
+            //Place the player at the place where the player entered the building
             player.position = playerSpawn.spawnPosition;
             Vector3 pos = playerSpawn.spawnPosition;
             pos.z = -10;
@@ -41,7 +43,6 @@ public class Teleporter : MonoBehaviour
             {
                 playerSpawn.spawnPosition = player.position;
             }
-            Debug.Log("dsda");
             SceneManager.LoadScene(buildIndex);
         }
     }

@@ -20,6 +20,7 @@ public class ButtonScript : MonoBehaviour
 
     }
 
+    //Changes the sprite of the button when the button is pressed.
     public void ChangeOnPressed()
     {
         if (image.sprite != pressedSprite)

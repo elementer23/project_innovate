@@ -2229,6 +2229,10 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: isOverworld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 11400000, guid: 077d4e0df2c62944a9fb445f81f176db, type: 2}

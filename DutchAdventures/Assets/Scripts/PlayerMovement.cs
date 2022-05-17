@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //If the distance to the pointToMoveTo is more then 0.1f: move
+        //This prevents the player from jittering when arriving at the pointToMoveTo
         if (change.sqrMagnitude > 0.1f)
         {
             change = pointToMoveTo - myRigidbody.position;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateAnimationAndMove();
     }
+
     void UpdateAnimationAndMove()
     {
         if (change != Vector2.zero)
