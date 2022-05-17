@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
+  m_Name: NPC2
+  m_EditorClassIdentifier: 
+  skin: {r: 0.41568628, g: 0.28235295, b: 0.20392157, a: 1}
+  hair: {r: 0.16299999, g: 0.110716976, b: 0.07996225, a: 1}
+  shirt: {r: 0.22678883, g: 0.8773585, b: 0.25475866, a: 1}
+  pants: {r: 0.33333334, g: 0.5254902, b: 0.7254902, a: 1}
+  shoes: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
