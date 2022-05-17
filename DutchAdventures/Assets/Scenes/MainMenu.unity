@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 35710811}
   - component: {fileID: 35710810}
   - component: {fileID: 35710813}
+  - component: {fileID: 35710814}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -236,7 +237,7 @@ Animator:
   m_GameObject: {fileID: 35710808}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5adcef02fd68c1940a10ba096c4d7443, type: 2}
+  m_Controller: {fileID: 9100000, guid: 82575bd0768a448469d42a40ef37e054, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -246,6 +247,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &35710814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35710808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78197836cc2c9644ea9bb50e3da89bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTarget: {fileID: 1423938223}
+  speed: 1
 --- !u!1 &1054049168
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +334,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc0ca7b8b5c0d1e44af616aa63742b54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14165ee1c3c123c48a2e801c7739f40a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -630,6 +645,8 @@ GameObject:
   - component: {fileID: 1423938222}
   - component: {fileID: 1423938224}
   - component: {fileID: 1423938223}
+  - component: {fileID: 1423938225}
+  - component: {fileID: 1423938226}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -686,8 +703,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -754,6 +771,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423938221}
   m_CullTransparentMesh: 1
+--- !u!114 &1423938225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423938221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78197836cc2c9644ea9bb50e3da89bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTarget: {fileID: 1423938223}
+  speed: 1
+--- !u!114 &1423938226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423938221}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00944879ed329b44d9f85907f9da58c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1585283194
 GameObject:
   m_ObjectHideFlags: 0
