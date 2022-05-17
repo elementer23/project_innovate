@@ -16,6 +16,7 @@ public class DialogHandler : MonoBehaviour
 
     private void Start()
     {
+        //Start the coroutine that prints every character at a time;
         printDialog = StartCoroutine(printText());
     }
 
@@ -44,6 +45,7 @@ public class DialogHandler : MonoBehaviour
 
     IEnumerator printText()
     {
+        //Print each letter one at a time.
         isFinished = false;
         yield return new WaitForSeconds(.05f);
         foreach (char c in dialog.ToCharArray())

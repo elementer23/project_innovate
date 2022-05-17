@@ -107200,6 +107200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC-Pieter
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018539, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
 --- !u!1 &2078381042
