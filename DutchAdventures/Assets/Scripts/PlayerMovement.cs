@@ -26,22 +26,20 @@ public class PlayerMovement : MonoBehaviour
             //Check if the mouse is not over any UI element
             bool overUI = isOverUI();
 
-            if (!overUI)
-            {
-                //Cast a ray from the camera out towards the ground.
-                RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+            //Cast a ray from the camera out towards the ground.
+            RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
 
-                //If the object hit by the ray is of the "Ground" tag and the mouse is not over UI
-                if (hit)
+            //If the object hit by the ray is of the "Ground" tag and the mouse is not over UI
+            if (hit)
+            {
+                if (hit.transform.tag == "Ground" && !overUI)
                 {
-                    if (hit.transform.tag == "Ground")
-                    {
-                        //Set the point to move towards to the point where the ray hit
-                        pointToMoveTo = hit.point;
-                        change = pointToMoveTo - myRigidbody.position;
-                    }
+                    //Set the point to move towards to the point where the ray hit
+                    pointToMoveTo = hit.point;
+                    change = pointToMoveTo - myRigidbody.position;
                 }
             }
+
         }
 
         //If the distance to the pointToMoveTo is more then 0.1f: move
@@ -62,11 +60,9 @@ public class PlayerMovement : MonoBehaviour
         {
             return true;
         }
-        if (Input.touchCount > 0)
+        if(Input.touchCount > 0)
         {
-            var touch = Input.GetTouch(0);
-
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
                 return true;
             }
