@@ -7,7 +7,7 @@ public class Teleporter : MonoBehaviour
 {
     public Transform player;
     public int buildIndex;
-    public float minDist = 2;
+    protected float minDist = 2;
     [SerializeField]
     private GameObject pointer;
     private bool canTravel = false;

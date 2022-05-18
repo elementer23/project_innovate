@@ -107431,6 +107431,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 240179560}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: buildIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
 --- !u!1001 &2801845320604655467

@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BigCityScene.unity
+    guid: b895a1c5279497344a2b60e74416d20e
+  - enabled: 1
     path: Assets/Scenes/SouthScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/House1.unity
     guid: 928a800abc9432b479ad81e03d88be7c
+  - enabled: 1
+    path: Assets/Scenes/eastEntrance.unity
+    guid: 5210cc96c0a5643469a8a35d47cd6800
+  - enabled: 1
+    path: Assets/Scenes/waterPompScene.unity
+    guid: 2cdb5022505bed740bb291458862c3a0
   m_configObjects: {}
