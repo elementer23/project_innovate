@@ -23,21 +23,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            //Cast a ray from the camera out towards the ground.
-            RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
-            
             //Check if the mouse is not over any UI element
-            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
+            bool overUI = isOverUI();
 
-            //If the object hit by the ray is of the "Ground" tag and the mouse is not over UI
-            if (hit)
+            if (!overUI)
             {
-                Debug.Log("test");
-                if (hit.transform.tag == "Ground" && !isOverUI)
+                //Cast a ray from the camera out towards the ground.
+                RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+
+                //If the object hit by the ray is of the "Ground" tag and the mouse is not over UI
+                if (hit)
                 {
-                    //Set the point to move towards to the point where the ray hit
-                    pointToMoveTo = hit.point;
-                    change = pointToMoveTo - myRigidbody.position;
+                    if (hit.transform.tag == "Ground")
+                    {
+                        //Set the point to move towards to the point where the ray hit
+                        pointToMoveTo = hit.point;
+                        change = pointToMoveTo - myRigidbody.position;
+                    }
                 }
             }
         }
@@ -53,7 +55,22 @@ public class PlayerMovement : MonoBehaviour
             change = Vector2.zero;
         }
     }
-    
+
+    private bool isOverUI()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        var touch = Input.GetTouch(0);
+
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     private void FixedUpdate()
     {
