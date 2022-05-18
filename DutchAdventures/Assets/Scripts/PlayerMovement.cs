@@ -62,11 +62,14 @@ public class PlayerMovement : MonoBehaviour
         {
             return true;
         }
-        var touch = Input.GetTouch(0);
-
-        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        if (Input.touchCount > 0)
         {
-            return true;
+            var touch = Input.GetTouch(0);
+
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return true;
+            }
         }
 
         return false;

@@ -107230,19 +107230,19 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f25ecb92fa06a154a87831241b19df69, type: 2}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413559502300, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413564005098, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: dialog
@@ -107505,46 +107505,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413559502300, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413564005098, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: dialog
-      value: Hello, I'm a bit hungry. Can you get me a frikandel from the snackabar?
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: quest.title
-      value: Fikandel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: quest.npcName
-      value: Jan
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: quest.description
-      value: "Get \u20AC5 from Jan's house."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: quest.rewardCoins
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099842413819018532, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_RootOrder
       value: 3
