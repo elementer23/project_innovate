@@ -20,9 +20,37 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1485715675, guid: 2f191b63f95771f47ba8647ad4008b9a, type: 3}
+      value: {fileID: -344763451, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
     attribute: m_Sprite
     path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -1343667473, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+    attribute: m_Sprite
+    path: Hair
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -1772325122, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
+    attribute: m_Sprite
+    path: Shirt
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -265073497, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
+    attribute: m_Sprite
+    path: Pants
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2080880112, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
+    attribute: m_Sprite
+    path: Shoes
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -39,8 +67,40 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1019596327
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1248117524
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3183334126
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3574509203
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1485715675, guid: 2f191b63f95771f47ba8647ad4008b9a, type: 3}
+    - {fileID: -344763451, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
+    - {fileID: -1343667473, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+    - {fileID: -1772325122, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
+    - {fileID: -265073497, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
+    - {fileID: 2080880112, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
