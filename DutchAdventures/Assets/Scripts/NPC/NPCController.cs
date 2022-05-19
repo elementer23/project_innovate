@@ -13,6 +13,7 @@ public class NPCController : MonoBehaviour
     [HideInInspector]
     public GameObject questIconPrefab;
     public Quest quest;
+    public string npcName;
     public string dialog;
     public bool hadAccepted = false;
 
@@ -26,6 +27,7 @@ public class NPCController : MonoBehaviour
         if (quest.description != string.Empty)
         {
             Instantiate(questIconPrefab, transform);
+            quest.npcName = npcName;
         }
     }
 
@@ -50,6 +52,7 @@ public class NPCController : MonoBehaviour
                         QuestHandler qhandler = obj.GetComponent<QuestHandler>();
 
                         dhandler.dialog = dialog;
+                        dhandler.npcName = npcName;
                         qhandler.quest = quest;
                         qhandler.npcController = this;
                     }
@@ -61,6 +64,7 @@ public class NPCController : MonoBehaviour
                         GameObject obj = Instantiate(dialogPrefab, canvas);
                         DialogHandler dhandler = obj.GetComponent<DialogHandler>();
                         dhandler.dialog = dialog;
+                        dhandler.npcName = npcName;
                     }
                 }
             }
