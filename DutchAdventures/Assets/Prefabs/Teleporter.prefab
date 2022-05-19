@@ -154,7 +154,6 @@ MonoBehaviour:
   player: {fileID: 0}
   buildIndex: 1
   pointer: {fileID: 936745023006705076}
-  isOverworld: 1
   entracePos: {fileID: 11400000, guid: 95419221643bb7443a0184564e6034ad, type: 2}
   exitPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
   destination: {x: 0, y: 0}
