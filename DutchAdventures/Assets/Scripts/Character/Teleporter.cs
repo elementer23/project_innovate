@@ -11,16 +11,14 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private GameObject pointer;
     private bool canTravel = false;
-    [SerializeField]
-    private bool isOverworld = false;
     public PlayerSpawn entracePos;
     public PlayerSpawn exitPos;
     public Vector2 destination;
     
     private void Start()
-    { 
+    {
         //Place the player at the place where the player entered the building
-        player.position = exitPos.spawnPosition;
+        player.position = this.GetPreviousPosition(entracePos, exitPos, player);
         Vector3 pos = exitPos.spawnPosition;
         pos.z = -10;
         Camera.main.transform.position = pos;
@@ -41,6 +39,24 @@ public class Teleporter : MonoBehaviour
             exitPos.spawnPosition = destination;
             SceneManager.LoadScene(buildIndex);
         }
+    }
+
+    private Vector2 GetPreviousPosition(PlayerSpawn entrance, PlayerSpawn exit, Transform player)
+    {
+        if (HasPreviousPosition(entrance) && HasPreviousPosition(exit))
+        {
+            return exit.spawnPosition;
+        }
+        else 
+        {
+            return player.position;
+        }
+    }
+
+    private bool HasPreviousPosition(PlayerSpawn pos)
+    {
+        Debug.Log(!pos.spawnPosition.Equals(Vector2.zero));
+        return !pos.spawnPosition.Equals(Vector2.zero);
     }
 }
 

@@ -6,4 +6,5 @@ using UnityEngine;
 public class PlayerSpawn : ScriptableObject
 {
     public Vector2 spawnPosition;
+    
 }
