@@ -55,7 +55,6 @@ public class Teleporter : MonoBehaviour
 
     private bool HasPreviousPosition(PlayerSpawn pos)
     {
-        Debug.Log(!pos.spawnPosition.Equals(Vector2.zero));
         return !pos.spawnPosition.Equals(Vector2.zero);
     }
 }
