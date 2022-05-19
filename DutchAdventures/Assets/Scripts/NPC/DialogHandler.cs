@@ -6,10 +6,17 @@ using TMPro;
 
 public class DialogHandler : MonoBehaviour
 {
-    public string dialog;
     [SerializeField]
     private TextMeshProUGUI dialogBox;
-    private string dialogText;
+    [SerializeField]
+    private TextMeshProUGUI npcNameTxt;
+    public CanvasGroup btns;
+
+    [HideInInspector]
+    public string dialog;
+    public string npcName;
+    private string dialogToDisplay;
+    [HideInInspector]
     public bool isFinished = false;
 
     private Coroutine printDialog;
@@ -18,10 +25,19 @@ public class DialogHandler : MonoBehaviour
     {
         //Start the coroutine that prints every character at a time;
         printDialog = StartCoroutine(printText());
+        npcNameTxt.text = npcName;
+
+        //Make the buttons invisible at start
+        btns.alpha = 0;
+        btns.interactable = false;
     }
 
     private void Update()
     {
+        //if the NPC is done talking, make the buttons appear.
+        btns.alpha = isFinished ? 1 : 0;
+        btns.interactable = isFinished;
+
         bool isOverUI = EventSystem.current.IsPointerOverGameObject();
         if (!isFinished)
         {
@@ -33,7 +49,7 @@ public class DialogHandler : MonoBehaviour
             }
             else
             {
-                dialogBox.text = dialogText;
+                dialogBox.text = dialogToDisplay;
             }
         }
     }
@@ -50,7 +66,7 @@ public class DialogHandler : MonoBehaviour
         yield return new WaitForSeconds(.05f);
         foreach (char c in dialog.ToCharArray())
         {
-            dialogText += c;
+            dialogToDisplay += c;
             yield return new WaitForSeconds(.05f);
         }
         isFinished = true;

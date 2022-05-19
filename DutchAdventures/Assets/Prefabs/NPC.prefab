@@ -461,10 +461,11 @@ MonoBehaviour:
   quest:
     title: Fikandel
     description: "Get \u20AC5 from Jan's house."
-    npcName: Jan
+    npcName: 
     rewardCoins: 5
     rewardItem: 0
     itemIndex: 0
+  npcName: Jan
   dialog: Hello, I'm a bit hungry. Can you get me a frikandel from the snackabar?
   hadAccepted: 0
 --- !u!114 &1420811150

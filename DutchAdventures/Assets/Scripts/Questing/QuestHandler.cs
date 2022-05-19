@@ -13,25 +13,12 @@ public class QuestHandler : MonoBehaviour
     [HideInInspector]
     public NPCController npcController;
 
-    [SerializeField]
-    private CanvasGroup btns;
-
     void Start()
     {
         //Find the objects and set the variables.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         handler = GetComponent<DialogHandler>();
         questUI = transform.parent.Find("QuestMenu").GetComponent<QuestUI>();
-        //Make the buttons invisible to start.
-        btns.alpha = 0;
-        btns.interactable = false;
-    }
-
-    void Update()
-    {
-        //if the NPC is done talking, make the buttons appear.
-        btns.alpha = handler.isFinished ? 1 : 0;
-        btns.interactable = handler.isFinished;
     }
 
     public void acceptBtn()
