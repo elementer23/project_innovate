@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Paths
+    uniqueID: 2893187637
+    locked: 0
+  - name: Flowers
+    uniqueID: 2088575359
+    locked: 0
+  - name: Borders
+    uniqueID: 2975786875
+    locked: 0
   - name: Player
     uniqueID: 937706891
     locked: 0
