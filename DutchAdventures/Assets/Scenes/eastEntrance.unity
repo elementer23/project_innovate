@@ -346,6 +346,14 @@ PrefabInstance:
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 11400000, guid: 148041374c8ddda4ea39f056f25c00b4, type: 2}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: destination.x
+      value: 41.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: destination.y
+      value: -14.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
 --- !u!1 &674607620
@@ -50196,6 +50204,14 @@ PrefabInstance:
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 11400000, guid: b52e2789a8510cb4da72568b1bf5db14, type: 2}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: destination.x
+      value: -33.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: destination.y
+      value: 11.38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
 --- !u!1 &2103996662

@@ -13,19 +13,17 @@ public class Teleporter : MonoBehaviour
     private bool canTravel = false;
     [SerializeField]
     private bool isOverworld = false;
-    public PlayerSpawn playerSpawn;
+    public PlayerSpawn entracePos;
+    public PlayerSpawn exitPos;
+    public Vector2 destination;
     
     private void Start()
-    {
-        //If the player is in the normal world, i.e. not in a building:
-        if (isOverworld)
-        {
-            //Place the player at the place where the player entered the building
-            player.position = playerSpawn.spawnPosition;
-            Vector3 pos = playerSpawn.spawnPosition;
-            pos.z = -10;
-            Camera.main.transform.position = pos;
-        }
+    { 
+        //Place the player at the place where the player entered the building
+        player.position = exitPos.spawnPosition;
+        Vector3 pos = exitPos.spawnPosition;
+        pos.z = -10;
+        Camera.main.transform.position = pos;
     }
 
     private void Update()
@@ -39,10 +37,8 @@ public class Teleporter : MonoBehaviour
     {
         if (canTravel)
         {
-            if (isOverworld)
-            {
-                playerSpawn.spawnPosition = player.position;
-            }
+            entracePos.spawnPosition = player.position;
+            exitPos.spawnPosition = destination;
             SceneManager.LoadScene(buildIndex);
         }
     }
