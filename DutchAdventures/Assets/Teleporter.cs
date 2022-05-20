@@ -7,25 +7,21 @@ public class Teleporter : MonoBehaviour
 {
     public Transform player;
     public int buildIndex;
-    public float minDist = 2;
+    protected float minDist = 2;
     [SerializeField]
     private GameObject pointer;
     private bool canTravel = false;
-    [SerializeField]
-    private bool isOverworld = false;
-    public PlayerSpawn playerSpawn;
-    
+    public PlayerSpawn entracePos;
+    public PlayerSpawn exitPos;
+    public Vector2 destination;
+
     private void Start()
     {
-        //If the player is in the normal world, i.e. not in a building:
-        if (isOverworld)
-        {
-            //Place the player at the place where the player entered the building
-            player.position = playerSpawn.spawnPosition;
-            Vector3 pos = playerSpawn.spawnPosition;
-            pos.z = -10;
-            Camera.main.transform.position = pos;
-        }
+        //Place the player at the place where the player entered the building
+        player.position = this.GetPreviousPosition(entracePos, exitPos, player);
+        Vector3 pos = exitPos.spawnPosition;
+        pos.z = -10;
+        Camera.main.transform.position = pos;
     }
 
     private void Update()
@@ -39,12 +35,27 @@ public class Teleporter : MonoBehaviour
     {
         if (canTravel)
         {
-            if (isOverworld)
-            {
-                playerSpawn.spawnPosition = player.position;
-            }
+            entracePos.spawnPosition = player.position;
+            exitPos.spawnPosition = destination;
             SceneManager.LoadScene(buildIndex);
         }
+    }
+
+    private Vector2 GetPreviousPosition(PlayerSpawn entrance, PlayerSpawn exit, Transform player)
+    {
+        if (HasPreviousPosition(entrance) && HasPreviousPosition(exit))
+        {
+            return exit.spawnPosition;
+        }
+        else
+        {
+            return player.position;
+        }
+    }
+
+    private bool HasPreviousPosition(PlayerSpawn pos)
+    {
+        return !pos.spawnPosition.Equals(Vector2.zero);
     }
 }
 
