@@ -2630,7 +2630,7 @@ PrefabInstance:
       objectReference: {fileID: 623938182}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: buildIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
