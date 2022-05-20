@@ -153,10 +153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   buildIndex: 1
-  minDist: 2
   pointer: {fileID: 936745023006705076}
-  isOverworld: 1
-  playerSpawn: {fileID: 11400000, guid: 077d4e0df2c62944a9fb445f81f176db, type: 2}
+  entracePos: {fileID: 11400000, guid: 410ea0cae0b2d024e8a1c90eab4ede21, type: 2}
+  exitPos: {fileID: 11400000, guid: 551e8461b4144264d9bf0d6b900754cf, type: 2}
+  destination: {x: -0.5, y: -5}
 --- !u!65 &1329357656726033515
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 cameraPos = new Vector3(
             Mathf.Clamp(pointToLerpTo.x, minClamp.x, maxClamp.x),
-            Mathf.Clamp(pointToLerpTo.y, minClamp.y, maxClamp.y)
+            Mathf.Clamp(pointToLerpTo.y, minClamp.y, maxClamp.y),
             -10
         );
 
