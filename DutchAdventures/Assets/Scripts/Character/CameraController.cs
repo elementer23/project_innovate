@@ -6,8 +6,11 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
-    [SerializeField]
     private float lerpSpeed = 5;
+    [SerializeField]
+    private Vector2 minClamp = Vector3.one * -100;
+    [SerializeField]
+    private Vector2 maxClamp = Vector3.one * 100;
 
     private void Start()
     {
@@ -23,7 +26,13 @@ public class CameraController : MonoBehaviour
     {
         //Set the camera position to the position of the player every frame.
         Vector3 pointToLerpTo = player.position;
-        pointToLerpTo.z = -10;
-        transform.position = Vector3.Lerp(transform.position, pointToLerpTo, Time.deltaTime * lerpSpeed);
+
+        Vector3 cameraPos = new Vector3(
+            Mathf.Clamp(pointToLerpTo.x, minClamp.x, maxClamp.x),
+            Mathf.Clamp(pointToLerpTo.y, minClamp.y, maxClamp.y),
+            -10
+        );
+
+        transform.position = Vector3.Lerp(transform.position, cameraPos, Time.deltaTime * lerpSpeed);
     }
 }
