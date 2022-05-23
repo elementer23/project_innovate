@@ -309,7 +309,7 @@ MonoBehaviour:
     m_CachedPref: -50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 8899279855434922634, guid: 8144e5985c0eb04409c083583165390c, type: 3}
+  m_Palette: {fileID: 536573288996885964, guid: d9b78e295b8bca8409f209f274da63bd, type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0
 --- !u!114 &13
