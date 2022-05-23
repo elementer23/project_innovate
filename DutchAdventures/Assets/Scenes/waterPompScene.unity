@@ -105857,7 +105857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 97c20740a603b3445ac6f7e3974d93eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106228,7 +106228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1510318904}
-  buildIndex: 0
+  buildIndex: 3
   pointer: {fileID: 2101609373}
   neededKeyItem1: Wrench
   neededKeyItem2: Jerrycan
@@ -108898,11 +108898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.32
+      value: 76.21
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.99
+      value: 14.99
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.z

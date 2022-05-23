@@ -11,7 +11,7 @@ public class KeyItemsHandler : MonoBehaviour
     void Start()
     {
         items.Add("Jerrycan", false);
-        items.Add("Wrench", false);
+        items.Add("Wrench", true);
 
     }
 }
