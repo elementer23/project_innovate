@@ -4,50 +4,61 @@ using UnityEngine;
 
 public class PlayerQuestHandler : MonoBehaviour
 {
-    //The list of quests the player has.
-    [SerializeField]
-    private List<Quest> quests = new List<Quest>();
+    public int coins;
 
-    public void addQuest(Quest quest)
+    [Header("Quest")]
+    [SerializeField]
+    private Quest quest;
+
+    //Sets the currently active quest to a quest.
+    public void setQuest(Quest quest)
     {
-        //If the quest is not already in the list,
-        if (!quests.Contains(quest))
+        //Check if the player does not have a quest, add it.
+        if (this.quest.isEmpty())
         {
-            //If there are less then 5 quests,
-            if (quests.Count < 5)
-            {
-                //Add the quest.
-                Debug.Log("Add quest to player");
-                quests.Add(quest);
-            }
-            else
-            {
-                Debug.LogWarning("Quest log is full");
-            }
+            this.quest = quest;
         }
         else
         {
-            Debug.LogWarning("Quest already exists");
+            Debug.LogWarning("Already has quest");
         }
     }
 
-    public void removeQuest(Quest quest)
+    //Removes the quest the player currently has.
+    public void removeQuest()
     {
-        //If the list contains the quest, remove it.
-        if (quests.Contains(quest))
+        //Set the quest to a empty quest.
+        Debug.Log("Remove quest: " + quest.title);
+        quest = new Quest("", "", "", "", 0, false, 0);
+    }
+
+    //Call this function from your quest script to complete the quest.
+    public void completeQuest()
+    {
+        addCoins(quest.rewardCoins);
+
+        if (quest.rewardItem)
         {
-            quests.Remove(quest);
+            //////////////////////////////////////TODO: GRANT ITEM TO PLAYER
+        }
+        GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
+        removeQuest();
+    }
+
+    /////////////////
+    // Coin system //
+    /////////////////
+
+    public void addCoins(int amt)
+    {
+        coins += amt;
+    }
+
+    public void subtractCoint(int amt)
+    {
+        if (coins - amt >= 0)
+        {
+            coins -= amt;
         }
     }
-
-    public List<Quest> getQuests()
-    {
-        return quests;
-    }
-
-    public int getQuestLength()
-    {
-        return quests.Count;
-    }
-
 }
