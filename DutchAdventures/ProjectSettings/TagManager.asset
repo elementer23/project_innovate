@@ -51,6 +51,9 @@ TagManager:
   - name: Borders
     uniqueID: 2975786875
     locked: 0
+  - name: Trees
+    uniqueID: 882160123
+    locked: 0
   - name: Player
     uniqueID: 937706891
     locked: 0
