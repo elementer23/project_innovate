@@ -1171,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.77
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2629,36 +2629,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 623938182}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-      propertyPath: pointer
-      value: 
-      objectReference: {fileID: 1758088465}
-    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: buildIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-      propertyPath: spawnPos.x
-      value: -0.5
+      propertyPath: destination.x
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-      propertyPath: spawnPos.y
-      value: -5
+      propertyPath: destination.y
+      value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-      propertyPath: isOverworld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-      propertyPath: playerSpawn
-      value: 
-      objectReference: {fileID: 11400000, guid: 077d4e0df2c62944a9fb445f81f176db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
---- !u!1 &1758088465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 936745023006705076, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
-  m_PrefabInstance: {fileID: 1758088464}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1859638128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4658,4 +4641,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 623938182}
-  lerpSpeed: 5
+  minClamp: {x: -100, y: -100}
+  maxClamp: {x: 100, y: 100}
