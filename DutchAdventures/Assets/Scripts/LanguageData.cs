@@ -12,7 +12,7 @@ public class LanguageData : MonoBehaviour
 
     void start ()
     {
-      //  popup = GameObject.Find("ConfirmPopup");
+        popup = GameObject.Find("ConfirmPopup");
     }
 
     public void applyLanguage()
