@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -615904343, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 509553041, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -704612933, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 925555429, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -415,7 +415,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -459,13 +459,14 @@ MonoBehaviour:
   questPrefab: {fileID: 6667939922886280652, guid: a3a0a468b14155a429aa08c6b5d08394, type: 3}
   questIconPrefab: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
   quest:
-    title: Title
-    description: Desc
-    npcName: Henk
-    rewardCoins: 4
+    title: Fikandel
+    description: "Get \u20AC5 from Jan's house."
+    npcName: 
+    rewardCoins: 5
     rewardItem: 0
     itemIndex: 0
-  dialog: yo doe ff wat
+  npcName: Jan
+  dialog: Hello, I'm a bit hungry. Can you get me a frikandel from the snackabar?
   hadAccepted: 0
 --- !u!114 &1420811150
 MonoBehaviour:
