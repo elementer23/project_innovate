@@ -1,1 +1,13 @@
-{"items":[]}
+{
+    "items":
+    [
+      {
+        "name": "Jerrycan",
+        "collected": false
+      },
+      {
+        "firstName": "Wrench",
+        "lastName": false
+      }
+    ]
+  }

@@ -106228,7 +106228,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1510318904}
+  buildIndex: 0
   pointer: {fileID: 2101609373}
+  neededKeyItem1: Wrench
+  neededKeyItem2: Jerrycan
 --- !u!61 &1344962664
 BoxCollider2D:
   m_ObjectHideFlags: 0
