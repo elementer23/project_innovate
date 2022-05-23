@@ -106228,7 +106228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1510318904}
-  buildIndex: 3
+  buildIndex: 7
   pointer: {fileID: 2101609373}
   neededKeyItem1: Wrench
   neededKeyItem2: Jerrycan
