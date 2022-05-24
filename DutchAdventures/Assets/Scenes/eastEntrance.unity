@@ -49689,6 +49689,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 757166226}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: sceneName
+      value: waterPompScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: buildIndex
       value: 4
       objectReference: {fileID: 0}

@@ -336,7 +336,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
   m_Color: {r: 0.9098039, g: 0.83137256, b: 0.69803923, a: 1}
   m_FlipX: 0
@@ -440,7 +440,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0952b2600824d0a4a8a37e5e4db5ad5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests: []
+  coins: 0
+  quest:
+    title: 
+    description: 
+    npcName: 
+    completionDialog: 
+    rewardCoins: 0
+    rewardItem: 0
+    itemIndex: 0
 --- !u!114 &5100570244111080917
 MonoBehaviour:
   m_ObjectHideFlags: 0
