@@ -4,49 +4,60 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    Transform player;
-    Transform canvas;
+    private Transform player;
+    private Transform canvas;
+
     [HideInInspector]
     public GameObject dialogPrefab;
     [HideInInspector]
     public GameObject questPrefab;
     [HideInInspector]
     public GameObject questIconPrefab;
-    public Quest quest;
+
+    [Header("Dialog")]
     public string npcName;
     public string dialog;
-    public bool hadAccepted = false;
+    public bool hasAccepted = false;
+
+    [Header("Quest")]
+    public Quest quest;
 
     void Start()
     {
+        //Set some variables to the corresponding objects.
+        gameObject.name = npcName;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+
+        //Fix the collider bug.
         GetComponent<CapsuleCollider2D>().isTrigger = true;
         GetComponent<CapsuleCollider2D>().isTrigger = false;
 
-        if (quest.description != string.Empty)
+        //If the NPC has a quest, spawn in a exclemation mark above their head.
+        if (!quest.isEmpty())
         {
             Instantiate(questIconPrefab, transform);
             quest.npcName = npcName;
         }
     }
 
-    void Update()
-    {
-
-    }
-
+    //When the player presses on the NPC,
     private void OnMouseDown()
     {
-        if (hadAccepted == false)
+        //Check if the player is close enough to the NPC,
+        Vector2 dist = player.position - transform.position;
+        if (dist.sqrMagnitude < 4)
         {
-            Vector2 dist = player.position - transform.position;
-            if (dist.sqrMagnitude < 4)
+            //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
+            if (!quest.isEmpty())
             {
-                if (quest.description != string.Empty)
+                //If the quest from the NPC has not been accepted yet,
+                if (!hasAccepted)
                 {
+                    //Check if the quest dialog box does not already exist,
                     if (!canvas.Find("Questbox(Clone)"))
                     {
+                        //Add the quest dialog box.
                         GameObject obj = Instantiate(questPrefab, canvas);
                         DialogHandler dhandler = obj.GetComponent<DialogHandler>();
                         QuestHandler qhandler = obj.GetComponent<QuestHandler>();
@@ -57,17 +68,39 @@ public class NPCController : MonoBehaviour
                         qhandler.npcController = this;
                     }
                 }
-                else
+            }
+            else
+            {
+                //Check if a dialog box already exist,
+                if (!canvas.Find("Dialogbox(Clone)"))
                 {
-                    if (!canvas.Find("Dialogbox(Clone)"))
-                    {
-                        GameObject obj = Instantiate(dialogPrefab, canvas);
-                        DialogHandler dhandler = obj.GetComponent<DialogHandler>();
-                        dhandler.dialog = dialog;
-                        dhandler.npcName = npcName;
-                    }
+                    //Add the dialog box.
+                    GameObject obj = Instantiate(dialogPrefab, canvas);
+                    DialogHandler dhandler = obj.GetComponent<DialogHandler>();
+                    dhandler.dialog = dialog;
+                    dhandler.npcName = npcName;
                 }
             }
+
         }
+    }
+
+    //Function to reset the NPC after completion or abanoning of the quest.
+    public void resetNpc()
+    {
+        if (!quest.isEmpty())
+        {
+            Instantiate(questIconPrefab, transform);
+            hasAccepted = false;
+        }
+    }
+
+    //Function to make the NPC display dialog instead of a quest
+    //when the player has completed the quest.
+    public void clearNpc()
+    {
+        dialog = quest.completionDialog;
+        quest = new Quest("", "", "", "", 0, false, 0);
+        hasAccepted = false;
     }
 }
