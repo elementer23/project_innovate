@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuTransition : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject popup;
     void Start()
     {
-        
     }
 
     void Update()
@@ -22,6 +22,7 @@ public class MenuTransition : MonoBehaviour
 
     public void toGame()
     {
+        popup.SetActive(true);
         SceneManager.LoadScene("BigCityScene", LoadSceneMode.Single);
     }
 
