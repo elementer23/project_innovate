@@ -22742,14 +22742,14 @@ TextureImporter:
       Overworld2_685: 1751832723
       Overworld2_97: 2074214614
       Overworld2_396: 1456903412
-      Overworld2_772: 846133486
+      Overworld2_875: 2014408518
       Overworld2_93: -1340506776
-      Overworld2_220: -1953751766
       Overworld2_537: -227100294
+      Overworld2_220: -1953751766
       Overworld2_696: -675809121
       Overworld2_353: -2104233711
       Overworld2_655: 1698510271
-      Overworld2_875: 2014408518
+      Overworld2_772: 846133486
       Overworld2_160: 1606748439
       Overworld2_721: -855715033
       Overworld2_35: -33250313
@@ -22811,8 +22811,8 @@ TextureImporter:
       Overworld2_711: 426373885
       Overworld2_1031: -1973922705
       Overworld2_210: 1479186861
-      Overworld2_366: -753716999
       Overworld2_667: -1429683044
+      Overworld2_366: -753716999
       Overworld2_116: 178087249
       Overworld2_1057: -828488219
       Overworld2_960: 452891142
@@ -22936,15 +22936,15 @@ TextureImporter:
       Overworld2_109: 422761427
       Overworld2_717: 1135623444
       Overworld2_561: -1779712134
-      Overworld2_104: 1805914227
+      Overworld2_966: -1198359285
+      Overworld2_921: 1658825620
       Overworld2_346: -1566111046
+      Overworld2_179: -135353493
+      Overworld2_857: 1769536152
+      Overworld2_1061: -1971692761
+      Overworld2_104: 1805914227
       Overworld2_692: -1533643104
       Overworld2_46: -463228879
-      Overworld2_179: -135353493
-      Overworld2_1061: -1971692761
-      Overworld2_857: 1769536152
-      Overworld2_921: 1658825620
-      Overworld2_966: -1198359285
       Overworld2_645: 1930277924
       Overworld2_286: -967753932
       Overworld2_209: 1216325166
@@ -22964,16 +22964,16 @@ TextureImporter:
       Overworld2_333: -1891916065
       Overworld2_992: -1299507415
       Overworld2_133: 669476819
-      Overworld2_187: -1008260194
-      Overworld2_81: 452209582
-      Overworld2_448: -1049956902
       Overworld2_394: -957187076
+      Overworld2_81: 452209582
+      Overworld2_187: -1008260194
       Overworld2_745: -826613883
       Overworld2_809: -1765247229
       Overworld2_317: 1618093107
       Overworld2_951: -1869181918
       Overworld2_8: 1950092109
       Overworld2_435: 1255780520
+      Overworld2_448: -1049956902
       Overworld2_1051: -1249070424
       Overworld2_195: 362360357
       Overworld2_421: -1660877710
@@ -23003,15 +23003,14 @@ TextureImporter:
       Overworld2_512: 368675091
       Overworld2_544: -1008408515
       Overworld2_671: -1579677011
-      Overworld2_934: -790590509
       Overworld2_937: -1901621037
       Overworld2_1058: -1823872175
       Overworld2_636: 1367810786
       Overworld2_873: 1541589005
       Overworld2_11: 1702214202
-      Overworld2_439: -245253288
-      Overworld2_627: 1717132812
       Overworld2_625: -1522048794
+      Overworld2_627: 1717132812
+      Overworld2_934: -790590509
       Overworld2_948: 1419844189
       Overworld2_702: 739530932
       Overworld2_845: -482349500
@@ -23024,6 +23023,7 @@ TextureImporter:
       Overworld2_204: 1592703823
       Overworld2_973: -605162996
       Overworld2_1069: 503336635
+      Overworld2_439: -245253288
       Overworld2_722: -338699804
       Overworld2_524: -96110668
       Overworld2_137: 172278534
@@ -23209,22 +23209,23 @@ TextureImporter:
       Overworld2_1026: 854231782
       Overworld2_664: 1192585573
       Overworld2_710: -471276647
-      Overworld2_280: 183680621
+      Overworld2_649: 516743290
       Overworld2_260: 976222946
       Overworld2_386: -386135625
-      Overworld2_341: 1298911852
+      Overworld2_205: 1859565300
       Overworld2_367: 588742188
       Overworld2_41: -298276330
       Overworld2_48: 1233364596
       Overworld2_79: 2093842483
       Overworld2_332: -682987361
       Overworld2_15: -739073522
-      Overworld2_384: -556361135
       Overworld2_864: -1261973655
-      Overworld2_649: 516743290
       Overworld2_895: 1312179341
+      Overworld2_280: 183680621
+      Overworld2_1037: 930731081
+      Overworld2_384: -556361135
       Overworld2_927: 1933613942
-      Overworld2_205: 1859565300
+      Overworld2_341: 1298911852
       Overworld2_207: 341486601
       Overworld2_621: 1465698535
       Overworld2_663: 397661529
@@ -23234,7 +23235,6 @@ TextureImporter:
       Overworld2_584: -38887718
       Overworld2_88: 1992612391
       Overworld2_436: 82897541
-      Overworld2_1037: 930731081
       Overworld2_408: 1869761109
       Overworld2_611: -1114391635
       Overworld2_491: 1902137364
@@ -23251,9 +23251,9 @@ TextureImporter:
       Overworld2_450: 1864938638
       Overworld2_888: 260872086
       Overworld2_433: 661142831
-      Overworld2_482: -1622822013
-      Overworld2_427: -1649186863
       Overworld2_574: 35583176
+      Overworld2_427: -1649186863
+      Overworld2_482: -1622822013
       Overworld2_946: 684335933
       Overworld2_984: -2139473800
       Overworld2_338: 1358915707
@@ -23277,7 +23277,6 @@ TextureImporter:
       Overworld2_998: 220335792
       Overworld2_727: -804679632
       Overworld2_600: 2000006670
-      Overworld2_677: 82703409
       Overworld2_758: -1045097081
       Overworld2_525: -20657468
       Overworld2_12: -1940236335
@@ -23285,6 +23284,7 @@ TextureImporter:
       Overworld2_432: -1741805035
       Overworld2_371: -1244748740
       Overworld2_168: -1033904491
+      Overworld2_677: 82703409
       Overworld2_474: -2061267551
       Overworld2_470: -1303920358
       Overworld2_19: -1114797899
@@ -23311,26 +23311,26 @@ TextureImporter:
       Overworld2_706: -1428456210
       Overworld2_631: -618667811
       Overworld2_287: -171390888
-      Overworld2_334: -1702484100
       Overworld2_553: 1952292649
-      Overworld2_732: 1323355261
       Overworld2_1021: 449310207
+      Overworld2_732: 1323355261
       Overworld2_276: -1640082272
       Overworld2_900: -562737299
       Overworld2_463: -2088531729
       Overworld2_64: -991687050
       Overworld2_555: 1738909079
+      Overworld2_334: -1702484100
       Overworld2_624: -1108995195
       Overworld2_75: -1747627091
       Overworld2_424: -489492595
       Overworld2_652: -1783784732
       Overworld2_467: 1522023993
-      Overworld2_32: 376498850
+      Overworld2_858: -2086948902
       Overworld2_891: 169553617
       Overworld2_836: -123535592
+      Overworld2_32: 376498850
       Overworld2_17: 2092985961
       Overworld2_616: 1934343248
-      Overworld2_858: -2086948902
       Overworld2_898: 1455921655
       Overworld2_357: 1951230462
       Overworld2_1001: -1721818735
