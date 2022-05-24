@@ -344,6 +344,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1456573806}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: sceneName
+      value: eastEntrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: buildIndex
       value: 3
       objectReference: {fileID: 0}
@@ -6407,6 +6411,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1456573806}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: sceneName
+      value: Windmolen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: buildIndex
       value: 5
       objectReference: {fileID: 0}
@@ -6487,6 +6495,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1456573806}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: sceneName
+      value: SouthScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 

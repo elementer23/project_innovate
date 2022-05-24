@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Teleporter : MonoBehaviour
 {
     public Transform player;
-    public int buildIndex;
+    public string sceneName;
     protected float minDist = 2;
     [SerializeField]
     private GameObject pointer;
@@ -37,7 +37,7 @@ public class Teleporter : MonoBehaviour
         {
             entracePos.spawnPosition = player.position;
             exitPos.spawnPosition = destination;
-            SceneManager.LoadScene(buildIndex);
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
 
