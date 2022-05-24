@@ -22731,8 +22731,13 @@ TextureImporter:
       Overworld_1049: -936160654
       Overworld_896: -581498607
       Overworld_506: -1251874900
+<<<<<<< Updated upstream:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
       Overworld_51: 1703057806
+=======
+>>>>>>> Stashed changes:DutchAdventures/Assets/Sprites/Overworld.png.meta
       Overworld_653: -528156506
+      Overworld_939: 1883098069
+      Overworld_900: 1191369911
       Overworld_473: -1451039129
       Overworld_657: -260873031
       Overworld_767: 806173158
@@ -22743,7 +22748,11 @@ TextureImporter:
       Overworld_79: -342169198
       Overworld_1034: -836117578
       Overworld_359: -1498079674
+<<<<<<< Updated upstream:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
       Overworld_900: 1191369911
+=======
+      Overworld_51: 1703057806
+>>>>>>> Stashed changes:DutchAdventures/Assets/Sprites/Overworld.png.meta
       Overworld_142: 751816181
       Overworld_852: -1473723249
       Overworld_594: -782122027
@@ -22939,13 +22948,21 @@ TextureImporter:
       Overworld_285: -308554075
       Overworld_1008: -476331940
       Overworld_160: -1249693298
+<<<<<<< Updated upstream:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
       Overworld_424: -415130716
+=======
+      Overworld_873: -2010770035
+>>>>>>> Stashed changes:DutchAdventures/Assets/Sprites/Overworld.png.meta
       Overworld_472: 1032943646
       Overworld_57: -1380132020
       Overworld_787: -286809168
       Overworld_873: -2010770035
       Overworld_47: -1591365669
       Overworld_185: -725704858
+<<<<<<< Updated upstream:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
+=======
+      Overworld_424: -415130716
+>>>>>>> Stashed changes:DutchAdventures/Assets/Sprites/Overworld.png.meta
       Overworld_410: 1447344119
       Overworld_233: -1573711412
       Overworld_260: -226424945
@@ -23216,6 +23233,7 @@ TextureImporter:
       Overworld_817: -1669809560
       Overworld_1036: 1194443227
       Overworld_502: 1883285335
+<<<<<<< Updated upstream:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
       Overworld_303: 1057244804
       Overworld_446: -859681340
       Overworld_452: -407981732
@@ -23223,6 +23241,15 @@ TextureImporter:
       Overworld_317: 590593996
       Overworld_396: -1534405762
       Overworld_1052: -1814132886
+=======
+      Overworld_866: 143420695
+      Overworld_1052: -1814132886
+      Overworld_452: -407981732
+      Overworld_303: 1057244804
+      Overworld_317: 590593996
+      Overworld_396: -1534405762
+      Overworld_446: -859681340
+>>>>>>> Stashed changes:DutchAdventures/Assets/Sprites/Overworld.png.meta
       Overworld_569: 544105951
       Overworld_647: 418565363
       Overworld_421: -359172116
