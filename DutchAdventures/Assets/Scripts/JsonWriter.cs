@@ -15,9 +15,8 @@ public class JsonWriter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ConvertDictoraryToArray(GetComponent<KeyItemsHandler>().items);
-        WriteJson();
-        
+        ConvertDictoraryToArray(GetComponent<KeyItemsHandler>().getDictionary());
+        WriteJson();        
     }
 
     private void ConvertDictoraryToArray(Dictionary<string, bool> dic)

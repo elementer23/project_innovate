@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyItemsHandler : MonoBehaviour
 {
     // Start is called before the first frame 
-    public Dictionary<string, bool> items = new Dictionary<string, bool>();
+    private Dictionary<string, bool> items = new Dictionary<string, bool>();
     
     //Add items to keyItemsHandler
     void Start()
@@ -14,5 +14,26 @@ public class KeyItemsHandler : MonoBehaviour
         items.Add("Wrench", false);
         items.Add("WaterFulled", false);
 
+    }
+
+    public void setItem(string item, bool isInInventory)
+    {
+        items[item] = isInInventory;
+    }
+
+    public bool hasItem(string item)
+    {
+        if (items.ContainsKey(item))
+        {
+            return items[item];
+        } else
+        {
+            return false;
+        }
+    }
+
+    public Dictionary<string ,bool> getDictionary()
+    {
+        return items;
     }
 }

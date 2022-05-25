@@ -1,1 +1,1 @@
-{"items":[{"name":"Jerrycan","collected":false},{"name":"Wrench","collected":false},{"name":"WaterFulled","collected":false}]}
+{"items":[{"name":"Jerrycan","collected":false},{"name":"Wrench","collected":true},{"name":"WaterFulled","collected":false}]}
