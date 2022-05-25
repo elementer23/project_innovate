@@ -19,11 +19,12 @@ public class NPCController : MonoBehaviour
     [Header("Dialog")]
     public string npcName;
     public string dialog;
-    public bool hasAccepted = false;
 
     [Header("Quest")]
     public Quest quest;
 
+    [HideInInspector]
+    public bool hasAccepted = false;
     bool isQuestGiver = false;
     GameObject dialogIcon;
 
