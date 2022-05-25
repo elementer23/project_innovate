@@ -30,6 +30,12 @@ public class QuestUI : MonoBehaviour
 
     private void Update()
     {
+        currentQuest = playerQuestHandler.getQuest();
+
+        if (currentQuest != null)
+        {
+            hasQuest = !currentQuest.isEmpty();
+        }
         //Update the visibility of the menu and the quest inside the menu.
         makeVisible(canvasGroup, menuIsVisible);
         makeVisible(questTextCG, hasQuest);
@@ -44,8 +50,6 @@ public class QuestUI : MonoBehaviour
         title.text = quest.title;
         desc.text = quest.description;
         npcName.text = quest.npcName;
-
-        hasQuest = true;
     }
 
     public void questButton()
@@ -54,19 +58,20 @@ public class QuestUI : MonoBehaviour
         if (menuIsVisible)
         {
             menuIsVisible = false;
-        } else
+        }
+        else
         {
             menuIsVisible = true;
         }
     }
 
-    public void abandonQuest()
+    public void removeQuest()
     {
         //Unset the quest from the player and the menu.
         playerQuestHandler.removeQuest();
-        hasQuest = false;
 
         GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().resetNpc();
+        currentQuest = new Quest("", "", "", "", 0, false, "");
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)

@@ -24,12 +24,17 @@ public class PlayerQuestHandler : MonoBehaviour
         }
     }
 
+    public Quest getQuest()
+    {
+        return quest;
+    }
+
     //Removes the quest the player currently has.
     public void removeQuest()
     {
         //Set the quest to a empty quest.
         Debug.Log("Remove quest: " + quest.title);
-        quest = new Quest("", "", "", "", 0, false, 0);
+        quest = new Quest("", "", "", "", 0, false, "");
     }
 
     //Call this function from your quest script to complete the quest.
@@ -39,7 +44,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
         if (quest.rewardItem)
         {
-            //////////////////////////////////////TODO: GRANT ITEM TO PLAYER
+            GetComponent<KeyItemsHandler>().setItem(quest.item, true);
         }
         GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
         removeQuest();
