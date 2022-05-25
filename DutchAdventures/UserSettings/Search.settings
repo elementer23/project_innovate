@@ -1,6 +1,6 @@
 trackSelection = true
 fetchPreview = true
-wantsMore = false
+defaultFlags = 0
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
@@ -13,6 +13,9 @@ scopes = {
 	"last_search.B064B029" = ""
 	"OpenInspectorPreview.B064B029" = "0"
 	"currentGroup.B064B029" = "all"
+	"last_search.DA949528" = "tile"
+	"OpenInspectorPreview.DA949528" = "0"
+	"currentGroup.DA949528" = "all"
 }
 providers = {
 	adb = {
@@ -56,7 +59,10 @@ providers = {
 		defaultAction = null
 	}
 }
+objectSelectors = {
+}
 recentSearches = [
+	"ti"
 ]
 searchItemFavorites = [
 ]
