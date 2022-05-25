@@ -13,6 +13,8 @@ public class NPCController : MonoBehaviour
     public GameObject questPrefab;
     [HideInInspector]
     public GameObject questIconPrefab;
+    [HideInInspector]
+    public GameObject dialogIconPrefab;
 
     [Header("Dialog")]
     public string npcName;
@@ -21,6 +23,9 @@ public class NPCController : MonoBehaviour
 
     [Header("Quest")]
     public Quest quest;
+
+    bool isQuestGiver = false;
+    GameObject dialogIcon;
 
     void Start()
     {
@@ -33,11 +38,27 @@ public class NPCController : MonoBehaviour
         GetComponent<CapsuleCollider2D>().isTrigger = true;
         GetComponent<CapsuleCollider2D>().isTrigger = false;
 
+        isQuestGiver = !quest.isEmpty();
+
         //If the NPC has a quest, spawn in a exclemation mark above their head.
-        if (!quest.isEmpty())
+        if (isQuestGiver)
         {
             Instantiate(questIconPrefab, transform);
             quest.npcName = npcName;
+        } else
+        {
+            dialogIcon = Instantiate(dialogIconPrefab, transform);
+        }
+    }
+
+    private void Update()
+    {
+        if (!isQuestGiver)
+        {
+            float dist = Vector2.Distance(player.transform.position, gameObject.transform.position);
+            bool isClose = dist < 2;
+
+            dialogIcon.SetActive(isClose);
         }
     }
 
@@ -45,8 +66,8 @@ public class NPCController : MonoBehaviour
     private void OnMouseDown()
     {
         //Check if the player is close enough to the NPC,
-        Vector2 dist = player.position - transform.position;
-        if (dist.sqrMagnitude < 4)
+        float dist = Vector2.Distance(player.position, transform.position);
+        if (dist < 2)
         {
             //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
             if (!quest.isEmpty())
@@ -100,7 +121,7 @@ public class NPCController : MonoBehaviour
     public void clearNpc()
     {
         dialog = quest.completionDialog;
-        quest = new Quest("", "", "", "", 0, false, 0);
+        quest = new Quest("", "", "", "", 0, false, "");
         hasAccepted = false;
     }
 }
