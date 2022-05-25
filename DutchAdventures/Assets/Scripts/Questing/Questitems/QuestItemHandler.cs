@@ -31,7 +31,7 @@ public class QuestItemHandler : MonoBehaviour
     {
         if (canObtain)
         {
-            player.GetComponent<KeyItemsHandler>().items[keyItem] = true;
+            player.GetComponent<KeyItemsHandler>().setItem(keyItem, true);
             gameObject.SetActive(false);
         }
     }

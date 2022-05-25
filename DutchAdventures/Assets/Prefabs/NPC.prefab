@@ -458,16 +458,18 @@ MonoBehaviour:
   dialogPrefab: {fileID: 6667939922886280652, guid: ec3e075717c1e8349a38b10d9bc7f3e6, type: 3}
   questPrefab: {fileID: 6667939922886280652, guid: a3a0a468b14155a429aa08c6b5d08394, type: 3}
   questIconPrefab: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
-  quest:
-    title: Fikandel
-    description: "Get \u20AC5 from Jan's house."
-    npcName: 
-    rewardCoins: 5
-    rewardItem: 0
-    itemIndex: 0
+  dialogIconPrefab: {fileID: 879044644019366784, guid: fd72b811d5f23154a859f48674d07002, type: 3}
   npcName: Jan
-  dialog: Hello, I'm a bit hungry. Can you get me a frikandel from the snackabar?
-  hadAccepted: 0
+  dialog: Ik heb honger, kun je een frikandel voor mij halen bij de snackbar?
+  hasAccepted: 0
+  quest:
+    title: Frikandel
+    description: Haal een frikandel voor Jan
+    npcName: Jan
+    completionDialog: Dankjewel
+    rewardCoins: 5
+    rewardItem: 1
+    item: Wrench
 --- !u!114 &1420811150
 MonoBehaviour:
   m_ObjectHideFlags: 0

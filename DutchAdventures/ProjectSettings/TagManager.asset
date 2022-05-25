@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Canvas
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -11,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -41,9 +44,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Sign
-    uniqueID: 1794765645
+  - name: Paths
+    uniqueID: 2893187637
+    locked: 0
+  - name: Flowers
+    uniqueID: 2088575359
+    locked: 0
+  - name: Borders
+    uniqueID: 2975786875
+    locked: 0
+  - name: Trees
+    uniqueID: 882160123
     locked: 0
   - name: Player
     uniqueID: 937706891
+    locked: 0
+  - name: UpperLayer
+    uniqueID: 3393166181
     locked: 0
