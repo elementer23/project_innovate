@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0537586
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 6.026433
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.045413017
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.416636
+      objectReference: {fileID: 0}
     - target: {fileID: 936745023006705076, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -291,6 +307,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1297131358415797636, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297131358415797636, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033511, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Name
       value: TeleporterEast
@@ -361,11 +385,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
-      value: -10.754
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.y
-      value: -0.842
+      value: -0.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
@@ -6362,6 +6386,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 3.061634
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0973978
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.13676071
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09588003
+      objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033511, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Name
       value: TeleporterNorth
@@ -6439,6 +6479,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6735897
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.979826
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.012934685
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5475569
+      objectReference: {fileID: 0}
     - target: {fileID: 936745023006705076, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -30184,7 +30240,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3119389412075157116, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
 --- !u!4 &1456573806 stripped
 Transform:
