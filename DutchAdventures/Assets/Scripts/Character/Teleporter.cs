@@ -14,7 +14,13 @@ public class Teleporter : MonoBehaviour
     public PlayerSpawn entracePos;
     public PlayerSpawn exitPos;
     public Vector2 destination;
-    
+    private BoxCollider2D boxCollider2D;
+
+
+    void Awake()
+    {
+        boxCollider2D = GetComponent<BoxCollider2D>();
+    }
     private void Start()
     {
         //Place the player at the place where the player entered the building
@@ -33,6 +39,17 @@ public class Teleporter : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (canTravel)
+        {
+            entracePos.spawnPosition = player.position;
+            exitPos.spawnPosition = destination;
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
         if (canTravel)
         {
             entracePos.spawnPosition = player.position;
