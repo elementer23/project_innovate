@@ -22,6 +22,7 @@ public class QuestUI : MonoBehaviour
         //Set the variables to the objects. These objects are all children of this object.
         canvasGroup = GetComponent<CanvasGroup>();
         questTextCG = transform.GetChild(0).GetComponent<CanvasGroup>();
+        playerQuestHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
 
         title = transform.GetChild(0).Find("Title").GetComponent<TextMeshProUGUI>();
         desc = transform.GetChild(0).Find("Description").GetComponent<TextMeshProUGUI>();
