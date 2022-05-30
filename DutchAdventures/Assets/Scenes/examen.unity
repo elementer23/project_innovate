@@ -4266,9 +4266,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8e82b126fbd30eb44b37e07fd9ae9105, type: 2}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -851511273, guid: a3551e5a811775946847cef84bebefd7, type: 3}
+      objectReference: {fileID: -1669664301, guid: a3551e5a811775946847cef84bebefd7, type: 3}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Color.b
       value: 0.11503205
@@ -4283,6 +4287,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
@@ -4341,6 +4349,10 @@ PrefabInstance:
       propertyPath: npcName
       value: Joris
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: 
@@ -4524,6 +4536,10 @@ PrefabInstance:
       value: Rob
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: Verkeers diploma
       objectReference: {fileID: 0}
@@ -4625,23 +4641,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d2b26d347f3dd3b4ca79265ec0a0a6f8, type: 2}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 282749538, guid: 2e262937c8ee59e4b9065054fc647a6a, type: 3}
+      objectReference: {fileID: -1147036857, guid: 2e262937c8ee59e4b9065054fc647a6a, type: 3}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.06514774
       objectReference: {fileID: 0}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.06514774
       objectReference: {fileID: 0}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
@@ -4700,6 +4724,10 @@ PrefabInstance:
       propertyPath: npcName
       value: Jaafar
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: 
@@ -6121,6 +6149,10 @@ PrefabInstance:
       value: Youri
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: 
       objectReference: {fileID: 0}
@@ -6680,7 +6712,7 @@ GameObject:
   - component: {fileID: 1512099514}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6849,6 +6881,10 @@ PrefabInstance:
       propertyPath: npcName
       value: Nick
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: 
@@ -9196,6 +9232,10 @@ PrefabInstance:
       propertyPath: npcName
       value: Francois
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: dialogIcon
+      value: 
+      objectReference: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.item
       value: 

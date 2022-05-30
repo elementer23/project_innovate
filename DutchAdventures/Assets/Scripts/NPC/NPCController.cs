@@ -26,7 +26,7 @@ public class NPCController : MonoBehaviour
     [HideInInspector]
     public bool hasAccepted = false;
     bool isQuestGiver = false;
-    GameObject dialogIcon;
+    public GameObject dialogIcon;
 
     void Start()
     {
