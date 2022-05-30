@@ -470,6 +470,7 @@ MonoBehaviour:
     rewardItem: 1
     item: Wrench
   hasAccepted: 0
+  dialogIcon: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
 --- !u!114 &1420811150
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class KeyItemsHandler : MonoBehaviour
         items.Add("Jerrycan", false);
         items.Add("Wrench", false);
         items.Add("WaterFulled", false);
+        items.Add("Money", false);
 
     }
 

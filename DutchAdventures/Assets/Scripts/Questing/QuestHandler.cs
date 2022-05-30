@@ -23,7 +23,7 @@ public class QuestHandler : MonoBehaviour
     {
         //Find the objects and set the variables.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
-        questUI = transform.parent.Find("QuestMenu").GetComponent<QuestUI>();
+        questUI = transform.parent.Find("QuestMenu").Find("QuestMenu").GetComponent<QuestUI>();
     }
 
     public void acceptBtn()
