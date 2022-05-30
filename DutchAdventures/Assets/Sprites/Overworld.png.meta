@@ -22755,6 +22755,8 @@ TextureImporter:
       Overworld_1049: -936160654
       Overworld_896: -581498607
       Overworld_506: -1251874900
+<<<<<<<< HEAD:DutchAdventures/Assets/Art/gfx/Overworld.png.meta
+========
       Overworld_900: 1191369911
       Overworld_51: 1703057806
       Overworld_653: -528156506
@@ -23756,6 +23758,7 @@ TextureImporter:
       Overworld_975: 47848014
       Overworld_804: 754279653
       Overworld_559: -1692318951
+>>>>>>>> main:DutchAdventures/Assets/Sprites/Overworld.png.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
