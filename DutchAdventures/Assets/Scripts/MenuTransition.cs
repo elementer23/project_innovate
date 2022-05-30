@@ -20,6 +20,11 @@ public class MenuTransition : MonoBehaviour
         SceneManager.LoadScene("LanguageMenu", LoadSceneMode.Single);
     }
 
+    public void toCharacterCustomizer()
+    {
+        SceneManager.LoadScene("CharacterCreation", LoadSceneMode.Single);
+    }
+
     public void toGame()
     {
         popup.SetActive(true);

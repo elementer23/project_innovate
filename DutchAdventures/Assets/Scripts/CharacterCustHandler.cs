@@ -5,29 +5,53 @@ using UnityEngine.UI;
 
 public class CharacterCustHandler : MonoBehaviour
 {
+    [SerializeField]
     private Button currentButton;
+
     public Image currentImage;
-    public FlexibleColorPicker fcp;
+
+    public AnimationClip walk;
+
+    private Animator anim;
+
+    [SerializeField]
+    private FlexibleColorPicker fcp;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentButton.interactable = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         
     }
 
-    public void updateCharacterPart(Button button, Image image)
+    public void setCurrentButton(Button button)
     {
-       // GameObject myEventSystem = GameObject.Find("EventSystem");
-       // myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-        //currentButton.Select();
+        currentButton.interactable = true;
         this.currentButton = button;
+        currentButton.interactable = false;
+    }
+
+    public void setCharacterPart(Image image)
+    {
+
+        anim = currentImage.GetComponent<Animator>();
+        anim.enabled = false;
+        var tempColor = currentImage.color;
+        tempColor.a = 1f;
+        currentImage.color = tempColor;
+
         this.currentImage = image;
         Color color = image.GetComponent<Image>().color;
         fcp.color = color;
+
+        anim = image.GetComponent<Animator>();
+        anim.enabled = true;
+
+        anim.Play("Base Layer.partSelectAnimation", -1, 0f);
     }
 }
