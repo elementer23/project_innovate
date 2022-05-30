@@ -25,7 +25,7 @@ public class NPCController : MonoBehaviour
     public Quest quest;
 
     bool isQuestGiver = false;
-    GameObject dialogIcon;
+    public GameObject dialogIcon;
 
     void Start()
     {
