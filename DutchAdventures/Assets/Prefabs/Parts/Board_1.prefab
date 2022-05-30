@@ -126,7 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 0}
-  text: Het ziet er naar uit dat je de andere kant op moet.
+  text: Boekdingen waarvan je leert.
+  pointer: {fileID: 5019258153072751563}
+  player: {fileID: 0}
+  canTouch: 0
   signText: {fileID: 0}
 --- !u!1 &5019258153072751563
 GameObject:
