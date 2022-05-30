@@ -91,7 +91,8 @@ public class NPCController : MonoBehaviour
                     }
                 }
             }
-            else
+            //Check if npc has dialog
+            else if(dialog != string.Empty)
             {
                 //Check if a dialog box already exist,
                 if (!canvas.Find("Dialogbox(Clone)"))
@@ -103,7 +104,6 @@ public class NPCController : MonoBehaviour
                     dhandler.npcName = npcName;
                 }
             }
-
         }
     }
 
