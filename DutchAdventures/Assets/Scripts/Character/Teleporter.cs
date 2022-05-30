@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Teleporter : MonoBehaviour
 {
@@ -74,5 +75,6 @@ public class Teleporter : MonoBehaviour
     {
         return !pos.spawnPosition.Equals(Vector2.zero);
     }
+
 }
 
