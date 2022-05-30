@@ -26,7 +26,7 @@ public class NPCController : MonoBehaviour
 
     //[HideInInspector]
     public bool hasAccepted = false;
-    private bool hasCompletedQuest = false;
+    public bool hasCompletedQuest = false;
     bool isQuestGiver = false;
     public GameObject dialogIcon;
 
@@ -44,24 +44,19 @@ public class NPCController : MonoBehaviour
         isQuestGiver = !quest.isEmpty();
 
         //If the NPC has a quest, spawn in a exclemation mark above their head.
-        if (isQuestGiver)
-        {
-            Instantiate(questIconPrefab, transform);
-            quest.npcName = npcName;
-        }
-        else
-        {
-            dialogIcon = Instantiate(dialogIconPrefab, transform);
-        }
-
-        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
-        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
-        {
-            if (npcStatus.npcName == npcName)
+        if (!hasAccepted && !hasCompletedQuest) {
+            if (isQuestGiver)
             {
-                hasAccepted = npcStatus.hasTakenQuest;
+                Instantiate(questIconPrefab, transform);
+                quest.npcName = npcName;
+            }
+            else
+            {
+                dialogIcon = Instantiate(dialogIconPrefab, transform);
             }
         }
+
+        updateValues();
     }
 
     private void Update()
@@ -78,6 +73,7 @@ public class NPCController : MonoBehaviour
     //When the player presses on the NPC,
     private void OnMouseDown()
     {
+        updateValues();
         //Check if the player is close enough to the NPC,
         float dist = Vector2.Distance(player.position, transform.position);
         if (dist < 2)
@@ -140,6 +136,20 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    void updateValues()
+    {
+        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
+        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
+        {
+            if (npcStatus.npcName == npcName)
+            {
+                hasAccepted = npcStatus.hasTakenQuest;
+                hasCompletedQuest = npcStatus.hasCompletedQuest;
+            }
+        }
+        Debug.Log("Loaded values");
+    }
+
 
     //Function to reset the NPC after completion or abanoning of the quest.
     public void resetNpc()
@@ -149,13 +159,5 @@ public class NPCController : MonoBehaviour
             Instantiate(questIconPrefab, transform);
             hasAccepted = false;
         }
-    }
-
-    //Function to make the NPC display dialog instead of a quest
-    //when the player has completed the quest.
-    public void clearNpc()
-    {
-        //quest = new Quest("", "", "", "", 0, false, "");
-        //hasAccepted = false;
     }
 }

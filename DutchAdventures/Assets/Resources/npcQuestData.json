@@ -1,1 +1,1 @@
-{"statuses":[{"npcName":"Marco","hasTakenQuest":false},{"npcName":"Pieter","hasTakenQuest":false},{"npcName":"Bas","hasTakenQuest":false},{"npcName":"Jan","hasTakenQuest":true}]}
+{ "statuses": [{ "npcName": "Marco", "hasTakenQuest": false, "hasCompletedQuest": false }, { "npcName": "Pieter", "hasTakenQuest": false, "hasCompletedQuest": false }, { "npcName": "Bas", "hasTakenQuest": false, "hasCompletedQuest": false }, { "npcName": "Jan", "hasTakenQuest": false, "hasCompletedQuest": false }] }

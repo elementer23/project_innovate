@@ -16,8 +16,8 @@ public class QuestStatusSaver : MonoBehaviour
 
         for (int i = 0; i < npcs.Length; i++)
         {
-            GameObject npc = npcs[i];
-            npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.GetComponent<NPCController>().hasAccepted);
+            NPCController npc = npcs[i].GetComponent<NPCController>();
+            npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
 
         }
         Debug.Log(JsonUtility.ToJson(npcStatuses));
@@ -40,11 +40,13 @@ public class NpcQuestStatus
 {
     public string npcName;
     public bool hasTakenQuest;
+    public bool hasCompletedQuest;
 
-    public NpcQuestStatus(string name, bool taken)
+    public NpcQuestStatus(string npcName, bool hasTakenQuest, bool hasCompletedQuest)
     {
-        this.npcName = name;
-        this.hasTakenQuest = taken;
+        this.npcName = npcName;
+        this.hasTakenQuest = hasTakenQuest;
+        this.hasCompletedQuest = hasCompletedQuest;
     }
 }
 
