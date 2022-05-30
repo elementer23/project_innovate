@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SouthScene.unity
     guid: 6b37c8bd38bfafe41b3aa698f606f9dd
   - enabled: 1
-    path: Assets/Scenes/House1.unity
+    path: Assets/Scenes/WindmolenBinnen2.unity
     guid: 928a800abc9432b479ad81e03d88be7c
   - enabled: 1
     path: Assets/Scenes/eastEntrance.unity
