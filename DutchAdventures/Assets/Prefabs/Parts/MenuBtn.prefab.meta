@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: 2b92ecdc8d3724b429c88226c93f6397
+<<<<<<<< HEAD:DutchAdventures/Assets/Prefabs/Parts/MenuBtn.prefab.meta
+guid: 537a517408899c64c8d616410ddd016c
 PrefabImporter:
+========
+guid: bcead7d399940fb44ae5b52317bdcedf
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> main:DutchAdventures/Assets/Art.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
