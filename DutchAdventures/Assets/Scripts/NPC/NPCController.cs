@@ -19,13 +19,14 @@ public class NPCController : MonoBehaviour
     [Header("Dialog")]
     public string npcName;
     public string dialog;
-    public bool hasAccepted = false;
 
     [Header("Quest")]
     public Quest quest;
 
+    [HideInInspector]
+    public bool hasAccepted = false;
     bool isQuestGiver = false;
-    GameObject dialogIcon;
+    public GameObject dialogIcon;
 
     void Start()
     {
@@ -90,7 +91,8 @@ public class NPCController : MonoBehaviour
                     }
                 }
             }
-            else
+            //Check if npc has dialog
+            else if(dialog != string.Empty)
             {
                 //Check if a dialog box already exist,
                 if (!canvas.Find("Dialogbox(Clone)"))
@@ -102,7 +104,6 @@ public class NPCController : MonoBehaviour
                     dhandler.npcName = npcName;
                 }
             }
-
         }
     }
 

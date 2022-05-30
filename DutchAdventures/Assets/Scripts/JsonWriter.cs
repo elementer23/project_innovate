@@ -9,14 +9,13 @@ public class JsonWriter : MonoBehaviour
     public KeyItems keyItems = new KeyItems();
     void Start()
     {
-
+        StartSleep(10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ConvertDictoraryToArray(GetComponent<KeyItemsHandler>().getDictionary());
-        WriteJson();        
+        ConvertDictoraryToArray(GetComponent<KeyItemsHandler>().getDictionary());        
     }
 
     private void ConvertDictoraryToArray(Dictionary<string, bool> dic)
@@ -33,5 +32,21 @@ public class JsonWriter : MonoBehaviour
     private void WriteJson()
     {
         File.WriteAllText(Application.dataPath + "/Resources/KeyItems.json", JsonUtility.ToJson(keyItems));
+    }
+
+    private void StartSleep(float duration)
+    {
+        StartCoroutine(HitSleep(duration));
+    }
+
+    IEnumerator HitSleep(float duration)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(duration);
+            Debug.Log(JsonUtility.ToJson(keyItems));
+            WriteJson();
+        }
+        
     }
 }
