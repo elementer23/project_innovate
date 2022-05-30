@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerQuestHandler : MonoBehaviour
 {
     public int coins;
+    public TextAsset jsonFile;
 
     [Header("Quest")]
     [SerializeField]
     private Quest quest;
 
+    private void Start()
+    {
+        quest = loadQuest();
+    }
+
     //Sets the currently active quest to a quest.
     public void setQuest(Quest quest)
     {
         //Check if the player does not have a quest, add it.
-        if (this.quest.isEmpty())
+        if (this.quest == null || this.quest.isEmpty())
         {
             this.quest = quest;
+            saveQuest();
         }
         else
         {
@@ -31,7 +39,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
     //Removes the quest the player currently has.
     public void removeQuest()
-    {
+    {    
         //Set the quest to a empty quest.
         Debug.Log("Remove quest: " + quest.title);
         quest = new Quest("", "", "", "", 0, false, "");
@@ -42,12 +50,26 @@ public class PlayerQuestHandler : MonoBehaviour
     {
         addCoins(quest.rewardCoins);
 
-        if (quest.rewardItem)
+        if (quest.canRewardItem)
         {
-            GetComponent<KeyItemsHandler>().setItem(quest.item, true);
+            GetComponent<KeyItemsHandler>().setItem(quest.requestedItem, false);
+            GetComponent<KeyItemsHandler>().setItem(quest.itemReward, true);
         }
-        GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
+        //GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
         removeQuest();
+        saveQuest();
+    }
+
+    void saveQuest()
+    {
+        Debug.Log(JsonUtility.ToJson(quest));
+        File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));
+        Debug.Log("Saved quest");
+    }
+
+    Quest loadQuest()
+    {
+        return JsonUtility.FromJson<Quest>(jsonFile.text);
     }
 
     /////////////////

@@ -18,13 +18,15 @@ public class NPCController : MonoBehaviour
 
     [Header("Dialog")]
     public string npcName;
-    public string dialog;
+    public string startDialog;
+    public string completionDialog;
 
     [Header("Quest")]
     public Quest quest;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasAccepted = false;
+    private bool hasCompletedQuest = false;
     bool isQuestGiver = false;
     public GameObject dialogIcon;
 
@@ -46,9 +48,19 @@ public class NPCController : MonoBehaviour
         {
             Instantiate(questIconPrefab, transform);
             quest.npcName = npcName;
-        } else
+        }
+        else
         {
             dialogIcon = Instantiate(dialogIconPrefab, transform);
+        }
+
+        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
+        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
+        {
+            if (npcStatus.npcName == npcName)
+            {
+                hasAccepted = npcStatus.hasTakenQuest;
+            }
         }
     }
 
@@ -73,26 +85,47 @@ public class NPCController : MonoBehaviour
             //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
             if (!quest.isEmpty())
             {
-                //If the quest from the NPC has not been accepted yet,
-                if (!hasAccepted)
+                if (!hasCompletedQuest)
                 {
-                    //Check if the quest dialog box does not already exist,
-                    if (!canvas.Find("Questbox(Clone)"))
+                    string itemName = quest.requestedItem;
+                    if (player.GetComponent<KeyItemsHandler>().hasItem(itemName))
                     {
-                        //Add the quest dialog box.
-                        GameObject obj = Instantiate(questPrefab, canvas);
-                        DialogHandler dhandler = obj.GetComponent<DialogHandler>();
-                        QuestHandler qhandler = obj.GetComponent<QuestHandler>();
+                        player.GetComponent<PlayerQuestHandler>().completeQuest();
+                        if (!canvas.Find("Dialogbox(Clone)"))
+                        {
+                            //Add the dialog box.
+                            GameObject obj = Instantiate(dialogPrefab, canvas);
+                            DialogHandler dhandler = obj.GetComponent<DialogHandler>();
+                            dhandler.dialog = completionDialog;
+                            dhandler.npcName = npcName;
+                            hasCompletedQuest = true;
+                        }
+                    }
+                    else
+                    {
 
-                        dhandler.dialog = dialog;
-                        dhandler.npcName = npcName;
-                        qhandler.quest = quest;
-                        qhandler.npcController = this;
+                        //If the quest from the NPC has not been accepted yet,
+                        if (!hasAccepted)
+                        {
+                            //Check if the quest dialog box does not already exist,
+                            if (!canvas.Find("Questbox(Clone)"))
+                            {
+                                //Add the quest dialog box.
+                                GameObject obj = Instantiate(questPrefab, canvas);
+                                DialogHandler dhandler = obj.GetComponent<DialogHandler>();
+                                QuestHandler qhandler = obj.GetComponent<QuestHandler>();
+
+                                dhandler.dialog = startDialog;
+                                dhandler.npcName = npcName;
+                                qhandler.quest = quest;
+                                qhandler.npcController = this;
+                            }
+                        }
                     }
                 }
             }
             //Check if npc has dialog
-            else if(dialog != string.Empty)
+            else if (!startDialog.Equals(string.Empty))
             {
                 //Check if a dialog box already exist,
                 if (!canvas.Find("Dialogbox(Clone)"))
@@ -100,12 +133,13 @@ public class NPCController : MonoBehaviour
                     //Add the dialog box.
                     GameObject obj = Instantiate(dialogPrefab, canvas);
                     DialogHandler dhandler = obj.GetComponent<DialogHandler>();
-                    dhandler.dialog = dialog;
+                    dhandler.dialog = startDialog;
                     dhandler.npcName = npcName;
                 }
             }
         }
     }
+
 
     //Function to reset the NPC after completion or abanoning of the quest.
     public void resetNpc()
@@ -121,8 +155,7 @@ public class NPCController : MonoBehaviour
     //when the player has completed the quest.
     public void clearNpc()
     {
-        dialog = quest.completionDialog;
-        quest = new Quest("", "", "", "", 0, false, "");
-        hasAccepted = false;
+        //quest = new Quest("", "", "", "", 0, false, "");
+        //hasAccepted = false;
     }
 }

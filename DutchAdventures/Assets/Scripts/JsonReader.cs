@@ -8,7 +8,11 @@ public class JsonReader : MonoBehaviour
     // Read the selected jason file for data
     void Start()
     {
-        KeyItems KeyItemsJson = JsonUtility.FromJson<KeyItems>(jsonFile.text);      
+        //KeyItems KeyItemsJson = JsonUtility.FromJson<KeyItems>(jsonFile.text);      
+    }    
+
+    public KeyItems readKeyItems()
+    {
+        return JsonUtility.FromJson<KeyItems>(jsonFile.text);
     }
-    
 }

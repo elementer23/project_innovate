@@ -32,6 +32,8 @@ public class QuestItemHandler : MonoBehaviour
         if (canObtain)
         {
             player.GetComponent<KeyItemsHandler>().setItem(keyItem, true);
+            player.GetComponent<JsonWriter>().WriteJson();
+            Debug.Log("Updated JSON file");
             gameObject.SetActive(false);
         }
     }

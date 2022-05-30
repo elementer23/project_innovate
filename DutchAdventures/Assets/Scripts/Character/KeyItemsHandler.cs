@@ -10,26 +10,32 @@ public class KeyItemsHandler : MonoBehaviour
     //Add items to keyItemsHandler
     void Start()
     {
-        //Water Quest
-        items.Add("Jerrycan", false);
-        items.Add("Wrench", false);
-        items.Add("WaterFulled", false);
-        items.Add("Money", false);
+        KeyItems keyItems = GetComponent<JsonReader>().readKeyItems();
+        foreach (KeyItem item in keyItems.items)
+        {
+            setItem(item.name, item.collected);
+        }
 
-        //Patat Quest
-        items.Add("Pinpas", false);
-        items.Add("Frikandel", false);
+        ////Water Quest
+        //items.Add("Jerrycan", false);
+        //items.Add("Wrench", false);
+        //items.Add("WaterFulled", false);
+        //items.Add("Money", false);
 
-        //Flower Quest
-        items.Add("Heggenschaar", false);
-        items.Add("Tulip", false);
+        ////Patat Quest
+        //items.Add("Pinpas", false);
+        //items.Add("Frikandel", false);
 
-        //Bike cerctivacate Quest
-        items.Add("FietsCertivicaat", false);
+        ////Flower Quest
+        //items.Add("Heggenschaar", false);
+        //items.Add("Tulip", false);
 
-        //Windmolen Quest
-        items.Add("Bike", false);
-        items.Add("Bezem", false);
+        ////Bike cerctivacate Quest
+        //items.Add("FietsCertivicaat", false);
+
+        ////Windmolen Quest
+        //items.Add("Bike", false);
+        //items.Add("Bezem", false);
     }
 
     public void setItem(string item, bool isInInventory)

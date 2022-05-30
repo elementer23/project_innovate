@@ -29,7 +29,7 @@ public class JsonWriter : MonoBehaviour
         }
     }
 
-    private void WriteJson()
+    public void WriteJson()
     {
         File.WriteAllText(Application.dataPath + "/Resources/KeyItems.json", JsonUtility.ToJson(keyItems));
     }

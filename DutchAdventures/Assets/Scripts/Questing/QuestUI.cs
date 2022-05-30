@@ -68,6 +68,7 @@ public class QuestUI : MonoBehaviour
 
     public void removeQuest()
     {
+        Debug.Log("remov1");
         //Unset the quest from the player and the menu.
         playerQuestHandler.removeQuest();
 
