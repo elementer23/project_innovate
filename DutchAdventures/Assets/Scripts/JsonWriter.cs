@@ -9,7 +9,7 @@ public class JsonWriter : MonoBehaviour
     public KeyItems keyItems = new KeyItems();
     void Start()
     {
-        StartSleep(10);
+        //StartSleep(10);
     }
 
     // Update is called once per frame

@@ -3,7 +3,7 @@
     "description": "",
     "npcName": "",
     "requestedItem": "",
-    "rewardCoins": 0,
+    "rewardCoins": 10000,
     "canRewardItem": false,
     "itemReward": ""
 }

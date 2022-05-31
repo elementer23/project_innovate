@@ -26,10 +26,7 @@ public class PlayerQuestHandler : MonoBehaviour
             this.quest = quest;
             saveQuest();
         }
-        else
-        {
-            Debug.LogWarning("Already has quest");
-        }
+        Debug.Log("Set player's quest");
     }
 
     public Quest getQuest()
@@ -39,10 +36,10 @@ public class PlayerQuestHandler : MonoBehaviour
 
     //Removes the quest the player currently has.
     public void removeQuest()
-    {    
+    {
         //Set the quest to a empty quest.
         Debug.Log("Remove quest: " + quest.title);
-        quest = new Quest("", "", "", "", 0, false, "");
+        quest = new Quest("", "", "", "", 10000, false, "");
     }
 
     //Call this function from your quest script to complete the quest.
@@ -55,21 +52,26 @@ public class PlayerQuestHandler : MonoBehaviour
             GetComponent<KeyItemsHandler>().setItem(quest.requestedItem, false);
             GetComponent<KeyItemsHandler>().setItem(quest.itemReward, true);
         }
-        //GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
+
         removeQuest();
         saveQuest();
     }
 
     void saveQuest()
     {
-        Debug.Log(JsonUtility.ToJson(quest));
         File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));
+
         Debug.Log("Saved quest");
     }
 
     Quest loadQuest()
     {
-        return JsonUtility.FromJson<Quest>(jsonFile.text);
+        UnityEditor.AssetDatabase.Refresh();
+        var jsonFile = Resources.Load<TextAsset>("playerQuest");
+        Quest q = JsonUtility.FromJson<Quest>(jsonFile.text);
+
+        Debug.Log("Loaded quest: " + q.title);
+        return q;
     }
 
     /////////////////

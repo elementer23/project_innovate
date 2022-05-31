@@ -44,7 +44,8 @@ public class NPCController : MonoBehaviour
         isQuestGiver = !quest.isEmpty();
 
         //If the NPC has a quest, spawn in a exclemation mark above their head.
-        if (!hasAccepted && !hasCompletedQuest) {
+        if (!hasAccepted && !hasCompletedQuest)
+        {
             if (isQuestGiver)
             {
                 Instantiate(questIconPrefab, transform);
@@ -138,16 +139,19 @@ public class NPCController : MonoBehaviour
 
     void updateValues()
     {
-        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
-        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
+        if (isQuestGiver)
         {
-            if (npcStatus.npcName == npcName)
+            NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
+            foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
             {
-                hasAccepted = npcStatus.hasTakenQuest;
-                hasCompletedQuest = npcStatus.hasCompletedQuest;
+                if (npcStatus.npcName == npcName)
+                {
+                    hasAccepted = npcStatus.hasTakenQuest;
+                    hasCompletedQuest = npcStatus.hasCompletedQuest;
+                }
             }
+            //Debug.Log("Loaded values to: " + transform.name);
         }
-        Debug.Log("Loaded values");
     }
 
 

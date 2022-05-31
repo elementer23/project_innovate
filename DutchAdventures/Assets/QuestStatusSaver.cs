@@ -20,17 +20,19 @@ public class QuestStatusSaver : MonoBehaviour
             npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
 
         }
-        Debug.Log(JsonUtility.ToJson(npcStatuses));
+
         writeToJson();
     }
 
     public NpcQuestStatuses readNpcStatus()
     {
+        UnityEditor.AssetDatabase.Refresh();
         return JsonUtility.FromJson<NpcQuestStatuses>(jsonFile.text);
     }
 
     void writeToJson()
     {
+        Debug.Log("Saved npc quest status");
         File.WriteAllText(Application.dataPath + "/Resources/npcQuestData.json", JsonUtility.ToJson(npcStatuses));
     }
 }
