@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 5100570244111080917}
   - component: {fileID: 1510318913}
   - component: {fileID: 1510318914}
+  - component: {fileID: 3594914735970784164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -441,14 +442,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  jsonFile: {fileID: 4900000, guid: 8f105298039ea274db2adf7e23d10ecb, type: 3}
   quest:
     title: 
     description: 
     npcName: 
-    completionDialog: 
+    requestedItem: 
     rewardCoins: 0
-    rewardItem: 0
-    item: 
+    canRewardItem: 0
+    itemReward: 
 --- !u!114 &5100570244111080917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +489,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyItems:
+    items: []
+--- !u!114 &3594914735970784164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801845320507180558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233e0fb4afb19824caa4ed281dee0cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: e79899831c4b421488a855e08b2e8012, type: 3}
+  items:
     items: []
 --- !u!1 &2801845320809391646
 GameObject:

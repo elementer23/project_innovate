@@ -9,7 +9,7 @@ public class JsonWriter : MonoBehaviour
     public KeyItems keyItems = new KeyItems();
     void Start()
     {
-        StartSleep(10);
+        //StartSleep(10);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class JsonWriter : MonoBehaviour
         }
     }
 
-    private void WriteJson()
+    public void WriteJson()
     {
         File.WriteAllText(Application.dataPath + "/Resources/KeyItems.json", JsonUtility.ToJson(keyItems));
     }
