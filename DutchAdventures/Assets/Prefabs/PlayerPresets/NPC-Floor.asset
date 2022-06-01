@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
   m_Name: NPC-Floor
   m_EditorClassIdentifier: 
-  skin: {r: 0, g: 0, b: 0, a: 0}
-  hair: {r: 0, g: 0, b: 0, a: 0}
-  shirt: {r: 0, g: 0, b: 0, a: 0}
-  pants: {r: 0, g: 0, b: 0, a: 0}
-  shoes: {r: 0, g: 0, b: 0, a: 0}
+  skin: {r: 0.9098039, g: 0.83137256, b: 0.69803923, a: 1}
+  hair: {r: 0.9628415, g: 1, b: 0, a: 1}
+  shirt: {r: 1, g: 0, b: 0.9063344, a: 1}
+  pants: {r: 0, g: 0.38587713, b: 1, a: 1}
+  shoes: {r: 0.009409666, g: 1, b: 0, a: 0}
