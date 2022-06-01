@@ -8,21 +8,21 @@ public class Quest
     public string title;
     public string description;
     public string npcName;
-    public string completionDialog;
+    public string requestedItem;
     public int rewardCoins;
-    public bool rewardItem;
-    public string item;
+    public bool canRewardItem;
+    public string itemReward;
 
     //Quest constructor
-    public Quest(string title, string desc, string npcName, string completionDialog, int coins, bool rewardItem, string item)
+    public Quest(string title, string desc, string npcName, string requestedItem, int coins, bool canRewardItem, string itemReward)
     {
         this.title = title;
         this.description = desc;
         this.npcName = npcName;
-        this.completionDialog = completionDialog;
+        this.requestedItem = requestedItem;
         this.rewardCoins = coins;
-        this.rewardItem = rewardItem;
-        this.item = item;
+        this.canRewardItem = canRewardItem;
+        this.itemReward = itemReward;
     }
 
     //Function to check if the quest is empty; it has no title or desc.

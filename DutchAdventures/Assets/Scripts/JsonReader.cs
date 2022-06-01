@@ -3,12 +3,12 @@ using UnityEngine;
 public class JsonReader : MonoBehaviour
 {
     public TextAsset jsonFile;
-    public KeyItems items = new KeyItems();
+    public KeyItems items = new KeyItems(); 
 
-    // Read the selected jason file for data
-    void Start()
+    public KeyItems readKeyItems()
     {
-        KeyItems KeyItemsJson = JsonUtility.FromJson<KeyItems>(jsonFile.text);      
+        Debug.Log("Load key items");
+        UnityEditor.AssetDatabase.Refresh();
+        return JsonUtility.FromJson<KeyItems>(jsonFile.text);
     }
-    
 }

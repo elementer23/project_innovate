@@ -40,6 +40,8 @@ public class QuestHandler : MonoBehaviour
         //Add the quest to the quest menu.
         questUI.addQuest(quest);
 
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().updateNpcStatus();
+
         //Destroy the quest box UI object.
         Destroy(gameObject);
     }
