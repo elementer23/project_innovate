@@ -1,40 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 public class QuestStatusSaver : MonoBehaviour
 {
-    public NpcQuestStatuses npcStatuses = new NpcQuestStatuses();
     public TextAsset jsonFile;
+    public JsonHandler jsonHandler;
 
-    public void updateNpcStatus()
+    private NpcQuestStatuses npcStatuses = new NpcQuestStatuses();
+    private GameObject[] npcs;
+
+    private void Start()
     {
-        GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
-        npcStatuses = new NpcQuestStatuses();
-        npcStatuses.statuses = new NpcQuestStatus[npcs.Length];
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
+    }
 
-        for (int i = 0; i < npcs.Length; i++)
+    public void writeNpcStatusToJson(string npcName)
+    {
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
+
+        NPCController npc = GameObject.Find(npcName).GetComponent<NPCController>();
+
+        for (int i = 0; i < npcStatuses.statuses.Length; i++)
         {
-            NPCController npc = npcs[i].GetComponent<NPCController>();
-            npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
-
+            if (npcStatuses.statuses[i].npcName == npcName)
+            {
+                npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
+            }
         }
 
-        writeToJson();
+        jsonHandler.WriteToJson(npcStatuses, "NpcQuestData");
     }
 
-    public NpcQuestStatuses readNpcStatus()
+    public bool[] getNpcStatus(string npcName)
     {
-        UnityEditor.AssetDatabase.Refresh();
-        return JsonUtility.FromJson<NpcQuestStatuses>(jsonFile.text);
-    }
+        NPCController npcController = GameObject.Find(npcName).GetComponent<NPCController>();
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
 
-    void writeToJson()
-    {
-        Debug.Log("Saved npc quest status");
-        File.WriteAllText(Application.dataPath + "/Resources/npcQuestData.json", JsonUtility.ToJson(npcStatuses));
+        for (int i = 0; i < npcStatuses.statuses.Length; i++)
+        {
+            if (npcStatuses.statuses[i].npcName == npcName)
+            {
+                return new bool[2] { npcStatuses.statuses[i].hasTakenQuest, npcStatuses.statuses[i].hasCompletedQuest };
+            }
+        }
+        return new bool[2] { false, false };
     }
+}
+
+[System.Serializable]
+public class NpcQuestStatuses
+{
+    public NpcQuestStatus[] statuses;
 }
 
 [System.Serializable]
@@ -50,10 +68,4 @@ public class NpcQuestStatus
         this.hasTakenQuest = hasTakenQuest;
         this.hasCompletedQuest = hasCompletedQuest;
     }
-}
-
-[System.Serializable]
-public class NpcQuestStatuses
-{
-    public NpcQuestStatus[] statuses;
 }
