@@ -13,6 +13,8 @@ public class Quest
     public bool canRewardItem;
     public string itemReward;
 
+    public static Quest empty = new Quest("", "", "", "", 0, false, "");
+    
     //Quest constructor
     public Quest(string title, string desc, string npcName, string requestedItem, int coins, bool canRewardItem, string itemReward)
     {
