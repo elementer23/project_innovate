@@ -8,50 +8,60 @@ public class CharacterCustHandler : MonoBehaviour
     [SerializeField]
     private Button currentButton;
 
-    public Image currentImage;
-
-    public AnimationClip walk;
-
-    private Animator anim;
+    public Image frontImage;
+    public Image sideImage;
 
     [SerializeField]
     private FlexibleColorPicker fcp;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentButton.interactable = false;
     }
 
-    // Update is called once per frame
-    void Update() 
+    private void setCustValues(string type)
     {
-        
+        frontImage = GameObject.Find(type + "Front").GetComponent<Image>();
+        sideImage = GameObject.Find(type + "Side").GetComponent<Image>();
+        currentButton = GameObject.Find(type + "Button").GetComponent<Button>();
     }
 
-    public void setCurrentButton(Button button)
+    public void setCharacterPart(string type)
     {
-        currentButton.interactable = true;
-        this.currentButton = button;
-        currentButton.interactable = false;
-    }
+        stopAnimation(this.frontImage);
+        stopAnimation(this.sideImage);
+        this.currentButton.interactable = true;
+        setCustValues(type);
 
-    public void setCharacterPart(Image image)
-    {
-
-        anim = currentImage.GetComponent<Animator>();
-        anim.enabled = false;
-        var tempColor = currentImage.color;
+        this.currentButton.interactable = false;
+        var tempColor = frontImage.color;
         tempColor.a = 1f;
-        currentImage.color = tempColor;
+        frontImage.color = tempColor;
+        sideImage.color = tempColor;
 
-        this.currentImage = image;
-        Color color = image.GetComponent<Image>().color;
+        Color color = frontImage.GetComponent<Image>().color;
         fcp.color = color;
 
-        anim = image.GetComponent<Animator>();
-        anim.enabled = true;
+        startAnimation(frontImage);
+        startAnimation(sideImage);
+    }
 
+    public void setColor(Color color)
+    {
+        this.frontImage.GetComponent<Image>().color = color;
+        this.sideImage.GetComponent<Image>().color = color;
+    }
+
+    private void startAnimation(Image image)
+    {
+        Animator anim = image.GetComponent<Animator>();
+        anim.enabled = true;
         anim.Play("Base Layer.partSelectAnimation", -1, 0f);
+    }
+
+    private void stopAnimation(Image image)
+    {
+        Animator anim = image.GetComponent<Animator>();
+        anim.enabled = false;
     }
 }

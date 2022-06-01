@@ -678,7 +678,7 @@ public class FlexibleColorPicker : MonoBehaviour {
         break;
         }
 
-        charCustHandler.currentImage.color = color;
+        charCustHandler.setColor(color);
     }
 
     private void UpdateDynamic(PickerType type) {
