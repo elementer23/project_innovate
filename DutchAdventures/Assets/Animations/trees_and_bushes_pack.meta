@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:DutchAdventures/Assets/Prefabs/Parts/Location Text.prefab.meta
-guid: c9adf3d38691d834c9f33efb34768dcd
-PrefabImporter:
+<<<<<<< HEAD
+guid: 48a1c84991bab694082de74350bdc000
 =======
-guid: 91fdd4d990cec0d4bbaf7a02dbf9166a
-folderAsset: yes
-DefaultImporter:
->>>>>>> a31c2c4fb7053b232b9c1166571a2c4106bf5ae7:DutchAdventures/Assets/Animations/trees_and_bushes_pack.meta
+<<<<<<< HEAD:DutchAdventures/Assets/Prefabs/Parts/Location Text.prefab.meta
+guid: 9fe271d94a983ed4fab32531490cb09e
+>>>>>>> quest1Side
+PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
