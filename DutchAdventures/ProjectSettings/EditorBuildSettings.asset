@@ -38,4 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WaterPompMinigame.unity
     guid: 8c13d8010488be94eb7ca0ab42d5d25c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 5f231901579bb854192f3a120ad09326, type: 2}
