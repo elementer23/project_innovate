@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerQuestHandler : MonoBehaviour
 {
     public int coins;
+    public TextAsset jsonFile;
 
     [Header("Quest")]
     [SerializeField]
     private Quest quest;
 
+    private void Start()
+    {
+        quest = loadQuest();
+    }
+
     //Sets the currently active quest to a quest.
     public void setQuest(Quest quest)
     {
         //Check if the player does not have a quest, add it.
-        if (this.quest.isEmpty())
+        if (this.quest == null || this.quest.isEmpty())
         {
             this.quest = quest;
+            saveQuest();
         }
-        else
-        {
-            Debug.LogWarning("Already has quest");
-        }
+        Debug.Log("Set player's quest");
     }
 
     public Quest getQuest()
@@ -34,7 +39,7 @@ public class PlayerQuestHandler : MonoBehaviour
     {
         //Set the quest to a empty quest.
         Debug.Log("Remove quest: " + quest.title);
-        quest = new Quest("", "", "", "", 0, false, "");
+        quest = new Quest("", "", "", "", 10000, false, "");
     }
 
     //Call this function from your quest script to complete the quest.
@@ -42,12 +47,31 @@ public class PlayerQuestHandler : MonoBehaviour
     {
         addCoins(quest.rewardCoins);
 
-        if (quest.rewardItem)
+        if (quest.canRewardItem)
         {
-            GetComponent<KeyItemsHandler>().setItem(quest.item, true);
+            GetComponent<KeyItemsHandler>().setItem(quest.requestedItem, false);
+            GetComponent<KeyItemsHandler>().setItem(quest.itemReward, true);
         }
-        GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
+
         removeQuest();
+        saveQuest();
+    }
+
+    void saveQuest()
+    {
+        File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));
+
+        Debug.Log("Saved quest");
+    }
+
+    Quest loadQuest()
+    {
+        UnityEditor.AssetDatabase.Refresh();
+        var jsonFile = Resources.Load<TextAsset>("playerQuest");
+        Quest q = JsonUtility.FromJson<Quest>(jsonFile.text);
+
+        Debug.Log("Loaded quest: " + q.title);
+        return q;
     }
 
     /////////////////

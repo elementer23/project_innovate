@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6099842412142058318}
   m_Layer: 0
   m_Name: Hair
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -615904343, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6099842413099854055}
   m_Layer: 0
   m_Name: Shirt
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 509553041, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 6099842413559502300}
   m_Layer: 0
   m_Name: Pants
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -704612933, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 6099842413564005098}
   m_Layer: 0
   m_Name: Shoes
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 925555429, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -415,7 +415,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -460,16 +460,19 @@ MonoBehaviour:
   questIconPrefab: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
   dialogIconPrefab: {fileID: 879044644019366784, guid: fd72b811d5f23154a859f48674d07002, type: 3}
   npcName: Jan
-  dialog: Ik heb honger, kun je een frikandel voor mij halen bij de snackbar?
-  hasAccepted: 0
+  startDialog: Ewa fakka niffeau geef mij die ballie pattas
+  completionDialog: Yo heb donnies
   quest:
     title: Frikandel
-    description: Haal een frikandel voor Jan
+    description: frikandel
     npcName: Jan
-    completionDialog: Dankjewel
+    requestedItem: Money
     rewardCoins: 5
-    rewardItem: 1
-    item: Wrench
+    canRewardItem: 1
+    itemReward: Wrench
+  hasAccepted: 0
+  hasCompletedQuest: 0
+  dialogIcon: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
 --- !u!114 &1420811150
 MonoBehaviour:
   m_ObjectHideFlags: 0

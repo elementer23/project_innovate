@@ -22,6 +22,7 @@ public class QuestUI : MonoBehaviour
         //Set the variables to the objects. These objects are all children of this object.
         canvasGroup = GetComponent<CanvasGroup>();
         questTextCG = transform.GetChild(0).GetComponent<CanvasGroup>();
+        playerQuestHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
 
         title = transform.GetChild(0).Find("Title").GetComponent<TextMeshProUGUI>();
         desc = transform.GetChild(0).Find("Description").GetComponent<TextMeshProUGUI>();
@@ -44,7 +45,7 @@ public class QuestUI : MonoBehaviour
     public void addQuest(Quest quest)
     {
         //Add the quest to the quest menu UI object.
-        Debug.Log("Add quest " + quest.title + " to quest UI");
+        //Debug.Log("Add quest " + quest.title + " to quest UI");
 
         currentQuest = quest;
         title.text = quest.title;
@@ -67,11 +68,12 @@ public class QuestUI : MonoBehaviour
 
     public void removeQuest()
     {
+        Debug.Log("remov1");
         //Unset the quest from the player and the menu.
         playerQuestHandler.removeQuest();
 
         GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().resetNpc();
-        currentQuest = new Quest("", "", "", "", 0, false, "");
+        currentQuest = new Quest("", "", "", "", 10000, false, "");
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)

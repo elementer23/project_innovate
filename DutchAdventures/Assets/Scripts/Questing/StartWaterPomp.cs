@@ -8,7 +8,7 @@ public class StartWaterPomp : MonoBehaviour
     public Transform player;
     protected float minDist = 2;
     private bool canStart = false;
-    public int buildIndex;
+    public string minigameName;
     [SerializeField]
     private GameObject pointer;
     public string neededKeyItem1;
@@ -35,7 +35,8 @@ public class StartWaterPomp : MonoBehaviour
     {
         if (keyItemsHandler.hasItem(neededKeyItem1) && keyItemsHandler.hasItem(neededKeyItem2) && canStart)
         {
-            SceneManager.LoadScene(2);
+            GameObject.Find("World").SetActive(false);
+            GameObject.Find(minigameName).SetActive(true);
         }
     }
 }
