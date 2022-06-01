@@ -1,26 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerQuestHandler : MonoBehaviour
 {
     public int coins;
 
+    [Header("Save Data")]
+    [SerializeField]
+    private TextAsset jsonFile;
+    private JsonHandler jsonHandler;
+
     [Header("Quest")]
     [SerializeField]
     private Quest quest;
+
+    private void Start()
+    {
+        jsonHandler = FindObjectOfType<JsonHandler>();
+
+        //Load in saved quest
+        quest = jsonHandler.ReadFromJson<Quest>(jsonFile);
+    }
+
+    //Call this function from your quest script to complete the quest.
+    public void completeQuest()
+    {
+        addCoins(quest.rewardCoins);
+
+        if (quest.canRewardItem)
+        {
+            KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
+            keyItemsSaver.setItem(quest.requestedItem, false);
+            keyItemsSaver.setItem(quest.itemReward, true);
+        }
+
+        setQuest(Quest.empty);
+    }
 
     //Sets the currently active quest to a quest.
     public void setQuest(Quest quest)
     {
         //Check if the player does not have a quest, add it.
-        if (this.quest.isEmpty())
+        if (this.quest == null || this.quest.isEmpty())
         {
+            Debug.Log("Completed quest");
             this.quest = quest;
-        }
-        else
-        {
-            Debug.LogWarning("Already has quest");
+            jsonHandler.WriteToJson(quest, "PlayerQuest");
         }
     }
 
@@ -29,26 +56,19 @@ public class PlayerQuestHandler : MonoBehaviour
         return quest;
     }
 
-    //Removes the quest the player currently has.
-    public void removeQuest()
-    {
-        //Set the quest to a empty quest.
-        Debug.Log("Remove quest: " + quest.title);
-        quest = new Quest("", "", "", "", 0, false, "");
-    }
+    //void saveQuest()
+    //{
+    //    File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));
+    //}
 
-    //Call this function from your quest script to complete the quest.
-    public void completeQuest()
-    {
-        addCoins(quest.rewardCoins);
+    //Quest loadQuest()
+    //{
+    //    UnityEditor.AssetDatabase.Refresh();
+    //    var jsonFile = Resources.Load<TextAsset>("playerQuest");
+    //    Quest q = JsonUtility.FromJson<Quest>(jsonFile.text);
 
-        if (quest.rewardItem)
-        {
-            GetComponent<KeyItemsHandler>().setItem(quest.item, true);
-        }
-        GameObject.Find(quest.npcName).GetComponent<NPCController>().clearNpc();
-        removeQuest();
-    }
+    //    return q;
+    //}
 
     /////////////////
     // Coin system //

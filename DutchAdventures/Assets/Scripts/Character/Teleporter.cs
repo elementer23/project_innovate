@@ -44,6 +44,7 @@ public class Teleporter : MonoBehaviour
         {
             entracePos.spawnPosition = player.position;
             exitPos.spawnPosition = destination;
+
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
@@ -55,6 +56,7 @@ public class Teleporter : MonoBehaviour
         {
             entracePos.spawnPosition = player.position;
             exitPos.spawnPosition = destination;
+
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
