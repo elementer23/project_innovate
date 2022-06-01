@@ -45,7 +45,6 @@ public class QuestUI : MonoBehaviour
     public void addQuest(Quest quest)
     {
         //Add the quest to the quest menu UI object.
-        Debug.Log("Add quest " + quest.title + " to quest UI");
 
         currentQuest = quest;
         title.text = quest.title;
@@ -69,10 +68,10 @@ public class QuestUI : MonoBehaviour
     public void removeQuest()
     {
         //Unset the quest from the player and the menu.
-        playerQuestHandler.removeQuest();
+        playerQuestHandler.setQuest(Quest.empty);
 
         GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().resetNpc();
-        currentQuest = new Quest("", "", "", "", 0, false, "");
+        currentQuest = Quest.empty;
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)
