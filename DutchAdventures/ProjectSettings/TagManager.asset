@@ -59,6 +59,9 @@ TagManager:
   - name: Player
     uniqueID: 937706891
     locked: 0
+  - name: NPC
+    uniqueID: 3864641195
+    locked: 0
   - name: UpperLayer
     uniqueID: 3393166181
     locked: 0
