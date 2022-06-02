@@ -28,9 +28,6 @@ public class QuestHandler : MonoBehaviour
 
     public void acceptBtn()
     {
-        //Destroy the exclemation mark above the quest giver.
-        Destroy(npcController.transform.Find("QuestMarker(Clone)").gameObject);
-
         //Tell the NPC the quest has been accepted.
         npcController.hasAccepted = true;
 
@@ -40,6 +37,7 @@ public class QuestHandler : MonoBehaviour
         //Add the quest to the quest menu.
         questUI.addQuest(quest);
 
+        //Save the quest data to the JSON
         GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName);
 
         //Destroy the quest box UI object.
