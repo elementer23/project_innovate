@@ -10,11 +10,13 @@ public class SaveGame : MonoBehaviour
     public Transform player;
     //private Scene currentScene;
     public PlayerSpawn lastPos;
-    //private int frames = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+
         player.position = this.GetLastPlayerPosition(lastPos, player);
+        
         //if (playerObject == null)
         //{
         //    playerObject = GameObject.Find("Player");
@@ -24,18 +26,14 @@ public class SaveGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastPos.spawnPosition = player.position;
+        //lastPos.spawnPosition = player.position;
         //int activeScene = SceneManager.GetActiveScene().buildIndex;
         //currentScene = SceneManager.GetActiveScene();
-        //Debug.Log("current buildIndex: " + " " + activeScene + " " + "current Scene: " + currentScene.name);
-        //frames++;
-        //if (frames % 360 == 0)
-        //{
-        //    Debug.Log("x: " + " " + playerObject.transform.position.x + "y: " + " " + playerObject.transform.position.y);
-        //    int activeScene = SceneManager.GetActiveScene().buildIndex;
-        //    currentScene = SceneManager.GetActiveScene();
-        //    Debug.Log("current buildIndex: " + " " + activeScene + " " + "current Scene: " + currentScene.name);
-        //}
+    }
+
+    public void SaveLastPosition()
+    {
+        lastPos.spawnPosition = player.position;
     }
 
     private Vector2 GetLastPlayerPosition(PlayerSpawn lastPosition, Transform player)
