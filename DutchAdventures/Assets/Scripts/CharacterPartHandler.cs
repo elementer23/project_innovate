@@ -3,29 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GenderHandler : MonoBehaviour
+public class CharacterPartHandler : MonoBehaviour
 {
 
     //False = Male, True = Female.
-    private bool gender = false;
+    // private bool gender = false;
+
+    /*    [SerializeField]
+        private Button maleButton;
+
+        [SerializeField]
+        private Button femaleButton;*/
+
+    private int[] currentSprites = new int[4];
 
     [SerializeField]
-    private Button maleButton;
+    private Sprite[] frontHairSprites;
 
     [SerializeField]
-    private Button femaleButton;
-
-    [SerializeField]
-    private Sprite maleHairFront;
-
-    [SerializeField]
-    private Sprite maleHairSide;
-
-    [SerializeField]
-    private Sprite femaleHairFront;
-
-    [SerializeField]
-    private Sprite femaleHairSide;
+    private Sprite[] sideHairSprites;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +29,25 @@ public class GenderHandler : MonoBehaviour
         
     }
 
-    public void setGender(bool gender)
+    public void nextPart()
+    {
+        //Check if there is a next part in the array.
+        //If there is, get that part.
+        //Also check if there is a part after this.
+        //Disable out button if there is not.
+    }
+
+    public void previousPart()
+    {
+
+    }
+
+    public void selectPart()
+    {
+
+    }
+
+   /* public void setGender(bool gender)
     {
         if (gender)
         {
@@ -51,5 +65,5 @@ public class GenderHandler : MonoBehaviour
         }
 
         this.gender = gender;
-    }
+    }*/
 }

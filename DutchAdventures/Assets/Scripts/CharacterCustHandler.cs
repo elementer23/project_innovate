@@ -14,6 +14,8 @@ public class CharacterCustHandler : MonoBehaviour
     [SerializeField]
     private FlexibleColorPicker fcp;
 
+    private string currentPart = "Skin";
+
     void Start()
     {
         currentButton.interactable = false;
@@ -24,6 +26,7 @@ public class CharacterCustHandler : MonoBehaviour
         frontImage = GameObject.Find(type + "Front").GetComponent<Image>();
         sideImage = GameObject.Find(type + "Side").GetComponent<Image>();
         currentButton = GameObject.Find(type + "Button").GetComponent<Button>();
+        this.currentPart = type;
     }
 
     public void setCharacterPart(string type)

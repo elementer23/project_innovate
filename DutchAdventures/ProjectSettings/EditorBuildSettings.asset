@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityHouse/HouseFlat4.unity
     guid: 8094c5203edc41b4396d8248f0739c32
+  - enabled: 1
+    path: Assets/Scenes/Menu/CharacterCreation.unity
+    guid: 4ba8e0e088747044cb3e8559d2e57931
   m_configObjects: {}
