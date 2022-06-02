@@ -35,7 +35,7 @@ public class StartWaterPomp : MonoBehaviour
     {
         if (keyItemsSaver.hasItem(neededKeyItem1) && keyItemsSaver.hasItem(neededKeyItem2) && canStart)
         {
-            GameObject.Find("World").SetActive(false);
+            GameObject.Find("world").SetActive(false);
             GameObject.Find(minigameName).SetActive(true);
         }
     }
