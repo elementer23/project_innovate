@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
   m_Name: Albert
   m_EditorClassIdentifier: 
-  skin: {r: 0.909804, g: 0.8313726, b: 0.69803923, a: 0}
+  skin: {r: 0.9098039, g: 0.87519604, b: 0.69803923, a: 0}
   hair: {r: 0.4156863, g: 0.28235295, b: 0.20392159, a: 1}
   shirt: {r: 0.38976976, g: 0.37887147, b: 0.8113208, a: 0}
   pants: {r: 0.509434, g: 0.5077046, b: 0.48300108, a: 0}
