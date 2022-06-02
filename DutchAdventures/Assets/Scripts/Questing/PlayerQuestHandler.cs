@@ -42,8 +42,9 @@ public class PlayerQuestHandler : MonoBehaviour
     //Sets the currently active quest to a quest.
     public void setQuest(Quest quest)
     {
+        Debug.Log("reset quest");
         //Check if the player does not have a quest, add it.
-        if (this.quest == null || this.quest.isEmpty())
+        if (this.quest == null || this.quest.isEmpty() || quest == Quest.empty)
         {
             Debug.Log("Completed quest");
             this.quest = quest;
