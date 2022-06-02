@@ -7,6 +7,8 @@ using TMPro;
 public class DialogHandler : MonoBehaviour
 {
     [SerializeField]
+    private bool isCompletionDialog = false;
+    [SerializeField]
     private TextMeshProUGUI dialogBox;
     [SerializeField]
     private TextMeshProUGUI npcNameTxt;
@@ -54,9 +56,14 @@ public class DialogHandler : MonoBehaviour
         }
     }
 
-    public void CloseBtn()
+    public void closeBtn()
     {
         Destroy(gameObject);
+    }
+
+    public void completeQuest()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().completeQuest();
     }
 
     IEnumerator printText()
