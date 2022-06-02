@@ -13,13 +13,13 @@ public class StartWaterPomp : MonoBehaviour
     private GameObject pointer;
     public string neededKeyItem1;
     public string neededKeyItem2;
-    private KeyItemsHandler keyItemsHandler;
+    private KeyItemsSaver keyItemsSaver;
 
     void Start()
     {
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
-        keyItemsHandler = player.GetComponent<KeyItemsHandler>();
+        keyItemsSaver = player.GetComponent<KeyItemsSaver>();
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class StartWaterPomp : MonoBehaviour
     //Start quest if parameters are true
     private void OnMouseDown()
     {
-        if (keyItemsHandler.hasItem(neededKeyItem1) && keyItemsHandler.hasItem(neededKeyItem2) && canStart)
+        if (keyItemsSaver.hasItem(neededKeyItem1) && keyItemsSaver.hasItem(neededKeyItem2) && canStart)
         {
             GameObject.Find("World").SetActive(false);
             GameObject.Find(minigameName).SetActive(true);
