@@ -33,7 +33,8 @@ public class NPCController : MonoBehaviour
     public bool hasAccepted = false;
     //[HideInInspector]
     public bool hasCompletedQuest = false;
-    private bool isQuestGiver = false;
+    [HideInInspector]
+    public bool isQuestGiver = false;
 
     void Start()
     {
