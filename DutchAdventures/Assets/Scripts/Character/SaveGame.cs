@@ -6,26 +6,52 @@ using UnityEngine.SceneManagement;
 public class SaveGame : MonoBehaviour
 {
 
-    private GameObject playerObject = null;
-    private int frames = 0;
+    //private GameObject playerObject = null;
+    public Transform player;
+    //private Scene currentScene;
+    public PlayerSpawn lastPos;
+    //private int frames = 0;
     // Start is called before the first frame update
     void Start()
     {
-        if (playerObject == null)
-        {
-            playerObject = GameObject.Find("Player");
-        }
-
-        int activeScene = SceneManager.GetActiveScene().buildIndex;
+        player.position = this.GetLastPlayerPosition(lastPos, player);
+        //if (playerObject == null)
+        //{
+        //    playerObject = GameObject.Find("Player");
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        frames++;
-        if (frames % 120 == 0)
+        lastPos.spawnPosition = player.position;
+        //int activeScene = SceneManager.GetActiveScene().buildIndex;
+        //currentScene = SceneManager.GetActiveScene();
+        //Debug.Log("current buildIndex: " + " " + activeScene + " " + "current Scene: " + currentScene.name);
+        //frames++;
+        //if (frames % 360 == 0)
+        //{
+        //    Debug.Log("x: " + " " + playerObject.transform.position.x + "y: " + " " + playerObject.transform.position.y);
+        //    int activeScene = SceneManager.GetActiveScene().buildIndex;
+        //    currentScene = SceneManager.GetActiveScene();
+        //    Debug.Log("current buildIndex: " + " " + activeScene + " " + "current Scene: " + currentScene.name);
+        //}
+    }
+
+    private Vector2 GetLastPlayerPosition(PlayerSpawn lastPosition, Transform player)
+    {
+        if (hasPreviousPosition(lastPosition))
         {
-            Debug.Log("x: " + " " + playerObject.transform.position.x + "y: " + " " + playerObject.transform.position.y);
+            return lastPosition.spawnPosition;
         }
+        else
+        {
+            return player.position;
+        }
+    }
+
+    private bool hasPreviousPosition(PlayerSpawn pos)
+    {
+        return !pos.spawnPosition.Equals(Vector2.zero);
     }
 }
