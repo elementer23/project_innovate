@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveGame : MonoBehaviour 
 {
@@ -9,37 +8,18 @@ public class SaveGame : MonoBehaviour
     public TextAsset jsonFile;
     private JsonHandler jsonHandler;
 
-    private PlayerData playerData;
+    public PlayerData playerData;
     public Transform player;
 
     public void SavePlayer()
     {
-        //GameObject player = GameObject.FindWithTag("Player");
+        //playerData = jsonHandler.ReadFromJson<PlayerData>(jsonFile);
 
         playerData = new PlayerData(player.transform.position, SceneManager.GetActiveScene().name);
 
-        //jsonHandler.WriteToJson(playerData, "PlayerData");
+        jsonHandler.WriteToJson(playerData, "PlayerData");
+
     }
-
-    //public static PlayerData LoadPlayer()
-    //{
-    //    string path = Application.dataPath + "/Resources/Player.Data";
-    //    if (File.Exists(path))
-    //    {
-    //        BinaryFormatter formatter = new BinaryFormatter();
-    //        FileStream stream = new FileStream(path, FileMode.Open);
-
-    //        PlayerData data = formatter.Deserialize(stream) as PlayerData;
-    //        stream.Close();
-
-    //        return data;
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Save file not found in" + path);
-    //        return null;
-    //    }
-    //}
 
     // klik op knop save trigger functie 
     // functie saveData
