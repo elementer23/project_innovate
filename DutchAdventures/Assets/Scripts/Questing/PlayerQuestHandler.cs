@@ -33,7 +33,12 @@ public class PlayerQuestHandler : MonoBehaviour
         {
             KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
             keyItemsSaver.setItem(quest.requestedItem, false);
-            keyItemsSaver.setItem(quest.itemReward, true);
+
+            //set all items that are rewarted on true 
+            foreach (string item in quest.itemReward)
+            { 
+                keyItemsSaver.setItem(item, true);
+            }
         }
 
         setQuest(Quest.empty);
