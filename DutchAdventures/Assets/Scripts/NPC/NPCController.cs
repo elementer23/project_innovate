@@ -29,9 +29,9 @@ public class NPCController : MonoBehaviour
     [Header("Quest")]
     public Quest quest;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasAccepted = false;
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasCompletedQuest = false;
     [HideInInspector]
     public bool isQuestGiver = false;

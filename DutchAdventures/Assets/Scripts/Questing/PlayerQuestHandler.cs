@@ -21,7 +21,7 @@ public class PlayerQuestHandler : MonoBehaviour
         jsonHandler = FindObjectOfType<JsonHandler>();
 
         //Load in saved quest
-        quest = jsonHandler.ReadFromJson<Quest>(jsonFile);
+        quest = jsonHandler.ReadFromJson<Quest>("playerQuest");
     }
 
     //Call this function from your quest script to complete the quest.
