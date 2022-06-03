@@ -38,7 +38,7 @@ public class KeyItemsSaver : MonoBehaviour
     public KeyItems readItems()
     {
         //Read the items from the JSON file
-        return jsonHandler.ReadFromJson<KeyItems>(jsonFile);
+        return jsonHandler.ReadFromJson<KeyItems>("KeyItems");
     }
 
     public void setItem(string itemName, bool isInInventory)

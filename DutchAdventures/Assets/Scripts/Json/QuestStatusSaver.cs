@@ -13,12 +13,12 @@ public class QuestStatusSaver : MonoBehaviour
     private void Start()
     {
         npcs = GameObject.FindGameObjectsWithTag("NPC");
-        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
     }
 
     public void writeNpcStatusToJson(string npcName)
     {
-        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
 
         NPCController npc = GameObject.Find(npcName).GetComponent<NPCController>();
 
@@ -36,7 +36,7 @@ public class QuestStatusSaver : MonoBehaviour
     public bool[] getNpcStatus(string npcName)
     {
         NPCController npcController = GameObject.Find(npcName).GetComponent<NPCController>();
-        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>(jsonFile);
+        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
 
         for (int i = 0; i < npcStatuses.statuses.Length; i++)
         {
