@@ -17,6 +17,11 @@ public class JsonHandler : MonoBehaviour
             "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }"
         };
 
+        if (!Directory.Exists(Application.persistentDataPath + "/Resources/"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/");
+        }
+
         for (int i = 0; i < files.Length; i++)
         {
             string path = Application.persistentDataPath + "/Resources/" + files[i] + ".json";
