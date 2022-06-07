@@ -41,6 +41,7 @@ public class JsonHandler : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/Resources/" + fileName + ".json";
         string jsonString = File.ReadAllText(path);
+        Debug.Log(jsonString);
 
         return JsonUtility.FromJson<T>(jsonString);
     }
