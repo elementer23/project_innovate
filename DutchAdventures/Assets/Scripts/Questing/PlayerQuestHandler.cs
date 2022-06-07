@@ -21,7 +21,7 @@ public class PlayerQuestHandler : MonoBehaviour
         jsonHandler = FindObjectOfType<JsonHandler>();
 
         //Load in saved quest
-        quest = jsonHandler.ReadFromJson<Quest>(jsonFile);
+        quest = jsonHandler.ReadFromJson<Quest>("playerQuest");
     }
 
     //Call this function from your quest script to complete the quest.
@@ -33,7 +33,12 @@ public class PlayerQuestHandler : MonoBehaviour
         {
             KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
             keyItemsSaver.setItem(quest.requestedItem, false);
-            keyItemsSaver.setItem(quest.itemReward, true);
+
+            //set all items that are rewarted on true 
+            foreach (string item in quest.itemReward)
+            { 
+                keyItemsSaver.setItem(item, true);
+            }
         }
 
         setQuest(Quest.empty);
@@ -42,8 +47,9 @@ public class PlayerQuestHandler : MonoBehaviour
     //Sets the currently active quest to a quest.
     public void setQuest(Quest quest)
     {
+        Debug.Log("reset quest");
         //Check if the player does not have a quest, add it.
-        if (this.quest == null || this.quest.isEmpty())
+        if (this.quest == null || this.quest.isEmpty() || quest == Quest.empty)
         {
             Debug.Log("Completed quest");
             this.quest = quest;

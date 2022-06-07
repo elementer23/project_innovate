@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -615904343, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 509553041, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -704612933, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 925555429, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -415,7 +415,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -457,22 +457,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 6667939922886280652, guid: ec3e075717c1e8349a38b10d9bc7f3e6, type: 3}
   questPrefab: {fileID: 6667939922886280652, guid: a3a0a468b14155a429aa08c6b5d08394, type: 3}
+  competionDialogPrefab: {fileID: 1850981975408275727, guid: 0500e332d2ba80148b654e1c223f6362, type: 3}
   questIconPrefab: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
-  dialogIconPrefab: {fileID: 879044644019366784, guid: fd72b811d5f23154a859f48674d07002, type: 3}
-  npcName: Jan
-  startDialog: Ewa fakka niffeau geef mij die ballie pattas
-  completionDialog: Yo heb donnies
+  npcName: NPC
+  startDialog: '[placeholder]'
+  notCompletedDialog: 
+  completionDialog: 
+  postCompletionDialog: 
   quest:
-    title: Frikandel
-    description: frikandel
-    npcName: Jan
-    requestedItem: Money
-    rewardCoins: 5
-    canRewardItem: 1
-    itemReward: Wrench
+    title: 
+    description: 
+    npcName: 
+    requestedItem: 
+    rewardCoins: 0
+    canRewardItem: 0
+    itemReward: 
   hasAccepted: 0
   hasCompletedQuest: 0
-  dialogIcon: {fileID: 5023236530583483082, guid: 38be3d784cab35342abe89bfcf0d8dc6, type: 3}
 --- !u!114 &1420811150
 MonoBehaviour:
   m_ObjectHideFlags: 0
