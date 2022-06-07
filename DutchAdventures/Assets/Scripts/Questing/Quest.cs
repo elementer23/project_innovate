@@ -11,12 +11,13 @@ public class Quest
     public string requestedItem;
     public int rewardCoins;
     public bool canRewardItem;
-    public string itemReward;
-
-    public static Quest empty = new Quest("", "", "", "", 0, false, "");
+    public string[] itemReward;
+    
+    // create Emty quest
+    public static Quest empty = new Quest("", "", "", "", 0, false, new string[] { });
     
     //Quest constructor
-    public Quest(string title, string desc, string npcName, string requestedItem, int coins, bool canRewardItem, string itemReward)
+    public Quest(string title, string desc, string npcName, string requestedItem, int coins, bool canRewardItem, string[] itemsReward)
     {
         this.title = title;
         this.description = desc;
@@ -24,7 +25,13 @@ public class Quest
         this.requestedItem = requestedItem;
         this.rewardCoins = coins;
         this.canRewardItem = canRewardItem;
-        this.itemReward = itemReward;
+
+        int index = 0;
+        foreach (string item in itemsReward)
+        {
+            this.itemReward[index] = item;
+            index++;
+        }
     }
 
     //Function to check if the quest is empty; it has no title or desc.
