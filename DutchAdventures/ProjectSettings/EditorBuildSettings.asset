@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/House1.unity
     guid: 928a800abc9432b479ad81e03d88be7c
   - enabled: 1
+    path: Assets/Scenes/Tulips.unity
+    guid: 5e5914629a2d1e84686739ee1174afad
+  - enabled: 1
     path: Assets/Scenes/eastEntrance.unity
     guid: 5210cc96c0a5643469a8a35d47cd6800
   - enabled: 1
