@@ -9,20 +9,30 @@ public class JsonHandler : MonoBehaviour
     {
         DontDestroyOnLoad(this);
 
-        if (!Directory.Exists(Application.dataPath + "/Resources/KeyItems.json"))
+        string[] files = { "KeyItems", "npcQuestData", "playerQuest" };
+        string[] contents =
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/KeyItems.json");
-            File.WriteAllText(Application.dataPath + "/Resources/KeyItems.json", "{\"items\":[{\"name\":\"Jerrycan\",\"collected\":false},{\"name\":\"Wrench\",\"collected\":false},{\"name\":\"WaterFulled\",\"collected\":false},{\"name\":\"Money\",\"collected\":false},{\"name\":\"Pinpas\",\"collected\":false},{\"name\":\"Frikandel\",\"collected\":false},{\"name\":\"Heggenschaar\",\"collected\":false},{\"name\":\"Tulip\",\"collected\":false},{\"name\":\"FietsCertivicaat\",\"collected\":false},{\"name\":\"Bike\",\"collected\":false},{\"name\":\"Bezem\",\"collected\":false}]}");
+            "{\"items\":[{\"name\":\"Jerrycan\",\"collected\":false},{\"name\":\"Wrench\",\"collected\":false},{\"name\":\"WaterFulled\",\"collected\":false},{\"name\":\"Money\",\"collected\":false},{\"name\":\"Pinpas\",\"collected\":false},{\"name\":\"Frikandel\",\"collected\":false},{\"name\":\"Heggenschaar\",\"collected\":false},{\"name\":\"Tulip\",\"collected\":false},{\"name\":\"FietsCertivicaat\",\"collected\":false},{\"name\":\"Bike\",\"collected\":false},{\"name\":\"Bezem\",\"collected\":false}]}",
+            "{\"statuses\":[{\"npcName\":\"Marco\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Pieter\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Bas\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Jan\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false}]}",
+            "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }"
+        };
+
+        if (!Directory.Exists(Application.persistentDataPath + "/Resources/"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/");
         }
-        if (!Directory.Exists(Application.dataPath + "/Resources/npcQuestData.json"))
+
+        for (int i = 0; i < files.Length; i++)
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/npcQuestData.json");
-            File.WriteAllText(Application.dataPath + "/Resources/NpcQuestData.json", "{\"statuses\":[{\"npcName\":\"Marco\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Pieter\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Bas\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Jan\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false}]}");
-        }
-        if (!Directory.Exists(Application.dataPath + "/Resources/playerQuest.json"))
-        {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/PlayerQuest.json");
-            File.WriteAllText(Application.dataPath + "/Resources/PlayerQuest.json", "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }");
+            string path = Application.persistentDataPath + "/Resources/" + files[i] + ".json";
+
+            if (!File.Exists(path))
+            {
+                Debug.Log("Created file");
+                FileStream fsr = File.Create(path);
+                fsr.Close();
+                File.WriteAllText(path, contents[i]);
+            }
         }
         if (!Directory.Exists(Application.dataPath + "/Resources/PlayerData.json"))
         {
@@ -39,8 +49,10 @@ public class JsonHandler : MonoBehaviour
 
     public T ReadFromJson<T>(string fileName)
     {
-        TextAsset jsonFile = Resources.Load<TextAsset>(fileName);
-        Debug.Log("Read from JSON: " + jsonFile.name);
-        return JsonUtility.FromJson<T>(jsonFile.text);
+        string path = Application.persistentDataPath + "/Resources/" + fileName + ".json";
+        string jsonString = File.ReadAllText(path);
+        Debug.Log(jsonString);
+
+        return JsonUtility.FromJson<T>(jsonString);
     }
 }
