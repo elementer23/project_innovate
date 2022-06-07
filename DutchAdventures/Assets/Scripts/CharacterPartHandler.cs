@@ -6,16 +6,8 @@ using UnityEngine.UI;
 public class CharacterPartHandler : MonoBehaviour
 {
 
-    //False = Male, True = Female.
-    // private bool gender = false;
-
-    /*    [SerializeField]
-        private Button maleButton;
-
-        [SerializeField]
-        private Button femaleButton;*/
-
-    private int[] currentSprites = new int[4];
+    //Heeft index nummer van de spriteArray.
+    private int currentHairSprite = 0;
 
     [SerializeField]
     private Sprite[] frontHairSprites;
@@ -31,39 +23,39 @@ public class CharacterPartHandler : MonoBehaviour
 
     public void nextPart()
     {
-        //Check if there is a next part in the array.
-        //If there is, get that part.
-        //Also check if there is a part after this.
-        //Disable out button if there is not.
+        if (currentHairSprite >= frontHairSprites.Length - 1)
+        {
+            return;
+        }
+        currentHairSprite++;
+        Sprite newFrontSprite = frontHairSprites[currentHairSprite];
+        Sprite newSideSprite = sideHairSprites[currentHairSprite];
+        GameObject.Find("HairLeftArrow").GetComponent<Button>().interactable = true;
+        if (currentHairSprite == frontHairSprites.Length - 1)
+        {
+            //Disable button
+            GameObject.Find("HairRightArrow").GetComponent<Button>().interactable = false;
+        }
+        GameObject.Find("HairFront").GetComponent<Image>().sprite = newFrontSprite;
+        GameObject.Find("HairSide").GetComponent<Image>().sprite = newSideSprite;
     }
 
     public void previousPart()
     {
-
-    }
-
-    public void selectPart()
-    {
-
-    }
-
-   /* public void setGender(bool gender)
-    {
-        if (gender)
+        if (currentHairSprite <= 0)
         {
-            GameObject.Find("HairFront").GetComponent<Image>().sprite = femaleHairFront;
-            GameObject.Find("HairSide").GetComponent<Image>().sprite = femaleHairSide;
-            femaleButton.interactable = false;
-            maleButton.interactable = true;
+            return;
         }
-        else
+        currentHairSprite--;
+        Sprite newFrontSprite = frontHairSprites[currentHairSprite];
+        Sprite newSideSprite = sideHairSprites[currentHairSprite];
+        GameObject.Find("HairRightArrow").GetComponent<Button>().interactable = true;
+        if (currentHairSprite == 0)
         {
-            GameObject.Find("HairFront").GetComponent<Image>().sprite = maleHairFront;
-            GameObject.Find("HairSide").GetComponent<Image>().sprite = maleHairSide;
-            femaleButton.interactable = true;
-            maleButton.interactable = false;
+            //Disable button
+            GameObject.Find("HairLeftArrow").GetComponent<Button>().interactable = false;
         }
-
-        this.gender = gender;
-    }*/
+        GameObject.Find("HairFront").GetComponent<Image>().sprite = newFrontSprite;
+        GameObject.Find("HairSide").GetComponent<Image>().sprite = newSideSprite;
+    }
 }

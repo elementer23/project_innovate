@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterCustHandler : MonoBehaviour
 {
     [SerializeField]
     private Button currentButton;
 
+    [SerializeField]
+    private GameObject arrowContainer;
+
     public Image frontImage;
     public Image sideImage;
 
     [SerializeField]
     private FlexibleColorPicker fcp;
+
+    public TMP_InputField nameField;
 
     private string currentPart = "Skin";
 
@@ -47,6 +53,8 @@ public class CharacterCustHandler : MonoBehaviour
 
         startAnimation(frontImage);
         startAnimation(sideImage);
+
+        arrowContainer.SetActive(type == "Hair");
     }
 
     public void setColor(Color color)
@@ -66,5 +74,10 @@ public class CharacterCustHandler : MonoBehaviour
     {
         Animator anim = image.GetComponent<Animator>();
         anim.enabled = false;
+    }
+
+    public void nameChange()
+    {
+        GameObject.Find("ContinueButton").GetComponent<Button>().interactable = (nameField.text.Length > 0);
     }
 }

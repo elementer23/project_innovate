@@ -357,8 +357,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 5.1833334
-    functionName: toLanguageMenu
-    data: 
+    functionName: toSceneNoPopup
+    data: LanguageMenu
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
