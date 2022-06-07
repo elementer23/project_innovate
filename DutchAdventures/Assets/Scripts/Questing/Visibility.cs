@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Visibility : MonoBehaviour
 {
+    /*
     private NpcQuestStatuses questSaver;
     private NpcQuestStatus questStatus;
     private string questTitle;
@@ -26,4 +27,5 @@ public class Visibility : MonoBehaviour
             }
         }
     }
+    */
 }
