@@ -11,9 +11,15 @@ public class SaveGame : MonoBehaviour
     public PlayerData playerData;
     public Transform player;
 
+    private void Start()
+    {
+        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+    }
+
     public void SavePlayer()
     {
         //playerData = jsonHandler.ReadFromJson<PlayerData>(jsonFile);
+        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
 
         playerData = new PlayerData(GetPlayerLocation(), GetCurrentScene());
 
@@ -61,6 +67,12 @@ public class SaveGame : MonoBehaviour
 
     //      
 
+}
+
+[System.Serializable] 
+public class PlayerDatas
+{
+    public PlayerData[] data;
 }
 
 [System.Serializable]

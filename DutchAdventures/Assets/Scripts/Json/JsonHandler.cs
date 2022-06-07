@@ -24,6 +24,11 @@ public class JsonHandler : MonoBehaviour
             Directory.CreateDirectory(Application.dataPath + "/Resources/PlayerQuest.json");
             File.WriteAllText(Application.dataPath + "/Resources/PlayerQuest.json", "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }");
         }
+        if (!Directory.Exists(Application.dataPath + "/Resources/PlayerData.json"))
+        {
+            Directory.CreateDirectory(Application.dataPath + "/Resources/PlayerData.json");
+            File.WriteAllText(Application.dataPath + "/Resources/PlayerData.json", "{ \"position\": \"\", \"currentScene\": \"\" }");
+        }
     }
 
     public void WriteToJson<T>(T dataToWrite, string fileName)
