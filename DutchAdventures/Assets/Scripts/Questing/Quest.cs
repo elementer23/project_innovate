@@ -14,7 +14,7 @@ public class Quest
     public string[] itemReward;
     
     // create Emty quest
-    public static Quest empty = new Quest("", "", "", "", 0, false, new string[] { });
+    public static Quest empty = new Quest("", "", "", "", 0, false, new string[0]);
     
     //Quest constructor
     public Quest(string title, string desc, string npcName, string requestedItem, int coins, bool canRewardItem, string[] itemsReward)
@@ -25,13 +25,7 @@ public class Quest
         this.requestedItem = requestedItem;
         this.rewardCoins = coins;
         this.canRewardItem = canRewardItem;
-
-        int index = 0;
-        foreach (string item in itemsReward)
-        {
-            this.itemReward[index] = item;
-            index++;
-        }
+        this.itemReward = itemsReward;
     }
 
     //Function to check if the quest is empty; it has no title or desc.

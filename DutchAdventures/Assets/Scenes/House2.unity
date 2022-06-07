@@ -5628,7 +5628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyItem: Money
-  requiredQuest: Frikandel
+  requiredQuest: Money
 --- !u!1 &2024230139
 GameObject:
   m_ObjectHideFlags: 0
