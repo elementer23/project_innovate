@@ -7,8 +7,6 @@ public class JsonHandler : MonoBehaviour
 {
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-
         string[] files = { "KeyItems", "npcQuestData", "playerQuest" };
         string[] contents =
         {
@@ -33,6 +31,11 @@ public class JsonHandler : MonoBehaviour
                 fsr.Close();
                 File.WriteAllText(path, contents[i]);
             }
+        }
+        if (!Directory.Exists(Application.dataPath + "/Resources/PlayerData.json"))
+        {
+            Directory.CreateDirectory(Application.dataPath + "/Resources/PlayerData.json");
+            File.WriteAllText(Application.dataPath + "/Resources/PlayerData.json", "{ \"position\": \"\", \"currentScene\": \"\" }");
         }
     }
 
