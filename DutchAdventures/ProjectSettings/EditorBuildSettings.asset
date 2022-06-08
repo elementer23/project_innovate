@@ -53,5 +53,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}
+  - enabled: 1
+    path: Assets/Scenes/Menu/CharacterCreation.unity
+    guid: 4ba8e0e088747044cb3e8559d2e57931
+  - enabled: 1
+    path: Assets/Scenes/Menu/LevelSelect.unity
+    guid: 7905bbc45e327ba45bb022528bf8733b
+  m_configObjects: {}
