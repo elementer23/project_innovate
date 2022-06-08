@@ -62,6 +62,11 @@ public class PlayerQuestHandler : MonoBehaviour
         return quest;
     }
 
+    public void resetQuest()
+    {
+        this.quest = Quest.empty;
+    }
+
     //void saveQuest()
     //{
     //    File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));

@@ -7,6 +7,8 @@ public class QuestUI : MonoBehaviour
 {
     //public PlayerQuestHandler playerQuestHandler;
     public JsonHandler jsonHandler;
+    private QuestStatusSaver questStatusSaver;
+
     private CanvasGroup canvasGroup;
     private CanvasGroup questTextCG;
 
@@ -17,6 +19,10 @@ public class QuestUI : MonoBehaviour
     private bool hasQuest = false;
     private Quest currentQuest;
     private bool menuIsVisible;
+
+    //Store a reference to the NPC, so the npc know if the quest has been accepted.
+    [HideInInspector]
+    public NPCController npcController;
 
     void Start()
     {
@@ -31,6 +37,7 @@ public class QuestUI : MonoBehaviour
 
         jsonHandler = GameObject.Find("JsonHandler").GetComponent<JsonHandler>();
         currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
+        questStatusSaver = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>();
     }
 
     private void Update()
@@ -71,14 +78,25 @@ public class QuestUI : MonoBehaviour
         }
     }
 
-    //public void removeQuest()
-    //{
-    //    //Unset the quest from the player and the menu.
-    //    playerQuestHandler.setQuest(Quest.empty);
+    public void removeQuest()
+    {
+        //Unset the quest from the player and npc the menu.
+        currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
+        string npcName = currentQuest.npcName;
 
-    //    GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().resetNpc();
-    //    currentQuest = Quest.empty;
-    //}
+        //Reset player quest json
+        currentQuest = Quest.empty;
+        jsonHandler.WriteToJson<Quest>(currentQuest, "playerQuest");
+
+        //Resetting NPC and playerQuest
+        GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
+        GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
+
+        // Update NPC quest data
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName);
+       
+
+    }
 
     private void makeVisible(CanvasGroup cg, bool visible)
     {

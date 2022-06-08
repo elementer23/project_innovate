@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Windmolen.unity
     guid: 4e5a1795f3f213b4992aac2b7d5076e3
   - enabled: 1
+    path: Assets/Scenes/House1.unity
+    guid: 5942afd2ee2d6184eb961d568aafef92
+  - enabled: 1
     path: Assets/Scenes/House2.unity
     guid: c26b3a02967fba44db718fb946f3fb47
   - enabled: 0
@@ -56,10 +59,5 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Menu/CharacterCreation.unity
-    guid: 4ba8e0e088747044cb3e8559d2e57931
-  - enabled: 1
-    path: Assets/Scenes/Menu/LevelSelect.unity
-    guid: 7905bbc45e327ba45bb022528bf8733b
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}
