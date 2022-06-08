@@ -34,11 +34,11 @@ public class QuestHandler : MonoBehaviour
         //Add the quest to the player.
         player.setQuest(quest);
 
-        //Add the quest to the quest menu.
-        questUI.addQuest(quest);
-
         //Save the quest data to the JSON
         GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName);
+
+        //Add the quest to the quest menu.
+        questUI.addQuest();
 
         //Destroy the quest box UI object.
         Destroy(gameObject);

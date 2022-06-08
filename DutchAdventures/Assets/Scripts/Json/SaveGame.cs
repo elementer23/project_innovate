@@ -2,23 +2,49 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class SaveGame : MonoBehaviour 
+public class SaveGame : MonoBehaviour
 {
 
     public TextAsset jsonFile;
-    private JsonHandler jsonHandler;
+    public JsonHandler jsonHandler;
 
-    public PlayerData playerData;
+    private PlayerData playerData;
     public Transform player;
+
+    private void Start()
+    {
+        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+    }
 
     public void SavePlayer()
     {
-        //playerData = jsonHandler.ReadFromJson<PlayerData>(jsonFile);
 
-        playerData = new PlayerData(player.transform.position, SceneManager.GetActiveScene().name);
+        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+
+        playerData = new PlayerData(GetPlayerLocationX(), GetPlayerLocationY(), GetPlayerLocationZ(), GetCurrentScene());
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
 
+    }
+
+    private float GetPlayerLocationX()
+    { 
+        return player.transform.position.x;
+    }
+
+    private float GetPlayerLocationY()
+    {
+        return player.transform.position.y;
+    }
+
+    private float GetPlayerLocationZ()
+    {
+        return player.transform.position.z;
+    }
+
+    private string GetCurrentScene()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 
     // klik op knop save trigger functie 
@@ -52,14 +78,18 @@ public class SaveGame : MonoBehaviour
 }
 
 [System.Serializable]
-
 public class PlayerData
 {
-    public Vector3 position;
+    public float posX;
+    public float posY;
+    public float posZ;
     public string sceneName;
-    public PlayerData(Vector3 position, string currentScene)
+
+    public PlayerData(float posX, float posY, float posZ, string currentScene)
     {
-        this.position = position;
+        this.posX = posX;
+        this.posY = posY;
+        this.posZ = posZ;
         this.sceneName = currentScene;
     }
 }

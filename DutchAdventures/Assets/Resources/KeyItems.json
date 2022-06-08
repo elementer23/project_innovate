@@ -1,48 +1,52 @@
 {
-    "items": [
-        {
-            "name": "Jerrycan",
-            "collected": false
-        },
-        {
-            "name": "Wrench",
-            "collected": false
-        },
-        {
-            "name": "WaterFulled",
-            "collected": false
-        },
-        {
-            "name": "Money",
-            "collected": true
-        },
-        {
-            "name": "Pinpas",
-            "collected": false
-        },
-        {
-            "name": "Frikandel",
-            "collected": false
-        },
-        {
-            "name": "Heggenschaar",
-            "collected": false
-        },
-        {
-            "name": "Tulip",
-            "collected": false
-        },
-        {
-            "name": "FietsCertivicaat",
-            "collected": false
-        },
-        {
-            "name": "Bike",
-            "collected": false
-        },
-        {
-            "name": "Bezem",
-            "collected": false
-        }
-    ]
+  "items": [
+    {
+      "name": "Jerrycan",
+      "collected": true
+    },
+    {
+      "name": "Wrench",
+      "collected": true
+    },
+    {
+      "name": "WaterFulled",
+      "collected": false
+    },
+    {
+      "name": "Money",
+      "collected": true
+    },
+    {
+      "name": "Pinpas",
+      "collected": false
+    },
+    {
+      "name": "Frikandel",
+      "collected": false
+    },
+    {
+      "name": "Heggenschaar",
+      "collected": false
+    },
+    {
+      "name": "Tulip",
+      "collected": false
+    },
+    {
+      "name": "FietsCertivicaat",
+      "collected": false
+    },
+    {
+      "name": "Bike",
+      "collected": false
+    },
+    {
+      "name": "Gear",
+      "collected": false
+    },
+    {
+      "name": "Borstel",
+      "collected": false
+    }
+  ]
 }
