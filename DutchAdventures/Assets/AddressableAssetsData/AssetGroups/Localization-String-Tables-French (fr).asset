@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: cc672770f3097344a8d8d554a185a6b7
   m_SerializeEntries:
-  - m_GUID: a6be53618cb29344d84ba6b1fbef82df
-    m_Address: UIText_fr
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-fr
   - m_GUID: 7796c2897488368409f728222f4e654b
     m_Address: TranslationTable_fr
     m_ReadOnly: 1
