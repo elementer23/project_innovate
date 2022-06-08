@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: 57aeb8fa7055f50498421bf5ff140ded
-    m_Address: Japanese (ja)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
   - m_GUID: 1e43c8053fa4ac64b99ab7b0dab08e0e
     m_Address: Dutch (nl)
     m_ReadOnly: 1
