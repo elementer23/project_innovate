@@ -2,11 +2,11 @@
   "items": [
     {
       "name": "Jerrycan",
-      "collected": false
+      "collected": true
     },
     {
       "name": "Wrench",
-      "collected": false
+      "collected": true
     },
     {
       "name": "WaterFulled",

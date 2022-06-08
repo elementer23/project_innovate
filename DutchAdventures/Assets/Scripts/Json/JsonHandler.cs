@@ -9,12 +9,13 @@ public class JsonHandler : MonoBehaviour
     {
         DontDestroyOnLoad(this);
 
-        string[] files = { "KeyItems", "npcQuestData", "playerQuest" };
+        string[] files = { "KeyItems", "npcQuestData", "playerQuest", "PlayerData" };
         string[] contents =
         {
             "{\"items\":[{\"name\":\"Jerrycan\",\"collected\":false},{\"name\":\"Wrench\",\"collected\":false},{\"name\":\"WaterFulled\",\"collected\":false},{\"name\":\"Money\",\"collected\":false},{\"name\":\"Pinpas\",\"collected\":false},{\"name\":\"Frikandel\",\"collected\":false},{\"name\":\"Heggenschaar\",\"collected\":false},{\"name\":\"Tulip\",\"collected\":false},{\"name\":\"FietsCertivicaat\",\"collected\":false},{\"name\":\"Bike\",\"collected\":false},{\"name\":\"Bezem\",\"collected\":false}]}",
             "{\"statuses\":[{\"npcName\":\"Marco\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Pieter\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Bas\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Jan\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false}]}",
-            "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }"
+            "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }",
+            "{\"saveData\":[{\"posX\": \"\", \"posY\": \"\", \"posZ\": \"\", \"sceneName\": \"\"}]}"
         };
 
         if (!Directory.Exists(Application.persistentDataPath + "/Resources/"))
@@ -33,11 +34,6 @@ public class JsonHandler : MonoBehaviour
                 fsr.Close();
                 File.WriteAllText(path, contents[i]);
             }
-        }
-        if (!Directory.Exists(Application.dataPath + "/Resources/PlayerData.json"))
-        {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/PlayerData.json");
-            File.WriteAllText(Application.dataPath + "/Resources/PlayerData.json", "{ \"position\": \"\", \"currentScene\": \"\" }");
         }
     }
 
