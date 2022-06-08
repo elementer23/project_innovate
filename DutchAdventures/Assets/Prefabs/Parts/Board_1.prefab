@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5019258151166313669}
   - component: {fileID: 5019258151166313670}
   - component: {fileID: 5019258151166313671}
-  - component: {fileID: 5019258151166313668}
+  - component: {fileID: 1059593513413054554}
+  - component: {fileID: 2095066232}
   m_Layer: 0
   m_Name: Board_1
   m_TagString: Untagged
@@ -113,7 +114,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5019258151166313668
+--- !u!114 &1059593513413054554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,15 +123,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5019258151166313665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee1f2831650ac2418fe56dbc7b6d1b1, type: 3}
+  m_Script: {fileID: 11500000, guid: b57c340dd86b603439754757a0b625e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 0}
-  text: Boekdingen waarvan je leert.
-  pointer: {fileID: 5019258153072751563}
-  player: {fileID: 0}
-  canTouch: 0
-  signText: {fileID: 0}
+--- !u!114 &2095066232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019258151166313665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a0ebacbd81aff449895d043567fd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Infobord
+    sentences: []
 --- !u!1 &5019258153072751563
 GameObject:
   m_ObjectHideFlags: 0

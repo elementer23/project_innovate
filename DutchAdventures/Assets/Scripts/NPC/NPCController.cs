@@ -6,37 +6,35 @@ public class NPCController : MonoBehaviour
 {
     private Transform player;
     private Transform canvas;
-
-    [SerializeField]
-    private GameObject dialogIcon;
-
+    private int minDist = 2;
     private QuestStatusSaver questStatusSaver;
 
-    [HideInInspector]
-    public GameObject dialogPrefab;
-    [HideInInspector]
-    public GameObject questPrefab;
-    [HideInInspector]
-    public GameObject competionDialogPrefab;
-    [HideInInspector]
-    public GameObject questIconPrefab;
-    [HideInInspector]
-    public GameObject dialogIconPrefab;
+    [SerializeField]
+    private GameObject dialogPrefab;
+    [SerializeField]
+    private GameObject questPrefab;
+    [SerializeField]
+    private GameObject competionDialogPrefab;
+
+    [SerializeField]
+    private GameObject questIconPrefab;
 
     [Header("Dialog")]
     public string npcName;
     public string startDialog;
+    public string notCompletedDialog;
     public string completionDialog;
+    public string postCompletionDialog;
 
     [Header("Quest")]
     public Quest quest;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasAccepted = false;
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasCompletedQuest = false;
-    private bool isQuestGiver = false;
-
+    [HideInInspector]
+    public bool isQuestGiver = false;
 
     void Start()
     {
@@ -54,24 +52,17 @@ public class NPCController : MonoBehaviour
 
         isQuestGiver = !quest.isEmpty();
 
-        //If the NPC has a quest, spawn in a exclemation mark above their head.
-        if (!hasAccepted && !hasCompletedQuest)
-        {
-            if (isQuestGiver)
-            {
-                Instantiate(questIconPrefab, transform);
-                quest.npcName = npcName;
-            }
-            else
-            {
-                dialogIcon = Instantiate(dialogIconPrefab, transform);
-            }
-        }
-
         //Get the status from the npc quest saver and update the local values
         bool[] status = questStatusSaver.getNpcStatus(npcName);
         hasAccepted = status[0];
         hasCompletedQuest = status[1];
+
+        //Spawn a quest marker/dialog icon above the npc
+        Instantiate(questIconPrefab, transform);
+        if (isQuestGiver)
+        {
+            quest.npcName = npcName;
+        }
     }
 
     private void Update()
@@ -79,10 +70,13 @@ public class NPCController : MonoBehaviour
         if (!isQuestGiver)
         {
             float dist = Vector2.Distance(player.transform.position, gameObject.transform.position);
-            bool isClose = dist < 2;
-
-            dialogIcon.SetActive(isClose);
+            bool isClose = dist < minDist;
         }
+    }
+
+    public void saveNpcData()
+    {
+
     }
 
     //When the player presses on the NPC,
@@ -90,45 +84,53 @@ public class NPCController : MonoBehaviour
     {
         //Check if the player is close enough to the NPC,
         float dist = Vector2.Distance(player.position, transform.position);
-        if (dist < 2)
+        if (dist < minDist)
         {
             //Get the status from the npc quest saver and update the local values
             bool[] status = questStatusSaver.getNpcStatus(npcName);
             hasAccepted = status[0];
             hasCompletedQuest = status[1];
 
-            //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
-            if (!quest.isEmpty())
+            if (!startDialog.Equals(string.Empty))
             {
-                //Check if the player has completed the quest or not.
-                if (!hasCompletedQuest)
+                //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
+                if (!quest.isEmpty())
                 {
-                    //Check if the player has the item needed for the quest.
-                    if (player.GetComponent<KeyItemsSaver>().hasItem(quest.requestedItem))
+                    if (!hasAccepted)
                     {
-                        addDialog(dialogPrefab, "Dialogbox(Clone)", completionDialog, false);
-                        hasCompletedQuest = true;
+                        //Give player quest
+                        addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                     }
                     else
                     {
-                        //If the quest from the NPC has not been accepted yet,
-                        if (!hasAccepted)
+                        if (!hasCompletedQuest)
                         {
-                            addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
-                        } else
+                            if (player.GetComponent<KeyItemsSaver>().hasItem(quest.requestedItem))
+                            {
+                                //Complete the quest
+                                addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                            }
+                            else
+                            {
+                                //Quest not finished yet
+                                addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                            }
+                        }
+                        else
                         {
-                            addDialog(dialogPrefab, "Dialogbox(Clone)", "Come back when you have completed the quest...", false);
+                            //Quest is already finished finished
+                            addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
                         }
                     }
                 }
-            }
-            //Check if npc has dialog
-            else if (!startDialog.Equals(string.Empty))
-            {
-                string dialog = !hasCompletedQuest ? startDialog : completionDialog;
+                //Npc does not give quests and just talks.
+                else
+                {
+                    string dialog = !hasCompletedQuest ? startDialog : completionDialog;
 
-                addDialog(dialogPrefab, "Dialogbox(Clone)", dialog, false);
-             }
+                    addDialog(dialogPrefab, "Dialogbox(Clone)", dialog, false);
+                }
+            }
         }
     }
 

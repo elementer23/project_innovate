@@ -7,8 +7,6 @@ using TMPro;
 public class DialogHandler : MonoBehaviour
 {
     [SerializeField]
-    private bool isCompletionDialog = false;
-    [SerializeField]
     private TextMeshProUGUI dialogBox;
     [SerializeField]
     private TextMeshProUGUI npcNameTxt;
@@ -63,7 +61,11 @@ public class DialogHandler : MonoBehaviour
 
     public void completeQuest()
     {
+        Debug.Log("Complete quest");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().completeQuest();
+        GameObject.Find(npcName).GetComponent<NPCController>().hasCompletedQuest = true;
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName);
+        closeBtn();
     }
 
     IEnumerator printText()
