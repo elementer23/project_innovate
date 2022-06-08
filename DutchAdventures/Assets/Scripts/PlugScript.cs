@@ -7,11 +7,19 @@ public class PlugScript : MonoBehaviour
     [SerializeField]
     private LineRenderer lineRenderer;
 
+    private KeyItemsSaver keyItemsSaver;
+
     private bool isDragging = false;
 
     public float maxLength = 1;
+    public string reward;
 
     public NPCController npc;
+
+    private void Start()
+    {
+        keyItemsSaver = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyItemsSaver>();
+    }
 
     void Update()
     {
@@ -60,6 +68,7 @@ public class PlugScript : MonoBehaviour
         {
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, collision.transform.position - lineRenderer.transform.position - new Vector3(0, 0.5f, 0));
             isDragging = false;
+            keyItemsSaver.setItem(reward, true);
             GetComponent<BoxCollider2D>().enabled = false;
         }
     }
