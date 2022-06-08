@@ -16,6 +16,7 @@ public class LanguageData : MonoBehaviour
 
     public void applyLanguage()
     {
+        //TODO: Save language.
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
