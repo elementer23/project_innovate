@@ -1,1 +1,29 @@
-{"statuses":[{"npcName":"Marco","hasTakenQuest":false,"hasCompletedQuest":false},{"npcName":"Pieter","hasTakenQuest":false,"hasCompletedQuest":false},{"npcName":"Bas","hasTakenQuest":false,"hasCompletedQuest":false},{"npcName":"Jan","hasTakenQuest":true,"hasCompletedQuest":true}]}
+{
+  "statuses": [
+    {
+      "npcName": "Marco",
+      "hasTakenQuest": false,
+      "hasCompletedQuest": false
+    },
+    {
+      "npcName": "Pieter",
+      "hasTakenQuest": false,
+      "hasCompletedQuest": false
+    },
+    {
+      "npcName": "Bas",
+      "hasTakenQuest": false,
+      "hasCompletedQuest": false
+    },
+    {
+      "npcName": "Jan",
+      "hasTakenQuest": true,
+      "hasCompletedQuest": true
+    },
+    {
+      "npcName": "Oudeman1",
+      "hasTakenQuest": false,
+      "hasCompletedQuest": false
+    }
+  ]
+}

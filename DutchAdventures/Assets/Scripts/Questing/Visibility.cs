@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class Visibility : MonoBehaviour
 {
-    /*
-    private NpcQuestStatuses questSaver;
-    private NpcQuestStatus questStatus;
-    private string questTitle;
+    public JsonHandler jsonHandler;
+    public string[] canStartQuest;
+    [SerializeField]
+    private GameObject npc;
+    
 
     private void Start()
     {
-        foreach(Quest quest in questSaver.statuses) 
+        NpcQuestStatuses questStatus = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
+        foreach (NpcQuestStatus obj in questStatus.statuses)
         {
-            if (quest.title == questTitle)
+            foreach (string name in canStartQuest)
             {
-                if (!questStatus.hasCompletedQuest)
+                if (obj.npcName == name)
                 {
-                    gameObject.SetActive(false);
-                    // of GetComponent(MeshRenderer).enabled = false;
-                }
-                else 
-                {
-                    gameObject.SetActive(true);
+                    Debug.Log("Oude man");
+                    if (obj.hasCompletedQuest == true)
+                    {
+                        npc.SetActive(true);
+                    }
+                    else
+                    {
+                        npc.SetActive(false);
+                    }
                 }
             }
         }
     }
-    */
 }
