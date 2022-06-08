@@ -9,28 +9,16 @@ public class PlugScript : MonoBehaviour
 
     private bool isDragging = false;
 
+    public float maxLength = 1;
+
+    public NPCController npc;
+
     void Update()
     {
-        updateRot();
-
-        if (isDragging)
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-
-            if (pos != Vector3.zero)
-            {
-                lineRenderer.SetPosition(lineRenderer.positionCount - 1, pos - lineRenderer.transform.position);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            lineRenderer.positionCount++;
-        }
+        updatePosRot();
     }
 
-    void updateRot()
+    void updatePosRot()
     {
         Vector2 pos1 = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
         Vector2 pos2 = lineRenderer.GetPosition(lineRenderer.positionCount - 2);
@@ -41,11 +29,29 @@ public class PlugScript : MonoBehaviour
         float theta = Mathf.Atan2(diff.y, diff.x);
         float angle = theta * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
+
+        if (isDragging)
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - lineRenderer.transform.position;
+            pos.z = 0;
+
+            float sqrMag = ((Vector2)pos - pos2).sqrMagnitude;
+            Debug.Log(sqrMag);
+            if (sqrMag > maxLength * maxLength)
+            {
+                lineRenderer.positionCount++;
+            }
+
+            lineRenderer.SetPosition(lineRenderer.positionCount - 1, pos);
+        }
     }
 
     private void OnMouseDown()
     {
-        isDragging = !isDragging;
+        if (npc.hasAccepted)
+        {
+            isDragging = !isDragging;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
