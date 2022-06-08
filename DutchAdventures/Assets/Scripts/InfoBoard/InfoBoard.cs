@@ -9,18 +9,18 @@ public class InfoBoard : MonoBehaviour
     public CanvasGroup canvasGroup;
     public string text;
     public TextMeshProUGUI signText;
+    public Transform player;
     // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (canvasGroup != null && canvasGroup.interactable == true)
+        {
+            player.gameObject.SetActive(false);
+        }
+        else { 
+            player.gameObject.SetActive(true);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if (canvasGroup.alpha == 0)
@@ -36,12 +36,5 @@ public class InfoBoard : MonoBehaviour
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
-    }
-
-    public void SignMenuClose()
-    {
-        canvasGroup.alpha = 0;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
     }
 }

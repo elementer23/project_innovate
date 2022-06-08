@@ -13,7 +13,7 @@ public class JsonHandler : MonoBehaviour
             "{\"items\":[{\"name\":\"Jerrycan\",\"collected\":false},{\"name\":\"Wrench\",\"collected\":false},{\"name\":\"WaterFulled\",\"collected\":false},{\"name\":\"Money\",\"collected\":false},{\"name\":\"Pinpas\",\"collected\":false},{\"name\":\"Frikandel\",\"collected\":false},{\"name\":\"Heggenschaar\",\"collected\":false},{\"name\":\"Tulip\",\"collected\":false},{\"name\":\"FietsCertivicaat\",\"collected\":false},{\"name\":\"Bike\",\"collected\":false},{\"name\":\"Bezem\",\"collected\":false}]}",
             "{\"statuses\":[{\"npcName\":\"Marco\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Pieter\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Bas\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false},{\"npcName\":\"Jan\",\"hasTakenQuest\":false,\"hasCompletedQuest\":false}]}",
             "{ \"title\": \"\", \"description\": \"\", \"npcName\": \"\", \"requestedItem\": \"\", \"rewardCoins\": 0, \"canRewardItem\": false, \"itemReward\": \"\" }",
-            "{ \"position\": \"\", \"currentScene\": \"\" }"
+            "{\"saveData\":[{\"posX\": \"\", \"posY\": \"\", \"posZ\": \"\", \"sceneName\": \"\"}]}"
         };
 
         if (!Directory.Exists(Application.persistentDataPath + "/Resources/"))

@@ -1,29 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuTransition : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject popup;
-    void Start()
+    public GameObject loadPopup = null;
+
+    public void toSceneNoPopup(string scene)
     {
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
-    void Update()
+    public void toSceneWithPopup(string scene)
     {
+        loadPopup.SetActive(true);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
-
-    public void toLanguageMenu()
-    {
-        SceneManager.LoadScene("LanguageMenu", LoadSceneMode.Single);
-    }
-
-    public void toGame()
-    {
-        popup.SetActive(true);
-        SceneManager.LoadScene("BigCityScene", LoadSceneMode.Single);
-    }
-
 }
