@@ -5228,6 +5228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1091884073}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &599441664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5299,6 +5302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 0}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &599441667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5757,8 +5763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9357d3be4acea4bb9fdf52ccdb9294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 0}
-  player: {fileID: 0}
+  pointer: {fileID: 682287974}
+  player: {fileID: 1173045892}
   canTouch: 0
 --- !u!1 &816685940
 GameObject:
@@ -6012,6 +6018,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479bfdffcd185824fbf38161766cb600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QnA:
+  - Question: 
+    Answers: []
+    CorrectAnswer: 0
+  options:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentQuestion: 0
+  Quizpanel: {fileID: 270078504}
+  GoPanel: {fileID: 0}
+  QuestionTxt: {fileID: 0}
+  ScoreTxt: {fileID: 0}
+  score: 0
 --- !u!1 &1097487311
 GameObject:
   m_ObjectHideFlags: 0
@@ -7132,6 +7153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1091884073}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1111129547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8116,7 +8140,6 @@ GameObject:
   - component: {fileID: 1459001580}
   - component: {fileID: 1459001579}
   - component: {fileID: 1459001578}
-  - component: {fileID: 1459001577}
   m_Layer: 5
   m_Name: Optie1
   m_TagString: Untagged
@@ -8145,18 +8168,6 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: -100}
   m_SizeDelta: {x: 840, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1459001577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459001575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1459001578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8184,6 +8195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1091884073}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1459001580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,8 +8393,8 @@ GameObject:
   - component: {fileID: 1533208066}
   - component: {fileID: 1533208065}
   - component: {fileID: 1533208064}
+  - component: {fileID: 1533208067}
   - component: {fileID: 1533208063}
-  - component: {fileID: 1533208062}
   m_Layer: 5
   m_Name: Optie4
   m_TagString: Untagged
@@ -8409,18 +8423,6 @@ RectTransform:
   m_AnchoredPosition: {x: -430, y: -350}
   m_SizeDelta: {x: 840, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1533208062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533208060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1533208063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8518,6 +8520,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533208060}
   m_CullTransparentMesh: 1
+--- !u!114 &1533208067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533208060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5ed8fde9947b842bdcdfc263213876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1091884073}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1552536925
 PrefabInstance:
   m_ObjectHideFlags: 0
