@@ -16,17 +16,18 @@ public class QuestStatusSaver : MonoBehaviour
         npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
     }
 
-    public void writeNpcStatusToJson(string npcName)
+    public void writeNpcStatusToJson(string npcName, bool hasAccepted, bool hasCompletedQuest)
     {
         npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
-
-        NPCController npc = GameObject.Find(npcName).GetComponent<NPCController>();
+        
+        //gaat die niet vinden als de npc niet in scene zit
+        //NPCController npc = GameObject.Find(npcName).GetComponent<NPCController>();
 
         for (int i = 0; i < npcStatuses.statuses.Length; i++)
         {
             if (npcStatuses.statuses[i].npcName == npcName)
             {
-                npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
+                npcStatuses.statuses[i] = new NpcQuestStatus(npcName, hasAccepted, hasCompletedQuest);
             }
         }
 
