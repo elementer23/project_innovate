@@ -7,8 +7,6 @@ public class JsonHandler : MonoBehaviour
 {
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-
         string[] files = { "KeyItems", "npcQuestData", "playerQuest", "PlayerData" };
         string[] contents =
         {

@@ -14,7 +14,7 @@
     },
     {
       "name": "Money",
-      "collected": true
+      "collected": false
     },
     {
       "name": "Pinpas",
