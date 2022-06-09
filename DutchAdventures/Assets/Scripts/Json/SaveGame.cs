@@ -9,7 +9,8 @@ public class SaveGame : MonoBehaviour
     public JsonHandler jsonHandler;
 
     private PlayerData playerData;
-    public Transform player;
+    [SerializeField]
+    private Transform player;
     public PlayerSpawn spawnPos;
 
     [SerializeField]
@@ -25,7 +26,7 @@ public class SaveGame : MonoBehaviour
 
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
 
-        playerData = new PlayerData(playerLocation(), GetCurrentScene(), GetPlayerPreset());
+        playerData = new PlayerData(playerLocation(), GetCurrentScene(), GetPlayerPreset(), true);
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
 
@@ -116,11 +117,13 @@ public class PlayerData
     public float[] playerPosition;
     public string sceneName;
     public string[] playerPreset;
+    public bool playerSaved;
 
-    public PlayerData(float[] currentLocation, string currentScene, string[] preset)
+    public PlayerData(float[] currentLocation, string currentScene, string[] preset, bool isPlayerSaved)
     {
         this.sceneName = currentScene;
         this.playerPreset = preset;
         this.playerPosition = currentLocation;
+        this.playerSaved = isPlayerSaved;
     }
 }
