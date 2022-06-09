@@ -3242,6 +3242,10 @@ PrefabInstance:
         a "Moersleutel" and "Jerrycan". you can find these near the forest
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: requiredItem
+      value: Wrench
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.npcName
       value: Floor
       objectReference: {fileID: 0}

@@ -1309,7 +1309,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6a7f3d3cdf4214d46ba4cba4dc0eeb18, type: 2}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: Jay
+      value: Mayjor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: startDialog
+      value: Hello welcom to the city
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_RootOrder
@@ -1385,7 +1389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515745452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.445886, y: -14.090378, z: -1}
+  m_LocalPosition: {x: 12.445886, y: -14.090378, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9822,38 +9826,46 @@ PrefabInstance:
     - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1343667473, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+      objectReference: {fileID: -534374669, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1772325122, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
+      objectReference: {fileID: 509553041, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
     - target: {fileID: 6099842413559502300, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -265073497, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
+      objectReference: {fileID: -703760720, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
     - target: {fileID: 6099842413564005098, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2080880112, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
+      objectReference: {fileID: 925555429, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: "G\xFClten"
+      value: Mia
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: startDialog
+      value: You got some eggplant for me?
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018532, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -344763451, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
+      objectReference: {fileID: -1765893882, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.79
+      value: 22.79
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.29
+      value: 10.23
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9983,21 +9995,45 @@ PrefabInstance:
       propertyPath: playerColors
       value: 
       objectReference: {fileID: 11400000, guid: e81a83795ec7b08499d7e63f765ed97c, type: 2}
+    - target: {fileID: 6099842412142058318, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1468073263, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+    - target: {fileID: 6099842413099854055, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1422782628, guid: 0ae1677af726c0843ab41f27370763c9, type: 3}
+    - target: {fileID: 6099842413559502300, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1139196681, guid: d800fd973e586b14cad27ca7558efbcb, type: 3}
+    - target: {fileID: 6099842413564005098, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1172644522, guid: be1cf0874eabcb94aa433321faae253a, type: 3}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: 'Yonis '
+      value: Max
       objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: startDialog
+      value: Can you please go away i'm busy with my movie.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018532, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1426373847, guid: 0d641e57a20972d468e0ba7da4cccd43, type: 3}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.76
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.65
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107752,7 +107788,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5ede7cb24233a0f4a949a420f47ced4b, type: 2}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: Lina
+      value: Lana
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.title
@@ -107763,8 +107799,12 @@ PrefabInstance:
       value: Hello i lost my "Moersleutel" can you find it?
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: requiredItem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.npcName
-      value: Lina
+      value: Lana
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: completionDialog
@@ -107808,11 +107848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.025696
+      value: 21.24
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.150598
+      value: 10.18
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.z
