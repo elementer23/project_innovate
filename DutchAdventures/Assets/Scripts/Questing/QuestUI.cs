@@ -7,6 +7,7 @@ public class QuestUI : MonoBehaviour
 {
     //public PlayerQuestHandler playerQuestHandler;
     public JsonHandler jsonHandler;
+    [SerializeField]
     private QuestStatusSaver questStatusSaver;
 
     private CanvasGroup canvasGroup;
@@ -37,7 +38,6 @@ public class QuestUI : MonoBehaviour
 
         jsonHandler = GameObject.Find("JsonHandler").GetComponent<JsonHandler>();
         currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
-        questStatusSaver = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>();
     }
 
     private void Update()
@@ -90,10 +90,15 @@ public class QuestUI : MonoBehaviour
 
         //Resetting NPC and playerQuest
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
-        GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
+        
+        if (GameObject.Find(npcName) != null)
+        {
+            GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
+
+        }
 
         // Update NPC quest data
-        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName);
+        questStatusSaver.writeNpcStatusToJson(npcName, false, false);
        
 
     }

@@ -13,9 +13,9 @@ scopes = {
 	"last_search.B064B029" = ""
 	"OpenInspectorPreview.B064B029" = "0"
 	"currentGroup.B064B029" = "all"
-	"last_search.DA949528" = "build"
+	"last_search.DA949528" = "QuestUi"
 	"OpenInspectorPreview.DA949528" = "0"
-	"currentGroup.DA949528" = "all"
+	"currentGroup.DA949528" = "menu"
 }
 providers = {
 	adb = {
@@ -62,6 +62,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"Q"
 	"ti"
 ]
 searchItemFavorites = [
