@@ -35,7 +35,7 @@ public class QuestHandler : MonoBehaviour
         player.setQuest(quest);
 
         //Save the quest data to the JSON
-        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName);
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName, true, false);
 
         //Add the quest to the quest menu.
         questUI.addQuest();

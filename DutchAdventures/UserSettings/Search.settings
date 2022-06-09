@@ -15,7 +15,7 @@ scopes = {
 	"currentGroup.B064B029" = "all"
 	"last_search.DA949528" = "build settings"
 	"OpenInspectorPreview.DA949528" = "0"
-	"currentGroup.DA949528" = "all"
+	"currentGroup.DA949528" = "menu"
 }
 providers = {
 	adb = {
