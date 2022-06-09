@@ -453,11 +453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2511498801491701305, guid: 9f35aa51a06ae584bac558aa7cbced20, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 66.100006
+      value: 58.873
       objectReference: {fileID: 0}
     - target: {fileID: 2511498801491701305, guid: 9f35aa51a06ae584bac558aa7cbced20, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51.300003
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2511498801491701305, guid: 9f35aa51a06ae584bac558aa7cbced20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -901,9 +901,25 @@ PrefabInstance:
       propertyPath: questStatusSaver
       value: 
       objectReference: {fileID: 930643068}
+    - target: {fileID: 1170474045298525007, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 328.10004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170474045298525007, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 77.399994
+      objectReference: {fileID: 0}
     - target: {fileID: 1186902546662835182, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_Name
       value: QuestMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940110999784685035, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 248.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940110999784685035, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 8260024517376010104, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_Alpha

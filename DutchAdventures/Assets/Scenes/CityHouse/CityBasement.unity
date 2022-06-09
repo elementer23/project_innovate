@@ -330,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8832269471714234351, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8832269471714234351, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
       propertyPath: m_AnchorMax.x
@@ -529,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 518374176440971983, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 518374176440971983, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_AnchorMax.x
@@ -611,9 +611,25 @@ PrefabInstance:
       propertyPath: questStatusSaver
       value: 
       objectReference: {fileID: 48010675}
+    - target: {fileID: 1170474045298525007, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 327.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170474045298525007, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 77.100006
+      objectReference: {fileID: 0}
     - target: {fileID: 1186902546662835182, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_Name
       value: QuestMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940110999784685035, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 247.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940110999784685035, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 8260024517376010104, guid: e874fc2023a1fba479dddfe6f7f378ec, type: 3}
       propertyPath: m_Alpha
@@ -11400,7 +11416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016718720351966942, guid: c4ee992f3b5edc54ca396561bd8dbabc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2016718720351966942, guid: c4ee992f3b5edc54ca396561bd8dbabc, type: 3}
       propertyPath: m_AnchorMax.x
