@@ -9918,11 +9918,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c8dafcdbf199cd84c83da0bfb7e7560e, type: 2}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: 'Anoushka '
+      value: Goldboy
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: startDialog
-      value: Hello How are you?
+      value: GOLD!!!!
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_RootOrder
