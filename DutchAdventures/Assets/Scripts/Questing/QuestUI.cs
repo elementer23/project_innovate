@@ -6,16 +6,10 @@ using TMPro;
 public class QuestUI : MonoBehaviour
 {
     //public PlayerQuestHandler playerQuestHandler;
-<<<<<<< Updated upstream
-    public JsonHandler jsonHandler;
-    [SerializeField]
-    private QuestStatusSaver questStatusSaver;
-=======
     [SerializeField]
     private JsonHandler jsonHandler;
     [SerializeField]
     private Animator completedPopup;
->>>>>>> Stashed changes
 
     private CanvasGroup canvasGroup;
     private CanvasGroup questTextCG;
@@ -102,7 +96,6 @@ public class QuestUI : MonoBehaviour
         jsonHandler.WriteToJson(currentQuest, "playerQuest");
 
         //Resetting NPC and playerQuest
-<<<<<<< Updated upstream
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
         
         if (GameObject.Find(npcName) != null)
@@ -113,14 +106,6 @@ public class QuestUI : MonoBehaviour
 
         // Update NPC quest data
         questStatusSaver.writeNpcStatusToJson(npcName, false, false);
-       
-
-=======
-        GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
-
-        // Update NPC quest data
-        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName);
->>>>>>> Stashed changes
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)
