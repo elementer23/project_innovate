@@ -72,8 +72,8 @@ public class NPCController : MonoBehaviour
             Instantiate(questIconPrefab, transform);
         }
 
-        //hasRequiredItem = keyItemsSaver.hasItem(requiredItem);
-        hasRequiredItem = player.getQuest().hasCompleted;
+        hasRequiredItem = player.GetComponent<KeyItemsSaver>().hasItem(requiredItem);
+        //hasRequiredItem = player.getQuest().hasCompleted;
 
         if (requiredItem == string.Empty)
         {
@@ -171,9 +171,9 @@ public class NPCController : MonoBehaviour
     }
 
     //Function to reset the NPC after completion or abanoning of the quest.
-    public void resetNpc()
+    public void setNpc(bool hasTaken, bool hasCompleted)
     {
-        hasAccepted = true;
-        hasCompletedQuest = true;
+        hasAccepted = hasTaken;
+        hasCompletedQuest = hasCompleted;
     }
 }

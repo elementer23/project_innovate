@@ -79,8 +79,7 @@ public class QuestUI : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
 
         // Update NPC quest data
-        questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, false, false);
-        resetQuest();
+        resetQuest(false, false);
     }
 
     public void completeQuest()
@@ -88,23 +87,18 @@ public class QuestUI : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
 
         // Update NPC quest data
-        questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, true, true);
-        resetQuest();
+        resetQuest(true, true);
     }
 
-    private void resetQuest()
+    private void resetQuest(bool hasTaken, bool hasCompleted)
     {
-        ////Unset the quest from the player and npc the menu.
-        //currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
-        //string npcName = currentQuest.npcName;
+        questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, hasTaken, hasCompleted);
 
-
-        //Resetting NPC and playerQuest
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
         
         if (GameObject.Find(currentQuest.npcName) != null)
         {
-            GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().resetNpc();
+            GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().setNpc(hasTaken, hasCompleted);
         }
 
         //Reset player quest json  

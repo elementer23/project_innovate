@@ -24,10 +24,6 @@ public class PlugScript : MonoBehaviour
         keyItemsSaver = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyItemsSaver>();
     }
 
-    void Update()
-    {
-    }
-
     void updatePosRot()
     {
         Vector2 pos1 = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
@@ -66,7 +62,10 @@ public class PlugScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        updatePosRot();
+        if (npc.hasAccepted)
+        {
+            updatePosRot();
+        }
     }
 
     private void OnMouseUp()

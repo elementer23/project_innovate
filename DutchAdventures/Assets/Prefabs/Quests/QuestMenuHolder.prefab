@@ -299,7 +299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quest complete
+  m_text: Task completed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: -9080064994892754326, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
@@ -1036,6 +1036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonHandler: {fileID: 0}
   completedPopup: {fileID: 599495261}
+  questStatusSaver: {fileID: 0}
   npcController: {fileID: 0}
 --- !u!1 &6486794527300981264
 GameObject:

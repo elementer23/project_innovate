@@ -73,6 +73,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
     public void resetQuest()
     {
+        GetComponent<KeyItemsSaver>().setItem(quest.requestedItem, false);
         quest = Quest.empty;
     }
 
