@@ -28,6 +28,7 @@ public class QuestHandler : MonoBehaviour
 
     public void acceptBtn()
     {
+        Debug.Log("Accept");
         //Tell the NPC the quest has been accepted.
         npcController.hasAccepted = true;
 

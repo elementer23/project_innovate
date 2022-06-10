@@ -4,13 +4,9 @@ using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
-
-    public TextAsset jsonFile;
-    public JsonHandler jsonHandler;
+    private JsonHandler jsonHandler;
 
     private PlayerData playerData;
-    [SerializeField]
-    private Transform player;
     public PlayerSpawn spawnPos;
 
     [SerializeField]
@@ -18,31 +14,28 @@ public class SaveGame : MonoBehaviour
 
     private void Start()
     {
+        jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
     }
 
     public void SavePlayer()
     {
-
-        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        playerData = new PlayerData(playerLocation(), GetCurrentScene(), GetPlayerPreset(), true);
+        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), true);
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
 
     }
 
-    private float[] playerLocation()
-    {
-        float[] location = new float[]
-        {
-            player.transform.position.x,
-            player.transform.position.y,
-            player.transform.position.z
-        };
+    //private float[] playerLocation()
+    //{
+    //    float[] location = new float[2]
+    //    {
+    //        transform.position.x,
+    //        transform.position.y
+    //    };
 
-        return location;
-    }
+    //    return location;
+    //}
 
     private string GetCurrentScene()
     {
@@ -65,8 +58,8 @@ public class SaveGame : MonoBehaviour
 
     public void LoadSavaData()
     {
-        player.position = new Vector2(LoadPlayerLocation()[0], LoadPlayerLocation()[1]);
-        spawnPos.spawnPosition = player.position;
+        transform.position = new Vector2(LoadPlayerLocation()[0], LoadPlayerLocation()[1]);
+        spawnPos.spawnPosition = transform.position;
         SceneManager.LoadScene(LoadCurrentScene(), LoadSceneMode.Single);
 
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[0], out Color Skin);
@@ -119,11 +112,14 @@ public class PlayerData
     public string[] playerPreset;
     public bool playerSaved;
 
-    public PlayerData(float[] currentLocation, string currentScene, string[] preset, bool isPlayerSaved)
+    public PlayerData(float posX, float posY, string currentScene, string[] preset, bool isPlayerSaved)
     {
         this.sceneName = currentScene;
         this.playerPreset = preset;
-        this.playerPosition = currentLocation;
         this.playerSaved = isPlayerSaved;
+
+        this.playerPosition = new float[2];
+        this.playerPosition[0] = posX;
+        this.playerPosition[1] = posY;
     }
 }

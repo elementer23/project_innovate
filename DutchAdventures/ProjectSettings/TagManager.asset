@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - NPC
   - ContinueButton
+  - JsonHandler
   layers:
   - Default
   - TransparentFX

@@ -63,8 +63,6 @@ public class DialogHandler : MonoBehaviour
     {
         Debug.Log("Complete quest");
         GameObject.Find("QuestMenu").GetComponent<QuestUI>().completeQuest();
-        GameObject.Find(npcName).GetComponent<NPCController>().hasCompletedQuest = true;
-        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName, false, true);
         closeBtn();
     }
 
