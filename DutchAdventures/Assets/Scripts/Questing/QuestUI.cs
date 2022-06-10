@@ -6,9 +6,16 @@ using TMPro;
 public class QuestUI : MonoBehaviour
 {
     //public PlayerQuestHandler playerQuestHandler;
+<<<<<<< Updated upstream
     public JsonHandler jsonHandler;
     [SerializeField]
     private QuestStatusSaver questStatusSaver;
+=======
+    [SerializeField]
+    private JsonHandler jsonHandler;
+    [SerializeField]
+    private Animator completedPopup;
+>>>>>>> Stashed changes
 
     private CanvasGroup canvasGroup;
     private CanvasGroup questTextCG;
@@ -68,27 +75,34 @@ public class QuestUI : MonoBehaviour
     public void questButton()
     {
         //Toggle the visibility of the quest menu.
-        if (menuIsVisible)
-        {
-            menuIsVisible = false;
-        }
-        else
-        {
-            menuIsVisible = true;
-        }
+        menuIsVisible = !menuIsVisible;
     }
 
     public void removeQuest()
+    {
+        resetQuest();
+        GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
+    }
+
+    public void completeQuest()
+    {
+        resetQuest();
+        GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
+        completedPopup.SetTrigger("Play");
+    }
+
+    private void resetQuest()
     {
         //Unset the quest from the player and npc the menu.
         currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
         string npcName = currentQuest.npcName;
 
-        //Reset player quest json
+        //Reset player quest json  
         currentQuest = Quest.empty;
-        jsonHandler.WriteToJson<Quest>(currentQuest, "playerQuest");
+        jsonHandler.WriteToJson(currentQuest, "playerQuest");
 
         //Resetting NPC and playerQuest
+<<<<<<< Updated upstream
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
         
         if (GameObject.Find(npcName) != null)
@@ -101,6 +115,12 @@ public class QuestUI : MonoBehaviour
         questStatusSaver.writeNpcStatusToJson(npcName, false, false);
        
 
+=======
+        GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
+
+        // Update NPC quest data
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(npcName);
+>>>>>>> Stashed changes
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)

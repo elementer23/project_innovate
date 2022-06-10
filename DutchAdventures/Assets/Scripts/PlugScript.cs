@@ -16,6 +16,9 @@ public class PlugScript : MonoBehaviour
 
     public NPCController npc;
 
+    [SerializeField]
+    private Animator questComplete;
+
     private void Start()
     {
         keyItemsSaver = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyItemsSaver>();
@@ -23,7 +26,6 @@ public class PlugScript : MonoBehaviour
 
     void Update()
     {
-        updatePosRot();
     }
 
     void updatePosRot()
@@ -44,7 +46,7 @@ public class PlugScript : MonoBehaviour
             pos.z = 0;
 
             float sqrMag = ((Vector2)pos - pos2).sqrMagnitude;
-            Debug.Log(sqrMag);
+
             if (sqrMag > maxLength * maxLength)
             {
                 lineRenderer.positionCount++;
@@ -58,7 +60,20 @@ public class PlugScript : MonoBehaviour
     {
         if (npc.hasAccepted)
         {
-            isDragging = !isDragging;
+            isDragging = true;
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        updatePosRot();
+    }
+
+    private void OnMouseUp()
+    {
+        if (npc.hasAccepted)
+        {
+            isDragging = false;
         }
     }
 
@@ -70,6 +85,7 @@ public class PlugScript : MonoBehaviour
             isDragging = false;
             keyItemsSaver.setItem(reward, true);
             GetComponent<BoxCollider2D>().enabled = false;
+            questComplete.SetTrigger("Play");
         }
     }
 }
