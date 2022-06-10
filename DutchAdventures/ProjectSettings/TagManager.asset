@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Canvas
   - NPC
+  - ContinueButton
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/LanguageMenu.unity
     guid: c648a80294f9ed44cac993f0702e63bf
   - enabled: 1
+    path: Assets/Scenes/Menu/CharacterCreation.unity
+    guid: 4ba8e0e088747044cb3e8559d2e57931
+  - enabled: 1
+    path: Assets/Scenes/Menu/LevelSelect.unity
+    guid: d4b5a895196e4054abc76271c33d314c
+  - enabled: 1
     path: Assets/Scenes/BigCityScene.unity
     guid: b895a1c5279497344a2b60e74416d20e
   - enabled: 1
@@ -56,5 +62,8 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/CityHouse/CityBasement.unity
+    guid: abb517d480fe1be40b9ed52139eedb5d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}
