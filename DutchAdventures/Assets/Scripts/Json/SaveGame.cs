@@ -12,7 +12,7 @@ public class SaveGame : MonoBehaviour
     [SerializeField]
     private PlayerPresets playerPresets;
 
-    private void Start()
+    private void Awake()
     {
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
@@ -25,17 +25,6 @@ public class SaveGame : MonoBehaviour
         jsonHandler.WriteToJson(playerData, "PlayerData");
 
     }
-
-    //private float[] playerLocation()
-    //{
-    //    float[] location = new float[2]
-    //    {
-    //        transform.position.x,
-    //        transform.position.y
-    //    };
-
-    //    return location;
-    //}
 
     private string GetCurrentScene()
     {
@@ -77,30 +66,18 @@ public class SaveGame : MonoBehaviour
 
     private float[] LoadPlayerLocation()
     {
-        PlayerData posXYZ = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return posXYZ.playerPosition;
+        return playerData.playerPosition;
     }
 
     private string LoadCurrentScene()
     {
-        PlayerData playerScene = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return playerScene.sceneName;
+        return playerData.sceneName;
     }
 
     private string[] LoadPlayerPreset()
     {
-        PlayerData currentPreset = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return currentPreset.playerPreset;
+        return playerData.playerPreset;
     }
-
-    // klik op knop continue trigger functie 
-    // functie loadSaveData
-    //      functie setPlayerLocation
-    //      functie setPlayerPreset;
-    //      functie setcurruntScene;
 
 }
 

@@ -1678,18 +1678,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180558, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
 --- !u!1 &1392880422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2801845320507180558, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
-  m_PrefabInstance: {fileID: 1392880421}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1392880423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
   m_PrefabInstance: {fileID: 1392880421}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1392880424
@@ -1704,9 +1699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8601bac22399a948b5e1d1476ed4814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 0}
-  jsonHandler: {fileID: 1284626169}
-  player: {fileID: 1392880423}
   spawnPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
   playerPresets: {fileID: 11400000, guid: 662fabf5eef958d42bb13f58ade69098, type: 2}
 --- !u!1 &1491145396
