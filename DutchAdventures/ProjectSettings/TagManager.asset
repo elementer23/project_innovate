@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - ContinueButton
   - JsonHandler
+  - QuestSaver
   layers:
   - Default
   - TransparentFX
