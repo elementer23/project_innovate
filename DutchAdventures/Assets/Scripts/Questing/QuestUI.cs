@@ -96,7 +96,6 @@ public class QuestUI : MonoBehaviour
 
     private void resetQuest(bool hasTaken, bool hasCompleted)
     {
-        Debug.Log(questStatusSaver);
         questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, hasTaken, hasCompleted);
 
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
