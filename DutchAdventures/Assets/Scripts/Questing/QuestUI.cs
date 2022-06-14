@@ -10,7 +10,7 @@ public class QuestUI : MonoBehaviour
     private JsonHandler jsonHandler;
     [SerializeField]
     private Animator completedPopup;
-    [SerializeField]
+    
     private QuestStatusSaver questStatusSaver;
 
     private CanvasGroup canvasGroup;
@@ -28,6 +28,10 @@ public class QuestUI : MonoBehaviour
     [HideInInspector]
     public NPCController npcController;
 
+    private void Awake()
+    {
+        questStatusSaver = GameObject.FindGameObjectWithTag("QuestSaver").GetComponent<QuestStatusSaver>();
+    }
     void Start()
     {
         //Set the variables to the objects. These objects are all children of this object.
