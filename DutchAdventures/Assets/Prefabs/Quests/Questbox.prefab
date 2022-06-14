@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6112000413097244182}
         m_TargetAssemblyTypeName: DialogHandler, Assembly-CSharp
         m_MethodName: closeBtn
         m_Mode: 1
@@ -870,7 +870,8 @@ MonoBehaviour:
     requestedItem: 
     rewardCoins: 5
     canRewardItem: 0
-    itemReward: 
+    itemReward: []
+    hasCompleted: 0
   npcController: {fileID: 0}
 --- !u!1 &6667939923676563427
 GameObject:

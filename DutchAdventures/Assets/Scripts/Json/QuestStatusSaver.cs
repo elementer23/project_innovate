@@ -4,29 +4,23 @@ using UnityEngine;
 
 public class QuestStatusSaver : MonoBehaviour
 {
-    public TextAsset jsonFile;
-    public JsonHandler jsonHandler;
+    private JsonHandler jsonHandler;
 
     private NpcQuestStatuses npcStatuses = new NpcQuestStatuses();
-    private GameObject[] npcs;
 
-    private void Start()
+    private void Awake()
     {
-        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
     }
 
-    public void writeNpcStatusToJson(string npcName)
+    public void writeNpcStatusToJson(string npcName, bool hasAccepted, bool hasCompletedQuest)
     {
-        npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
-
-        NPCController npc = GameObject.Find(npcName).GetComponent<NPCController>();
-
         for (int i = 0; i < npcStatuses.statuses.Length; i++)
         {
             if (npcStatuses.statuses[i].npcName == npcName)
             {
-                npcStatuses.statuses[i] = new NpcQuestStatus(npc.name, npc.hasAccepted, npc.hasCompletedQuest);
+                npcStatuses.statuses[i] = new NpcQuestStatus(npcName, hasAccepted, hasCompletedQuest);
             }
         }
 
@@ -35,7 +29,7 @@ public class QuestStatusSaver : MonoBehaviour
 
     public bool[] getNpcStatus(string npcName)
     {
-        NPCController npcController = GameObject.Find(npcName).GetComponent<NPCController>();
+        //NPCController npcController = GameObject.Find(npcName).GetComponent<NPCController>();
         npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
 
         for (int i = 0; i < npcStatuses.statuses.Length; i++)

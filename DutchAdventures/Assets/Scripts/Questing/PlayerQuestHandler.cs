@@ -24,6 +24,16 @@ public class PlayerQuestHandler : MonoBehaviour
         quest = jsonHandler.ReadFromJson<Quest>("playerQuest");
     }
 
+    private void Update()
+    {
+        //Check for completion
+        KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
+        if (keyItemsSaver.hasItem(quest.requestedItem))
+        {
+            quest.hasCompleted = true;
+        }
+    }
+
     //Call this function from your quest script to complete the quest.
     public void completeQuest()
     {
@@ -40,8 +50,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 keyItemsSaver.setItem(item, true);
             }
         }
-
-        setQuest(Quest.empty);
+        resetQuest();
     }
 
     //Sets the currently active quest to a quest.
@@ -64,7 +73,8 @@ public class PlayerQuestHandler : MonoBehaviour
 
     public void resetQuest()
     {
-        this.quest = Quest.empty;
+        GetComponent<KeyItemsSaver>().setItem(quest.requestedItem, false);
+        quest = Quest.empty;
     }
 
     //void saveQuest()

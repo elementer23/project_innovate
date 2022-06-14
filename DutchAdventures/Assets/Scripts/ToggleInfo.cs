@@ -9,7 +9,7 @@ public class ToggleInfo : MonoBehaviour
     private GameObject pointer;
     private bool isClose = false;
     public Transform player;
-    private int minDist = 2;
+    private int minDist = 10;
 
 
 
@@ -22,6 +22,7 @@ public class ToggleInfo : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("nop");
         if (isClose)
         {
             DialogueTrigger trigger = gameObject.GetComponent(typeof(DialogueTrigger)) as DialogueTrigger;
