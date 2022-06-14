@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class Teleporter : MonoBehaviour
@@ -16,7 +17,8 @@ public class Teleporter : MonoBehaviour
     public PlayerSpawn exitPos;
     public Vector2 destination;
     private BoxCollider2D boxCollider2D;
-
+    public GameObject fadeObject;
+    public GameObject loadingText;
 
     void Awake()
     {
@@ -40,23 +42,31 @@ public class Teleporter : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (canTravel)
-        {
-            entracePos.spawnPosition = player.position;
-            exitPos.spawnPosition = destination;
-
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        }
+        StartCoroutine(teleport());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        StartCoroutine(teleport());
+    }
+
+    private IEnumerator teleport()
+    {
         if (canTravel)
         {
             entracePos.spawnPosition = player.position;
             exitPos.spawnPosition = destination;
-
+            if(fadeObject != null)
+            { 
+                Animator anim = fadeObject.GetComponent<Animator>();
+                anim.SetTrigger("Start");
+                yield return new WaitForSeconds(1f);
+                
+            }
+            if (loadingText != null)
+            {
+                loadingText.SetActive(true);
+            }
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
