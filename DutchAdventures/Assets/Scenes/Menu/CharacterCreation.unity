@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 35710815}
   - component: {fileID: 35710818}
   - component: {fileID: 35710817}
+  - component: {fileID: 35710818}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -288,16 +289,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 35710808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a502abfd99dca6429b829c48c567868, type: 3}
+  m_Script: {fileID: 11500000, guid: ec6933aea4f5759429efc6ff7248cc53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    playerPosition: []
-    sceneName: 
-    playerPreset: []
-    playerSaved: 0
-    playerName: 
-  characterCustHandler: {fileID: 1513920593}
+  CharacterCustHandler: {fileID: 1513920593}
+  playerPreset: {fileID: 11400000, guid: 662fabf5eef958d42bb13f58ade69098, type: 2}
+  skin: {fileID: 1439354780}
+  hair: {fileID: 1781682148}
+  shirt: {fileID: 254246635}
+  pants: {fileID: 808955648}
+  shoes: {fileID: 949025510}
 --- !u!1 &83361540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,12 +3679,19 @@ MonoBehaviour:
   sideImage: {fileID: 352625262}
   fcp: {fileID: 895055667}
   nameField: {fileID: 1202733303}
+  currentHairSprite: 0
   frontHairSprites:
   - {fileID: -615904343, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
-  - {fileID: 977820589, guid: abd2995fede5792489a894af4e33fcea, type: 3}
+  - {fileID: -1147036857, guid: 2e262937c8ee59e4b9065054fc647a6a, type: 3}
+  - {fileID: 7877704855510896641, guid: a3551e5a811775946847cef84bebefd7, type: 3}
+  - {fileID: -710979133, guid: 312b29bdbe8055242b8b2ba35e8eda16, type: 3}
+  - {fileID: -575389270, guid: e40a2fafbdb74a74aaee3cd24bc98a30, type: 3}
   sideHairSprites:
   - {fileID: 1177626439, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
-  - {fileID: 1437539387, guid: abd2995fede5792489a894af4e33fcea, type: 3}
+  - {fileID: -1431882851, guid: 2e262937c8ee59e4b9065054fc647a6a, type: 3}
+  - {fileID: 480857819, guid: a3551e5a811775946847cef84bebefd7, type: 3}
+  - {fileID: 1159768509, guid: 312b29bdbe8055242b8b2ba35e8eda16, type: 3}
+  - {fileID: 661994579, guid: e40a2fafbdb74a74aaee3cd24bc98a30, type: 3}
   scaler: {fileID: 1424440101}
   picker: {fileID: 746274897}
 --- !u!114 &1513920594
@@ -4653,6 +4661,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 35710818}
+        m_TargetAssemblyTypeName: CharCreationToPlayer, Assembly-CSharp
+        m_MethodName: UpdateValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 35710817}
         m_TargetAssemblyTypeName: MenuTransition, Assembly-CSharp
         m_MethodName: toSceneNoPopup
