@@ -269,6 +269,8 @@ GameObject:
   - component: {fileID: 2801845320507180545}
   - component: {fileID: 2801845320507180551}
   - component: {fileID: 1510318914}
+  - component: {fileID: 1848661112}
+  - component: {fileID: 1456573808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -284,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801845320507180558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.50545, y: 51.24378, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -427,6 +429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerColors: {fileID: 11400000, guid: 662fabf5eef958d42bb13f58ade69098, type: 2}
+  hairStyles:
+  - {fileID: 1177626439, guid: 1034a7bd345ab4f46b79f0e8eb8353ab, type: 3}
+  - {fileID: -1147036857, guid: 2e262937c8ee59e4b9065054fc647a6a, type: 3}
+  - {fileID: 7877704855510896641, guid: a3551e5a811775946847cef84bebefd7, type: 3}
+  - {fileID: -710979133, guid: 312b29bdbe8055242b8b2ba35e8eda16, type: 3}
+  - {fileID: -575389270, guid: e40a2fafbdb74a74aaee3cd24bc98a30, type: 3}
 --- !u!114 &2801845320507180545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +469,8 @@ MonoBehaviour:
     requestedItem: 
     rewardCoins: 0
     canRewardItem: 0
-    itemReward: 
+    itemReward: []
+    hasCompleted: 0
 --- !u!114 &1510318914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +484,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: e79899831c4b421488a855e08b2e8012, type: 3}
+  keyItems:
+    items: []
+--- !u!114 &1848661112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801845320507180558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8601bac22399a948b5e1d1476ed4814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
+  playerPresets: {fileID: 11400000, guid: 662fabf5eef958d42bb13f58ade69098, type: 2}
+--- !u!114 &1456573808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801845320507180558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8601bac22399a948b5e1d1476ed4814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
+  playerPresets: {fileID: 11400000, guid: 662fabf5eef958d42bb13f58ade69098, type: 2}
 --- !u!1 &2801845320809391646
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    private Transform player;
+    private PlayerQuestHandler player;
     private Transform canvas;
-    private KeyItemsSaver keyItemsSaver;
 
     private QuestStatusSaver questStatusSaver;
 
@@ -35,9 +34,9 @@ public class NPCController : MonoBehaviour
     [Header("Quest")]
     public Quest quest;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasAccepted = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasCompletedQuest = false;
     [HideInInspector]
     public bool isQuestGiver = false;
@@ -49,9 +48,8 @@ public class NPCController : MonoBehaviour
 
         //Set some variables to the corresponding objects.
         gameObject.name = npcName;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
-        keyItemsSaver = player.GetComponent<KeyItemsSaver>();
 
         isQuestGiver = !quest.isEmpty();
 
@@ -59,12 +57,6 @@ public class NPCController : MonoBehaviour
         bool[] status = questStatusSaver.getNpcStatus(npcName);
         hasAccepted = status[0];
         hasCompletedQuest = status[1];
-
-        //Spawn a quest marker/dialog icon above the npc
-        if (hasRequiredItem)
-        {
-            Instantiate(questIconPrefab, transform);
-        }
 
         if (isQuestGiver)
         {
@@ -74,12 +66,14 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        hasRequiredItem = keyItemsSaver.hasItem(requiredItem);
-
+        //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
         {
             Instantiate(questIconPrefab, transform);
         }
+
+        hasRequiredItem = player.GetComponent<KeyItemsSaver>().hasItem(requiredItem);
+        //hasRequiredItem = player.getQuest().hasCompleted;
 
         if (requiredItem == string.Empty)
         {
@@ -104,7 +98,7 @@ public class NPCController : MonoBehaviour
         if (canTakeQuest)
         {
             //Check if the player is close enough to the NPC,
-            float dist = Vector2.Distance(player.position, transform.position);
+            float dist = Vector2.Distance(player.transform.position, transform.position);
             if (dist < 2)
             {
                 //Get the status from the npc quest saver and update the local values
@@ -126,7 +120,7 @@ public class NPCController : MonoBehaviour
                         {
                             if (!hasCompletedQuest)
                             {
-                                if (player.GetComponent<KeyItemsSaver>().hasItem(quest.requestedItem))
+                                if (player.getQuest().hasCompleted)
                                 {
                                     //Complete the quest
                                     addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
@@ -176,30 +170,10 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    //void updateValues()
-    //{
-    //    if (isQuestGiver)
-    //    {
-    //        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
-    //        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
-    //        {
-    //            if (npcStatus.npcName == npcName)
-    //            {
-    //                hasAccepted = npcStatus.hasTakenQuest;
-    //                hasCompletedQuest = npcStatus.hasCompletedQuest;
-    //            }
-    //        }
-    //    }
-    //}
-
-
     //Function to reset the NPC after completion or abanoning of the quest.
-    public void resetNpc()
+    public void setNpc(bool hasTaken, bool hasCompleted)
     {
-        if (!quest.isEmpty())
-        {
-            Instantiate(questIconPrefab, transform);
-            hasAccepted = false;
-        }
+        hasAccepted = hasTaken;
+        hasCompletedQuest = hasCompleted;
     }
 }

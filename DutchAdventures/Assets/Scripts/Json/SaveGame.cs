@@ -4,42 +4,25 @@ using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
-
-    public TextAsset jsonFile;
-    public JsonHandler jsonHandler;
+    private JsonHandler jsonHandler;
 
     private PlayerData playerData;
-    public Transform player;
+    public PlayerSpawn spawnPos;
 
-    private void Start()
+    [SerializeField]
+    private PlayerPresets playerPresets;
+
+    private void Awake()
     {
+        jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
     }
 
     public void SavePlayer()
     {
-
-        playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        playerData = new PlayerData(GetPlayerLocationX(), GetPlayerLocationY(), GetPlayerLocationZ(), GetCurrentScene());
+        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), true, GetPlayerName());
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
-
-    }
-
-    private float GetPlayerLocationX()
-    { 
-        return player.transform.position.x;
-    }
-
-    private float GetPlayerLocationY()
-    {
-        return player.transform.position.y;
-    }
-
-    private float GetPlayerLocationZ()
-    {
-        return player.transform.position.z;
     }
 
     private string GetCurrentScene()
@@ -47,49 +30,80 @@ public class SaveGame : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
-    // klik op knop save trigger functie 
-    // functie saveData
-    //      functie getPlayerLocation
-    //      functie GetPlayerPreset;
-    //      functie getcurruntScene;
+    private string[] GetPlayerPreset()
+    {
+        string[] preset = new string[]
+        {
+            "#" + ColorUtility.ToHtmlStringRGBA(GetComponent<SpriteRenderer>().color),
+            "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Hair").GetComponent<SpriteRenderer>().color),
+            "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Shirt").GetComponent<SpriteRenderer>().color),
+            "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Pants").GetComponent<SpriteRenderer>().color),
+            "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Shoes").GetComponent<SpriteRenderer>().color)
+        };
 
+        return preset;
+    }
 
-    // run functie writeToJsonSaveData()
-    // return Player.Postion
-    // return playerPreset scriptable object.
+    private string GetPlayerName()
+    {
+        return playerData.playerName;
+    }
 
+    public void LoadSavaData()
+    {
+        transform.position = new Vector2(LoadPlayerLocation()[0], LoadPlayerLocation()[1]);
+        spawnPos.spawnPosition = transform.position;
+        SceneManager.LoadScene(LoadCurrentScene(), LoadSceneMode.Single);
 
-    //      
+        ColorUtility.TryParseHtmlString(LoadPlayerPreset()[0], out Color Skin);
+        ColorUtility.TryParseHtmlString(LoadPlayerPreset()[1], out Color Hair);
+        ColorUtility.TryParseHtmlString(LoadPlayerPreset()[2], out Color Shirt);
+        ColorUtility.TryParseHtmlString(LoadPlayerPreset()[3], out Color Pants);
+        ColorUtility.TryParseHtmlString(LoadPlayerPreset()[4], out Color Shoes);
 
-    // klik op knop continue trigger functie 
-    // functie loadSaveData
-    //      functie setPlayerLocation
-    //      functie setPlayerPreset;
-    //      functie setcurruntScene;
+        GetComponent<SpriteRenderer>().color = Skin;
+        transform.Find("Hair").GetComponent<SpriteRenderer>().color = Hair;
+        transform.Find("Shirt").GetComponent<SpriteRenderer>().color = Shirt;
+        transform.Find("Pants").GetComponent<SpriteRenderer>().color = Pants;
+        transform.Find("Shoes").GetComponent<SpriteRenderer>().color = Shoes;
+    }
 
+    private float[] LoadPlayerLocation()
+    {
+        return playerData.playerPosition;
+    }
 
-    // run functie readJson()
-    // return Player.Postion
-    // return playerPreset scriptable object.
+    private string LoadCurrentScene()
+    {
+        return playerData.sceneName;
+    }
 
-
-    //      
+    private string[] LoadPlayerPreset()
+    {
+        return playerData.playerPreset;
+    }
 
 }
 
 [System.Serializable]
 public class PlayerData
 {
-    public float posX;
-    public float posY;
-    public float posZ;
+    public float[] playerPosition;
     public string sceneName;
+    public string[] playerPreset;
+    public bool playerSaved;
+    public string playerName;
 
-    public PlayerData(float posX, float posY, float posZ, string currentScene)
+    public PlayerData(float posX, float posY, string currentScene, string[] preset, bool isPlayerSaved, string getPlayerName)
     {
-        this.posX = posX;
-        this.posY = posY;
-        this.posZ = posZ;
         this.sceneName = currentScene;
+        this.playerPreset = preset;
+        this.playerSaved = isPlayerSaved;
+
+        this.playerPosition = new float[2];
+        this.playerPosition[0] = posX;
+        this.playerPosition[1] = posY;
+
+        this.playerName = getPlayerName;
     }
 }

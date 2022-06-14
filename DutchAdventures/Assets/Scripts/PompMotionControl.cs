@@ -27,7 +27,6 @@ public class PompMotionControl : MonoBehaviour
             KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
             keyItemSaver.setItem("WaterFulled", true);
             keyItemSaver.setItem("Jerrycan", false);
-            keyItemSaver.SaveItems();
 
             world.SetActive(true);
             mingame.SetActive(false);

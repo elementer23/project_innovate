@@ -6,8 +6,11 @@ using TMPro;
 public class QuestUI : MonoBehaviour
 {
     //public PlayerQuestHandler playerQuestHandler;
-    public JsonHandler jsonHandler;
     [SerializeField]
+    private JsonHandler jsonHandler;
+    [SerializeField]
+    private Animator completedPopup;
+    
     private QuestStatusSaver questStatusSaver;
 
     private CanvasGroup canvasGroup;
@@ -25,6 +28,10 @@ public class QuestUI : MonoBehaviour
     [HideInInspector]
     public NPCController npcController;
 
+    private void Awake()
+    {
+        questStatusSaver = GameObject.FindGameObjectWithTag("QuestSaver").GetComponent<QuestStatusSaver>();
+    }
     void Start()
     {
         //Set the variables to the objects. These objects are all children of this object.
@@ -68,39 +75,39 @@ public class QuestUI : MonoBehaviour
     public void questButton()
     {
         //Toggle the visibility of the quest menu.
-        if (menuIsVisible)
-        {
-            menuIsVisible = false;
-        }
-        else
-        {
-            menuIsVisible = true;
-        }
+        menuIsVisible = !menuIsVisible;
     }
 
     public void removeQuest()
     {
-        //Unset the quest from the player and npc the menu.
-        currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
-        string npcName = currentQuest.npcName;
-
-        //Reset player quest json
-        currentQuest = Quest.empty;
-        jsonHandler.WriteToJson<Quest>(currentQuest, "playerQuest");
-
-        //Resetting NPC and playerQuest
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
-        
-        if (GameObject.Find(npcName) != null)
-        {
-            GameObject.Find(npcName).GetComponent<NPCController>().resetNpc();
-
-        }
 
         // Update NPC quest data
-        questStatusSaver.writeNpcStatusToJson(npcName, false, false);
-       
+        resetQuest(false, false);
+    }
 
+    public void completeQuest()
+    {
+        GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
+
+        // Update NPC quest data
+        resetQuest(true, true);
+    }
+
+    private void resetQuest(bool hasTaken, bool hasCompleted)
+    {
+        questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, hasTaken, hasCompleted);
+
+        GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
+        
+        if (GameObject.Find(currentQuest.npcName) != null)
+        {
+            GameObject.Find(currentQuest.npcName).GetComponent<NPCController>().setNpc(hasTaken, hasCompleted);
+        }
+
+        //Reset player quest json  
+        currentQuest = Quest.empty;
+        jsonHandler.WriteToJson(currentQuest, "playerQuest");
     }
 
     private void makeVisible(CanvasGroup cg, bool visible)

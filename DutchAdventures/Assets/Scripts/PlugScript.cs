@@ -7,30 +7,24 @@ public class PlugScript : MonoBehaviour
     [SerializeField]
     private LineRenderer lineRenderer;
 
+    private KeyItemsSaver keyItemsSaver;
+
     private bool isDragging = false;
 
-    void Update()
+    public float maxLength = 1;
+    public string reward;
+
+    public NPCController npc;
+
+    [SerializeField]
+    private Animator questComplete;
+
+    private void Start()
     {
-        updateRot();
-
-        if (isDragging)
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-
-            if (pos != Vector3.zero)
-            {
-                lineRenderer.SetPosition(lineRenderer.positionCount - 1, pos - lineRenderer.transform.position);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            lineRenderer.positionCount++;
-        }
+        keyItemsSaver = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyItemsSaver>();
     }
 
-    void updateRot()
+    void updatePosRot()
     {
         Vector2 pos1 = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
         Vector2 pos2 = lineRenderer.GetPosition(lineRenderer.positionCount - 2);
@@ -41,11 +35,45 @@ public class PlugScript : MonoBehaviour
         float theta = Mathf.Atan2(diff.y, diff.x);
         float angle = theta * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
+
+        if (isDragging)
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - lineRenderer.transform.position;
+            pos.z = 0;
+
+            float sqrMag = ((Vector2)pos - pos2).sqrMagnitude;
+
+            if (sqrMag > maxLength * maxLength)
+            {
+                lineRenderer.positionCount++;
+            }
+
+            lineRenderer.SetPosition(lineRenderer.positionCount - 1, pos);
+        }
     }
 
     private void OnMouseDown()
     {
-        isDragging = !isDragging;
+        if (npc.hasAccepted)
+        {
+            isDragging = true;
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (npc.hasAccepted)
+        {
+            updatePosRot();
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (npc.hasAccepted)
+        {
+            isDragging = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,7 +82,9 @@ public class PlugScript : MonoBehaviour
         {
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, collision.transform.position - lineRenderer.transform.position - new Vector3(0, 0.5f, 0));
             isDragging = false;
+            keyItemsSaver.setItem(reward, true);
             GetComponent<BoxCollider2D>().enabled = false;
+            questComplete.SetTrigger("Play");
         }
     }
 }

@@ -12,6 +12,7 @@ public class Quest
     public int rewardCoins;
     public bool canRewardItem;
     public string[] itemReward;
+    public bool hasCompleted;
     
     // create Emty quest
     public static Quest empty = new Quest("", "", "", "", 0, false, new string[0]);
