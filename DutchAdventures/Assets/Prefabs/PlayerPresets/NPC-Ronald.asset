@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
-  m_Name: NPC-Klaas
+  m_Name: NPC-Ronald
   m_EditorClassIdentifier: 
-  skin: {r: 0.5803922, g: 0.47058827, b: 0.36078432, a: 1}
-  hair: {r: 0, g: 0, b: 0, a: 1}
-  shirt: {r: 0, g: 1, b: 0.11565757, a: 1}
-  pants: {r: 0, g: 1, b: 0.643662, a: 1}
-  shoes: {r: 0.9655664, g: 1, b: 0, a: 1}
+  skin: {r: 0.79607844, g: 0.6901961, b: 0.6156863, a: 1}
+  hair: {r: 0.78431374, g: 0.62352943, b: 0.4509804, a: 1}
+  shirt: {r: 0, g: 0.3858595, b: 1, a: 1}
+  pants: {r: 0, g: 0, b: 0, a: 1}
+  shoes: {r: 1, g: 0, b: 0.008262634, a: 1}
+  hairStyle: 0
