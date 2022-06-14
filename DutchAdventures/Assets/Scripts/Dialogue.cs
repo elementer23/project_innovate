@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/* basics from https://github.com/Brackeys/Dialogue-System */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
