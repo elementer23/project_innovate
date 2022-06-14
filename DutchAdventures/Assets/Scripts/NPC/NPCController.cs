@@ -6,7 +6,7 @@ public class NPCController : MonoBehaviour
 {
     private PlayerQuestHandler player;
     private Transform canvas;
-
+    private int minDist = 5;
     private QuestStatusSaver questStatusSaver;
 
     [SerializeField]
@@ -99,7 +99,7 @@ public class NPCController : MonoBehaviour
         {
             //Check if the player is close enough to the NPC,
             float dist = Vector2.Distance(player.transform.position, transform.position);
-            if (dist < 2)
+            if (dist < minDist)
             {
                 //Get the status from the npc quest saver and update the local values
                 bool[] status = questStatusSaver.getNpcStatus(npcName);
