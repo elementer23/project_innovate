@@ -7,19 +7,22 @@ public class CharCreationToPlayer : MonoBehaviour
 {
     public CharacterCustHandler CharacterCustHandler;
     public PlayerPresets playerPreset;
-    public Image skin;
-    public Image hair;
-    public Image shirt;
-    public Image pants;
-    public Image shoes;
+    public Image[] images = new Image[5];
+    public SpriteRenderer[] srs = new SpriteRenderer[5];
+    public JsonHandler jsonHandler;
+    public string playerName = "player";
 
     public void UpdateValues()
     {
-        playerPreset.skin = skin.color;
-        playerPreset.hair = hair.color;
-        playerPreset.shirt = shirt.color;
-        playerPreset.pants = pants.color;
-        playerPreset.shoes = shoes.color;
-        playerPreset.hairStyle = CharacterCustHandler.currentHairSprite;
+        string[] colors = new string[5];
+
+        for (int i = 0; i < images.Length; i++)
+        {
+            srs[i].sprite = images[i].sprite;
+            colors[i] = "#" + ColorUtility.ToHtmlStringRGB(images[i].color);
+        }
+
+        PlayerData playerData = new PlayerData(0, 0, "BigCityScene", colors, CharacterCustHandler.currentHairSprite, false, playerName);
+        jsonHandler.WriteToJson(playerData, "PlayerData");
     }
 }

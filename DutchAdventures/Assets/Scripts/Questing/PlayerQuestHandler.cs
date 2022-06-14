@@ -21,7 +21,11 @@ public class PlayerQuestHandler : MonoBehaviour
     private void Start()
     {
         jsonHandler = FindObjectOfType<JsonHandler>();
-        completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+
+        if (GameObject.Find("QuestComplete"))
+        {
+            completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+        }
 
         //Load in saved quest
         quest = jsonHandler.ReadFromJson<Quest>("playerQuest");
@@ -54,7 +58,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
             //set all items that are rewarted on true 
             foreach (string item in quest.itemReward)
-            { 
+            {
                 Debug.Log("key item: " + item + " :True");
                 keyItemsSaver.setItem(item, true);
             }
