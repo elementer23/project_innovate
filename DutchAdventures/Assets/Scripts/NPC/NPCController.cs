@@ -27,6 +27,7 @@ public class NPCController : MonoBehaviour
     [Header("Dialog")]
     public string npcName;
     public string startDialog;
+    public string questBusyDialog;
     public string notCompletedDialog;
     public string completionDialog;
     public string postCompletionDialog;
@@ -111,31 +112,38 @@ public class NPCController : MonoBehaviour
                     //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
                     if (!quest.isEmpty())
                     {
-                        if (!hasAccepted)
+                        if (player.getQuest().title.Equals(string.Empty))
                         {
-                            //Give player quest
-                            addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
-                        }
-                        else
-                        {
-                            if (!hasCompletedQuest)
+                            if (!hasAccepted)
                             {
-                                if (player.getQuest().hasCompleted)
-                                {
-                                    //Complete the quest
-                                    addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
-                                }
-                                else
-                                {
-                                    //Quest not finished yet
-                                    addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
-                                }
+                                //Give player quest
+                                addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                             }
                             else
                             {
-                                //Quest is already finished finished
-                                addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                                if (!hasCompletedQuest)
+                                {
+                                    if (player.getQuest().hasCompleted)
+                                    {
+                                        //Complete the quest
+                                        addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                    }
+                                    else
+                                    {
+                                        //Quest not finished yet
+                                        addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                                    }
+                                }
+                                else
+                                {
+                                    //Quest is already finished finished
+                                    addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                                }
                             }
+                        }
+                        else 
+                        {
+                            addDialog(dialogPrefab, "Dialogbox(Clone)", questBusyDialog, false);
                         }
                     }
                     //Npc does not give quests and just talks.
