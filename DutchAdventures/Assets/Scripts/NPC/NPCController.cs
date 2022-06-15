@@ -159,6 +159,10 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    public string getRequiredKeyitem()
+    {
+        return this.requiredItem;
+    }
     private void addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
