@@ -23,7 +23,7 @@ public class CharacterCustHandler : MonoBehaviour
     private string currentPart = "Skin";
 
     //Heeft index nummer van de spriteArray.
-    private int currentHairSprite = 0;
+    public int currentHairSprite = 0;
 
     [SerializeField]
     private Sprite[] frontHairSprites;
@@ -96,6 +96,13 @@ public class CharacterCustHandler : MonoBehaviour
         }
         GameObject.Find("HairFront").GetComponent<Image>().sprite = newFrontSprite;
         GameObject.Find("HairSide").GetComponent<Image>().sprite = newSideSprite;
+
+        if(currentHairSprite == frontHairSprites.Length - 1)
+        {
+            Color skinCol = GameObject.Find("SkinFront").GetComponent<Image>().color;
+            GameObject.Find("HairFront").GetComponent<Image>().color = skinCol;
+            GameObject.Find("HairSide").GetComponent<Image>().color = skinCol;
+        }
     }
 
     public void previousPart()
@@ -120,14 +127,13 @@ public class CharacterCustHandler : MonoBehaviour
     private void startAnimation(Image image)
     {
         Animator anim = image.GetComponent<Animator>();
-        anim.enabled = true;
-        anim.Play("Base Layer.partSelectAnimation", -1, 0f);
+        anim.SetBool("Play", true);
     }
 
     private void stopAnimation(Image image)
     {
         Animator anim = image.GetComponent<Animator>();
-        anim.enabled = false;
+        anim.SetBool("Play", false);
     }
 
     public void nameChange()
