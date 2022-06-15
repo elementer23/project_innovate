@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Rigidbody2D myRigidbody;
 
-    private Vector2 change; //Movement vector
+    [HideInInspector]
+    public Vector2 change; //Movement vector
     private Vector2 pointToMoveTo; //Point to move towards
 
     void Start()
