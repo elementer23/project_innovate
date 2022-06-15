@@ -20,7 +20,8 @@ public class SaveGame : MonoBehaviour
 
     public void SavePlayer()
     {
-        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), true, GetPlayerName());
+        PlayerData pd = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), pd.hairStyle, true, GetPlayerName());
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
     }
@@ -91,14 +92,16 @@ public class PlayerData
     public float[] playerPosition;
     public string sceneName;
     public string[] playerPreset;
+    public int hairStyle;
     public bool playerSaved;
     public string playerName;
 
-    public PlayerData(float posX, float posY, string currentScene, string[] preset, bool isPlayerSaved, string getPlayerName)
+    public PlayerData(float posX, float posY, string currentScene, string[] preset, int hairStyle, bool isPlayerSaved, string getPlayerName)
     {
         this.sceneName = currentScene;
         this.playerPreset = preset;
         this.playerSaved = isPlayerSaved;
+        this.hairStyle = hairStyle;
 
         this.playerPosition = new float[2];
         this.playerPosition[0] = posX;
