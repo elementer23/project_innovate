@@ -112,6 +112,7 @@ public class NPCController : MonoBehaviour
                     //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
                     if (!quest.isEmpty())
                     {
+                        // Check if player has already quest
                         if (player.getQuest().title.Equals(string.Empty))
                         {
                             if (!hasAccepted)
