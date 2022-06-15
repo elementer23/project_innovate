@@ -7,12 +7,12 @@ public class QuestItemHandler : MonoBehaviour
     public string keyItem;
     public string requiredQuest;
 
-    private Transform player;
-    private GameObject pointer;
-    private float minDist = 2;
-    private PlayerQuestHandler playerQuestHandler;
-    private bool canObtain = false;
-    private bool isVisible = false;
+    protected Transform player;
+    protected GameObject pointer;
+    protected float minDist = 2;
+    protected PlayerQuestHandler playerQuestHandler;
+    protected bool canObtain = false;
+    protected bool isVisible = false;
     //private Animator completeQuestAnim;
 
     private void Start()
@@ -36,7 +36,7 @@ public class QuestItemHandler : MonoBehaviour
     }
 
     //Pickups quest item if the player press down and is in range
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if (canObtain)
         {
