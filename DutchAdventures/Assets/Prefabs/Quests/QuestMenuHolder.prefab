@@ -1036,7 +1036,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonHandler: {fileID: 0}
   completedPopup: {fileID: 599495261}
-  questStatusSaver: {fileID: 0}
   npcController: {fileID: 0}
 --- !u!1 &6486794527300981264
 GameObject:

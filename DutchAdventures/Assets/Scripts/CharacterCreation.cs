@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterCreation : MonoBehaviour
 {
-
     public PlayerData playerData;
     public CharacterCustHandler characterCustHandler;
     private JsonHandler jsonHandler;
@@ -17,8 +16,8 @@ public class CharacterCreation : MonoBehaviour
     public void SavePlayerName()
     {
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-        playerData = new PlayerData(playerData.playerPosition[0], playerData.playerPosition[1], playerData.sceneName, playerData.playerPreset, false, characterCustHandler.nameField.text);
-        jsonHandler.WriteToJson(playerData, "PlayerData");
+        PlayerData pd = new PlayerData(playerData.playerPosition[0], playerData.playerPosition[1], playerData.sceneName, playerData.playerPreset, playerData.hairStyle, false, characterCustHandler.nameField.text);
+        jsonHandler.WriteToJson(pd, "PlayerData");
     }
 
 
