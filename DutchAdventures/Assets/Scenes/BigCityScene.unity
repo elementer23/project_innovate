@@ -108307,6 +108307,10 @@ PrefabInstance:
       value: Lana
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: questBusyDialog
+      value: I see you are busy when you are done come back to me please.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: completionDialog
       value: Thank you as an reward you can keep it
       objectReference: {fileID: 0}
