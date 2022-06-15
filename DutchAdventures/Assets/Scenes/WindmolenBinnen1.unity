@@ -1992,17 +1992,12 @@ PrefabInstance:
     - target: {fileID: 6171349442497898060, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: canvasGroup
       value: 
-      objectReference: {fileID: 1357495304}
+      objectReference: {fileID: 566650645}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
 --- !u!224 &1357495303 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6171349441201798338, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
-  m_PrefabInstance: {fileID: 1357495302}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1357495304 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 6171349441078215854, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
   m_PrefabInstance: {fileID: 1357495302}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1618589878
