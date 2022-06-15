@@ -301,7 +301,7 @@ MonoBehaviour:
   - {fileID: 949025510}
   srs:
   - {fileID: 1227323745}
-  - {fileID: 496277154}
+  - {fileID: 1276032252}
   - {fileID: 1863045026}
   - {fileID: 1704754847}
   - {fileID: 889183212}
@@ -877,11 +877,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352625259}
   m_CullTransparentMesh: 1
---- !u!212 &496277154 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2801845320809391644, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
-  m_PrefabInstance: {fileID: 1276032251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604817511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,6 +3129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
+--- !u!212 &1276032252 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 663270054, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
+  m_PrefabInstance: {fileID: 1276032251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305439890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,7 +3701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: -10.75}
+  m_AnchoredPosition: {x: -109.999985, y: -10.75}
   m_SizeDelta: {x: -297.64496, y: -61.099983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513920591

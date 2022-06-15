@@ -97,12 +97,16 @@ public class CharacterCustHandler : MonoBehaviour
         GameObject.Find("HairFront").GetComponent<Image>().sprite = newFrontSprite;
         GameObject.Find("HairSide").GetComponent<Image>().sprite = newSideSprite;
 
-        if(currentHairSprite == frontHairSprites.Length - 1)
+        if (currentHairSprite == frontHairSprites.Length - 1)
         {
             Color skinCol = GameObject.Find("SkinFront").GetComponent<Image>().color;
             GameObject.Find("HairFront").GetComponent<Image>().color = skinCol;
             GameObject.Find("HairSide").GetComponent<Image>().color = skinCol;
         }
+        //{
+        //    GameObject.Find("HairFront").GetComponent<Image>().color = skinCol;
+        //    GameObject.Find("HairSide").GetComponent<Image>().color = skinCol;
+        //}
     }
 
     public void previousPart()
