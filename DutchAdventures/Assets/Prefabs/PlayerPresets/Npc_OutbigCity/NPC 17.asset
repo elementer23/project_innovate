@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: NPC 17
   m_EditorClassIdentifier: 
   skin: {r: 0.79607844, g: 0.6901961, b: 0.6156863, a: 1}
-  hair: {r: 1, g: 0.99119747, b: 0.013207495, a: 1}
-  shirt: {r: 1, g: 1, b: 1, a: 1}
-  pants: {r: 0.12609467, g: 0.8679245, b: 0.57940066, a: 1}
-  shoes: {r: 1, g: 0, b: 0, a: 1}
+  hair: {r: 0.6226415, g: 0.33373976, b: 0.11372549, a: 1}
+  shirt: {r: 1, g: 0, b: 0, a: 1}
+  pants: {r: 0, g: 0, b: 0, a: 1}
+  shoes: {r: 0, g: 0, b: 0, a: 1}
+  hairStyle: 0
