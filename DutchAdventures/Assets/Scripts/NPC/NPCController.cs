@@ -113,7 +113,7 @@ public class NPCController : MonoBehaviour
                     if (!quest.isEmpty())
                     {
                         // Check if player has already quest
-                        if (player.getQuest().title.Equals(string.Empty))
+                        if (player.getQuest().title.Equals(string.Empty) || player.getQuest().title.Equals(quest.title))
                         {
                             if (!hasAccepted)
                             {
