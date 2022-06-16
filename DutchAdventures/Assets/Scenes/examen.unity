@@ -7543,6 +7543,7 @@ MonoBehaviour:
     - Middle
     - Behind you
     CorrectAnswer: 0
+  BackupQnA: []
   options:
   - {fileID: 1459001575}
   - {fileID: 599441661}
@@ -7558,6 +7559,7 @@ MonoBehaviour:
   world: {fileID: 564620969}
   mingame: {fileID: 1809857231}
   player: {fileID: 1173045892}
+  exitPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
   retryBtn: {fileID: 382336657}
   continueBtn: {fileID: 1792848179}
 --- !u!1 &1097487311
