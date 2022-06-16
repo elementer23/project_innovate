@@ -12,7 +12,7 @@ public class SaveGame : MonoBehaviour
     [SerializeField]
     private PlayerPresets playerPresets;
 
-    private void Start()
+    private void Awake()
     {
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
@@ -20,22 +20,11 @@ public class SaveGame : MonoBehaviour
 
     public void SavePlayer()
     {
-        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), true);
+        PlayerData pd = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+        playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), pd.hairStyle, true, GetPlayerName());
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
-
     }
-
-    //private float[] playerLocation()
-    //{
-    //    float[] location = new float[2]
-    //    {
-    //        transform.position.x,
-    //        transform.position.y
-    //    };
-
-    //    return location;
-    //}
 
     private string GetCurrentScene()
     {
@@ -54,6 +43,11 @@ public class SaveGame : MonoBehaviour
         };
 
         return preset;
+    }
+
+    private string GetPlayerName()
+    {
+        return playerData.playerName;
     }
 
     public void LoadSavaData()
@@ -77,30 +71,18 @@ public class SaveGame : MonoBehaviour
 
     private float[] LoadPlayerLocation()
     {
-        PlayerData posXYZ = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return posXYZ.playerPosition;
+        return playerData.playerPosition;
     }
 
     private string LoadCurrentScene()
     {
-        PlayerData playerScene = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return playerScene.sceneName;
+        return playerData.sceneName;
     }
 
     private string[] LoadPlayerPreset()
     {
-        PlayerData currentPreset = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-
-        return currentPreset.playerPreset;
+        return playerData.playerPreset;
     }
-
-    // klik op knop continue trigger functie 
-    // functie loadSaveData
-    //      functie setPlayerLocation
-    //      functie setPlayerPreset;
-    //      functie setcurruntScene;
 
 }
 
@@ -110,16 +92,21 @@ public class PlayerData
     public float[] playerPosition;
     public string sceneName;
     public string[] playerPreset;
+    public int hairStyle;
     public bool playerSaved;
+    public string playerName;
 
-    public PlayerData(float posX, float posY, string currentScene, string[] preset, bool isPlayerSaved)
+    public PlayerData(float posX, float posY, string currentScene, string[] preset, int hairStyle, bool isPlayerSaved, string getPlayerName)
     {
         this.sceneName = currentScene;
         this.playerPreset = preset;
         this.playerSaved = isPlayerSaved;
+        this.hairStyle = hairStyle;
 
         this.playerPosition = new float[2];
         this.playerPosition[0] = posX;
         this.playerPosition[1] = posY;
+
+        this.playerName = getPlayerName;
     }
 }
