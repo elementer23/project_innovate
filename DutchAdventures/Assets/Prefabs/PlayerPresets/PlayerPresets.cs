@@ -10,4 +10,5 @@ public class PlayerPresets : ScriptableObject
     public Color shirt;
     public Color pants;
     public Color shoes;
+    public int hairStyle;
 }

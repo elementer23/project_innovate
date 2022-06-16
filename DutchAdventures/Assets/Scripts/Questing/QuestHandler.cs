@@ -23,11 +23,12 @@ public class QuestHandler : MonoBehaviour
     {
         //Find the objects and set the variables.
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
-        questUI = transform.parent.Find("QuestMenu").Find("QuestMenu").GetComponent<QuestUI>();
+        questUI = transform.parent.Find("QuestMenuHolder").Find("QuestMenu").GetComponent<QuestUI>();
     }
 
     public void acceptBtn()
     {
+        Debug.Log("Accept");
         //Tell the NPC the quest has been accepted.
         npcController.hasAccepted = true;
 
@@ -35,7 +36,7 @@ public class QuestHandler : MonoBehaviour
         player.setQuest(quest);
 
         //Save the quest data to the JSON
-        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName);
+        GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().writeNpcStatusToJson(quest.npcName, true, false);
 
         //Add the quest to the quest menu.
         questUI.addQuest();

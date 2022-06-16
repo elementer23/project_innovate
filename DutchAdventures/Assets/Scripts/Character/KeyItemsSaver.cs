@@ -34,7 +34,6 @@ public class KeyItemsSaver : MonoBehaviour
         //Save the items to the JSON file
         Debug.Log(JsonUtility.ToJson(keyItems));
         jsonHandler.WriteToJson(keyItems, "KeyItems");
-
     }
 
     public KeyItems readItems()
@@ -49,6 +48,8 @@ public class KeyItemsSaver : MonoBehaviour
         itemsDic[itemName] = isInInventory;
         //Update the keyItem array
         DicToKeyItem();
+        //Update the json
+        SaveItems();
     }
 
     public bool hasItem(string item)

@@ -13,6 +13,7 @@ public class QuestItemHandler : MonoBehaviour
     private PlayerQuestHandler playerQuestHandler;
     private bool canObtain = false;
     private bool isVisible = false;
+    //private Animator completeQuestAnim;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class QuestItemHandler : MonoBehaviour
         pointer = transform.GetChild(0).gameObject;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
+        //completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class QuestItemHandler : MonoBehaviour
             {
                 KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
                 keyItemSaver.setItem(keyItem, true);
-                keyItemSaver.SaveItems();
+                //completeQuestAnim.SetTrigger("Play");
 
                 Destroy(gameObject);
             }

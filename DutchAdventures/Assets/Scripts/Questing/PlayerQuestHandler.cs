@@ -16,12 +16,34 @@ public class PlayerQuestHandler : MonoBehaviour
     [SerializeField]
     private Quest quest;
 
+    private Animator completeQuestAnim;
+    private bool hasPlayed = false;
     private void Start()
     {
         jsonHandler = FindObjectOfType<JsonHandler>();
 
+        if (GameObject.Find("QuestComplete"))
+        {
+            completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+        }
+
         //Load in saved quest
         quest = jsonHandler.ReadFromJson<Quest>("playerQuest");
+    }
+
+    private void Update()
+    {
+        //Check for completion
+        KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
+        if (keyItemsSaver.hasItem(quest.requestedItem))
+        {
+            quest.hasCompleted = true;
+            if (hasPlayed == false)
+            {
+                hasPlayed = true;
+                completeQuestAnim.SetTrigger("Play");
+            }
+        }
     }
 
     //Call this function from your quest script to complete the quest.
@@ -36,12 +58,12 @@ public class PlayerQuestHandler : MonoBehaviour
 
             //set all items that are rewarted on true 
             foreach (string item in quest.itemReward)
-            { 
+            {
+                Debug.Log("key item: " + item + " :True");
                 keyItemsSaver.setItem(item, true);
             }
         }
-
-        setQuest(Quest.empty);
+        quest = Quest.empty;
     }
 
     //Sets the currently active quest to a quest.
@@ -60,6 +82,12 @@ public class PlayerQuestHandler : MonoBehaviour
     public Quest getQuest()
     {
         return quest;
+    }
+
+    public void resetQuest()
+    {
+        GetComponent<KeyItemsSaver>().setItem(quest.requestedItem, false);
+        quest = Quest.empty;
     }
 
     //void saveQuest()

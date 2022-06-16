@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DutchAdventures/Assets/Prefabs/BigSign.prefab.meta
+guid: d4b5a895196e4054abc76271c33d314c
+PrefabImporter:
+========
 guid: 7905bbc45e327ba45bb022528bf8733b
 DefaultImporter:
+>>>>>>>> 2dcf0e7283d40308d22ce624432b0a0500635795:DutchAdventures/Assets/Scenes/Menu/LevelSelect.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

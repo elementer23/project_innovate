@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    private Transform player;
+    private PlayerQuestHandler player;
     private Transform canvas;
-    private int minDist = 2;
+    private int minDist = 5;
     private QuestStatusSaver questStatusSaver;
 
     [SerializeField]
@@ -19,9 +19,15 @@ public class NPCController : MonoBehaviour
     [SerializeField]
     private GameObject questIconPrefab;
 
+    [SerializeField]
+    private string requiredItem;
+    private bool hasRequiredItem;
+    private bool canTakeQuest;
+
     [Header("Dialog")]
     public string npcName;
     public string startDialog;
+    public string questBusyDialog;
     public string notCompletedDialog;
     public string completionDialog;
     public string postCompletionDialog;
@@ -29,9 +35,9 @@ public class NPCController : MonoBehaviour
     [Header("Quest")]
     public Quest quest;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasAccepted = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasCompletedQuest = false;
     [HideInInspector]
     public bool isQuestGiver = false;
@@ -43,12 +49,8 @@ public class NPCController : MonoBehaviour
 
         //Set some variables to the corresponding objects.
         gameObject.name = npcName;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
-
-        //Fix the collider bug.
-        GetComponent<CapsuleCollider2D>().isTrigger = true;
-        GetComponent<CapsuleCollider2D>().isTrigger = false;
 
         isQuestGiver = !quest.isEmpty();
 
@@ -57,8 +59,6 @@ public class NPCController : MonoBehaviour
         hasAccepted = status[0];
         hasCompletedQuest = status[1];
 
-        //Spawn a quest marker/dialog icon above the npc
-        Instantiate(questIconPrefab, transform);
         if (isQuestGiver)
         {
             quest.npcName = npcName;
@@ -67,68 +67,93 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        if (!isQuestGiver)
+        //Spawn a quest marker/dialog icon above the npc
+        if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
         {
-            float dist = Vector2.Distance(player.transform.position, gameObject.transform.position);
-            bool isClose = dist < minDist;
+            Instantiate(questIconPrefab, transform);
         }
-    }
 
-    public void saveNpcData()
-    {
+        hasRequiredItem = player.GetComponent<KeyItemsSaver>().hasItem(requiredItem);
+        //hasRequiredItem = player.getQuest().hasCompleted;
 
+        if (requiredItem == string.Empty)
+        {
+            canTakeQuest = true;
+        }
+        else
+        {
+            if (hasRequiredItem)
+            {
+                canTakeQuest = true;
+            }
+            else
+            {
+                canTakeQuest = false;
+            }
+        }
     }
 
     //When the player presses on the NPC,
     private void OnMouseDown()
     {
-        //Check if the player is close enough to the NPC,
-        float dist = Vector2.Distance(player.position, transform.position);
-        if (dist < minDist)
+        if (canTakeQuest)
         {
-            //Get the status from the npc quest saver and update the local values
-            bool[] status = questStatusSaver.getNpcStatus(npcName);
-            hasAccepted = status[0];
-            hasCompletedQuest = status[1];
-
-            if (!startDialog.Equals(string.Empty))
+            //Check if the player is close enough to the NPC,
+            float dist = Vector2.Distance(player.transform.position, transform.position);
+            if (dist < minDist)
             {
-                //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
-                if (!quest.isEmpty())
+                //Get the status from the npc quest saver and update the local values
+                bool[] status = questStatusSaver.getNpcStatus(npcName);
+                hasAccepted = status[0];
+                hasCompletedQuest = status[1];
+
+                if (!startDialog.Equals(string.Empty))
                 {
-                    if (!hasAccepted)
+                    //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
+                    if (!quest.isEmpty())
                     {
-                        //Give player quest
-                        addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
-                    }
-                    else
-                    {
-                        if (!hasCompletedQuest)
+                        // Check if player has already quest
+                        if (player.getQuest().title.Equals(string.Empty))
                         {
-                            if (player.GetComponent<KeyItemsSaver>().hasItem(quest.requestedItem))
+                            if (!hasAccepted)
                             {
-                                //Complete the quest
-                                addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                //Give player quest
+                                addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                             }
                             else
                             {
-                                //Quest not finished yet
-                                addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                                if (!hasCompletedQuest)
+                                {
+                                    if (player.getQuest().hasCompleted)
+                                    {
+                                        //Complete the quest
+                                        addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                    }
+                                    else
+                                    {
+                                        //Quest not finished yet
+                                        addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                                    }
+                                }
+                                else
+                                {
+                                    //Quest is already finished finished
+                                    addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                                }
                             }
                         }
-                        else
+                        else 
                         {
-                            //Quest is already finished finished
-                            addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                            addDialog(dialogPrefab, "Dialogbox(Clone)", questBusyDialog, false);
                         }
                     }
-                }
-                //Npc does not give quests and just talks.
-                else
-                {
-                    string dialog = !hasCompletedQuest ? startDialog : completionDialog;
+                    //Npc does not give quests and just talks.
+                    else
+                    {
+                        string dialog = !hasCompletedQuest ? startDialog : completionDialog;
 
-                    addDialog(dialogPrefab, "Dialogbox(Clone)", dialog, false);
+                        addDialog(dialogPrefab, "Dialogbox(Clone)", dialog, false);
+                    }
                 }
             }
         }
@@ -154,30 +179,10 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    //void updateValues()
-    //{
-    //    if (isQuestGiver)
-    //    {
-    //        NpcQuestStatuses npcStatuses = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>().readNpcStatus();
-    //        foreach (NpcQuestStatus npcStatus in npcStatuses.statuses)
-    //        {
-    //            if (npcStatus.npcName == npcName)
-    //            {
-    //                hasAccepted = npcStatus.hasTakenQuest;
-    //                hasCompletedQuest = npcStatus.hasCompletedQuest;
-    //            }
-    //        }
-    //    }
-    //}
-
-
     //Function to reset the NPC after completion or abanoning of the quest.
-    public void resetNpc()
+    public void setNpc(bool hasTaken, bool hasCompleted)
     {
-        if (!quest.isEmpty())
-        {
-            Instantiate(questIconPrefab, transform);
-            hasAccepted = false;
-        }
+        hasAccepted = hasTaken;
+        hasCompletedQuest = hasCompleted;
     }
 }

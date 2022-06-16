@@ -22,16 +22,15 @@ public class PompMotionControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetInteger("amountOfPomps") == 11)
+        if (animator.GetInteger("amountOfPomps") == 6)
         {
             KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
             keyItemSaver.setItem("WaterFulled", true);
             keyItemSaver.setItem("Jerrycan", false);
-            keyItemSaver.SaveItems();
 
             world.SetActive(true);
             mingame.SetActive(false);
-
+            
             Debug.Log("Minigame compleeted");
         }
         else 
