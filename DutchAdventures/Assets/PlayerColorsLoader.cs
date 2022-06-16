@@ -8,12 +8,15 @@ public class PlayerColorsLoader : MonoBehaviour
     public PlayerData playerData;
     public SpriteRenderer[] srs;
 
-    void Start()
+    private void Awake()
     {
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
         Debug.Log("read from json /\\ ");
+    }
 
+    void Start()
+    {
         for (int i = 0; i < playerData.playerPreset.Length; i++)
         {
             Color newCol;

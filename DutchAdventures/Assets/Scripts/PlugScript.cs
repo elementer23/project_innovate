@@ -52,6 +52,15 @@ public class PlugScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        bool disable = npc.hasCompletedQuest || !npc.hasAccepted;
+
+        GetComponent<SpriteRenderer>().enabled = !disable;
+        transform.parent.GetComponent<LineRenderer>().enabled = !disable;
+        transform.parent.parent.GetComponent<SpriteRenderer>().enabled = !disable;
+    }
+
     private void OnMouseDown()
     {
         if (npc.hasAccepted)
