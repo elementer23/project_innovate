@@ -5229,11 +5229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.title
-      value: Bike exam
+      value: Bike exame
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: startDialog
-      value: Tomorrow there will be a test
+      value: Hello, we have an bike exame today you can take it if you want?
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: requiredItem
@@ -5249,7 +5249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: completionDialog
-      value: You passed go to the major office to get your license
+      value: Enjoy your license
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.rewardItem
@@ -5257,15 +5257,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.description
-      value: Take the test
+      value: Take the test.
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: notCompletedDialog
-      value: Please finisch your test the anwsers are in the books
+      value: Please finisch your test the anwsers are in the books. If you passed
+        go to the major office to get your license.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
+      propertyPath: quest.requestedItem
+      value: FietsCertivicaat
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: postCompletionDialog
-      value: Go get your license at the major office
+      value: Enjoy your license
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.completionDialog
@@ -8790,11 +8795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.8
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.73
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10014,6 +10019,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 564620970}
     m_Modifications:
+    - target: {fileID: 6071538282580406461, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071538282580406461, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.62
+      objectReference: {fileID: 0}
     - target: {fileID: 6071538282580406463, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_SortingOrder
       value: 101
@@ -10068,15 +10081,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340868, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0251105
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Size.y
-      value: 3.060532
+      value: 3.6730819
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.096281886
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Offset.y
-      value: -0.7350848
+      value: -0.845865
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340871, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_SortingOrder
@@ -10803,7 +10824,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -12301,36 +12322,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: 7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 2, y: 7, z: 0}
     second:
       serializedVersion: 2
@@ -12531,36 +12522,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 8, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 8, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: 8, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 41
-      m_TileSpriteIndex: 41
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 2, y: 8, z: 0}
     second:
       serializedVersion: 2
@@ -12745,7 +12706,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 205b92c4b3790b044b5ce0821a2d5b8f, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 4eec4dbc710a75a4e9a07da8233d0e2c, type: 2}
-  - m_RefCount: 46
+  - m_RefCount: 40
     m_Data: {fileID: 11400000, guid: 8a699af2d0d987049801a7921eb5a7fc, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: ca14a0d5be2010449b1a6d55ef7e30b9, type: 2}
@@ -12838,7 +12799,7 @@ Tilemap:
     m_Data: {fileID: -78386587, guid: caf20a3e0b4cbd840827186bdfbd4379, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -2097185189, guid: caf20a3e0b4cbd840827186bdfbd4379, type: 3}
-  - m_RefCount: 46
+  - m_RefCount: 40
     m_Data: {fileID: 909644384, guid: caf20a3e0b4cbd840827186bdfbd4379, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1346427867, guid: caf20a3e0b4cbd840827186bdfbd4379, type: 3}
@@ -12849,7 +12810,7 @@ Tilemap:
   - m_RefCount: 15
     m_Data: {fileID: 1920481899, guid: caf20a3e0b4cbd840827186bdfbd4379, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 184
+  - m_RefCount: 178
     m_Data:
       e00: 1
       e01: 0
@@ -12868,7 +12829,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 184
+  - m_RefCount: 178
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
