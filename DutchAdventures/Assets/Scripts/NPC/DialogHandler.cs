@@ -41,7 +41,7 @@ public class DialogHandler : MonoBehaviour
         bool isOverUI = EventSystem.current.IsPointerOverGameObject();
         if (!isFinished)
         {
-            if (Input.GetMouseButtonDown(0) && isOverUI)
+            if ((Input.GetMouseButtonDown(0) && isOverUI))
             {
                 StopCoroutine(printDialog);
                 dialogBox.text = dialog;
@@ -50,6 +50,19 @@ public class DialogHandler : MonoBehaviour
             else
             {
                 dialogBox.text = dialogToDisplay;
+            }
+        }
+        if(Input.touchCount > 0)
+        {
+            int id = Input.GetTouch(0).fingerId;
+            if (EventSystem.current.IsPointerOverGameObject(id))
+            {
+                if (!isFinished)
+                {
+                    StopCoroutine(printDialog);
+                    dialogBox.text = dialog;
+                    isFinished = true;
+                }
             }
         }
     }

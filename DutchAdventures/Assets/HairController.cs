@@ -9,6 +9,12 @@ public class HairController : MonoBehaviour
 
     public SpriteSheet[] hairSpriteSheets;
 
+    private void Start()
+    {
+        hairStyle = transform.parent.GetComponent<PlayerColorsLoader>().playerData.hairStyle;
+        GetComponent<SpriteRenderer>().sprite = hairSpriteSheets[hairStyle].spriteSheet[0];
+    }
+
     private void Update()
     {
         hairStyle = transform.parent.GetComponent<PlayerColorsLoader>().playerData.hairStyle;
@@ -42,7 +48,8 @@ public class HairController : MonoBehaviour
                 return hairSpriteSheets[hairStyle].spriteSheet[0];
             }
         }
-        return hairSpriteSheets[hairStyle].spriteSheet[0];
+        //return hairSpriteSheets[hairStyle].spriteSheet[0];
+        return GetComponent<SpriteRenderer>().sprite;
     }
 
     [System.Serializable]

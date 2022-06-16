@@ -12,10 +12,10 @@ public class Quizmanager : MonoBehaviour
     public int currentQuestion;
 
     public GameObject Quizpanel;
-    public GameObject GoPanel;
+    //public GameObject GoPanel;
 
     public TextMeshProUGUI QuestionTxt;
-    public Text ScoreTxt;
+    //public Text ScoreTxt;
 
     int totalQuestions = 0;
     public int score;
@@ -23,7 +23,7 @@ public class Quizmanager : MonoBehaviour
     private void Start()
     {
         totalQuestions = QnA.Count;
-        GoPanel.SetActive(false);
+        //GoPanel.SetActive(false);
         generateQuestion();
     }
 
@@ -35,8 +35,8 @@ public class Quizmanager : MonoBehaviour
     void GameOver()
     {
         Quizpanel.SetActive(false);
-        GoPanel.SetActive(true);
-        ScoreTxt.text = score + "/" + totalQuestions;
+        //GoPanel.SetActive(true);
+        //ScoreTxt.text = score + "/" + totalQuestions;
     }
 
     public void correct()
@@ -64,12 +64,13 @@ public class Quizmanager : MonoBehaviour
     {
         for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().startColor;
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
+            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i];
+            //options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().startColor;
 
-            if (QnA[currentQuestion].CorrectAnswer == i + 1)
+            if (QnA[currentQuestion].CorrectAnswer == i)
             {
+                
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
         }

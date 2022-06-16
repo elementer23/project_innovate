@@ -20,7 +20,7 @@ public class CharacterCustHandler : MonoBehaviour
 
     public TMP_InputField nameField;
 
-    private string currentPart = "Skin";
+    private string currentPart = "SkinButton";
 
     //Heeft index nummer van de spriteArray.
     public int currentHairSprite = 0;
@@ -33,6 +33,8 @@ public class CharacterCustHandler : MonoBehaviour
 
     public RectTransform scaler;
     public RectTransform picker;
+    public Color normalColor;
+    public Color highlightColor;
 
     void Start()
     {
@@ -41,6 +43,23 @@ public class CharacterCustHandler : MonoBehaviour
         picker.localScale = new Vector2(scale, scale);
         startAnimation(this.frontImage);
         startAnimation(this.sideImage);
+        nameChange(GameObject.Find("ContinueButton").transform.GetChild(0).GetComponent<Image>());
+    }
+
+    private void Update()
+    {
+        foreach (Transform btn in transform)
+        {
+            Image img = btn.GetChild(0).GetComponent<Image>();
+            if (btn.name == currentPart)
+            {
+                img.color = highlightColor;
+            }
+            else
+            {
+                img.color = normalColor;
+            }
+        }
     }
 
     private void setCustValues(string type)
@@ -48,11 +67,11 @@ public class CharacterCustHandler : MonoBehaviour
         frontImage = GameObject.Find(type + "Front").GetComponent<Image>();
         sideImage = GameObject.Find(type + "Side").GetComponent<Image>();
         currentButton = GameObject.Find(type + "Button").GetComponent<Button>();
-        this.currentPart = type;
     }
 
     public void setCharacterPart(string type)
     {
+        this.currentPart = type + "Button";
         stopAnimation(this.frontImage);
         stopAnimation(this.sideImage);
         this.currentButton.interactable = true;
@@ -140,8 +159,10 @@ public class CharacterCustHandler : MonoBehaviour
         anim.SetBool("Play", false);
     }
 
-    public void nameChange()
+    public void nameChange(Image img)
     {
-        GameObject.Find("ContinueButton").GetComponent<Button>().interactable = (nameField.text.Length > 0);
+        img.transform.parent.GetComponent<Button>().interactable = nameField.text.Length > 0;
+        Color col = nameField.text.Length > 0 ? normalColor : highlightColor;
+        img.color = col;
     }
 }

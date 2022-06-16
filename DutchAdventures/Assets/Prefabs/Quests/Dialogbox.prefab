@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 6667939922886280659}
   - component: {fileID: 6667939922886280658}
   - component: {fileID: 6112000413097244182}
+  - component: {fileID: 1197650541773147855}
   m_Layer: 5
   m_Name: Dialogbox
   m_TagString: Untagged
@@ -864,6 +865,18 @@ MonoBehaviour:
   dialog: The quick brown fox jumped over the lazy dog.
   npcName: 
   isFinished: 0
+--- !u!225 &1197650541773147855
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667939922886280652}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6667939923676563427
 GameObject:
   m_ObjectHideFlags: 0
