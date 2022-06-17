@@ -12,7 +12,6 @@ public class PlayerColorsLoader : MonoBehaviour
     {
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
-        Debug.Log("read from json /\\ ");
     }
 
     void Start()

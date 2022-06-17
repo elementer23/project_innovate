@@ -21,6 +21,8 @@ public class NPCController : MonoBehaviour
 
     [SerializeField]
     private string requiredItem;
+    [SerializeField]
+    private bool hideOnCompletion;
     private bool hasRequiredItem;
     private bool canTakeQuest;
 
@@ -91,6 +93,11 @@ public class NPCController : MonoBehaviour
                 canTakeQuest = false;
             }
         }
+
+        if (hideOnCompletion)
+        {
+            gameObject.SetActive(!hasCompletedQuest);
+        }
     }
 
     //When the player presses on the NPC,
@@ -127,7 +134,7 @@ public class NPCController : MonoBehaviour
                                     if (player.getQuest().hasCompleted)
                                     {
                                         //Complete the quest
-                                        addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                        GameObject dialog = addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
                                     }
                                     else
                                     {
@@ -163,7 +170,7 @@ public class NPCController : MonoBehaviour
     {
         return this.requiredItem;
     }
-    private void addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    private GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {
@@ -171,7 +178,7 @@ public class NPCController : MonoBehaviour
             DialogHandler dhandler = obj.GetComponent<DialogHandler>();
 
             dhandler.dialog = dialog;
-            dhandler.npcName = npcName;
+            dhandler.npc = this;
 
             if (isQuest)
             {
@@ -180,7 +187,9 @@ public class NPCController : MonoBehaviour
                 qhandler.quest = quest;
                 qhandler.npcController = this;
             }
+            return obj;
         }
+        return null;
     }
 
     //Function to reset the NPC after completion or abanoning of the quest.

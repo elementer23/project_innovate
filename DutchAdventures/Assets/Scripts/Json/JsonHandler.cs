@@ -37,7 +37,7 @@ public class JsonHandler : MonoBehaviour
 
     public void WriteToJson<T>(T dataToWrite, string fileName)
     {
-        Debug.Log("Write to JSON: \n" + JsonUtility.ToJson(dataToWrite));
+        //Debug.Log("Write to JSON: \n" + JsonUtility.ToJson(dataToWrite));
         File.WriteAllText(Application.persistentDataPath + "/Resources/" + fileName + ".json", JsonUtility.ToJson(dataToWrite));
     }
 
@@ -45,7 +45,7 @@ public class JsonHandler : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/Resources/" + fileName + ".json";
         string jsonString = File.ReadAllText(path);
-        Debug.Log("Read from JSON: \n" + jsonString);
+        //Debug.Log("Read from JSON: \n" + jsonString);
 
         return JsonUtility.FromJson<T>(jsonString);
     }
