@@ -22,7 +22,6 @@ public class ToggleInfo : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("nop");
         if (isClose)
         {
             DialogueTrigger trigger = gameObject.GetComponent(typeof(DialogueTrigger)) as DialogueTrigger;

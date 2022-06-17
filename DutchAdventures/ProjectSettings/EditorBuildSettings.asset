@@ -63,7 +63,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CityHouse/HouseFlat4.unity
     guid: 8094c5203edc41b4396d8248f0739c32
   - enabled: 1
-    path: Assets/Scenes/Examen.unity
+    path: Assets/Scenes/examen.unity
     guid: 2c0e8aac1eb3f034cb1dfae162b391bc
   - enabled: 0
     path: 
@@ -71,5 +71,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityHouse/CityBasement.unity
     guid: abb517d480fe1be40b9ed52139eedb5d
+  - enabled: 1
+    path: Assets/Scenes/CityHouse/MajorOffice.unity
+    guid: e2ebd86f41e876743b24b34a7c5e8d47
+  - enabled: 1
+    path: Assets/Scenes/CityHouse/MajorOfficeUp.unity
+    guid: a227613efcdce0147b307a2fb4c3e2e6
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}
