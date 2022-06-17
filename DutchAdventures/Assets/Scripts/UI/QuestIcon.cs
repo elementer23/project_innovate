@@ -8,6 +8,8 @@ public class QuestIcon : MonoBehaviour
     public Sprite iconTakenQuest;
     public Sprite iconCompleteQuest;
     public Sprite iconDialog;
+    public Sprite empty;
+    public bool activeQuest = false;
 
     private NPCController npcController;
     private SpriteRenderer spriteRenderer;
@@ -16,6 +18,8 @@ public class QuestIcon : MonoBehaviour
     {
         npcController = transform.parent.GetComponent<NPCController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        
     }
 
     void Update()
@@ -28,9 +32,10 @@ public class QuestIcon : MonoBehaviour
                 spriteRenderer.sprite = iconTakenQuest;
             }
             //not accepted, not completed
-            else if (!npcController.hasAccepted && !npcController.hasCompletedQuest)
+            else if (!npcController.hasAccepted && !npcController.hasCompletedQuest  && npcController.getRequiredKeyitem().Equals(string.Empty))
             {
                 spriteRenderer.sprite = iconQuest;
+                activeQuest = true;
             }
             //has accepted, has completed
             else if (npcController.hasAccepted && npcController.hasCompletedQuest)
@@ -41,6 +46,10 @@ public class QuestIcon : MonoBehaviour
             else if (!npcController.hasAccepted && npcController.hasCompletedQuest)
             {
                 spriteRenderer.sprite = iconCompleteQuest;
+            }
+            else if (!npcController.hasRequiredItem && !npcController.getRequiredKeyitem().Equals(string.Empty))
+            {
+                spriteRenderer.sprite = empty;
             }
         }
         else
