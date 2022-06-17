@@ -12,9 +12,10 @@ public class DialogHandler : MonoBehaviour
     private TextMeshProUGUI npcNameTxt;
     public CanvasGroup btns;
 
+    public NPCController npc;
+
     [HideInInspector]
     public string dialog;
-    public string npcName;
     private string dialogToDisplay;
     [HideInInspector]
     public bool isFinished = false;
@@ -25,7 +26,7 @@ public class DialogHandler : MonoBehaviour
     {
         //Start the coroutine that prints every character at a time;
         printDialog = StartCoroutine(printText());
-        npcNameTxt.text = npcName;
+        npcNameTxt.text = npc.name;
 
         //Make the buttons invisible at start
         btns.alpha = 0;
