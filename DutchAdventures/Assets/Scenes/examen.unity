@@ -4504,7 +4504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8832269472084495162, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
       propertyPath: sceneName
-      value: Forest
+      value: Classroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
@@ -6443,6 +6443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1091884073}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &599441667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6543,7 +6544,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6551,7 +6552,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282598211
-  m_fontColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  m_fontColor: {r: 0.28235295, g: 0.23137255, b: 0.20392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6568,8 +6569,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -6584,7 +6585,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -6607,7 +6608,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &635973825
@@ -7541,14 +7542,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Quizpanel: {fileID: 1278846230}
   QnA:
-  - Question: Wie moet je voorang geven in een woonwijk
+  - Question: The sign with the big 30 board with red line how what is your max speed?
+    Answers:
+    - 20
+    - 25
+    - 60
+    - 30
+    CorrectAnswer: 3
+  - Question: Who should you give priority in a residential area?
     Answers:
     - Right
     - Left
     - Middle
     - Behind you
     CorrectAnswer: 0
-  BackupQnA: []
+  - Question: Before you take a turn what do you need to do?
+    Answers:
+    - Just go it doesn't matter
+    - Look behind you
+    - Put your hand out to the side and then go.
+    - Put your hand out to the side and watch behind you
+    CorrectAnswer: 3
+  - Question: What do you need to check before you go on an adventure on the bike?
+    Answers:
+    - Flush the air out of your tires
+    - Test your bell
+    - Put on shoes inside out.
+    - Check if your tires are hard
+    CorrectAnswer: 3
+  - Question: Can you drive on the road?
+    Answers:
+    - Yes
+    - No
+    - Only when there is no bike path
+    - Why not i dont see why not
+    CorrectAnswer: 2
+  - Question: Can you use your smartphone on the bike?
+    Answers:
+    - Yes
+    - No
+    - Only when you walk next to your bike.
+    - Why not i dont see why not
+    CorrectAnswer: 2
+  - Question: Its dark and my lights are broken, can i still use my bike?
+    Answers:
+    - Yes
+    - No
+    - Maybe
+    - Why not?
+    CorrectAnswer: 1
+  - Question: Where on the road do you need to drive
+    Answers:
+    - Left
+    - Right
+    - Middle
+    - Swirling all over the road
+    CorrectAnswer: 1
   options:
   - {fileID: 1459001575}
   - {fileID: 599441661}
@@ -8688,6 +8737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1091884073}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1111129548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8795,11 +8845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8925,7 +8975,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8933,7 +8983,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282598211
-  m_fontColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  m_fontColor: {r: 0.28235295, g: 0.23137255, b: 0.20392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8950,8 +9000,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -8966,7 +9016,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -8989,7 +9039,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1194551799
@@ -9101,7 +9151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: startDialog
-      value: LINUX
+      value: I love LINUX!!
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: quest.npcName
@@ -9708,19 +9758,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Size.x
-      value: 2.5928617
+      value: 2.9691124
       objectReference: {fileID: 0}
     - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Size.y
-      value: 2.480678
+      value: 2.4087734
       objectReference: {fileID: 0}
     - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Offset.x
-      value: 0.2599008
+      value: 0.07177544
       objectReference: {fileID: 0}
     - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Offset.y
-      value: -0.29713082
+      value: -0.33308315
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033511, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Name
@@ -10045,7 +10095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340856, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340856, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10081,7 +10131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340868, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Size.x
@@ -10089,7 +10139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Size.y
-      value: 3.6730819
+      value: 2.6809301
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Offset.x
@@ -10097,7 +10147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340869, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_Offset.y
-      value: -0.845865
+      value: -0.34978914
       objectReference: {fileID: 0}
     - target: {fileID: 6071538282720340871, guid: ed549a7ee6f455b4ca27ad78f5923adf, type: 3}
       propertyPath: m_SortingOrder
@@ -10177,6 +10227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1091884073}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1459001580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10420,6 +10471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1091884073}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1545190891 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2016718721448051140, guid: c4ee992f3b5edc54ca396561bd8dbabc, type: 3}
@@ -10438,6 +10490,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 305108465}
     m_Modifications:
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 28.398407
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966158, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14
+      objectReference: {fileID: 0}
     - target: {fileID: 6171349440760966159, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: player
       value: 
@@ -13022,7 +13102,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Welk antwoord klopt?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13030,7 +13110,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.28235295, g: 0.23137255, b: 0.20392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13086,7 +13166,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1699847002
@@ -13164,7 +13244,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13172,7 +13252,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282598211
-  m_fontColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  m_fontColor: {r: 0.28235295, g: 0.23137255, b: 0.20392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13189,8 +13269,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -13205,7 +13285,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -13228,7 +13308,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1741249715
@@ -13646,7 +13726,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13654,7 +13734,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282598211
-  m_fontColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  m_fontColor: {r: 0.28235295, g: 0.23137255, b: 0.20392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13671,8 +13751,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -13687,7 +13767,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -13710,7 +13790,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1866175974

@@ -10,7 +10,6 @@ public class Quizmanager : MonoBehaviour
     [Header("Quiz")]
     public GameObject Quizpanel;
     public List<QuestionAndAnswers> QnA;
-    public List<QuestionAndAnswers> BackupQnA;
     public GameObject[] options;
     public int currentQuestion;
     public TextMeshProUGUI QuestionTxt;
@@ -125,7 +124,8 @@ public class Quizmanager : MonoBehaviour
         {
             options[option].GetComponent<AnswerScript>().isCorrect = false;
             options[option].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[option];
-            //options[option].GetComponent<Image>().color = options[option].GetComponent<AnswerScript>().startColor;
+            options[option].transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.black; 
+            options[option].GetComponent<Image>().color = options[option].GetComponent<AnswerScript>().startColor;
 
             if (QnA[currentQuestion].CorrectAnswer == option)
             {

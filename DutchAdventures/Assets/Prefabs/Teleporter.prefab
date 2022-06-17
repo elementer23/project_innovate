@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 143698658257523620}
   m_Layer: 0
   m_Name: Teleporter
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,8 @@ MonoBehaviour:
   entracePos: {fileID: 11400000, guid: 95419221643bb7443a0184564e6034ad, type: 2}
   exitPos: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
   destination: {x: 0, y: 0}
+  fadeObject: {fileID: 0}
+  loadingText: {fileID: 0}
 --- !u!61 &143698658257523620
 BoxCollider2D:
   m_ObjectHideFlags: 0

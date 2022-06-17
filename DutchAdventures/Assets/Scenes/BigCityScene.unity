@@ -1183,6 +1183,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 2.3950129
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1077108
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.08283472
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.36944723
+      objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033511, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Name
       value: TeleporterMajorRight
@@ -1237,7 +1253,7 @@ PrefabInstance:
       objectReference: {fileID: 1456573806}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: sceneName
-      value: MojorOffice
+      value: MajorOffice
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
@@ -1264,6 +1280,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0186625
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9320831
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.004980564
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.15618134
+      objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033511, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_Name
       value: TeleporterMajorLeft
@@ -1318,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 1456573806}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: sceneName
-      value: MojorOffice
+      value: MajorOffice
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
@@ -26350,26 +26382,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 3, y: -26, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 4, y: -26, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 5, y: -26, z: 0}
     second:
       serializedVersion: 2
@@ -26381,26 +26393,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 9, y: -26, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 10, y: -26, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 11, y: -26, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -33322,7 +33314,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1039
+  - m_RefCount: 1035
     m_Data: {fileID: 11400000, guid: 715c499588421484f9914497c1dfcaaa, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 2bc66ed27f8e50340ac13d855deba356, type: 2}
@@ -33331,7 +33323,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: d48b7cb20b5512b4ea25a2aeeed4f133, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1039
+  - m_RefCount: 1035
     m_Data: {fileID: 1596723604, guid: 0ecb5c14485dc8d4fa1111c28d919dcd, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 52997640, guid: 0ecb5c14485dc8d4fa1111c28d919dcd, type: 3}
@@ -33340,7 +33332,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -376780547, guid: 0ecb5c14485dc8d4fa1111c28d919dcd, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1045
+  - m_RefCount: 1041
     m_Data:
       e00: 1
       e01: 0
@@ -33359,7 +33351,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1045
+  - m_RefCount: 1041
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
