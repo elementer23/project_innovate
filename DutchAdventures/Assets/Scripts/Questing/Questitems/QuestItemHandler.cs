@@ -15,7 +15,7 @@ public class QuestItemHandler : MonoBehaviour
     protected bool isVisible = false;
     //private Animator completeQuestAnim;
 
-    private void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerQuestHandler = player.GetComponent<PlayerQuestHandler>();
@@ -25,14 +25,15 @@ public class QuestItemHandler : MonoBehaviour
         //completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
+
         float dist = Vector2.Distance(player.position, transform.position);
         canObtain = dist < minDist && isVisible;
         pointer.SetActive(canObtain);
 
         isVisible = playerQuestHandler.getQuest().title == requiredQuest;
-        GetComponent<SpriteRenderer>().enabled = isVisible;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 
     //Pickups quest item if the player press down and is in range
