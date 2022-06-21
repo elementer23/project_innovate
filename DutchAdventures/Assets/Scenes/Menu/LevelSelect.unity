@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPopup: {fileID: 552481440}
+  exit: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
 --- !u!1 &186390900
 GameObject:
   m_ObjectHideFlags: 0
