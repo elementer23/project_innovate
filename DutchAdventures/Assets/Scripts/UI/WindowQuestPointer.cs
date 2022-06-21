@@ -36,7 +36,7 @@ public class WindowQuestPointer : MonoBehaviour
         }
         else
         {
-            DisappearArrow();
+            getCanvas.alpha = 0;
         }
     }
 
@@ -46,10 +46,11 @@ public class WindowQuestPointer : MonoBehaviour
         {
             int Icon = npc.GetComponent<NPCController>().transform.childCount;
             var QuestIconStatus = npc.GetComponent<NPCController>().transform.GetChild(Icon - 1).GetComponent<QuestIcon>().activeQuest;
-            Debug.Log(npc.GetComponent<NPCController>().npcName + " Icon = " + QuestIconStatus);
+            //Debug.Log(npc.GetComponent<NPCController>().npcName + " Icon = " + QuestIconStatus);
 
             if (QuestIconStatus == true)
             {
+                getCanvas.alpha = 1;
                 float playerPos = Vector2.Distance(npc.transform.position, player.position);
                 float closestNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
 
@@ -57,8 +58,8 @@ public class WindowQuestPointer : MonoBehaviour
                 {
                     closestNpc = npc;
                 }
-            }
-            DisappearArrow();
+            } 
+            //DisappearArrow();
         }
 
         updateArrow(closestNpc);

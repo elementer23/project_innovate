@@ -21,13 +21,12 @@ public class NPCController : MonoBehaviour
 
     [SerializeField]
     private string requiredItem;
-<<<<<<< HEAD
+
     public bool hasRequiredItem;
-=======
+
     [SerializeField]
     private bool hideOnCompletion;
-    private bool hasRequiredItem;
->>>>>>> origin/main
+
     private bool canTakeQuest;
 
     [Header("Dialog")]
