@@ -17,13 +17,16 @@ public class NPCController : MonoBehaviour
     private GameObject competionDialogPrefab;
 
     [SerializeField]
-    private GameObject questIconPrefab;
+    public GameObject questIconPrefab;
 
     [SerializeField]
     private string requiredItem;
+
+    public bool hasRequiredItem;
+
     [SerializeField]
     private bool hideOnCompletion;
-    private bool hasRequiredItem;
+
     private bool canTakeQuest;
 
     [Header("Dialog")]
@@ -65,9 +68,16 @@ public class NPCController : MonoBehaviour
         {
             quest.npcName = npcName;
         }
+
+        createDialogBoxes();
     }
 
     private void Update()
+    {
+        createDialogBoxes();
+    }
+
+    private void createDialogBoxes() 
     {
         //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
@@ -87,10 +97,15 @@ public class NPCController : MonoBehaviour
             if (hasRequiredItem)
             {
                 canTakeQuest = true;
+
             }
             else
             {
                 canTakeQuest = false;
+                if (!transform.Find("QuestMarker(Clone)"))
+                {
+                    Instantiate(questIconPrefab, transform);
+                }
             }
         }
 

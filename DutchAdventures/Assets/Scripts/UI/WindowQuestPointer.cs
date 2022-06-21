@@ -1,67 +1,125 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class WindowQuestPointer : MonoBehaviour
 {
 
     public GameObject[] npcs;
+    public List<GameObject> questNpcs;
     public Transform player;
     public Transform arrow;
-   
 
     private GameObject closestNpc;
-    [SerializeField]
-    private bool QuestNPC = false;
+    //private JsonHandler jsonHandler;
+    //public KeyItem keyItems;
+
+    //private GameObject questItem;
 
     private Camera cam;
+    private CanvasGroup getCanvas;
+
+    //private void Awake()
+    //{
+    //    jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
+    //    keyItems = jsonHandler.ReadFromJson<KeyItem>("KeyItems");
+    //}
 
     private void Start()
     {
-        npcs = GameObject.FindGameObjectsWithTag("NPC");
-        closestNpc = npcs[0];
-        cam = UnityEngine.Camera.main;
 
+        //questItem = GameObject.Find(keyItems.name);
+
+        //Scene scene = questItem.scene;
+
+        //Debug.Log(questItem.name + " is from the Scene: " + scene.name);
+
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        questNpcs = new List<GameObject>();
+
+        FillQuestNPCList();
+
+        cam = Camera.main;
+        getCanvas = GetComponent<CanvasGroup>();
     }
 
     private void Update()
     {
-        foreach (GameObject npc in npcs)
+        FillQuestNPCList();
+        if (questNpcs.Count > 0)
         {
-            if (npc.GetComponent<NPCController>().isQuestGiver)
-            {
-                //!npc.GetComponent<NPCController>().quest.title.Equals(string.Empty)
-                //if (!player.GetComponent<KeyItemsSaver>().hasItem(npc.GetComponent<NPCController>().getRequiredKeyitem()))
-                //{
-                    Debug.Log(!npc.GetComponent<NPCController>().quest.requestedItem.Equals(string.Empty));
-                    QuestNPC = true;
-                    float playerPos = Vector2.Distance(npc.transform.position, player.position);
-                    float closestNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
-
-                    if (playerPos < closestNpcPos)
-                    {
-                        closestNpc = npc;
-                    }
-
-                Vector3 viewPos = cam.ViewportToWorldPoint(closestNpc.transform.position);
-                if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
-                {
-                    QuestNPC = false;
-                }
-                else
-                {
-                    QuestNPC = true;
-                }
-                //}
-            }
+            QuestNavigator();
         }
-        gameObject.SetActive(QuestNPC);
-        updateArrow(closestNpc);
-
+        else
+        {
+            getCanvas.alpha = 0;
+        }
     }
 
-    private void updateArrow(GameObject npc)
+    private void QuestNavigator()
+    {
+        foreach (GameObject npc in npcs)
+        {
+            int Icon = npc.GetComponent<NPCController>().transform.childCount;
+            var QuestIconStatus = npc.GetComponent<NPCController>().transform.GetChild(Icon - 1).GetComponent<QuestIcon>().activeQuest;
+            //Debug.Log(npc.GetComponent<NPCController>().npcName + " Icon = " + QuestIconStatus);
+
+            if (QuestIconStatus == true)
+            {
+                float playerPos = Vector2.Distance(npc.transform.position, player.position);
+                float closestNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
+
+                if (playerPos < closestNpcPos)
+                {
+                    closestNpc = npc;
+                }
+
+                DisappearArrow();
+                UpdateArrow(closestNpc);
+            } 
+            
+        }
+        
+    }
+
+    private void FillQuestNPCList()
+    {
+        foreach (var npc in npcs)
+        {
+            if (!npc.GetComponent<NPCController>().quest.title.Equals(string.Empty))
+            {
+                questNpcs.Add(npc);
+            }
+        }
+        if (questNpcs.Count > 0)
+        {
+            closestNpc = questNpcs[0];
+        }
+    }
+    private void DisappearArrow()
+    {
+        if (questNpcs.Count > 0)
+        {
+            Vector3 viewPos = cam.WorldToViewportPoint(closestNpc.transform.position);
+
+            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+            {
+                getCanvas.alpha = 0;
+            }
+            else
+            {
+                getCanvas.alpha = 1;
+            }
+        }
+        else
+        {
+            getCanvas.alpha = 0;
+        }
+    }
+
+    private void UpdateArrow(GameObject npc)
     {
         Vector2 diff = npc.transform.position - player.position;
         float angle = Mathf.Atan2(diff.y, diff.x);
