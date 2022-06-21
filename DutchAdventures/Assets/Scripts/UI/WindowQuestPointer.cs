@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class WindowQuestPointer : MonoBehaviour
@@ -12,12 +13,29 @@ public class WindowQuestPointer : MonoBehaviour
     public Transform arrow;
 
     private GameObject closestNpc;
+    //private JsonHandler jsonHandler;
+    //public KeyItem keyItems;
+
+    //private GameObject questItem;
 
     private Camera cam;
     private CanvasGroup getCanvas;
 
+    //private void Awake()
+    //{
+    //    jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
+    //    keyItems = jsonHandler.ReadFromJson<KeyItem>("KeyItems");
+    //}
+
     private void Start()
     {
+
+        //questItem = GameObject.Find(keyItems.name);
+
+        //Scene scene = questItem.scene;
+
+        //Debug.Log(questItem.name + " is from the Scene: " + scene.name);
+
         npcs = GameObject.FindGameObjectsWithTag("NPC");
         questNpcs = new List<GameObject>();
 
