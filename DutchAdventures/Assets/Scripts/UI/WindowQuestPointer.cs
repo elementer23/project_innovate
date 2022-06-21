@@ -50,7 +50,6 @@ public class WindowQuestPointer : MonoBehaviour
 
             if (QuestIconStatus == true)
             {
-                getCanvas.alpha = 1;
                 float playerPos = Vector2.Distance(npc.transform.position, player.position);
                 float closestNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
 
@@ -58,12 +57,15 @@ public class WindowQuestPointer : MonoBehaviour
                 {
                     closestNpc = npc;
                 }
-            } 
-            //DisappearArrow();
-        }
 
-        updateArrow(closestNpc);
+                DisappearArrow();
+                UpdateArrow(closestNpc);
+            } 
+            
+        }
+        
     }
+
     private void FillQuestNPCList()
     {
         foreach (var npc in npcs)
@@ -99,7 +101,7 @@ public class WindowQuestPointer : MonoBehaviour
         }
     }
 
-    private void updateArrow(GameObject npc)
+    private void UpdateArrow(GameObject npc)
     {
         Vector2 diff = npc.transform.position - player.position;
         float angle = Mathf.Atan2(diff.y, diff.x);
