@@ -48,4 +48,9 @@ public class JSONRESETTER : MonoBehaviour
     {
         this.reset = true;
     }
+
+    public void ReloadScene()
+    {
+        this.reloadScene = true;
+    }
 }
