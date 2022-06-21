@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class MenuTransition : MonoBehaviour
 {
     public GameObject loadPopup = null;
-
     public void toSceneNoPopup(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
