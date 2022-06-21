@@ -19,6 +19,13 @@ public class PlugScript : MonoBehaviour
     [SerializeField]
     private Animator questComplete;
 
+    [SerializeField]
+    private Gradient normalGradient;
+    [SerializeField]
+    private Gradient disabledGradient;
+
+    private bool canDrag;
+
     private void Start()
     {
         keyItemsSaver = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyItemsSaver>();
@@ -55,15 +62,25 @@ public class PlugScript : MonoBehaviour
     private void Update()
     {
         bool disable = npc.hasCompletedQuest || !npc.hasAccepted;
+        float val = disable ? 0.5f : 1f;
 
-        GetComponent<SpriteRenderer>().enabled = !disable;
-        transform.parent.GetComponent<LineRenderer>().enabled = !disable;
-        transform.parent.parent.GetComponent<SpriteRenderer>().enabled = !disable;
+        Color col = GetComponent<SpriteRenderer>().color;
+        col.a = val;
+        GetComponent<SpriteRenderer>().color = col;
+
+        Gradient grad = transform.parent.GetComponent<LineRenderer>().colorGradient;
+        transform.parent.GetComponent<LineRenderer>().colorGradient = (val == 1) ? normalGradient : disabledGradient;
+
+        col = transform.parent.parent.GetComponent<SpriteRenderer>().color;
+        col.a = val;
+        transform.parent.parent.GetComponent<SpriteRenderer>().color = col;
+
+        canDrag = !npc.hasCompletedQuest && npc.hasAccepted;
     }
 
     private void OnMouseDown()
     {
-        if (npc.hasAccepted)
+        if (canDrag)
         {
             isDragging = true;
         }
@@ -71,7 +88,7 @@ public class PlugScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (npc.hasAccepted)
+        if (canDrag)
         {
             updatePosRot();
         }
@@ -79,7 +96,7 @@ public class PlugScript : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (npc.hasAccepted)
+        if (canDrag)
         {
             isDragging = false;
         }

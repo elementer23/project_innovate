@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +9,11 @@ public class AnswerScript : MonoBehaviour
     public bool isCorrect = false;
     public Quizmanager quizManager;
 
-    //public Color startColor;
+    public Color startColor;
 
     private void Start()
     {
-        //startColor = GetComponent<Image>().color;
+        startColor = GetComponent<Image>().color;
     }
 
     public void Answer()
@@ -20,13 +21,16 @@ public class AnswerScript : MonoBehaviour
         Debug.Log("Click");
         if (isCorrect)
         {
+            
             GetComponent<Image>().color = Color.green;
+            transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
             Debug.Log("Correct Answer");
             quizManager.correct();
         }
         else
         {
             GetComponent<Image>().color = Color.red;
+            transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
             Debug.Log("Wrong Answer");
             quizManager.wrong();
         }
