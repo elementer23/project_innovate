@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 
 public class WindowQuestPointer : MonoBehaviour
@@ -13,29 +13,12 @@ public class WindowQuestPointer : MonoBehaviour
     public Transform arrow;
 
     private GameObject closestNpc;
-    //private JsonHandler jsonHandler;
-    //public KeyItem keyItems;
-
-    //private GameObject questItem;
 
     private Camera cam;
     private CanvasGroup getCanvas;
 
-    //private void Awake()
-    //{
-    //    jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
-    //    keyItems = jsonHandler.ReadFromJson<KeyItem>("KeyItems");
-    //}
-
     private void Start()
     {
-
-        //questItem = GameObject.Find(keyItems.name);
-
-        //Scene scene = questItem.scene;
-
-        //Debug.Log(questItem.name + " is from the Scene: " + scene.name);
-
         npcs = GameObject.FindGameObjectsWithTag("NPC");
         questNpcs = new List<GameObject>();
 
@@ -60,11 +43,10 @@ public class WindowQuestPointer : MonoBehaviour
 
     private void QuestNavigator()
     {
-        foreach (GameObject npc in npcs)
+        foreach (GameObject npc in questNpcs)
         {
             int Icon = npc.GetComponent<NPCController>().transform.childCount;
-            var QuestIconStatus = npc.GetComponent<NPCController>().transform.GetChild(Icon - 1).GetComponent<QuestIcon>().activeQuest;
-            //Debug.Log(npc.GetComponent<NPCController>().npcName + " Icon = " + QuestIconStatus);
+            bool QuestIconStatus = npc.GetComponent<NPCController>().transform.GetChild(Icon - 1).GetComponent<QuestIcon>().activeQuest;
 
             if (QuestIconStatus == true)
             {
@@ -86,6 +68,7 @@ public class WindowQuestPointer : MonoBehaviour
 
     private void FillQuestNPCList()
     {
+        questNpcs.Clear();
         foreach (var npc in npcs)
         {
             if (!npc.GetComponent<NPCController>().quest.title.Equals(string.Empty))
@@ -93,6 +76,7 @@ public class WindowQuestPointer : MonoBehaviour
                 questNpcs.Add(npc);
             }
         }
+        
         if (questNpcs.Count > 0)
         {
             closestNpc = questNpcs[0];
