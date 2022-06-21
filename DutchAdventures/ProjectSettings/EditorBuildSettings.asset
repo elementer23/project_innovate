@@ -77,5 +77,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityHouse/MajorOfficeUp.unity
     guid: a227613efcdce0147b307a2fb4c3e2e6
+  - enabled: 1
+    path: Assets/Scenes/Menu/ExplenationScreen.unity
+    guid: 4633fcfeb770e3a4eb067e35647f7e2d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 48dbb66206297c94b9e64c5a5201809b, type: 2}

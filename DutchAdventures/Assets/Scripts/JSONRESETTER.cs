@@ -8,8 +8,8 @@ public class JSONRESETTER : MonoBehaviour
 {
     public JsonHandler jsonHandler;
 
-    public bool reset;
-    public bool reloadScene;
+    public bool reset = false;
+    public bool reloadScene = false;
 
     private void Update()
     {
@@ -42,5 +42,10 @@ public class JSONRESETTER : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             reloadScene = false;
         }
+    }
+
+    public  void ResetJson()
+    {
+        this.reset = true;
     }
 }
