@@ -17,16 +17,22 @@ public class NPCController : MonoBehaviour
     private GameObject competionDialogPrefab;
 
     [SerializeField]
-    private GameObject questIconPrefab;
+    public GameObject questIconPrefab;
 
     [SerializeField]
     private string requiredItem;
-    private bool hasRequiredItem;
+
+    public bool hasRequiredItem;
+
+    [SerializeField]
+    private bool hideOnCompletion;
+
     private bool canTakeQuest;
 
     [Header("Dialog")]
     public string npcName;
     public string startDialog;
+    public string questBusyDialog;
     public string notCompletedDialog;
     public string completionDialog;
     public string postCompletionDialog;
@@ -62,9 +68,16 @@ public class NPCController : MonoBehaviour
         {
             quest.npcName = npcName;
         }
+
+        createDialogBoxes();
     }
 
     private void Update()
+    {
+        createDialogBoxes();
+    }
+
+    private void createDialogBoxes() 
     {
         //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
@@ -84,11 +97,21 @@ public class NPCController : MonoBehaviour
             if (hasRequiredItem)
             {
                 canTakeQuest = true;
+
             }
             else
             {
                 canTakeQuest = false;
+                if (!transform.Find("QuestMarker(Clone)"))
+                {
+                    Instantiate(questIconPrefab, transform);
+                }
             }
+        }
+
+        if (hideOnCompletion)
+        {
+            gameObject.SetActive(!hasCompletedQuest);
         }
     }
 
@@ -111,31 +134,39 @@ public class NPCController : MonoBehaviour
                     //Check if the NPC has a quest assigned to it, otherwise display dialog instead.
                     if (!quest.isEmpty())
                     {
-                        if (!hasAccepted)
+                        // Check if player has already quest
+                        if (player.getQuest().title.Equals(string.Empty) || player.getQuest().title.Equals(quest.title))
                         {
-                            //Give player quest
-                            addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
-                        }
-                        else
-                        {
-                            if (!hasCompletedQuest)
+                            if (!hasAccepted)
                             {
-                                if (player.getQuest().hasCompleted)
-                                {
-                                    //Complete the quest
-                                    addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
-                                }
-                                else
-                                {
-                                    //Quest not finished yet
-                                    addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
-                                }
+                                //Give player quest
+                                addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                             }
                             else
                             {
-                                //Quest is already finished finished
-                                addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                                if (!hasCompletedQuest)
+                                {
+                                    if (player.getQuest().hasCompleted)
+                                    {
+                                        //Complete the quest
+                                        GameObject dialog = addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                    }
+                                    else
+                                    {
+                                        //Quest not finished yet
+                                        addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                                    }
+                                }
+                                else
+                                {
+                                    //Quest is already finished finished
+                                    addDialog(dialogPrefab, "Dialogbox(Clone)", postCompletionDialog, false);
+                                }
                             }
+                        }
+                        else 
+                        {
+                            addDialog(dialogPrefab, "Dialogbox(Clone)", questBusyDialog, false);
                         }
                     }
                     //Npc does not give quests and just talks.
@@ -150,7 +181,11 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    public string getRequiredKeyitem()
+    {
+        return this.requiredItem;
+    }
+    private GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {
@@ -158,7 +193,7 @@ public class NPCController : MonoBehaviour
             DialogHandler dhandler = obj.GetComponent<DialogHandler>();
 
             dhandler.dialog = dialog;
-            dhandler.npcName = npcName;
+            dhandler.npc = this;
 
             if (isQuest)
             {
@@ -167,7 +202,9 @@ public class NPCController : MonoBehaviour
                 qhandler.quest = quest;
                 qhandler.npcController = this;
             }
+            return obj;
         }
+        return null;
     }
 
     //Function to reset the NPC after completion or abanoning of the quest.

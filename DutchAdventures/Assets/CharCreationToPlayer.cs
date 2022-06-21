@@ -11,7 +11,9 @@ public class CharCreationToPlayer : MonoBehaviour
     public SpriteRenderer[] srs = new SpriteRenderer[5];
     public JsonHandler jsonHandler;
     public string playerName = "player";
-
+    [SerializeField]
+    private PlayerSpawn exit;
+    
     public void UpdateValues()
     {
         string[] colors = new string[5];
@@ -24,5 +26,10 @@ public class CharCreationToPlayer : MonoBehaviour
 
         PlayerData playerData = new PlayerData(0, 0, "BigCityScene", colors, CharacterCustHandler.currentHairSprite, false, playerName);
         jsonHandler.WriteToJson(playerData, "PlayerData");
+    }
+
+    public void resetPlayerPosition()
+    {
+        exit.spawnPosition = Vector2.zero;
     }
 }

@@ -32,7 +32,7 @@ public class KeyItemsSaver : MonoBehaviour
     public void SaveItems()
     {
         //Save the items to the JSON file
-        Debug.Log(JsonUtility.ToJson(keyItems));
+        //Debug.Log(JsonUtility.ToJson(keyItems));
         jsonHandler.WriteToJson(keyItems, "KeyItems");
     }
 

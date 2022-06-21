@@ -11,13 +11,6 @@ public class StartExam : MonoBehaviour
     public Transform player;
     public bool canTouch = false;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

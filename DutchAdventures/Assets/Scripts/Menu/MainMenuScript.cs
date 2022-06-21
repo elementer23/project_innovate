@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public TextMeshProUGUI versionString;
+    public Button[] btns;
+    public Image[] btnImgs;
+    public Color normalColor;
+    public Color selectedColor;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //versionString.text = "Version: " + Application.version;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < btns.Length; i++)
+        {
+            if (btns[i].interactable)
+            {
+                btnImgs[i].color = normalColor;
+            } else
+            {
+                btnImgs[i].color = selectedColor;
+            }
+        }
     }
 }
