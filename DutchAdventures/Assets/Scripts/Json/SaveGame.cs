@@ -12,10 +12,28 @@ public class SaveGame : MonoBehaviour
     [SerializeField]
     private PlayerPresets playerPresets;
 
+    private float _interval = 100f;
+    private float _time;
+
     private void Awake()
     {
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+    }
+
+    private void Start()
+    {
+        _time = 0f;
+    }
+
+    private void Update()
+    {
+        _time += Time.deltaTime;
+        while (_time >= _interval)
+        {
+            SavePlayer();
+            _time -= _interval;
+        }
     }
 
     public void SavePlayer()
@@ -24,6 +42,7 @@ public class SaveGame : MonoBehaviour
         playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), pd.hairStyle, true, GetPlayerName());
 
         jsonHandler.WriteToJson(playerData, "PlayerData");
+        Debug.Log("Saved!");
     }
 
     private string GetCurrentScene()
