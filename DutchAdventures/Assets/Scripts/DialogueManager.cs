@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -21,11 +22,9 @@ public class DialogueManager : MonoBehaviour {
 	public void StartDialogue (Dialogue dialogue)
 	{
 		animator.SetBool("IsOpen", true);
-
-		//if (dialogue.name != null)
-		//{
-			nameText.text = dialogue.name;
-		//}
+	
+		nameText.text = dialogue.name;
+		
 		sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
@@ -41,6 +40,11 @@ public class DialogueManager : MonoBehaviour {
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
+			
+			if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ExplenationScreen"))
+			{
+				GameObject.Find("Canvas").GetComponent<MenuTransition>().toSceneNoPopup("LevelSelect");
+			}
 			return;
 		}
 

@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JsonHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 1940301605672477889, guid: 2421964078f688a4984b8ac38dac026e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1940301605672477891, guid: 2421964078f688a4984b8ac38dac026e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -850,6 +854,18 @@ MonoBehaviour:
           m_StringArgument: CharacterCreation
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 622925256}
+        m_TargetAssemblyTypeName: JSONRESETTER, Assembly-CSharp
+        m_MethodName: ResetJson
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &622925254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonHandler: {fileID: 1284626169}
-  reset: 1
+  reset: 0
   reloadScene: 0
 --- !u!1 &780490880
 GameObject:
@@ -1805,6 +1821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227323747, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
+      propertyPath: jsonHandler
+      value: 
+      objectReference: {fileID: 1284626169}
     - target: {fileID: 2801845320507180547, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1857,7 +1877,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1456573808, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e10d9e5aa7618141a131ac55eda5b89, type: 3}
 --- !u!1 &1392880422 stripped
 GameObject:
@@ -2206,7 +2227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31, y: 122}
+  m_AnchoredPosition: {x: -31.000015, y: 122}
   m_SizeDelta: {x: -387.83, y: -273.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618982190
