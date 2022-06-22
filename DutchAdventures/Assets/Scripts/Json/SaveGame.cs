@@ -17,6 +17,7 @@ public class SaveGame : MonoBehaviour
 
     private void Awake()
     {
+        //get the gameobject JsonHandler through a tag
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
     }
@@ -28,6 +29,7 @@ public class SaveGame : MonoBehaviour
 
     private void Update()
     {
+        //save the player data with an interval of a minute
         _time += Time.deltaTime;
         while (_time >= _interval)
         {
@@ -38,22 +40,28 @@ public class SaveGame : MonoBehaviour
 
     public void SavePlayer()
     {
+        //read the json of playerdata
         PlayerData pd = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
+        //make a new player data
         playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), pd.hairStyle, true, GetPlayerName());
 
+        //write the player data to the json file
         jsonHandler.WriteToJson(playerData, "PlayerData");
         Debug.Log("Saved!");
     }
 
     private string GetCurrentScene()
     {
+        //get the current scene name
         return SceneManager.GetActiveScene().name;
     }
 
     private string[] GetPlayerPreset()
     {
+        //put all the body presets inside an array
         string[] preset = new string[]
         {
+            //get color from the sprite renderer component and set the rgba color to an html color by adding # before it
             "#" + ColorUtility.ToHtmlStringRGBA(GetComponent<SpriteRenderer>().color),
             "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Hair").GetComponent<SpriteRenderer>().color),
             "#" + ColorUtility.ToHtmlStringRGBA(transform.Find("Shirt").GetComponent<SpriteRenderer>().color),
@@ -66,21 +74,26 @@ public class SaveGame : MonoBehaviour
 
     private string GetPlayerName()
     {
+        //get the playername from the playerdata json file
         return playerData.playerName;
     }
 
     public void LoadSavaData()
     {
+        //set the spawn position to the last saved player location
         transform.position = new Vector2(LoadPlayerLocation()[0], LoadPlayerLocation()[1]);
         spawnPos.spawnPosition = transform.position;
+        //set the spawn scene to the last saved scene where the player was located
         SceneManager.LoadScene(LoadCurrentScene(), LoadSceneMode.Single);
 
+        //get the color from the playerdata and revert the html color to the rgba color
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[0], out Color Skin);
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[1], out Color Hair);
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[2], out Color Shirt);
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[3], out Color Pants);
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[4], out Color Shoes);
 
+        //set the body preset colors the player data colors
         GetComponent<SpriteRenderer>().color = Skin;
         transform.Find("Hair").GetComponent<SpriteRenderer>().color = Hair;
         transform.Find("Shirt").GetComponent<SpriteRenderer>().color = Shirt;
@@ -90,16 +103,19 @@ public class SaveGame : MonoBehaviour
 
     private float[] LoadPlayerLocation()
     {
+        //return the player position
         return playerData.playerPosition;
     }
 
     private string LoadCurrentScene()
     {
+        //return the scene where the player was
         return playerData.sceneName;
     }
 
     private string[] LoadPlayerPreset()
     {
+        //return the body preset of the player
         return playerData.playerPreset;
     }
 
@@ -117,6 +133,7 @@ public class PlayerData
 
     public PlayerData(float posX, float posY, string currentScene, string[] preset, int hairStyle, bool isPlayerSaved, string getPlayerName)
     {
+        //set all the player data that needs to be imported into the json
         this.sceneName = currentScene;
         this.playerPreset = preset;
         this.playerSaved = isPlayerSaved;

@@ -50,9 +50,16 @@ public class QuestIcon : MonoBehaviour
                 spriteRenderer.sprite = iconCompleteQuest;
                 activeQuest = false;
             }
+            //player not required item, npc require item
             else if (!npcController.hasRequiredItem && !npcController.getRequiredKeyitem().Equals(string.Empty))
             {
                 spriteRenderer.sprite = empty;
+                activeQuest = true;
+            }
+            //player has required item, npc require item
+            else if (npcController.hasRequiredItem && !npcController.getRequiredKeyitem().Equals(string.Empty))
+            {
+                activeQuest = true;
             }
         }
         else
