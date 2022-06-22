@@ -97,6 +97,10 @@ public class NPCController : MonoBehaviour
             if (hasRequiredItem)
             {
                 canTakeQuest = true;
+                if(transform.Find("QuestMarker(Clone)"))
+                {
+                    transform.Find("QuestMarker(Clone)").GetComponent<QuestIcon>().activeQuest = true;
+                }
 
             }
             else

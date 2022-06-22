@@ -34,7 +34,7 @@ public class WindowQuestPointer : MonoBehaviour
     private void Update()
     {
         FillQuestNPCList();
-        if (questNpcs.Count > 0)
+        if (questNpcs.Count > 0 && player.GetComponent<PlayerQuestHandler>().getQuest().title.Equals(string.Empty))
         {
             QuestNavigator();
         }
@@ -57,16 +57,11 @@ public class WindowQuestPointer : MonoBehaviour
             {
                 //get the player position and position of closest npc with a quest
                 float playerPos = Vector2.Distance(npc.transform.position, player.position);
-                float closestNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
+                float closestNpcPos = Vector2.Distance(npc.transform.position, player.position);
 
-                if (playerPos < closestNpcPos)
-                {
-                    closestNpc = npc;
-                }
-
-                DisappearArrow();
-                UpdateArrow(closestNpc);
-            } 
+                UpdateArrow(npc);
+                DisappearArrow(npc);
+            }
             
         }
         
@@ -94,12 +89,11 @@ public class WindowQuestPointer : MonoBehaviour
             closestNpc = questNpcs[0];
         }
     }
-    private void DisappearArrow()
+    private void DisappearArrow(GameObject npc)
     {
         if (questNpcs.Count > 0)
         {
-            //checks whether the npc object is within camera range
-            Vector3 viewPos = cam.WorldToViewportPoint(closestNpc.transform.position);
+            Vector3 viewPos = cam.WorldToViewportPoint(npc.transform.position);
 
             if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
             {
