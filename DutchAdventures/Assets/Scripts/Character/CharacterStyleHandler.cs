@@ -10,6 +10,7 @@ public class CharacterStyleHandler : MonoBehaviour
     [SerializeField]
     private Sprite[] hairStyles;
 
+    //setting the body preset of the player
     void Start()
     {
         GetComponent<SpriteRenderer>().color = playerColors.skin;

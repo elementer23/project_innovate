@@ -16,6 +16,7 @@ public class AnswerScript : MonoBehaviour
         startColor = GetComponent<Image>().color;
     }
 
+    //when a good or bad answer has been given during the exam show the given colors
     public void Answer()
     {
         Debug.Log("Click");

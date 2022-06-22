@@ -5,6 +5,7 @@ using System.IO;
 
 public class JsonHandler : MonoBehaviour
 {
+    //write the default json to the files when there is no data to save
     private void Awake()
     {
         string[] files = { "KeyItems", "npcQuestData", "playerQuest", "PlayerData","Language"};
@@ -36,12 +37,14 @@ public class JsonHandler : MonoBehaviour
         }
     }
 
+    //writing to json
     public void WriteToJson<T>(T dataToWrite, string fileName)
     {
         //Debug.Log("Write to JSON: \n" + JsonUtility.ToJson(dataToWrite));
         File.WriteAllText(Application.persistentDataPath + "/Resources/" + fileName + ".json", JsonUtility.ToJson(dataToWrite));
     }
 
+    //reading from json
     public T ReadFromJson<T>(string fileName)
     {
         string path = Application.persistentDataPath + "/Resources/" + fileName + ".json";

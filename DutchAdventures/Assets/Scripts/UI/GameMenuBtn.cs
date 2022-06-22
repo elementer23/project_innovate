@@ -11,6 +11,7 @@ public class GameMenuBtn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //set the player object to non active when conditions are met
         if (canvasGroup != null && canvasGroup.interactable == true)
         {
             player.gameObject.SetActive(false);
@@ -21,6 +22,7 @@ public class GameMenuBtn : MonoBehaviour
         }
     }
 
+    //show the game menu when alpha = 0 or hide it when alpha = 1
     public void ShowGameMenu()
     {
         if (canvasGroup.alpha == 0)

@@ -22,6 +22,7 @@ public class PompMotionControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //save the item once the action has been done 6 times
         if (animator.GetInteger("amountOfPomps") == 6)
         {
             KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
