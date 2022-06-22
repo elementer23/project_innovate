@@ -24,13 +24,19 @@ public class NPCController : MonoBehaviour
 
     public bool hasRequiredItem;
 
+    [Header("NPC Data")]
+    //The same saved to the json etc.
+    public string npcName;
+    //The name to be displayed in the dialog
+    public string displayName;
+
     [SerializeField]
     private bool hideOnCompletion;
 
     private bool canTakeQuest;
 
+    //Dialog:
     [Header("Dialog")]
-    public string npcName;
     public string startDialog;
     public string questBusyDialog;
     public string notCompletedDialog;
@@ -70,6 +76,11 @@ public class NPCController : MonoBehaviour
         }
 
         createDialogBoxes();
+
+        if(displayName == string.Empty)
+        {
+            displayName = npcName;
+        }
     }
 
     private void Update()

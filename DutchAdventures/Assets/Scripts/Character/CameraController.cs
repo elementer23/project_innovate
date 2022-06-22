@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
+    [SerializeField]
+    private GameObject minigame;
     private float lerpSpeed = 5;
     [SerializeField]
     private Vector2 minClamp = Vector3.one * -100;
@@ -20,6 +22,7 @@ public class CameraController : MonoBehaviour
         //The -10 makes the camera be set back a little so the camera is far enough from the scene.
         playerPos.z = -10;
         transform.position = playerPos;
+        minigame.SetActive(false);
     }
 
     private void FixedUpdate()
