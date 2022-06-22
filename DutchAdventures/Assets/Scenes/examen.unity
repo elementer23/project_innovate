@@ -13937,6 +13937,10 @@ PrefabInstance:
       value: JSONRESETTER
       objectReference: {fileID: 0}
     - target: {fileID: 5985677351372165057, guid: 755db13d14bcce44b8108ecd2a2c1294, type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
+    - target: {fileID: 5985677351372165057, guid: 755db13d14bcce44b8108ecd2a2c1294, type: 3}
       propertyPath: reset
       value: 0
       objectReference: {fileID: 0}
