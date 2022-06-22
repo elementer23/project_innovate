@@ -13,6 +13,8 @@ public class QuestItemHandler : MonoBehaviour
     private PlayerQuestHandler playerQuestHandler;
     private bool canObtain = false;
     private bool isVisible = false;
+    [SerializeField]
+    private bool completeQuest = false;
     //private Animator completeQuestAnim;
 
     private void Start()
@@ -23,6 +25,12 @@ public class QuestItemHandler : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
         //completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+
+        // does not show when item is already collected
+        if (player.GetComponent<KeyItemsSaver>().hasItem(keyItem))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -44,7 +52,12 @@ public class QuestItemHandler : MonoBehaviour
             {
                 KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
                 keyItemSaver.setItem(keyItem, true);
-                //completeQuestAnim.SetTrigger("Play");
+
+                if (completeQuest == true)
+                {
+                    playerQuestHandler.completeQuest();
+                    GameObject.Find("QuestMenu").GetComponent<QuestUI>().completeQuest();
+                }
 
                 Destroy(gameObject);
             }
