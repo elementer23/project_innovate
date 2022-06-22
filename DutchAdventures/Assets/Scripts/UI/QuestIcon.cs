@@ -18,8 +18,6 @@ public class QuestIcon : MonoBehaviour
     {
         npcController = transform.parent.GetComponent<NPCController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        
     }
 
     void Update()

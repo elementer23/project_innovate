@@ -13,6 +13,7 @@ public class CharacterCreation : MonoBehaviour
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
     }
 
+    //save the typed in player name to the json and update the json with the same data
     public void SavePlayerName()
     {
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
