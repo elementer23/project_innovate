@@ -7,6 +7,9 @@ public class QuestFlowerHandler : QuestItemHandler
 {
     public GameObject flowerContainer;
 
+    [SerializeField]
+    private FlowerNPCController flowerNPCcontroller;
+
     protected override void Start()
     {
         base.Start();
@@ -35,6 +38,7 @@ public class QuestFlowerHandler : QuestItemHandler
             flowerContainer.SetActive(true);
             GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
             ChildGameObject1.GetComponent<Image>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+            flowerNPCcontroller.holdingFlower = keyItem;
         }
     }
 }

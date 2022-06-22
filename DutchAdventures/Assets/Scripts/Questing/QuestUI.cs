@@ -21,7 +21,7 @@ public class QuestUI : MonoBehaviour
     private TextMeshProUGUI npcName;
 
     private bool hasQuest = false;
-    private Quest currentQuest;
+    public Quest currentQuest;
     private bool menuIsVisible;
 
     //Store a reference to the NPC, so the npc know if the quest has been accepted.

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    private PlayerQuestHandler player;
+    protected PlayerQuestHandler player;
     private Transform canvas;
-    private int minDist = 5;
-    private QuestStatusSaver questStatusSaver;
+    protected int minDist = 5;
+    protected QuestStatusSaver questStatusSaver;
 
     [SerializeField]
-    private GameObject dialogPrefab;
+    protected GameObject dialogPrefab;
     [SerializeField]
-    private GameObject questPrefab;
+    protected GameObject questPrefab;
     [SerializeField]
-    private GameObject competionDialogPrefab;
+    protected GameObject competionDialogPrefab;
 
     [SerializeField]
     public GameObject questIconPrefab;
@@ -25,9 +25,9 @@ public class NPCController : MonoBehaviour
     public bool hasRequiredItem;
 
     [SerializeField]
-    private bool hideOnCompletion;
+    protected bool hideOnCompletion;
 
-    private bool canTakeQuest;
+    protected bool canTakeQuest;
 
     [Header("Dialog")]
     public string npcName;
@@ -77,7 +77,7 @@ public class NPCController : MonoBehaviour
         createDialogBoxes();
     }
 
-    private void createDialogBoxes() 
+    protected void createDialogBoxes() 
     {
         //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
@@ -116,7 +116,7 @@ public class NPCController : MonoBehaviour
     }
 
     //When the player presses on the NPC,
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if (canTakeQuest)
         {
@@ -185,7 +185,7 @@ public class NPCController : MonoBehaviour
     {
         return this.requiredItem;
     }
-    private GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    protected GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {
