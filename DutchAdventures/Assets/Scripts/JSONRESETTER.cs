@@ -14,6 +14,7 @@ public class JSONRESETTER : MonoBehaviour
 
     private void Update()
     {
+        //if reset is true reset the json files to the code below
         if (reset)
         {
             string[] files = { "KeyItems", "npcQuestData", "playerQuest", "PlayerData","Language"};
@@ -26,7 +27,7 @@ public class JSONRESETTER : MonoBehaviour
                 "{\"language\":\"en\"}"
             };
 
-
+            //set the file to the path that has been set
             for (int i = 0; i < files.Length; i++)
             {
                 string path = Application.persistentDataPath + "/Resources/" + files[i] + ".json";
@@ -42,16 +43,19 @@ public class JSONRESETTER : MonoBehaviour
 
         if (reloadScene)
         {
+            //reload the scene with the given build index
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             reloadScene = false;
         }
     }
 
+    //reset the json 
     public  void ResetJson()
     {
         this.reset = true;
     }
 
+    //reload the scene
     public void ReloadScene()
     {
         this.reloadScene = true;

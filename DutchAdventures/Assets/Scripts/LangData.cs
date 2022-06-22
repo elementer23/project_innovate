@@ -5,6 +5,7 @@ public class LangData
 
     public LangData(string language)
     {
+        //set the language that has been chosen
         this.language = language;
     }
 }
