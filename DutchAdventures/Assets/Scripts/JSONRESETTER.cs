@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class JSONRESETTER : MonoBehaviour
 {
     public JsonHandler jsonHandler;
-
+    [SerializeField]
+    private PlayerSpawn exit;
     public bool reset = false;
     public bool reloadScene = false;
 
@@ -32,7 +33,8 @@ public class JSONRESETTER : MonoBehaviour
 
                 File.WriteAllText(path, contents[i]);
             }
-
+            // sets player spawn at 0,0
+            exit.spawnPosition = new Vector2();
             Debug.Log("RESET JSON");
             reset = false;
         }
