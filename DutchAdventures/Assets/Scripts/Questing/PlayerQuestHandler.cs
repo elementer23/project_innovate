@@ -16,15 +16,15 @@ public class PlayerQuestHandler : MonoBehaviour
     [SerializeField]
     private Quest quest;
 
-    private Animator completeQuestAnim;
+    private Animator completeTaskAnim;
     private bool hasPlayed = false;
     private void Start()
     {
         jsonHandler = FindObjectOfType<JsonHandler>();
 
-        if (GameObject.Find("QuestComplete"))
+        if (GameObject.Find("TaskComplete"))
         {
-            completeQuestAnim = GameObject.Find("TaskComplete").GetComponent<Animator>();
+            completeTaskAnim = GameObject.Find("TaskComplete").GetComponent<Animator>();
         }
 
         //Load in saved quest
@@ -41,7 +41,7 @@ public class PlayerQuestHandler : MonoBehaviour
             if (hasPlayed == false)
             {
                 hasPlayed = true;
-                completeQuestAnim.SetTrigger("Play");
+                completeTaskAnim.SetTrigger("Play");
             }
         }
     }
