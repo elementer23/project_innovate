@@ -6,6 +6,8 @@ public class GuiHandler : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
     // Start is called before the first frame update
+
+    //click this button to close the menu
     public void SignMenuClose()
     {
         canvasGroup.alpha = 0;
