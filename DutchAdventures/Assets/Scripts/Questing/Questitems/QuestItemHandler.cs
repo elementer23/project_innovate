@@ -13,6 +13,8 @@ public class QuestItemHandler : MonoBehaviour
     private PlayerQuestHandler playerQuestHandler;
     private bool canObtain = false;
     private bool isVisible = false;
+    [SerializeField]
+    private bool completeQuest = false;
     //private Animator completeQuestAnim;
 
     private void Start()
@@ -44,7 +46,12 @@ public class QuestItemHandler : MonoBehaviour
             {
                 KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
                 keyItemSaver.setItem(keyItem, true);
-                //completeQuestAnim.SetTrigger("Play");
+
+                if (completeQuest == true)
+                {
+                    playerQuestHandler.completeQuest();
+                    Debug.Log("Complete");
+                }
 
                 Destroy(gameObject);
             }
