@@ -12796,6 +12796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyItem: FietsCertivicaat
   requiredQuest: Bike exame
+  completeQuest: 1
 --- !u!212 &1834914694
 SpriteRenderer:
   m_ObjectHideFlags: 0

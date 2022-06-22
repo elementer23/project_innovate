@@ -24,7 +24,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
         if (GameObject.Find("QuestComplete"))
         {
-            completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+            completeQuestAnim = GameObject.Find("TaskComplete").GetComponent<Animator>();
         }
 
         //Load in saved quest
@@ -53,6 +53,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
         if (quest.canRewardItem)
         {
+            Debug.Log("Complete");
             KeyItemsSaver keyItemsSaver = GetComponent<KeyItemsSaver>();
             keyItemsSaver.setItem(quest.requestedItem, false);
 
