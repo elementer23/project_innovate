@@ -47,7 +47,7 @@ public class NPCController : MonoBehaviour
     [HideInInspector]
     public bool isQuestGiver = false;
 
-    void Start()
+    protected virtual void Start()
     {
         //Set the quest status saver.
         questStatusSaver = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>();

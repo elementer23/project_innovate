@@ -2,18 +2,66 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlowerNPCController : NPCController
 {
+    //Reference to the QuestUI so that can be updated with the correct information.
     [SerializeField]
     private QuestUI questUI;
 
+    //The tulip colors.
     private enum Tulips {BLUE, RED, YELLOW, PURPLE, WHITE};
-    private List<Tulips> collectedTulipList = new List<Tulips>();
+    //A list with the collected tulip colors.
+    private List<Tulips> collectedTulipList = new();
+    //Reference to the flower container so that can be updated with the correct information.
     public GameObject flowerContainer;
-    public string holdingFlower;
+    //The flower name that the player is currently holding.
+    [HideInInspector]
+    public string holdingFlower = "";
 
-    //When the player presses on the NPC,
+
+    protected override void Start()
+    {
+        base.Start();
+        KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+        foreach(KeyItem item in keyItemSaver.readItems().items)
+        {
+            if(!item.collected)
+            {
+                continue;
+            }
+
+            if (item.name.StartsWith("colledtedTulip"))
+            {
+                Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
+                collectedTulipList.Add(color);
+                continue;
+            }
+
+
+            if (item.name.StartsWith("holdingFlower"))
+            {
+                holdingFlower = item.name.Split("-")[1];
+                continue;
+            }
+
+        }
+
+        if(holdingFlower.Length > 0)
+        {
+            flowerContainer.SetActive(true);
+            GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
+            ChildGameObject1.GetComponent<Image>().sprite = GameObject.Find(holdingFlower).GetComponent<SpriteRenderer>().sprite;
+        }
+
+        quest.description = getNotCollectedTulipColors();
+        questUI.currentQuest = quest;
+    }
+
+    /// <summary>
+    /// When the player presses on the NPC.
+    /// </summary>
     protected override void OnMouseDown()
     {
         if (canTakeQuest)
@@ -38,6 +86,13 @@ public class FlowerNPCController : NPCController
                             if (!hasAccepted)
                             {
                                 //Clear collected list if you are restarting the quest.
+                                KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+           
+                                foreach (string color in Enum.GetNames(typeof(Tulips)))
+                                {
+                                    keyItemSaver.setItem("colledtedTulip-" + color, false);
+                                }
+
                                 collectedTulipList.Clear();
                                 //Give player quest
                                 addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
@@ -48,27 +103,29 @@ public class FlowerNPCController : NPCController
                             {
                                 if (!hasCompletedQuest)
                                 {
-                                    if (player.getQuest().hasCompleted)
+                                 //Quest not finished yet.
+                                 if (holdingFlower.Length == 0)
+                                 {
+                                    notCompletedDialog = getNotCollectedTulipColors();
+                                 } 
+                                 else
+                                 {
+                                    notCompletedDialog = getHoldingFlowerDialogue();
+                                    KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+                                    keyItemSaver.setItem("holdingFlower-" + holdingFlower, false);
+                                    holdingFlower = "";
+                                    flowerContainer.SetActive(false);
+
+                                    //If player has collected all the tulips.
+                                    if(collectedTulipList.Count == Enum.GetValues(typeof(Tulips)).Length)
                                     {
-                                        //Complete the quest.
-                                        GameObject dialog = addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                       GameObject dialog = addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                       return;
                                     }
-                                    else
-                                    {
-                                        //Quest not finished yet.
-                                        if (holdingFlower.Length == 0)
-                                        {
-                                            notCompletedDialog = getNotCollectedTulipColors();
-                                        } else
-                                        {
-                                            notCompletedDialog = getHoldingFlowerDialogue();
-                                            holdingFlower = "";
-                                            flowerContainer.SetActive(false);
-                                            quest.description = getNotCollectedTulipColors();
-                                            questUI.currentQuest = quest;
-                                        }
-                                       addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
+                                    quest.description = getNotCollectedTulipColors();
+                                    questUI.currentQuest = quest;
                                     }
+                                    addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
                                 }
                                 else
                                 {
@@ -94,6 +151,12 @@ public class FlowerNPCController : NPCController
         }
     }
 
+    /// <summary>
+    /// Gets the NPC dialogue depending on the flower the player is currently holding.
+    /// </summary>
+    /// <returns>
+    /// The NPC dialogue.
+    /// </returns>
     private string getHoldingFlowerDialogue()
     {
         string dialogue = "";
@@ -114,6 +177,7 @@ public class FlowerNPCController : NPCController
             case "purple_tulip":
                 dialogue = "This is a Purple Tulip. They represent rebirth and spring .";
                 break;
+            //The non-tulip flowers are not remembered so they only have to show this.
             case "red_rose":
                 dialogue = "This is a Red Rose. This looks like a Tulip but it is not.";
                 return dialogue;
@@ -121,13 +185,19 @@ public class FlowerNPCController : NPCController
                 dialogue = "This is a Sunflower. It does not look like a Tulip.";
                 return dialogue;
         }
+        //Check if the player already brought this tullip color before.
         Tulips color = (Tulips)Enum.Parse(typeof(Tulips), holdingFlower.Split("_")[0].ToUpper());
         if(collectedTulipList.Contains(color))
         {
+            //If the tulip color was already brought before.
             dialogue += "You have already brought this. Can you find a diffrent color?";
-        } else
+        } 
+        else
         {
+            //If the tulip color is new.
             collectedTulipList.Add(color);
+            KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+            keyItemSaver.setItem("colledtedTulip-" + color, true);
             dialogue += "Thank you for finding this.";
 
         }
@@ -135,6 +205,11 @@ public class FlowerNPCController : NPCController
 
     }
 
+    /// <summary>
+    /// Generated the NPC dialogie for if the player does not have a flower.
+    /// The colors the player has not yet collected will be shown.
+    /// </summary>
+    /// <returns></returns>
     private string getNotCollectedTulipColors()
     {
         string dialogue = "I still need the following colors: ";
@@ -151,7 +226,8 @@ public class FlowerNPCController : NPCController
             notCollectedTulips.Add(tulip.ToString());
 
         }
-
+        //A for loop is used instead of a foreach so we can compare the index with the Count to see if the next entry is the last.
+        //Used for correct formatting of the NPC dialogue.
         for (int i = 0; i < notCollectedTulips.Count; i++)
         {
             if (i > 0)
