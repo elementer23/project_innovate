@@ -8,7 +8,7 @@ public class FlowerNPCController : NPCController
 {
     //Reference to the QuestUI so that can be updated with the correct information.
     [SerializeField]
-    private QuestUI questUI;
+    private GameObject questMenu;
 
     //The tulip colors.
     private enum Tulips {BLUE, RED, PINK, YELLOW, PURPLE, WHITE};
@@ -20,10 +20,14 @@ public class FlowerNPCController : NPCController
     [HideInInspector]
     public string holdingFlower = "";
 
-
     protected override void Start()
     {
         base.Start();
+        minDist = 7;
+        if(hasCompletedQuest)
+        {
+            return;
+        }
         KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
         foreach(KeyItem item in keyItemSaver.readItems().items)
         {
@@ -56,7 +60,7 @@ public class FlowerNPCController : NPCController
         }
 
         quest.description = getNotCollectedTulipColors();
-        questUI.currentQuest = quest;
+        questMenu.GetComponent<QuestUI>().currentQuest = quest;
     }
 
     /// <summary>
@@ -97,7 +101,7 @@ public class FlowerNPCController : NPCController
                                 //Give player quest
                                 addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                                 quest.description = getNotCollectedTulipColors();
-                                questUI.currentQuest = quest;
+                                questMenu.GetComponent<QuestUI>().currentQuest = quest;
                             }
                             else
                             {
@@ -123,7 +127,7 @@ public class FlowerNPCController : NPCController
                                        return;
                                     }
                                     quest.description = getNotCollectedTulipColors();
-                                    questUI.currentQuest = quest;
+                                    questMenu.GetComponent<QuestUI>().currentQuest = quest;
                                     }
                                     addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
                                 }
@@ -183,6 +187,9 @@ public class FlowerNPCController : NPCController
             //The non-tulip flowers are not remembered so they only have to show this.
             case "red_rose":
                 dialogue = "This is a Red Rose. This looks like a Tulip but it is not.";
+                return dialogue;
+            case "pink_rose":
+                dialogue = "This is a Pink Rose. This looks like a Tulip but it is not.";
                 return dialogue;
             case "sunflower":
                 dialogue = "This is a Sunflower. It does not look like a Tulip.";

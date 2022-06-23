@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCController : MonoBehaviour
 {
     protected PlayerQuestHandler player;
-    private Transform canvas;
+    protected Transform canvas;
     protected int minDist = 5;
     protected QuestStatusSaver questStatusSaver;
 
@@ -20,7 +20,7 @@ public class NPCController : MonoBehaviour
     public GameObject questIconPrefab;
 
     [SerializeField]
-    private string requiredItem;
+    protected string requiredItem;
 
     public bool hasRequiredItem;
 
@@ -83,7 +83,7 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         createDialogBoxes();
     }
@@ -200,7 +200,7 @@ public class NPCController : MonoBehaviour
     {
         return this.requiredItem;
     }
-    protected GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    protected virtual GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {

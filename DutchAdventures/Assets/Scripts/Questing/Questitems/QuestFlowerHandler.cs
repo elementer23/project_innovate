@@ -14,11 +14,15 @@ public class QuestFlowerHandler : QuestItemHandler
     {
         base.Start();
         GetComponent<SpriteRenderer>().enabled = true;
+        if (flowerNPCcontroller.hasCompletedQuest || !playerQuestHandler.getQuest().title.Equals("Tulips"))
+        {
+            pointer.SetActive(false);
+        }
     }
 
     protected override void Update()
     {
-        if(!playerQuestHandler.getQuest().title.Equals("Tulips"))
+        if(flowerNPCcontroller.hasCompletedQuest || !playerQuestHandler.getQuest().title.Equals("Tulips"))
         {
             return;
         }
