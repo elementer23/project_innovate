@@ -24,43 +24,46 @@ public class FlowerNPCController : NPCController
     {
         base.Start();
         minDist = 7;
-        if(hasCompletedQuest)
+        if (hasCompletedQuest)
         {
             return;
         }
-        KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
-        foreach(KeyItem item in keyItemSaver.readItems().items)
+        if (player.getQuest().title.Equals("Tulips"))
         {
-            if(!item.collected)
+            KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+            foreach (KeyItem item in keyItemSaver.readItems().items)
             {
-                continue;
+                if (!item.collected)
+                {
+                    continue;
+                }
+
+                if (item.name.StartsWith("colledtedTulip"))
+                {
+                    Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
+                    collectedTulipList.Add(color);
+                    continue;
+                }
+
+
+                /*  if (item.name.StartsWith("holdingFlower"))
+                  {
+                      holdingFlower = item.name.Split("-")[1];
+                      continue;
+                  }*/
+
             }
 
-            if (item.name.StartsWith("colledtedTulip"))
+            if (holdingFlower.Length > 0)
             {
-                Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
-                collectedTulipList.Add(color);
-                continue;
+                flowerContainer.SetActive(true);
+                GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
+                ChildGameObject1.GetComponent<Image>().sprite = GameObject.Find(holdingFlower).GetComponent<SpriteRenderer>().sprite;
             }
 
-
-          /*  if (item.name.StartsWith("holdingFlower"))
-            {
-                holdingFlower = item.name.Split("-")[1];
-                continue;
-            }*/
-
+            quest.description = getNotCollectedTulipColors();
+            questMenu.GetComponent<QuestUI>().currentQuest = quest;
         }
-
-        if(holdingFlower.Length > 0)
-        {
-            flowerContainer.SetActive(true);
-            GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
-            ChildGameObject1.GetComponent<Image>().sprite = GameObject.Find(holdingFlower).GetComponent<SpriteRenderer>().sprite;
-        }
-
-        quest.description = getNotCollectedTulipColors();
-        questMenu.GetComponent<QuestUI>().currentQuest = quest;
     }
 
     /// <summary>

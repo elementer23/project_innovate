@@ -50,6 +50,7 @@ public class WindowQuestPointer : MonoBehaviour
 
     private void QuestNavigator()
     {
+        closestNpc = questNpcs[0];
         //loop through all the npcs with a quest in current scene
         foreach (GameObject npc in questNpcs)
         {
@@ -67,17 +68,22 @@ public class WindowQuestPointer : MonoBehaviour
             {
                 if (npc.transform.Find("QuestMarker(Clone)"))
                 {
+                    Debug.Log(npc.name);
                     //check whether an npc has a active quest or not
                     bool QuestIconStatus = npc.transform.Find("QuestMarker(Clone)").GetComponent<QuestIcon>().activeQuest;
 
                     if (QuestIconStatus == true)
                     {
-                        //get the player position and position of closest npc with a quest
+                        //get the player position and position of npc with a quest
                         float playerPos = Vector2.Distance(npc.transform.position, player.position);
-                        float closestNpcPos = Vector2.Distance(npc.transform.position, player.position);
-
-                        UpdateArrow(npc);
-                        DisappearArrow(npc);
+                        float npcPos = Vector2.Distance(npc.transform.position, player.position);
+                        float closedNpcPos = Vector2.Distance(closestNpc.transform.position, player.position);
+                        
+                        if (npcPos < closedNpcPos) {
+                            closestNpc = npc;
+                        }
+                        UpdateArrow(closestNpc);
+                        DisappearArrow(closestNpc);
                     }
                 }
             }

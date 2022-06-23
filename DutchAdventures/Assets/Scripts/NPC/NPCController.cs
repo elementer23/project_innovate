@@ -20,7 +20,7 @@ public class NPCController : MonoBehaviour
     public GameObject questIconPrefab;
 
     [SerializeField]
-    protected string requiredItem;
+    public string requiredItem;
 
     public bool hasRequiredItem;
 
