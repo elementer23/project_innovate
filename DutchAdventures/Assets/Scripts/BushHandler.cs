@@ -54,6 +54,7 @@ public class BushHandler : MonoBehaviour
     //When the player presses on the NPC,
     private void OnMouseDown()
     {
+        Debug.Log("ufndhusu");
         //Check if the player is close enough to the bush.
         float dist = Vector2.Distance(player.transform.position, transform.position);
         if (dist > minDist)
