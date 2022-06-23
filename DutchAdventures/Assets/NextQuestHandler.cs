@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class NextQuestHandler : MonoBehaviour
 {
-    public GameObject previousNPC;
+    public GameObject prevNPC;
     public GameObject nextNPC;
-
-    void Start()
-    {
-        nextNPC.SetActive(false);
-    }
 
     void Update()
     {
-        if (previousNPC.GetComponent<NPCController>().hasCompletedQuest)
+        if (prevNPC.GetComponent<NPCController>().hasCompletedQuest)
         {
             nextNPC.SetActive(true);
-            previousNPC.SetActive(false);
+            prevNPC.SetActive(false);
+        }
+        else
+        {
+            nextNPC.SetActive(false);
+            prevNPC.SetActive(true);
         }
     }
 }

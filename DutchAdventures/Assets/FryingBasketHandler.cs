@@ -116,7 +116,7 @@ public class FryingBasketHandler : MonoBehaviour
         particles.SetActive(isOverFryingpan && !isDoneFrying);
 
         //Activate the back button when done
-        backbtn.SetActive(isDoneFrying);
+        backbtn.SetActive(isDoneFrying && !isHolding);
 
         //Enable the table collider
         isDoneFrying = timer >= timeToBake;
