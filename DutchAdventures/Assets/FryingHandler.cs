@@ -19,11 +19,17 @@ public class FryingHandler : MonoBehaviour
 
     private void Update()
     {
-        if (player.getQuest().title == questName)
+        if (minigame.activeSelf)
+        {
+            minigame.SetActive(false);
+        }
+
+        if (player.getQuest().title == questName && !player.getQuest().hasCompleted)
         {
             bool isClose = Vector2.Distance(transform.position, player.transform.position) < minDist;
             transform.GetChild(0).gameObject.SetActive(isClose);
-        } else
+        }
+        else
         {
             transform.GetChild(0).gameObject.SetActive(false);
         }
