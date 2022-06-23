@@ -11,7 +11,7 @@ public class FlowerNPCController : NPCController
     private QuestUI questUI;
 
     //The tulip colors.
-    private enum Tulips {BLUE, RED, YELLOW, PURPLE, WHITE};
+    private enum Tulips {BLUE, RED, PINK, YELLOW, PURPLE, WHITE};
     //A list with the collected tulip colors.
     private List<Tulips> collectedTulipList = new();
     //Reference to the flower container so that can be updated with the correct information.
@@ -40,11 +40,11 @@ public class FlowerNPCController : NPCController
             }
 
 
-            if (item.name.StartsWith("holdingFlower"))
+          /*  if (item.name.StartsWith("holdingFlower"))
             {
                 holdingFlower = item.name.Split("-")[1];
                 continue;
-            }
+            }*/
 
         }
 
@@ -176,6 +176,9 @@ public class FlowerNPCController : NPCController
                 break;
             case "purple_tulip":
                 dialogue = "This is a Purple Tulip. They represent rebirth and spring .";
+                break;
+            case "pink_tulip":
+                dialogue = "This is a Pink Tulip. They represent care and attachment.";
                 break;
             //The non-tulip flowers are not remembered so they only have to show this.
             case "red_rose":
