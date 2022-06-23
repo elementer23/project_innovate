@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonHandler: {fileID: 1284626169}
+  exit: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
   reset: 0
   reloadScene: 0
 --- !u!1001 &655552604
@@ -2238,7 +2239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.000015, y: 122}
+  m_AnchoredPosition: {x: -31, y: 122}
   m_SizeDelta: {x: -387.83, y: -273.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618982190
