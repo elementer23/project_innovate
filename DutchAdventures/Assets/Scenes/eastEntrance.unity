@@ -178,6 +178,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 831699141965020976, guid: cb5dc4944c8909a4c8e9a942fb74181c, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 831699141965020976, guid: cb5dc4944c8909a4c8e9a942fb74181c, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 831699141965020976, guid: cb5dc4944c8909a4c8e9a942fb74181c, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.227451
+      objectReference: {fileID: 0}
     - target: {fileID: 831699141965020978, guid: cb5dc4944c8909a4c8e9a942fb74181c, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -723,6 +735,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5439879101621184090, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 757166226}
+    - target: {fileID: 5439879102281231385, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 757166226}

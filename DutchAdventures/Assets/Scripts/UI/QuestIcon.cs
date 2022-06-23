@@ -25,6 +25,8 @@ public class QuestIcon : MonoBehaviour
 
     void Update()
     {
+        npcController = transform.parent.GetComponent<NPCController>();
+
         if (npcController.isQuestGiver)
         {
             //has accepted, not completed
@@ -52,14 +54,15 @@ public class QuestIcon : MonoBehaviour
                 activeQuest = false;
             }
             //player not required item, npc require item
-            else if (!npcController.hasRequiredItem && !npcController.getRequiredKeyitem().Equals(string.Empty))
+            else if (!npcController.hasRequiredItem)
             {
                 spriteRenderer.sprite = empty;
-                activeQuest = true;
+                activeQuest = false;
             }
             //player has required item, npc require item
-            else if (npcController.hasRequiredItem && !npcController.getRequiredKeyitem().Equals(string.Empty))
+            else if (npcController.hasRequiredItem)
             {
+                spriteRenderer.sprite = iconQuest;
                 activeQuest = true;
             }
         }

@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    private PlayerQuestHandler player;
-    private Transform canvas;
-    private int minDist = 5;
-    private QuestStatusSaver questStatusSaver;
+    protected PlayerQuestHandler player;
+    protected Transform canvas;
+    protected int minDist = 5;
+    protected QuestStatusSaver questStatusSaver;
 
     [SerializeField]
-    private GameObject dialogPrefab;
+    protected GameObject dialogPrefab;
     [SerializeField]
-    private GameObject questPrefab;
+    protected GameObject questPrefab;
     [SerializeField]
-    private GameObject competionDialogPrefab;
+    protected GameObject competionDialogPrefab;
 
-    [SerializeField]
     public GameObject questIconPrefab;
 
     [SerializeField]
-    private string requiredItem;
+    public string requiredItem;
 
     public bool hasRequiredItem;
 
@@ -31,9 +30,9 @@ public class NPCController : MonoBehaviour
     public string displayName;
 
     [SerializeField]
-    private bool hideOnCompletion;
+    protected bool hideOnCompletion;
 
-    private bool canTakeQuest;
+    protected bool canTakeQuest;
 
     //Dialog:
     [Header("Dialog")]
@@ -53,7 +52,7 @@ public class NPCController : MonoBehaviour
     [HideInInspector]
     public bool isQuestGiver = false;
 
-    void Start()
+    protected virtual void Start()
     {
         //Set the quest status saver.
         questStatusSaver = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>();
@@ -83,12 +82,12 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         createDialogBoxes();
     }
 
-    private void createDialogBoxes() 
+    protected void createDialogBoxes() 
     {
         //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
@@ -131,7 +130,7 @@ public class NPCController : MonoBehaviour
     }
 
     //When the player presses on the NPC,
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if (canTakeQuest)
         {
@@ -200,7 +199,7 @@ public class NPCController : MonoBehaviour
     {
         return this.requiredItem;
     }
-    private GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    protected virtual GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {

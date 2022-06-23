@@ -5,6 +5,7 @@ using UnityEngine;
 public class NextQuestHandler : MonoBehaviour
 {
     public GameObject prevNPC;
+    public GameObject npcToDisable;
     public GameObject nextNPC;
 
     void Update()
@@ -12,12 +13,7 @@ public class NextQuestHandler : MonoBehaviour
         if (prevNPC.GetComponent<NPCController>().hasCompletedQuest)
         {
             nextNPC.SetActive(true);
-            prevNPC.SetActive(false);
-        }
-        else
-        {
-            nextNPC.SetActive(false);
-            prevNPC.SetActive(true);
+            npcToDisable.SetActive(false);
         }
     }
 }
