@@ -8,10 +8,10 @@ public class FlowerNPCController : NPCController
 {
     //Reference to the QuestUI so that can be updated with the correct information.
     [SerializeField]
-    private QuestUI questUI;
+    private GameObject questMenu;
 
     //The tulip colors.
-    private enum Tulips {BLUE, RED, YELLOW, PURPLE, WHITE};
+    private enum Tulips {BLUE, RED, PINK, YELLOW, PURPLE, WHITE};
     //A list with the collected tulip colors.
     private List<Tulips> collectedTulipList = new();
     //Reference to the flower container so that can be updated with the correct information.
@@ -20,43 +20,50 @@ public class FlowerNPCController : NPCController
     [HideInInspector]
     public string holdingFlower = "";
 
-
     protected override void Start()
     {
         base.Start();
-        KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
-        foreach(KeyItem item in keyItemSaver.readItems().items)
+        minDist = 7;
+        if (hasCompletedQuest)
         {
-            if(!item.collected)
-            {
-                continue;
-            }
-
-            if (item.name.StartsWith("colledtedTulip"))
-            {
-                Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
-                collectedTulipList.Add(color);
-                continue;
-            }
-
-
-            if (item.name.StartsWith("holdingFlower"))
-            {
-                holdingFlower = item.name.Split("-")[1];
-                continue;
-            }
-
+            return;
         }
-
-        if(holdingFlower.Length > 0)
+        if (player.getQuest().title.Equals("Tulips"))
         {
-            flowerContainer.SetActive(true);
-            GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
-            ChildGameObject1.GetComponent<Image>().sprite = GameObject.Find(holdingFlower).GetComponent<SpriteRenderer>().sprite;
-        }
+            KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+            foreach (KeyItem item in keyItemSaver.readItems().items)
+            {
+                if (!item.collected)
+                {
+                    continue;
+                }
 
-        quest.description = getNotCollectedTulipColors();
-        questUI.currentQuest = quest;
+                if (item.name.StartsWith("colledtedTulip"))
+                {
+                    Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
+                    collectedTulipList.Add(color);
+                    continue;
+                }
+
+
+                /*  if (item.name.StartsWith("holdingFlower"))
+                  {
+                      holdingFlower = item.name.Split("-")[1];
+                      continue;
+                  }*/
+
+            }
+
+            if (holdingFlower.Length > 0)
+            {
+                flowerContainer.SetActive(true);
+                GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
+                ChildGameObject1.GetComponent<Image>().sprite = GameObject.Find(holdingFlower).GetComponent<SpriteRenderer>().sprite;
+            }
+
+            quest.description = getNotCollectedTulipColors();
+            questMenu.GetComponent<QuestUI>().currentQuest = quest;
+        }
     }
 
     /// <summary>
@@ -97,7 +104,7 @@ public class FlowerNPCController : NPCController
                                 //Give player quest
                                 addDialog(questPrefab, "Questbox(Clone)", startDialog, true);
                                 quest.description = getNotCollectedTulipColors();
-                                questUI.currentQuest = quest;
+                                questMenu.GetComponent<QuestUI>().currentQuest = quest;
                             }
                             else
                             {
@@ -123,7 +130,7 @@ public class FlowerNPCController : NPCController
                                        return;
                                     }
                                     quest.description = getNotCollectedTulipColors();
-                                    questUI.currentQuest = quest;
+                                    questMenu.GetComponent<QuestUI>().currentQuest = quest;
                                     }
                                     addDialog(dialogPrefab, "Dialogbox(Clone)", notCompletedDialog, false);
                                 }
@@ -177,9 +184,15 @@ public class FlowerNPCController : NPCController
             case "purple_tulip":
                 dialogue = "This is a Purple Tulip. They represent rebirth and spring .";
                 break;
+            case "pink_tulip":
+                dialogue = "This is a Pink Tulip. They represent care and attachment.";
+                break;
             //The non-tulip flowers are not remembered so they only have to show this.
             case "red_rose":
                 dialogue = "This is a Red Rose. This looks like a Tulip but it is not.";
+                return dialogue;
+            case "pink_rose":
+                dialogue = "This is a Pink Rose. This looks like a Tulip but it is not.";
                 return dialogue;
             case "sunflower":
                 dialogue = "This is a Sunflower. It does not look like a Tulip.";

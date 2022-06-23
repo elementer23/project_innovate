@@ -2,37 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BushHandler : MonoBehaviour
+public class BushHandler : NPCController
 {
-
-    [SerializeField]
-    private GameObject dialogPrefab;
-    private Transform canvas;
+    //The interaction pointer.
     private GameObject pointer;
-    [SerializeField]
-    private Transform player;
-    //Minimum distance between the bush and the player to start showing the pointer and allowing interaction.
-    private int minDist = 7;
 
-    //The pointer sprites.
+    //The pointer sprites. 
     [SerializeField]
     private Sprite cutterSprite;
     [SerializeField]
     private Sprite pointerSprite;
 
-    [SerializeField]
-    private string requiredItem;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         pointer = transform.GetChild(0).gameObject;
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+        minDist = 7;
+        //Set the display name to empty since we are not talking to a NPC.
+        displayName = "";
+ 
     }
 
-
-    void Update()
+    protected override void Update()
     {
         //Check if the player is close enough to the bush.
         float dist = Vector2.Distance(player.transform.position, transform.position);
@@ -52,9 +44,8 @@ public class BushHandler : MonoBehaviour
     }
 
     //When the player presses on the NPC,
-    private void OnMouseDown()
+    protected override void OnMouseDown()
     {
-        Debug.Log("ufndhusu");
         //Check if the player is close enough to the bush.
         float dist = Vector2.Distance(player.transform.position, transform.position);
         if (dist > minDist)
@@ -65,7 +56,7 @@ public class BushHandler : MonoBehaviour
         //If the player does not have the Hedge Trimmer, show dialogue.
         if (!player.GetComponent<KeyItemsSaver>().hasItem(requiredItem))
         {
-            addDialog(dialogPrefab, "Questbox(Clone)", "You need a Hedge Trimmer to get through here.");
+            addDialog(dialogPrefab, "Dialogbox(Clone)", startDialog);
             return;
         } 
         else
@@ -90,9 +81,12 @@ public class BushHandler : MonoBehaviour
             DialogHandler dhandler = obj.GetComponent<DialogHandler>();
 
             dhandler.dialog = dialog;
+            dhandler.npc = this;
             return obj;
         }
         return null;
     }
+
+
 
 }

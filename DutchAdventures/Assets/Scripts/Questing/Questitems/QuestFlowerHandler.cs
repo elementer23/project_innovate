@@ -14,11 +14,15 @@ public class QuestFlowerHandler : QuestItemHandler
     {
         base.Start();
         GetComponent<SpriteRenderer>().enabled = true;
+        if (flowerNPCcontroller.hasCompletedQuest || !playerQuestHandler.getQuest().title.Equals("Tulips"))
+        {
+            pointer.SetActive(false);
+        }
     }
 
     protected override void Update()
     {
-        if(playerQuestHandler.getQuest().title != "Tulips")
+        if(flowerNPCcontroller.hasCompletedQuest || !playerQuestHandler.getQuest().title.Equals("Tulips"))
         {
             return;
         }
@@ -32,8 +36,8 @@ public class QuestFlowerHandler : QuestItemHandler
     {
         if (canObtain)
         {
-            KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
-            keyItemSaver.setItem("holdingFlower-" + keyItem, true);
+            //KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
+            //keyItemSaver.setItem("holdingFlower-" + keyItem, true);
 
             flowerContainer.SetActive(true);
             GameObject ChildGameObject1 = flowerContainer.transform.GetChild(0).gameObject;
