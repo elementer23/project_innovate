@@ -54,7 +54,6 @@ public class StartMiniGame : MonoBehaviour
     {
         foreach (string item in neededKeyItem)
         {
-            
             if (!keyItemsSaver.hasItem(item)) {
                 return false;
             }

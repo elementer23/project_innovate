@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour {
 		sentences = new Queue<string>();
 	}
 
+	//start the dialogue when conditions are met
 	public void StartDialogue (Dialogue dialogue)
 	{
 		animator.SetBool("IsOpen", true);
@@ -29,18 +30,21 @@ public class DialogueManager : MonoBehaviour {
 
 		foreach (string sentence in dialogue.sentences)
 		{
+			//put the new or old lines of the object or npc inside a queue
 			sentences.Enqueue(sentence);
 		}
 
 		DisplayNextSentence();
 	}
 
+	//display the next sentence when clicked and dequeue it
 	public void DisplayNextSentence ()
 	{
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
 			
+			//when there is no more text load the next scene
 			if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ExplenationScreen"))
 			{
 				GameObject.Find("Canvas").GetComponent<MenuTransition>().toSceneNoPopup("LevelSelect");
@@ -53,6 +57,7 @@ public class DialogueManager : MonoBehaviour {
 		StartCoroutine(TypeSentence(sentence));
 	}
 
+	//show the next sentence in the queue
 	IEnumerator TypeSentence (string sentence)
 	{
 		dialogueText.text = "";
@@ -63,6 +68,7 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
+	//close the dialog box
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);

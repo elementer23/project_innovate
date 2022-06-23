@@ -14,6 +14,7 @@ public class StartExam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //get the distance between the player and pointer object
         float dist = Vector2.Distance(player.position, transform.position);
         canTouch = dist < minDist;
         pointer.SetActive(canTouch);

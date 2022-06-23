@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class QuestItemHandler : MonoBehaviour
 {
+    [Header("Quest items requirements")]
     public string keyItem;
     public string requiredQuest;
+    [SerializeField]
+    private string[] requiredKeyitems;
+
+    [Header("Quest completion")]
+    [SerializeField]
+    private bool completeQuest = false;
 
     protected Transform player;
     protected GameObject pointer;
@@ -23,6 +30,23 @@ public class QuestItemHandler : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
         //completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
+
+        // does not show when required keyitems is not collected
+        if (this.requiredKeyitems.Length > 0)
+        { 
+            foreach (string keyitem in requiredKeyitems)
+            {
+                if (player.GetComponent<KeyItemsSaver>().hasItem(keyitem))
+                {
+                    gameObject.SetActive(true);
+                }
+            }
+        }
+        // does not show when item is already collected
+        if (player.GetComponent<KeyItemsSaver>().hasItem(this.keyItem))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     protected virtual void Update()
@@ -45,7 +69,12 @@ public class QuestItemHandler : MonoBehaviour
             {
                 KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
                 keyItemSaver.setItem(keyItem, true);
-                //completeQuestAnim.SetTrigger("Play");
+
+                if (completeQuest == true)
+                {
+                    playerQuestHandler.completeQuest();
+                    GameObject.Find("QuestMenu").GetComponent<QuestUI>().completeQuest();
+                }
 
                 Destroy(gameObject);
             }

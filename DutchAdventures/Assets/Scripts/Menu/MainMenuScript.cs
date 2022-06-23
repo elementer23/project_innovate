@@ -11,6 +11,7 @@ public class MainMenuScript : MonoBehaviour
     public Color normalColor;
     public Color selectedColor;
 
+    //set the buttons interactable when conditions are met
     void Update()
     {
         for (int i = 0; i < btns.Length; i++)

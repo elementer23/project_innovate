@@ -9,7 +9,9 @@ public class QuestUI : MonoBehaviour
     [SerializeField]
     private JsonHandler jsonHandler;
     [SerializeField]
-    private Animator completedPopup;
+    private Animator taskcompletedPopup;
+    [SerializeField]
+    private Animator questcompletedPopup;
     
     private QuestStatusSaver questStatusSaver;
 
@@ -89,7 +91,7 @@ public class QuestUI : MonoBehaviour
     public void completeQuest()
     {
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
-
+        questcompletedPopup.SetTrigger("Play");
         // Update NPC quest data
         resetQuest(true, true);
     }

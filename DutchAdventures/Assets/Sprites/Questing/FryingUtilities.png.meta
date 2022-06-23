@@ -236,7 +236,7 @@ TextureImporter:
       name: FryingUtilities_5
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -249,6 +249,27 @@ TextureImporter:
       bones: []
       spriteID: 9a16f8e01fd675f459a67d83cbabd948
       internalID: -385871823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FryingUtilities_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02547bec68ccb14291cffed177bd70d
+      internalID: 1976838880
       vertices: []
       indices: 
       edges: []
@@ -268,6 +289,7 @@ TextureImporter:
       FryingUtilities_3: 4621073
       FryingUtilities_4: -1544884153
       FryingUtilities_5: -385871823
+      FryingUtilities_6: 1976838880
       FryingUtilities_2: 1055652229
       FryingUtilities_1: 807572172
   spritePackingTag: 

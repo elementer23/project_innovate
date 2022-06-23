@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnackHandler : MonoBehaviour
 {
-    public FryingHander handler;
+    public FryingBasketHandler handler;
     private Animator animator;
     [SerializeField]
     private Animator fryingPanAnim;

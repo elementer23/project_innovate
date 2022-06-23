@@ -24,13 +24,19 @@ public class NPCController : MonoBehaviour
 
     public bool hasRequiredItem;
 
+    [Header("NPC Data")]
+    //The same saved to the json etc.
+    public string npcName;
+    //The name to be displayed in the dialog
+    public string displayName;
+
     [SerializeField]
     protected bool hideOnCompletion;
 
     protected bool canTakeQuest;
 
+    //Dialog:
     [Header("Dialog")]
-    public string npcName;
     public string startDialog;
     public string questBusyDialog;
     public string notCompletedDialog;
@@ -70,6 +76,11 @@ public class NPCController : MonoBehaviour
         }
 
         createDialogBoxes();
+
+        if(displayName == string.Empty)
+        {
+            displayName = npcName;
+        }
     }
 
     private void Update()
@@ -97,6 +108,10 @@ public class NPCController : MonoBehaviour
             if (hasRequiredItem)
             {
                 canTakeQuest = true;
+                if(transform.Find("QuestMarker(Clone)"))
+                {
+                    transform.Find("QuestMarker(Clone)").GetComponent<QuestIcon>().activeQuest = true;
+                }
 
             }
             else

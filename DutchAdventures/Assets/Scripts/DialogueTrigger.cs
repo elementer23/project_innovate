@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour {
 
 	public void TriggerDialogue ()
 	{
+		//triggers the dialogue of an npc or gameobject
 		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 		Debug.Log("Trigger");
 	}
