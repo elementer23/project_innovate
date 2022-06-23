@@ -16,7 +16,6 @@ public class NPCController : MonoBehaviour
     [SerializeField]
     protected GameObject competionDialogPrefab;
 
-    [SerializeField]
     public GameObject questIconPrefab;
 
     [SerializeField]
