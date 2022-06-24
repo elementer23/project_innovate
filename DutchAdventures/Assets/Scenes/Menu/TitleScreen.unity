@@ -261,13 +261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPopup: {fileID: 0}
-  playerData:
-    playerPosition: []
-    sceneName: 
-    playerPreset: []
-    playerSaved: 0
-    playerName: 
-  characterCustHandler: {fileID: 0}
 --- !u!1 &90004695
 GameObject:
   m_ObjectHideFlags: 0
