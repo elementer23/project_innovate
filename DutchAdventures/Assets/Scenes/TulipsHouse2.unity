@@ -4323,7 +4323,7 @@ PrefabInstance:
       objectReference: {fileID: 1233549079}
     - target: {fileID: 7226547786157727429, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
       propertyPath: sceneName
-      value: House
+      value: Henks House
       objectReference: {fileID: 0}
     - target: {fileID: 8645354954831445778, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
       propertyPath: cam
@@ -4345,28 +4345,6 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 496315164378380708, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
   m_PrefabInstance: {fileID: 846881248}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &846881251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 371422019285210970, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
-  m_PrefabInstance: {fileID: 846881248}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &846881252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 371422019722991611, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
-  m_PrefabInstance: {fileID: 846881248}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &890352152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4377,10 +4355,10 @@ PrefabInstance:
     - target: {fileID: 1420811150, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: playerColors
       value: 
-      objectReference: {fileID: 11400000, guid: 113a2e55a98d0da4ca65ce00dc67bd87, type: 2}
+      objectReference: {fileID: 11400000, guid: b0c11f793363a644fb101991a487de02, type: 2}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: npcName
-      value: NPC-Ron
+      value: Henk
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018529, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: startDialog
@@ -4396,7 +4374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4432,7 +4410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099842413819018539, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: NPC-Henk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
@@ -4443,6 +4421,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3666577
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Size.y
+      value: 2.494503
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.1420045
+      objectReference: {fileID: 0}
+    - target: {fileID: 143698658257523620, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3081522
+      objectReference: {fileID: 0}
     - target: {fileID: 1297131358415797636, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -4509,11 +4503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
-      value: 9
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.y
-      value: -16
+      value: -36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
@@ -4641,11 +4635,11 @@ PrefabInstance:
     - target: {fileID: 3182053039186495777, guid: e5a8e9113206d604189f54af6fa3191c, type: 3}
       propertyPath: nameText
       value: 
-      objectReference: {fileID: 846881252}
+      objectReference: {fileID: 0}
     - target: {fileID: 3182053039186495777, guid: e5a8e9113206d604189f54af6fa3191c, type: 3}
       propertyPath: dialogueText
       value: 
-      objectReference: {fileID: 846881251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3182053039186495778, guid: e5a8e9113206d604189f54af6fa3191c, type: 3}
       propertyPath: m_Name
       value: OverWorldDialogmanager
