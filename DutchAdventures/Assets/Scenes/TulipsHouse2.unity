@@ -427,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 5985677351372165057, guid: 755db13d14bcce44b8108ecd2a2c1294, type: 3}
       propertyPath: jsonHandler
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 180585427}
     - target: {fileID: 5985677351372165058, guid: 755db13d14bcce44b8108ecd2a2c1294, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -4345,6 +4345,16 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 496315164378380708, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
   m_PrefabInstance: {fileID: 846881248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &846881251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381606062662914, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 846881248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &846881252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381607376508108, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 846881248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &890352152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4501,6 +4511,14 @@ PrefabInstance:
       propertyPath: sceneName
       value: Tulips
       objectReference: {fileID: 0}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: fadeObject
+      value: 
+      objectReference: {fileID: 846881252}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: loadingText
+      value: 
+      objectReference: {fileID: 846881251}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
       value: -9.5
