@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
+  m_Name: Erni
+  m_EditorClassIdentifier: 
+  skin: {r: 0.9245283, g: 0.6654166, b: 0.16048414, a: 1}
+  hair: {r: 0, g: 0, b: 0, a: 1}
+  shirt: {r: 0.5173955, g: 1, b: 0.50377357, a: 1}
+  pants: {r: 0.4396582, g: 0.58750504, b: 0.9433962, a: 1}
+  shoes: {r: 0, g: 0, b: 0, a: 1}
+  hairStyle: 0

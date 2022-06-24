@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
+  m_Name: Yannieck
+  m_EditorClassIdentifier: 
+  skin: {r: 0.909804, g: 0.8313726, b: 0.69803923, a: 1}
+  hair: {r: 0.4056604, g: 0.324747, b: 0.1507832, a: 1}
+  shirt: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+  pants: {r: 0.2188679, g: 0.43805555, b: 0.5, a: 1}
+  shoes: {r: 0.11306515, g: 0.11986584, b: 0.1509434, a: 1}
+  hairStyle: 0
