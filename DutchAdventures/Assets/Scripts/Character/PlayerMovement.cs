@@ -55,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if input is on the UI object
+    /// </summary>
+    /// <returns></returns>
     private bool isOverUI()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -77,6 +81,9 @@ public class PlayerMovement : MonoBehaviour
         UpdateAnimationAndMove();
     }
 
+    /// <summary>
+    /// Update movement trough the scene
+    /// </summary>
     void UpdateAnimationAndMove()
     {
         if (change != Vector2.zero)
@@ -91,7 +98,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("moving", false);
         }
     }
-
+    /// <summary>
+    /// Move the character on the Tilemap
+    /// </summary>
     void MoveCharacter()
     {
         myRigidbody.MovePosition(myRigidbody.position + change.normalized * speed * Time.deltaTime);
