@@ -13,6 +13,7 @@ public class Quizmanager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
     public TextMeshProUGUI QuestionTxt;
+    public Color QuestionColor;
    
     [Header("Result panel")]
     public int totalQuestions = 0;
@@ -124,7 +125,7 @@ public class Quizmanager : MonoBehaviour
         {
             options[option].GetComponent<AnswerScript>().isCorrect = false;
             options[option].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[option];
-            options[option].transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.black; 
+            options[option].transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = QuestionColor; 
             options[option].GetComponent<Image>().color = options[option].GetComponent<AnswerScript>().startColor;
 
             if (QnA[currentQuestion].CorrectAnswer == option)
