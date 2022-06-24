@@ -18,11 +18,11 @@ public class DialogueManager : MonoBehaviour {
 	/// <summary>
 	/// Use this for initialization
 	/// </summary>
-	void Start () {
+	void Awake () {
 		sentences = new Queue<string>();
-
-		nameText = GameObject.Find("DialogueBox").transform.Find("Name").GetComponent<TextMeshProUGUI>();
-		dialogueText = GameObject.Find("DialogueBox").transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+		GameObject dialogBox = GameObject.Find("DialogueBox");
+		nameText = dialogBox.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+		dialogueText = dialogBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
 	}
 
 	/// <summary>

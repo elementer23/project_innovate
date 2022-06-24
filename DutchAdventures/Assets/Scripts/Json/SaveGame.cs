@@ -4,6 +4,7 @@ using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
+    [SerializeField]
     private JsonHandler jsonHandler;
 
     private PlayerData playerData;
@@ -47,7 +48,6 @@ public class SaveGame : MonoBehaviour
         PlayerData pd = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
         //make a new player data
         playerData = new PlayerData(transform.position.x, transform.position.y, GetCurrentScene(), GetPlayerPreset(), pd.hairStyle, true, GetPlayerName());
-
         //write the player data to the json file
         jsonHandler.WriteToJson(playerData, "PlayerData");
         Debug.Log("Saved!");
@@ -96,11 +96,13 @@ public class SaveGame : MonoBehaviour
     /// </summary>
     public void LoadSavaData()
     {
+        //set the spawn scene to the last saved scene where the player was located
+        SceneManager.LoadScene(LoadCurrentScene(), LoadSceneMode.Single);
+
         //set the spawn position to the last saved player location
         transform.position = new Vector2(LoadPlayerLocation()[0], LoadPlayerLocation()[1]);
         spawnPos.spawnPosition = transform.position;
-        //set the spawn scene to the last saved scene where the player was located
-        SceneManager.LoadScene(LoadCurrentScene(), LoadSceneMode.Single);
+        
 
         //get the color from the playerdata and revert the html color to the rgba color
         ColorUtility.TryParseHtmlString(LoadPlayerPreset()[0], out Color Skin);
@@ -115,6 +117,8 @@ public class SaveGame : MonoBehaviour
         transform.Find("Shirt").GetComponent<SpriteRenderer>().color = Shirt;
         transform.Find("Pants").GetComponent<SpriteRenderer>().color = Pants;
         transform.Find("Shoes").GetComponent<SpriteRenderer>().color = Shoes;
+
+        Debug.Log("Loaded Player");
     }
 
     /// <summary>

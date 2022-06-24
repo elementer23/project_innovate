@@ -71,7 +71,7 @@ public class WindowQuestPointer : MonoBehaviour
             {
                 if (npc.transform.Find("QuestMarker(Clone)"))
                 {
-                    Debug.Log(npc.name);
+                    //Debug.Log(npc.name);
                     //check whether an npc has a active quest or not
                     bool QuestIconStatus = npc.transform.Find("QuestMarker(Clone)").GetComponent<QuestIcon>().activeQuest;
 
