@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04c6cdc9a6ea15469b34530f214a11d, type: 3}
+  m_Name: NPC-Klaas
+  m_EditorClassIdentifier: 
+  skin: {r: 0.6037736, g: 0.504258, b: 0.35599858, a: 1}
+  hair: {r: 0.18867922, g: 0.09522961, b: 0.09522961, a: 1}
+  shirt: {r: 0.81960785, g: 0.18039216, b: 0.4926491, a: 1}
+  pants: {r: 0.754717, g: 0.60875756, b: 0.60875756, a: 1}
+  shoes: {r: 1, g: 1, b: 1, a: 1}
+  hairStyle: 2
