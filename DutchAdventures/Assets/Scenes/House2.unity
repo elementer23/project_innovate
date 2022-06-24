@@ -3369,6 +3369,16 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 371422019151811772, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
   m_PrefabInstance: {fileID: 1757701481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757701483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381606062662914, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 1757701481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1757701484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381607376508108, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 1757701481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &1757701485 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 496315164378380708, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
@@ -3464,11 +3474,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1757701484}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1757701483}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
       value: -18.5
@@ -5590,7 +5600,7 @@ GameObject:
   - component: {fileID: 2007625509}
   - component: {fileID: 2007625512}
   m_Layer: 0
-  m_Name: 5 bucks
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

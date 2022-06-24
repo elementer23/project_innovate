@@ -3002,11 +3002,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2094105731}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2094105730}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
       value: -1.5
@@ -5121,6 +5121,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+--- !u!1 &2094105730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381606062662914, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 2094105729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2094105731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381607376508108, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 2094105729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2094105732 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 371422019151811772, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
