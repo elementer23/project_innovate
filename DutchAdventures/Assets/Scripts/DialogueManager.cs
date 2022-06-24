@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour {
 
-	public Text nameText;
-	public Text dialogueText;
+	public TextMeshProUGUI nameText;
+	public TextMeshProUGUI dialogueText;
 
 	public Animator animator;
 
@@ -17,6 +18,9 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
+
+		nameText = GameObject.Find("DialogueBox").transform.Find("Name").GetComponent<TextMeshProUGUI>();
+		dialogueText = GameObject.Find("DialogueBox").transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
 	}
 
 	//start the dialogue when conditions are met
