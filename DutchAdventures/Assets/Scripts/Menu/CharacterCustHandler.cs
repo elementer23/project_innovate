@@ -6,28 +6,36 @@ using TMPro;
 
 public class CharacterCustHandler : MonoBehaviour
 {
+    //The current body part button.
+    //Used for coloring the button.
     [SerializeField]
     private Button currentButton;
 
     [SerializeField]
     private GameObject arrowContainer;
 
+    //The front and side images of the character.
     public Image frontImage;
     public Image sideImage;
 
+    //The Color picker object.
     [SerializeField]
     private FlexibleColorPicker fcp;
 
+    //The name input field.
     public TMP_InputField nameField;
 
+    //The currently selected part.
     private string currentPart = "SkinButton";
 
-    //Heeft index nummer van de spriteArray.
+    //The current index number of the sprite array..
     public int currentHairSprite = 0;
 
+    //All the front hair sprites.
     [SerializeField]
     private Sprite[] frontHairSprites;
 
+    //All the side hair sprites.
     [SerializeField]
     private Sprite[] sideHairSprites;
 
@@ -41,6 +49,7 @@ public class CharacterCustHandler : MonoBehaviour
         currentButton.interactable = false;
         float scale = scaler.rect.width / picker.rect.width;
         picker.localScale = new Vector2(scale, scale);
+        //Start the highlight animation.
         startAnimation(this.frontImage);
         startAnimation(this.sideImage);
         nameChange(GameObject.Find("ContinueButton").transform.GetChild(0).GetComponent<Image>());
@@ -62,6 +71,10 @@ public class CharacterCustHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the customizer values to the current part.
+    /// </summary>
+    /// <param name="type">The body part</param>
     private void setCustValues(string type)
     {
         frontImage = GameObject.Find(type + "Front").GetComponent<Image>();
@@ -69,6 +82,10 @@ public class CharacterCustHandler : MonoBehaviour
         currentButton = GameObject.Find(type + "Button").GetComponent<Button>();
     }
 
+    /// <summary>
+    /// Change the selected body part.
+    /// </summary>
+    /// <param name="type">The new body part.</param>
     public void setCharacterPart(string type)
     {
         this.currentPart = type + "Button";
@@ -83,21 +100,30 @@ public class CharacterCustHandler : MonoBehaviour
         this.frontImage.color = tempColor;
         this.sideImage.color = tempColor;
 
+        //Get the current color of the body part and set the colorpicker value to it.
         Color color = frontImage.GetComponent<Image>().color;
         fcp.color = color;
 
         startAnimation(this.frontImage);
         startAnimation(this.sideImage);
 
+        //If the current part is the hair, show the selection arrows.
         arrowContainer.SetActive(type == "Hair");
     }
 
+    /// <summary>
+    /// Update the color of the sprites.
+    /// </summary>
+    /// <param name="color">The new color.</param>
     public void setColor(Color color)
     {
         this.frontImage.GetComponent<Image>().color = color;
         this.sideImage.GetComponent<Image>().color = color;
     }
 
+    /// <summary>
+    /// Change the hair to the next hair sprite.
+    /// </summary>
     public void nextPart()
     {
         if (currentHairSprite >= frontHairSprites.Length - 1)
@@ -128,6 +154,9 @@ public class CharacterCustHandler : MonoBehaviour
         //}
     }
 
+    /// <summary>
+    /// Change the hair to the previous hair sprite.
+    /// </summary>
     public void previousPart()
     {
         if (currentHairSprite <= 0)
@@ -147,18 +176,30 @@ public class CharacterCustHandler : MonoBehaviour
         GameObject.Find("HairSide").GetComponent<Image>().sprite = newSideSprite;
     }
 
+    /// <summary>
+    /// Start the hightlight animation.
+    /// </summary>
+    /// <param name="image">The image that should have the highlight effect.</param>
     private void startAnimation(Image image)
     {
         Animator anim = image.GetComponent<Animator>();
         anim.SetBool("Play", true);
     }
 
+    /// <summary>
+    /// Stops the hightlight animation.
+    /// </summary>
+    /// <param name="image">The image that has the highlight effect.</param>
     private void stopAnimation(Image image)
     {
         Animator anim = image.GetComponent<Animator>();
         anim.SetBool("Play", false);
     }
 
+    /// <summary>
+    /// Enables the continue button if a name is entered in the name field.
+    /// </summary>
+    /// <param name="img">The continue button.</param>
     public void nameChange(Image img)
     {
         img.transform.parent.GetComponent<Button>().interactable = nameField.text.Length > 0;

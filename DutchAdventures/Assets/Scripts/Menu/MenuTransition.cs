@@ -6,13 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuTransition : MonoBehaviour
 {
+    //The loading popup.
     public GameObject loadPopup;
-    //load the scene on button click
+
+    /// <summary>
+    /// Loads the given scene with no loading popup.
+    /// </summary>
+    /// <param name="scene">The name of the new scene.</param>
     public void toSceneNoPopup(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
+    /// <summary>
+    /// Loads the given scene with a loading popup.
+    /// </summary>
+    /// <param name="scene">The name of the new scene.</param>
     public void toSceneWithPopup(string scene)
     {
         loadPopup.SetActive(true);

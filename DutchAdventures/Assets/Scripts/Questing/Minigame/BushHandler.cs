@@ -18,6 +18,7 @@ public class BushHandler : NPCController
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
         pointer = transform.GetChild(0).gameObject;
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+        //Increase minimum distance.
         minDist = 7;
         //Set the display name to empty since we are not talking to a NPC.
         displayName = "";
