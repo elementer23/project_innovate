@@ -349,6 +349,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6358801722486297320, guid: 93931e97d362c124b8552f211fd87bdb, type: 3}
+      propertyPath: jsonHandler
+      value: 
+      objectReference: {fileID: 644837694}
     - target: {fileID: 6358801722486297321, guid: 93931e97d362c124b8552f211fd87bdb, type: 3}
       propertyPath: m_Name
       value: LanguageHandler
