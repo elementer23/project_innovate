@@ -10,6 +10,7 @@ public class SceneTitle : MonoBehaviour
 
     void Start()
     {
+        //set the scenetext to the scene name
         sceneText.text = sceneName;
     }
 }

@@ -36,9 +36,9 @@ RectTransform:
   m_Father: {fileID: 6667939922886280653}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 135, y: 4.78}
   m_SizeDelta: {x: 160, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1077678572
@@ -454,8 +454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32, y: -7}
-  m_SizeDelta: {x: 35, y: 35}
+  m_AnchoredPosition: {x: -35.5, y: 0.79999924}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2089047692801150207
 CanvasRenderer:
@@ -694,9 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pieter
-
-'
+  m_text: '[NPC NAME]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: -9080064994892754326, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
@@ -777,6 +775,7 @@ GameObject:
   - component: {fileID: 6667939922886280659}
   - component: {fileID: 6667939922886280658}
   - component: {fileID: 6112000413097244182}
+  - component: {fileID: 1197650541773147855}
   m_Layer: 5
   m_Name: Dialogbox
   m_TagString: Untagged
@@ -861,9 +860,21 @@ MonoBehaviour:
   dialogBox: {fileID: 6667939923676563425}
   npcNameTxt: {fileID: 6470787594296476498}
   btns: {fileID: 1269801124}
+  npc: {fileID: 0}
   dialog: The quick brown fox jumped over the lazy dog.
-  npcName: 
   isFinished: 0
+--- !u!225 &1197650541773147855
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667939922886280652}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6667939923676563427
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yo waddup
+  m_text: '[Placeholder]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
   m_sharedMaterial: {fileID: -9080064994892754326, guid: f73c7609c10c1b24bae25d1d8aa91233, type: 2}
@@ -960,9 +971,9 @@ MonoBehaviour:
   m_fontSize: 20
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256

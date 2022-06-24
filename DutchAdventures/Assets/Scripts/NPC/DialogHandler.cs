@@ -12,9 +12,10 @@ public class DialogHandler : MonoBehaviour
     private TextMeshProUGUI npcNameTxt;
     public CanvasGroup btns;
 
+    public NPCController npc;
+
     [HideInInspector]
     public string dialog;
-    public string npcName;
     private string dialogToDisplay;
     [HideInInspector]
     public bool isFinished = false;
@@ -25,7 +26,7 @@ public class DialogHandler : MonoBehaviour
     {
         //Start the coroutine that prints every character at a time;
         printDialog = StartCoroutine(printText());
-        npcNameTxt.text = npcName;
+        npcNameTxt.text = npc.displayName;
 
         //Make the buttons invisible at start
         btns.alpha = 0;
@@ -41,7 +42,7 @@ public class DialogHandler : MonoBehaviour
         bool isOverUI = EventSystem.current.IsPointerOverGameObject();
         if (!isFinished)
         {
-            if (Input.GetMouseButtonDown(0) && isOverUI)
+            if ((Input.GetMouseButtonDown(0) && isOverUI))
             {
                 StopCoroutine(printDialog);
                 dialogBox.text = dialog;
@@ -50,6 +51,19 @@ public class DialogHandler : MonoBehaviour
             else
             {
                 dialogBox.text = dialogToDisplay;
+            }
+        }
+        if(Input.touchCount > 0)
+        {
+            int id = Input.GetTouch(0).fingerId;
+            if (EventSystem.current.IsPointerOverGameObject(id))
+            {
+                if (!isFinished)
+                {
+                    StopCoroutine(printDialog);
+                    dialogBox.text = dialog;
+                    isFinished = true;
+                }
             }
         }
     }

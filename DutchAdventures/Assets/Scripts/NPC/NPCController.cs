@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    private PlayerQuestHandler player;
-    private Transform canvas;
-    private int minDist = 5;
-    private QuestStatusSaver questStatusSaver;
+    protected PlayerQuestHandler player;
+    protected Transform canvas;
+    protected int minDist = 5;
+    protected QuestStatusSaver questStatusSaver;
 
     [SerializeField]
-    private GameObject dialogPrefab;
+    protected GameObject dialogPrefab;
     [SerializeField]
-    private GameObject questPrefab;
+    protected GameObject questPrefab;
     [SerializeField]
-    private GameObject competionDialogPrefab;
+    protected GameObject competionDialogPrefab;
+
+    public GameObject questIconPrefab;
 
     [SerializeField]
-    private GameObject questIconPrefab;
+    public string requiredItem;
 
-    [SerializeField]
-    private string requiredItem;
-    private bool hasRequiredItem;
-    private bool canTakeQuest;
+    public bool hasRequiredItem;
 
-    [Header("Dialog")]
+    [Header("NPC Data")]
+    //The same saved to the json etc.
     public string npcName;
+    //The name to be displayed in the dialog
+    public string displayName;
+
+    [SerializeField]
+    protected bool hideOnCompletion;
+
+    protected bool canTakeQuest;
+
+    //Dialog:
+    [Header("Dialog")]
     public string startDialog;
     public string questBusyDialog;
     public string notCompletedDialog;
@@ -42,7 +52,7 @@ public class NPCController : MonoBehaviour
     [HideInInspector]
     public bool isQuestGiver = false;
 
-    void Start()
+    protected virtual void Start()
     {
         //Set the quest status saver.
         questStatusSaver = GameObject.Find("QuestSaver").GetComponent<QuestStatusSaver>();
@@ -63,9 +73,21 @@ public class NPCController : MonoBehaviour
         {
             quest.npcName = npcName;
         }
+
+        createDialogBoxes();
+
+        if(displayName == string.Empty)
+        {
+            displayName = npcName;
+        }
     }
 
-    private void Update()
+    protected virtual void Update()
+    {
+        createDialogBoxes();
+    }
+
+    protected void createDialogBoxes() 
     {
         //Spawn a quest marker/dialog icon above the npc
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
@@ -85,16 +107,30 @@ public class NPCController : MonoBehaviour
             if (hasRequiredItem)
             {
                 canTakeQuest = true;
+                if(transform.Find("QuestMarker(Clone)"))
+                {
+                    transform.Find("QuestMarker(Clone)").GetComponent<QuestIcon>().activeQuest = true;
+                }
+
             }
             else
             {
                 canTakeQuest = false;
+                if (!transform.Find("QuestMarker(Clone)"))
+                {
+                    Instantiate(questIconPrefab, transform);
+                }
             }
+        }
+
+        if (hideOnCompletion)
+        {
+            gameObject.SetActive(!hasCompletedQuest);
         }
     }
 
     //When the player presses on the NPC,
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if (canTakeQuest)
         {
@@ -113,7 +149,7 @@ public class NPCController : MonoBehaviour
                     if (!quest.isEmpty())
                     {
                         // Check if player has already quest
-                        if (player.getQuest().title.Equals(string.Empty))
+                        if (player.getQuest().title.Equals(string.Empty) || player.getQuest().title.Equals(quest.title))
                         {
                             if (!hasAccepted)
                             {
@@ -127,7 +163,7 @@ public class NPCController : MonoBehaviour
                                     if (player.getQuest().hasCompleted)
                                     {
                                         //Complete the quest
-                                        addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
+                                        GameObject dialog = addDialog(competionDialogPrefab, "CompletionDialog(Clone)", completionDialog, false);
                                     }
                                     else
                                     {
@@ -159,7 +195,11 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
+    public string getRequiredKeyitem()
+    {
+        return this.requiredItem;
+    }
+    protected virtual GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
         {
@@ -167,7 +207,7 @@ public class NPCController : MonoBehaviour
             DialogHandler dhandler = obj.GetComponent<DialogHandler>();
 
             dhandler.dialog = dialog;
-            dhandler.npcName = npcName;
+            dhandler.npc = this;
 
             if (isQuest)
             {
@@ -176,7 +216,9 @@ public class NPCController : MonoBehaviour
                 qhandler.quest = quest;
                 qhandler.npcController = this;
             }
+            return obj;
         }
+        return null;
     }
 
     //Function to reset the NPC after completion or abanoning of the quest.

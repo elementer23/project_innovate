@@ -35,6 +35,7 @@ public class Teleporter : MonoBehaviour
 
     private void Update()
     {
+        //get the distance between the player and pointer
         float dist = Vector2.Distance(player.position, transform.position);
         canTravel = dist < minDist;
         pointer.SetActive(canTravel);
@@ -42,14 +43,18 @@ public class Teleporter : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //use the teleport function onclick
         StartCoroutine(teleport());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //use the teleport function on entering a collision
+        Debug.Log("trigger");   
         StartCoroutine(teleport());
     }
 
+    //teleport the player to the given position and load the scene
     private IEnumerator teleport()
     {
         if (canTravel)
@@ -71,6 +76,7 @@ public class Teleporter : MonoBehaviour
         }
     }
 
+    //spawn the player and check whether a position has been given before
     private Vector2 GetPreviousPosition(PlayerSpawn entrance, PlayerSpawn exit, Transform player)
     {
         if (HasPreviousPosition(entrance) && HasPreviousPosition(exit))
@@ -83,6 +89,7 @@ public class Teleporter : MonoBehaviour
         }
     }
 
+    //check if there is a previous position
     private bool HasPreviousPosition(PlayerSpawn pos)
     {
         return !pos.spawnPosition.Equals(Vector2.zero);

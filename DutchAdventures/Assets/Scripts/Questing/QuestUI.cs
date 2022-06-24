@@ -9,7 +9,9 @@ public class QuestUI : MonoBehaviour
     [SerializeField]
     private JsonHandler jsonHandler;
     [SerializeField]
-    private Animator completedPopup;
+    private Animator taskcompletedPopup;
+    [SerializeField]
+    private Animator questcompletedPopup;
     
     private QuestStatusSaver questStatusSaver;
 
@@ -21,7 +23,7 @@ public class QuestUI : MonoBehaviour
     private TextMeshProUGUI npcName;
 
     private bool hasQuest = false;
-    private Quest currentQuest;
+    public Quest currentQuest;
     private bool menuIsVisible;
 
     //Store a reference to the NPC, so the npc know if the quest has been accepted.
@@ -89,7 +91,7 @@ public class QuestUI : MonoBehaviour
     public void completeQuest()
     {
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
-
+        questcompletedPopup.SetTrigger("Play");
         // Update NPC quest data
         resetQuest(true, true);
     }

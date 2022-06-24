@@ -28,7 +28,6 @@ public class StartMiniGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (hasAllKeyItems())
         {
             float dist = Vector2.Distance(player.position, transform.position);
@@ -44,8 +43,6 @@ public class StartMiniGame : MonoBehaviour
     //Start quest if parameters are true
     private void OnMouseDown()
     {
-        
-
         if (hasAllKeyItems() && canStart)
         {
             world.SetActive(false);
@@ -57,7 +54,6 @@ public class StartMiniGame : MonoBehaviour
     {
         foreach (string item in neededKeyItem)
         {
-            
             if (!keyItemsSaver.hasItem(item)) {
                 return false;
             }
