@@ -34,7 +34,9 @@ public class FryingHandler : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
         }
     }
-
+    /// <summary>
+    /// Switch object if quest is active
+    /// </summary>
     private void OnMouseDown()
     {
         if (player.getQuest().title == questName)

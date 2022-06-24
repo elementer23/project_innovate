@@ -46,7 +46,9 @@ public class PlayerQuestHandler : MonoBehaviour
         }
     }
 
-    //Call this function from your quest script to complete the quest.
+    /// <summary>
+    /// Call this function from your quest script to complete the quest.
+    /// </summary>
     public void completeQuest()
     {
         addCoins(quest.rewardCoins);
@@ -67,7 +69,10 @@ public class PlayerQuestHandler : MonoBehaviour
         quest = Quest.empty;
     }
 
-    //Sets the currently active quest to a quest.
+    /// <summary>
+    /// Sets the currently active quest to a quest.
+    /// </summary>
+    /// <param name="quest">Quest object</param>
     public void setQuest(Quest quest)
     {
         //Check if the player does not have a quest, add it.
@@ -78,40 +83,41 @@ public class PlayerQuestHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// get quest from player
+    /// </summary>
+    /// <returns>Returns quest object</returns>
     public Quest getQuest()
     {
         return quest;
     }
 
+    /// <summary>
+    /// Reset quest keyitems of player
+    /// </summary>
     public void resetQuest()
     {
         GetComponent<KeyItemsSaver>().setItem(quest.requestedItem, false);
         quest = Quest.empty;
     }
 
-    //void saveQuest()
-    //{
-    //    File.WriteAllText(Application.dataPath + "/Resources/playerQuest.json", JsonUtility.ToJson(quest));
-    //}
-
-    //Quest loadQuest()
-    //{
-    //    UnityEditor.AssetDatabase.Refresh();
-    //    var jsonFile = Resources.Load<TextAsset>("playerQuest");
-    //    Quest q = JsonUtility.FromJson<Quest>(jsonFile.text);
-
-    //    return q;
-    //}
-
     /////////////////
     // Coin system //
     /////////////////
 
+    /// <summary>
+    /// Add coins to wallet
+    /// </summary>
+    /// <param name="amt">amount of coins</param>
     public void addCoins(int amt)
     {
         coins += amt;
     }
 
+    /// <summary>
+    /// Delete coins from wallet
+    /// </summary>
+    /// <param name="amt">Amount of coins</param>
     public void subtractCoint(int amt)
     {
         if (coins - amt >= 0)

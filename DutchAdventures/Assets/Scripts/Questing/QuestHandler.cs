@@ -26,6 +26,9 @@ public class QuestHandler : MonoBehaviour
         questUI = transform.parent.Find("QuestMenuHolder").Find("QuestMenu").GetComponent<QuestUI>();
     }
 
+    /// <summary>
+    /// Accept quest on btn click
+    /// </summary>
     public void acceptBtn()
     {
         Debug.Log("Accept");

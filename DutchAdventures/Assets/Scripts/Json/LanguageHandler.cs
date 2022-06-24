@@ -20,21 +20,30 @@ public class LanguageHandler : MonoBehaviour
         jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
     }
 
-    // saves language to Json
+    /// <summary>
+    /// saves language to Json
+    /// </summary>
     public void SaveLanguage()
     {
         LangData langData = new LangData(this.language);
         Debug.Log(langData);
         jsonHandler.WriteToJson(langData, "Language");
     }
-    // calls function to call the json saver and go to next scene
+
+    /// <summary>
+    /// calls function to call the json saver and go to next scene
+    /// </summary>
     public void applyLanguage()
     {
         //TODO: Save language.
         SaveLanguage();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
-    // show confirm popup
+
+    /// <summary>
+    /// show confirm popup
+    /// </summary>
+    /// <param name="language">String with language</param>
     public void showPopup(string language)
     {
         this.language = language;
@@ -42,7 +51,10 @@ public class LanguageHandler : MonoBehaviour
         GameObject Canvas = GameObject.Find("Canvas");
         Canvas.GetComponent<ToggleLangConfirmPopup>().getPopup().SetActive(true);
     }
-    //close confirm poopup and sets lang to null again
+
+    /// <summary>
+    /// close confirm poopup and sets lang to null again
+    /// </summary>
     public void closePopup()
     {
         this.language = null;
@@ -50,7 +62,10 @@ public class LanguageHandler : MonoBehaviour
         Canvas.GetComponent<ToggleLangConfirmPopup>().getPopup().SetActive(false);
     }
 
-    //returns language
+    /// <summary>
+    /// returns language
+    /// </summary>
+    /// <returns>String with language</returns>
     public string GetLanguage()
     {
         return this.language;

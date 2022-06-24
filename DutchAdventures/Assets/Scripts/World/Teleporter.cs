@@ -24,9 +24,12 @@ public class Teleporter : MonoBehaviour
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
+
+    /// <summary>
+    /// Place the player at the place where the player entered the building
+    /// </summary>
     private void Start()
     {
-        //Place the player at the place where the player entered the building
         player.position = this.GetPreviousPosition(entracePos, exitPos, player);
         Vector3 pos = exitPos.spawnPosition;
         pos.z = -10;
@@ -41,20 +44,27 @@ public class Teleporter : MonoBehaviour
         pointer.SetActive(canTravel);
     }
 
+    /// <summary>
+    /// use the teleport function onclick
+    /// </summary>
     private void OnMouseDown()
     {
-        //use the teleport function onclick
         StartCoroutine(teleport());
     }
 
+    /// <summary>
+    /// use the teleport function on entering a collision
+    /// </summary>
+    /// <param name="collision">Collision trigger</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //use the teleport function on entering a collision
-        Debug.Log("trigger");   
         StartCoroutine(teleport());
     }
 
-    //teleport the player to the given position and load the scene
+    /// <summary>
+    /// teleport the player to the given position and load the scene
+    /// </summary>
+    /// <returns>Load player into new scene</returns>
     private IEnumerator teleport()
     {
         if (canTravel)
@@ -76,7 +86,13 @@ public class Teleporter : MonoBehaviour
         }
     }
 
-    //spawn the player and check whether a position has been given before
+    /// <summary>
+    /// spawn the player and check whether a position has been given before
+    /// </summary>
+    /// <param name="entrance">Entrance object</param>
+    /// <param name="exit">Exit object</param>
+    /// <param name="player">Player object</param>
+    /// <returns>Returns previous location of player</returns>
     private Vector2 GetPreviousPosition(PlayerSpawn entrance, PlayerSpawn exit, Transform player)
     {
         if (HasPreviousPosition(entrance) && HasPreviousPosition(exit))
@@ -89,7 +105,11 @@ public class Teleporter : MonoBehaviour
         }
     }
 
-    //check if there is a previous position
+    /// <summary>
+    /// check if there is a previous position
+    /// </summary>
+    /// <param name="pos">Player position</param>
+    /// <returns>True or false</returns>
     private bool HasPreviousPosition(PlayerSpawn pos)
     {
         return !pos.spawnPosition.Equals(Vector2.zero);

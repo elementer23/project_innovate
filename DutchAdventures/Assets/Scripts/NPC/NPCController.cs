@@ -87,16 +87,18 @@ public class NPCController : MonoBehaviour
         createDialogBoxes();
     }
 
+    /// <summary>
+    /// Spawn a quest marker/dialog icon above the npc
+    /// </summary>
     protected void createDialogBoxes() 
     {
-        //Spawn a quest marker/dialog icon above the npc
+        
         if (canTakeQuest && !transform.Find("QuestMarker(Clone)"))
         {
             Instantiate(questIconPrefab, transform);
         }
 
         hasRequiredItem = player.GetComponent<KeyItemsSaver>().hasItem(requiredItem);
-        //hasRequiredItem = player.getQuest().hasCompleted;
 
         if (requiredItem == string.Empty)
         {
@@ -129,7 +131,9 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    //When the player presses on the NPC,
+    /// <summary>
+    /// When the player presses on the NPC,
+    /// </summary>
     protected virtual void OnMouseDown()
     {
         if (canTakeQuest)
@@ -195,10 +199,23 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Get required keyitem from NPC
+    /// </summary>
+    /// <returns>String with keyitem</returns>
     public string getRequiredKeyitem()
     {
         return this.requiredItem;
     }
+
+    /// <summary>
+    /// Add dialog to NPC
+    /// </summary>
+    /// <param name="prefab">Prefap of dialog</param>
+    /// <param name="objName">Object name</param>
+    /// <param name="dialog">Text for dialog</param>
+    /// <param name="isQuest">Check if Quest</param>
+    /// <returns>Returns Gameobject with dialog</returns>
     protected virtual GameObject addDialog(GameObject prefab, string objName, string dialog, bool isQuest)
     {
         if (!canvas.Find(objName))
@@ -221,7 +238,11 @@ public class NPCController : MonoBehaviour
         return null;
     }
 
-    //Function to reset the NPC after completion or abanoning of the quest.
+    /// <summary>
+    /// Function to reset the NPC after completion or abanoning of the quest.
+    /// </summary>
+    /// <param name="hasTaken">Check if npc is taken</param>
+    /// <param name="hasCompleted">Check if npc has completed Quest</param>
     public void setNpc(bool hasTaken, bool hasCompleted)
     {
         hasAccepted = hasTaken;

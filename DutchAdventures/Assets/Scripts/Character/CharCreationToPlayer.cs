@@ -27,7 +27,9 @@ public class CharCreationToPlayer : MonoBehaviour
         PlayerData playerData = new PlayerData(0, 0, "BigCityScene", colors, CharacterCustHandler.currentHairSprite, false, playerName);
         jsonHandler.WriteToJson(playerData, "PlayerData");
     }
-
+    /// <summary>
+    /// Reset the player position exit scritable object
+    /// </summary>
     public void resetPlayerPosition()
     {
         exit.spawnPosition = Vector2.zero;

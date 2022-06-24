@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ExplanationTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Trigger dialog when explenation screen is opent
+    /// </summary>
     void Start()
     {
         DialogueTrigger trigger = gameObject.GetComponent(typeof(DialogueTrigger)) as DialogueTrigger;

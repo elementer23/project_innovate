@@ -23,6 +23,9 @@ public class SaveScreen : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Show savescreen object
+    /// </summary>
     public void ShowSaveScreen()
     {
         if (canvasGroup.alpha == 0)

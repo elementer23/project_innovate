@@ -34,12 +34,15 @@ public class QuestUI : MonoBehaviour
     {
         questStatusSaver = GameObject.FindGameObjectWithTag("QuestSaver").GetComponent<QuestStatusSaver>();
     }
+
+    /// <summary>
+    /// Set the variables to the objects. These objects are all children of this object.
+    /// </summary>
     void Start()
     {
-        //Set the variables to the objects. These objects are all children of this object.
+        
         canvasGroup = GetComponent<CanvasGroup>();
         questTextCG = transform.GetChild(0).GetComponent<CanvasGroup>();
-        //playerQuestHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
 
         title = transform.GetChild(0).Find("Title").GetComponent<TextMeshProUGUI>();
         desc = transform.GetChild(0).Find("Description").GetComponent<TextMeshProUGUI>();
@@ -65,21 +68,28 @@ public class QuestUI : MonoBehaviour
         makeVisible(questTextCG, hasQuest);
     }
 
+    /// <summary>
+    /// Add the quest to the quest menu UI object.
+    /// </summary>
     public void addQuest()
     {
-        //Add the quest to the quest menu UI object.
         currentQuest = jsonHandler.ReadFromJson<Quest>("playerQuest");
         title.text = currentQuest.title;
         desc.text = currentQuest.description;
         npcName.text = currentQuest.npcName;
     }
 
+    /// <summary>
+    /// Toggle the visibility of the quest menu.
+    /// </summary>
     public void questButton()
     {
-        //Toggle the visibility of the quest menu.
         menuIsVisible = !menuIsVisible;
     }
 
+    /// <summary>
+    /// Remove quest from UI and update NPC data 
+    /// </summary>
     public void removeQuest()
     {
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().resetQuest();
@@ -88,6 +98,9 @@ public class QuestUI : MonoBehaviour
         resetQuest(false, false);
     }
 
+    /// <summary>
+    /// Complete quest in Quest UI 
+    /// </summary>
     public void completeQuest()
     {
         GameObject.Find("Player").GetComponent<PlayerQuestHandler>().completeQuest();
@@ -96,6 +109,11 @@ public class QuestUI : MonoBehaviour
         resetQuest(true, true);
     }
 
+    /// <summary>
+    /// Reset Quest from player and NPC
+    /// </summary>
+    /// <param name="hasTaken">If npc has taken quest</param>
+    /// <param name="hasCompleted">If npc has completed Quest</param>
     private void resetQuest(bool hasTaken, bool hasCompleted)
     {
         questStatusSaver.writeNpcStatusToJson(currentQuest.npcName, hasTaken, hasCompleted);
@@ -112,9 +130,13 @@ public class QuestUI : MonoBehaviour
         jsonHandler.WriteToJson(currentQuest, "playerQuest");
     }
 
+    /// <summary>
+    /// Function to make setting the visibility of canvasObjects easier.
+    /// </summary>
+    /// <param name="cg">Canvas group of scene</param>
+    /// <param name="visible">Vissible true or false</param>
     private void makeVisible(CanvasGroup cg, bool visible)
     {
-        //Function to make setting the visibility of canvasObjects easier.
         cg.alpha = visible ? 1 : 0;
         cg.interactable = visible;
         cg.blocksRaycasts = visible;

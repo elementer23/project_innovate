@@ -8,6 +8,9 @@ public class NextQuestHandler : MonoBehaviour
     public GameObject npcToDisable;
     public GameObject nextNPC;
 
+    /// <summary>
+    /// switch npc after completion quest
+    /// </summary>
     void Update()
     {
         if (prevNPC.GetComponent<NPCController>().hasCompletedQuest)

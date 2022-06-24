@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class GameMenuBtn : MonoBehaviour
 {
-
     public CanvasGroup canvasGroup;
     public Transform player;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Set the player object to non active when conditions are met
+    /// </summary>
     void Update()
     {
-        //set the player object to non active when conditions are met
+        
         if (canvasGroup != null && canvasGroup.interactable == true)
         {
             player.gameObject.SetActive(false);
@@ -22,7 +23,9 @@ public class GameMenuBtn : MonoBehaviour
         }
     }
 
-    //show the game menu when alpha = 0 or hide it when alpha = 1
+    /// <summary>
+    /// show the game menu when alpha = 0 or hide it when alpha = 1
+    /// </summary>
     public void ShowGameMenu()
     {
         if (canvasGroup.alpha == 0)

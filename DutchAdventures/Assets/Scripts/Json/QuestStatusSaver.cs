@@ -14,7 +14,12 @@ public class QuestStatusSaver : MonoBehaviour
         npcStatuses = jsonHandler.ReadFromJson<NpcQuestStatuses>("npcQuestData");
     }
 
-    //write the npc quest data to the json
+    /// <summary>
+    /// write the npc quest data to the json
+    /// </summary>
+    /// <param name="npcName">Npc name</param>
+    /// <param name="hasAccepted">If accept quest</param>
+    /// <param name="hasCompletedQuest">If quest is completed</param>
     public void writeNpcStatusToJson(string npcName, bool hasAccepted, bool hasCompletedQuest)
     {
         //looping through every npc's status
@@ -29,7 +34,11 @@ public class QuestStatusSaver : MonoBehaviour
         jsonHandler.WriteToJson(npcStatuses, "NpcQuestData");
     }
 
-    //get the npc's status from the json file
+    /// <summary>
+    /// get the npc's status from the json file
+    /// </summary>
+    /// <param name="npcName">Npc name</param>
+    /// <returns>Returns status of NPC in map</returns>
     public bool[] getNpcStatus(string npcName)
     {
         //NPCController npcController = GameObject.Find(npcName).GetComponent<NPCController>();

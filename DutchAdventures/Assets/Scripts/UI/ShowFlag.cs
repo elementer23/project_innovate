@@ -12,11 +12,13 @@ public class ShowFlag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(languageHandler.GetLanguage());
         setRightFlag(languageHandler.GetLanguage());
     }
 
-    //Load right flag by chosen langues
+    /// <summary>
+    /// Load right flag by chosen langues
+    /// </summary>
+    /// <param name="lang">Chosen Language</param>
     void setRightFlag(string lang)
     {
         Sprite flag = flags[0];

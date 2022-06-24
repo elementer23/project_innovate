@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StartMiniGame : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform player;
     protected float minDist = 2;
     private bool canStart = false;
@@ -18,6 +17,7 @@ public class StartMiniGame : MonoBehaviour
     [SerializeField]
     private GameObject minigame;
 
+    // Start is called before the first frame update
     void Start()
     {
         GetComponent<BoxCollider2D>().enabled = false;
@@ -40,7 +40,9 @@ public class StartMiniGame : MonoBehaviour
         }
     }
 
-    //Start quest if parameters are true
+    /// <summary>
+    /// Start quest if parameters are true
+    /// </summary>
     private void OnMouseDown()
     {
         if (hasAllKeyItems() && canStart)
@@ -50,6 +52,10 @@ public class StartMiniGame : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// check if player hass all keyitems
+    /// </summary>
+    /// <returns>True or false</returns>
     private bool hasAllKeyItems()
     {
         foreach (string item in neededKeyItem)

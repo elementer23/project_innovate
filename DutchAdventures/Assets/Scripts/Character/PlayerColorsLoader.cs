@@ -14,6 +14,9 @@ public class PlayerColorsLoader : MonoBehaviour
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");
     }
 
+    /// <summary>
+    /// Loads player colors
+    /// </summary>
     void Start()
     {
         for (int i = 0; i < playerData.playerPreset.Length; i++)
@@ -22,10 +25,5 @@ public class PlayerColorsLoader : MonoBehaviour
             ColorUtility.TryParseHtmlString(playerData.playerPreset[i], out newCol);
             srs[i].color = newCol;
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

@@ -8,9 +8,11 @@ public class SceneTitle : MonoBehaviour
     public TextMeshProUGUI sceneText;
     public string sceneName;
 
+    /// <summary>
+    /// set the scenetext to the scene name
+    /// </summary>
     void Start()
     {
-        //set the scenetext to the scene name
-        sceneText.text = sceneName;
+        sceneText.text = this.sceneName;
     }
 }
