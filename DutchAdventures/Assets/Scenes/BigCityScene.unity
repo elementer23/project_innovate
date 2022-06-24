@@ -296,6 +296,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: fadeObject
+      value: 
+      objectReference: {fileID: 1825812427}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: loadingText
+      value: 
+      objectReference: {fileID: 1409361443}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 11400000, guid: f58f9a4de2a8cd743985579e10237127, type: 2}
@@ -486,6 +494,14 @@ PrefabInstance:
       value: CityBasement
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: fadeObject
+      value: 
+      objectReference: {fileID: 1825812427}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
+      propertyPath: loadingText
+      value: 
+      objectReference: {fileID: 1409361443}
+    - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 11400000, guid: 3f94ecbb5b69e604c95ef764c51bc8b6, type: 2}
@@ -604,11 +620,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
@@ -1016,11 +1032,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
@@ -1117,11 +1133,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
       value: 10.75
@@ -1214,11 +1230,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
       value: -10.75
@@ -8745,11 +8761,11 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: playerSpawn
       value: 
@@ -33337,6 +33353,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1409361443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381606062662914, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 387057385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1416265138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
@@ -133857,6 +133878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 755db13d14bcce44b8108ecd2a2c1294, type: 3}
+--- !u!1 &1825812427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046381607376508108, guid: efdba49e71b11f24a844e16ee7f3d3b8, type: 3}
+  m_PrefabInstance: {fileID: 387057385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1844759826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6099842413819018533, guid: 3fb1ba7986241e549bb7c67e335a3bfb, type: 3}
@@ -133957,14 +133983,14 @@ PrefabInstance:
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: fadeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825812427}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: loadingText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1409361443}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.x
-      value: -3.8
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 1329357656726033514, guid: 0ffa392935091094b8b3c9ce07c050d9, type: 3}
       propertyPath: destination.y
