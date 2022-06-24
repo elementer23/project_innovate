@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class QuestFlowerHandler : QuestItemHandler
 {
+    //The container that shows the holding flower on screen.
     public GameObject flowerContainer;
 
     [SerializeField]
