@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TulipsHouse.unity
     guid: 51ea8fc9e6627274682f21384acec57b
   - enabled: 1
+    path: Assets/Scenes/TulipsHouse2.unity
+    guid: b410f093289aafd4fb9b49296fe69187
+  - enabled: 1
     path: Assets/Scenes/eastEntrance.unity
     guid: 5210cc96c0a5643469a8a35d47cd6800
   - enabled: 1
