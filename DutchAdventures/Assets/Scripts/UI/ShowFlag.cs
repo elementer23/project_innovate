@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ShowFlag : MonoBehaviour
 {
     public LanguageHandler languageHandler;
+
+    public Sprite[] flags;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +19,20 @@ public class ShowFlag : MonoBehaviour
     //Load right flag by chosen langues
     void setRightFlag(string lang)
     {
-        Sprite flag = Resources.Load<Sprite>("ua_small");
+        Sprite flag = flags[0];
         switch (lang)
         {
             case "nl":
-                 flag = Resources.Load<Sprite>("Sprites/flags/nl_small");
+                flag = flags[0];
                 break;
             case "ua":
-                 flag = Resources.Load<Sprite>("Sprites/flags/ua_small");
+                flag = flags[1];
                 break;
             case "de":
-                 flag = Resources.Load<Sprite>("Sprites/flags/de_small");
+                flag = flags[2];
                 break;
             case "en":
-                flag = Resources.Load<Sprite>("Sprites/flags/en_small");
+                flag = flags[3];
                 break;              
         }
         GetComponent<Image>().sprite = flag;
