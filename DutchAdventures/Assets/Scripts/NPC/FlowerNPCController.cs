@@ -10,6 +10,10 @@ public class FlowerNPCController : NPCController
     [SerializeField]
     private GameObject questMenu;
 
+    //Reference to the task complete popup.
+    [SerializeField]
+    private Animator taskComplete;
+
     //The tulip colors.
     private enum Tulips {BLUE, RED, PINK, YELLOW, PURPLE, WHITE};
     //A list with the collected tulip colors.
@@ -40,18 +44,12 @@ public class FlowerNPCController : NPCController
 
                 if (item.name.StartsWith("colledtedTulip"))
                 {
+
                     Tulips color = (Tulips)Enum.Parse(typeof(Tulips), item.name.Split("-")[1]);
+                    Debug.Log("Found " + color + " in json.");
                     collectedTulipList.Add(color);
                     continue;
                 }
-
-
-                /*  if (item.name.StartsWith("holdingFlower"))
-                  {
-                      holdingFlower = item.name.Split("-")[1];
-                      continue;
-                  }*/
-
             }
 
             if (holdingFlower.Length > 0)
@@ -200,10 +198,11 @@ public class FlowerNPCController : NPCController
         }
         //Check if the player already brought this tullip color before.
         Tulips color = (Tulips)Enum.Parse(typeof(Tulips), holdingFlower.Split("_")[0].ToUpper());
+        Debug.Log(collectedTulipList.Contains(color));
         if(collectedTulipList.Contains(color))
         {
             //If the tulip color was already brought before.
-            dialogue += "You have already brought this. Can you find a diffrent color?";
+            dialogue += "You have already brought this color to me.";
         } 
         else
         {
@@ -212,6 +211,7 @@ public class FlowerNPCController : NPCController
             KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
             keyItemSaver.setItem("colledtedTulip-" + color, true);
             dialogue += "Thank you for finding this.";
+            taskComplete.SetTrigger("Play");
 
         }
         return dialogue;
