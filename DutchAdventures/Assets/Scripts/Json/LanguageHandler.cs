@@ -14,6 +14,12 @@ public class LanguageHandler : MonoBehaviour
         LangData langData = jsonHandler.ReadFromJson<LangData>("Language");
         this.language = langData.language;
     }
+
+    private void Start()
+    {
+        jsonHandler = GameObject.FindGameObjectWithTag("JsonHandler").GetComponent<JsonHandler>();
+    }
+
     // saves language to Json
     public void SaveLanguage()
     {
