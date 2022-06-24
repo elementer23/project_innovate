@@ -15,6 +15,9 @@ public class SnackHandler : MonoBehaviour
         animator.SetBool("Play", true);
     }
 
+    /// <summary>
+    /// On frikandel klik play animation
+    /// </summary>
     private void OnMouseDown()
     {
         handler.hasSnack = true;

@@ -52,7 +52,9 @@ public class Quizmanager : MonoBehaviour
         }
     }
 
-    // function when retry is pressed reset the question
+    /// <summary>
+    /// function when retry is pressed reset the question
+    /// </summary>
     public void retry()
     {
         Debug.Log(player.position);
@@ -61,7 +63,9 @@ public class Quizmanager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // function when btn continue is pressed give you tessed passed to get your licenace
+    /// <summary>
+    /// function when btn continue is pressed give you tessed passed to get your licenace
+    /// </summary>
     public void continueBtnClick() {
 
         KeyItemsSaver keyItemSaver = player.GetComponent<KeyItemsSaver>();
@@ -74,7 +78,9 @@ public class Quizmanager : MonoBehaviour
 
     }
 
-    // Give you result screen
+    /// <summary>
+    /// Give you result screen
+    /// </summary>
     void GameOver()
     {
         Quizpanel.SetActive(false);
@@ -95,7 +101,9 @@ public class Quizmanager : MonoBehaviour
         ScoreTxt.text = "You scored " + score + "/" + totalQuestions + " points.";
     }
 
-    // remove correct awnsers questions from list and add point to score
+    /// <summary>
+    /// remove correct awnsers questions from list and add point to score
+    /// </summary>
     public void correct()
     {
         //when you are right
@@ -104,7 +112,9 @@ public class Quizmanager : MonoBehaviour
         StartCoroutine(waitForNext());
     }
 
-    // remove wrong anwsers to list
+    /// <summary>
+    /// remove wrong anwsers to list
+    /// </summary>
     public void wrong()
     {
         //when you answer wrong
@@ -118,7 +128,9 @@ public class Quizmanager : MonoBehaviour
         generateQuestion();
     }
 
-    // setup every question with anwsers
+    /// <summary>
+    /// setup every question with anwsers
+    /// </summary>
     void SetAnswers()
     {
         for (int option = 0; option < options.Length; option++)
@@ -136,7 +148,9 @@ public class Quizmanager : MonoBehaviour
         }
     }
 
-    //Makes all the questions
+    /// <summary>
+    /// Makes all the questions
+    /// </summary>
     void generateQuestion()
     {
         if (QnA.Count > 0)

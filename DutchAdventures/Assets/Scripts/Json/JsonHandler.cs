@@ -5,7 +5,9 @@ using System.IO;
 
 public class JsonHandler : MonoBehaviour
 {
-    //write the default json to the files when there is no data to save
+    /// <summary>
+    /// write the default json to the files when there is no data to save
+    /// </summary>
     private void Awake()
     {
         string[] files = { "KeyItems", "npcQuestData", "playerQuest", "PlayerData","Language"};
@@ -37,14 +39,24 @@ public class JsonHandler : MonoBehaviour
         }
     }
 
-    //writing to json
+    /// <summary>
+    /// writing to json
+    /// </summary>
+    /// <typeparam name="T">Object name</typeparam>
+    /// <param name="dataToWrite">Data</param>
+    /// <param name="fileName">File name to write to</param>
     public void WriteToJson<T>(T dataToWrite, string fileName)
     {
         //Debug.Log("Write to JSON: \n" + JsonUtility.ToJson(dataToWrite));
         File.WriteAllText(Application.persistentDataPath + "/Resources/" + fileName + ".json", JsonUtility.ToJson(dataToWrite));
     }
 
-    //reading from json
+    /// <summary>
+    /// reading from json
+    /// </summary>
+    /// <typeparam name="T">Object name</typeparam>
+    /// <param name="fileName">Filename</param>
+    /// <returns>Json with data</returns>
     public T ReadFromJson<T>(string fileName)
     {
         string path = Application.persistentDataPath + "/Resources/" + fileName + ".json";

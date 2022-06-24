@@ -32,7 +32,9 @@ public class QuestFlowerHandler : QuestItemHandler
         pointer.SetActive(canObtain);
     }
 
-    //Pickups quest item if the player press down and is in range
+    /// <summary>
+    /// Pickups quest item if the player press down and is in range
+    /// </summary>
     protected override void OnMouseDown()
     {
         if (canObtain)

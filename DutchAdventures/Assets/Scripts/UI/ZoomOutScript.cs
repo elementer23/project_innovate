@@ -22,6 +22,12 @@ public class ZoomOutScript : MonoBehaviour
     [SerializeField]
     float lerpDuration = 1;
 
+    /// <summary>
+    /// Zoom the camm smooth out to bigger view
+    /// </summary>
+    /// <param name="start">Start position</param>
+    /// <param name="end">End position</param>
+    /// <returns>makes view bigger</returns>
     IEnumerator Lerp(float start, float end)
     {
         float timeElapsed = 0;
@@ -34,6 +40,9 @@ public class ZoomOutScript : MonoBehaviour
         cam.orthographicSize = end;
     }
 
+    /// <summary>
+    /// Ben btn is pressed and zoom is out then zoom in other zoom out
+    /// </summary>
     public void btn()
     {
         if (isZoomedOut)

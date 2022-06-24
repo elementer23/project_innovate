@@ -67,12 +67,17 @@ public class DialogHandler : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Destroy dialog box if button is pressed
+    /// </summary>
     public void closeBtn()
     {
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// complete quest
+    /// </summary>
     public void completeQuest()
     {
         Debug.Log("Complete quest");
@@ -80,6 +85,10 @@ public class DialogHandler : MonoBehaviour
         closeBtn();
     }
 
+    /// <summary>
+    /// Prints text with interval
+    /// </summary>
+    /// <returns>Prints text with interval</returns>
     IEnumerator printText()
     {
         //Print each letter one at a time.

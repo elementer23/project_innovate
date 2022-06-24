@@ -20,7 +20,6 @@ public class QuestItemHandler : MonoBehaviour
     protected PlayerQuestHandler playerQuestHandler;
     protected bool canObtain = false;
     protected bool isVisible = false;
-    //private Animator completeQuestAnim;
 
     protected virtual void Start()
     {
@@ -29,7 +28,6 @@ public class QuestItemHandler : MonoBehaviour
         pointer = transform.GetChild(0).gameObject;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
-        //completeQuestAnim = GameObject.Find("QuestComplete").GetComponent<Animator>();
 
         // does not show when required keyitems is not collected
         if (this.requiredKeyitems.Length > 0)
@@ -60,7 +58,9 @@ public class QuestItemHandler : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    //Pickups quest item if the player press down and is in range
+    /// <summary>
+    /// Pickups quest item if the player press down and is in range
+    /// </summary>
     protected virtual void OnMouseDown()
     {
         if (canObtain)

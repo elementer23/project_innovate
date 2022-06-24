@@ -6,14 +6,14 @@ using UnityEngine.EventSystems;
 
 public class PompMotionControl : MonoBehaviour
 {
-    // Start is called before the first frame update
     Animator animator;
     public Transform player;
     [SerializeField]
     private GameObject world;
     [SerializeField]
     private GameObject mingame;
-    
+
+    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -41,6 +41,9 @@ public class PompMotionControl : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// if pressed on handle the animation triggers
+    /// </summary>
     private void OnMouseDown()
     {
             animator.SetTrigger("isTouched");

@@ -48,6 +48,9 @@ public class WindowQuestPointer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Quest arrow navigation when there is no quest
+    /// </summary>
     private void QuestNavigator()
     {
         closestNpc = questNpcs[0];
@@ -94,6 +97,9 @@ public class WindowQuestPointer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fill quest npc list with nps
+    /// </summary>
     private void FillQuestNPCList()
     {
         //clear the npc quest list 
@@ -119,6 +125,11 @@ public class WindowQuestPointer : MonoBehaviour
             closestNpc = questNpcs[0];
         }
     }
+
+    /// <summary>
+    /// Disappear arrow when player is at NPC location
+    /// </summary>
+    /// <param name="npc"></param>
     private void DisappearArrow(GameObject npc)
     {
         if (questNpcs.Count > 0)
@@ -140,6 +151,10 @@ public class WindowQuestPointer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update Arrow to NPC location
+    /// </summary>
+    /// <param name="npc">Gameobject with NPC</param>
     private void UpdateArrow(GameObject npc)
     {
         //calculation to change the arrow position, so it points towards the closest npc

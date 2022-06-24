@@ -15,7 +15,9 @@ public class ContinueGame : MonoBehaviour
         ContinueCheck();
     }
 
-    //checks if the player has saved before and by checking if playersaved is true
+    /// <summary>
+    /// checks if the player has saved before and by checking if playersaved is true
+    /// </summary>
     public void ContinueCheck()
     {
         playerData = jsonHandler.ReadFromJson<PlayerData>("PlayerData");

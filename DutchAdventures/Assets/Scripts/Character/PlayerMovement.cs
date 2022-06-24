@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Check if input is on the UI object
     /// </summary>
-    /// <returns></returns>
+    /// <returns>True or false</returns>
     private bool isOverUI()
     {
         if (EventSystem.current.IsPointerOverGameObject())

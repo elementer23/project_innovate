@@ -29,18 +29,30 @@ public class KeyItemsSaver : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calls to jsonhandler to save the keyitems
+    /// </summary>
     public void SaveItems()
     {
         //Save the items to the JSON file
         jsonHandler.WriteToJson(keyItems, "KeyItems");
     }
 
+    /// <summary>
+    /// Read items from keyItems json
+    /// </summary>
+    /// <returns></returns>
     public KeyItems readItems()
     {
         //Read the items from the JSON file
         return jsonHandler.ReadFromJson<KeyItems>("KeyItems");
     }
 
+    /// <summary>
+    /// Sets keyitem to true or false
+    /// </summary>
+    /// <param name="itemName">Keyitem name</param>
+    /// <param name="isInInventory">True or false in inventory</param>
     public void setItem(string itemName, bool isInInventory)
     {
         //Set the item in the dictionary
@@ -51,6 +63,11 @@ public class KeyItemsSaver : MonoBehaviour
         SaveItems();
     }
 
+    /// <summary>
+    /// Check if item already is in inventory
+    /// </summary>
+    /// <param name="item">Keyitem name</param>
+    /// <returns></returns>
     public bool hasItem(string item)
     {
         //Check if the dictionary contains the item, then return if the player has it
@@ -63,6 +80,10 @@ public class KeyItemsSaver : MonoBehaviour
             return false;
         }
     }
+
+    /// <summary>
+    /// Create from dicornary to keyitems objects
+    /// </summary>
 
     private void DicToKeyItem()
     {
@@ -78,7 +99,11 @@ public class KeyItemsSaver : MonoBehaviour
         }
     }
 
-    //Autosave coroutine
+    /// <summary>
+    /// Autosave coroutine
+    /// </summary>
+    /// <param name="duration">Interval</param>
+    /// <returns></returns>
     IEnumerator HitSleep(float duration)
     {
         while (true)

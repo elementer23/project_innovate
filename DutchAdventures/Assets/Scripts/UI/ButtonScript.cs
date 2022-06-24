@@ -15,12 +15,9 @@ public class ButtonScript : MonoBehaviour
         image = GetComponent<Image>();
     }
 
-    void Update()
-    {
-
-    }
-
-    //Changes the sprite of the button when the button is pressed.
+    /// <summary>
+    /// Changes the sprite of the button when the button is pressed.
+    /// </summary>
     public void ChangeOnPressed()
     {
         if (image.sprite != pressedSprite)

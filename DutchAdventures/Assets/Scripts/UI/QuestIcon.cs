@@ -23,6 +23,9 @@ public class QuestIcon : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Updates dialog icon above NPC
+    /// </summary>
     void Update()
     {
         npcController = transform.parent.GetComponent<NPCController>();

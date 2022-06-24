@@ -8,7 +8,9 @@ public class Dialogue {
 
 	public string name;
 
-	//the dialogue box
+	/// <summary>
+	/// the dialogue box
+	/// </summary>
 	[TextArea(3, 10)]
 	public string[] sentences;
 

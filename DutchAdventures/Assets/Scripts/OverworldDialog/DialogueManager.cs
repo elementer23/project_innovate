@@ -15,7 +15,9 @@ public class DialogueManager : MonoBehaviour {
 
 	private Queue<string> sentences;
 
-	// Use this for initialization
+	/// <summary>
+	/// Use this for initialization
+	/// </summary>
 	void Start () {
 		sentences = new Queue<string>();
 
@@ -23,7 +25,10 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText = GameObject.Find("DialogueBox").transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
 	}
 
-	//start the dialogue when conditions are met
+	/// <summary>
+	/// start the dialogue when conditions are met
+	/// </summary>
+	/// <param name="dialogue">Dialog Object</param>
 	public void StartDialogue (Dialogue dialogue)
 	{
 		animator.SetBool("IsOpen", true);
@@ -41,14 +46,16 @@ public class DialogueManager : MonoBehaviour {
 		DisplayNextSentence();
 	}
 
-	//display the next sentence when clicked and dequeue it
+	/// <summary>
+	/// display the next sentence when clicked and dequeue it
+	/// </summary>
 	public void DisplayNextSentence ()
 	{
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
 			
-			//when there is no more text load the next scene
+			//when there is no more text load the next scene if it is explenation scene
 			if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ExplenationScreen"))
 			{
 				GameObject.Find("Canvas").GetComponent<MenuTransition>().toSceneNoPopup("LevelSelect");
@@ -61,7 +68,11 @@ public class DialogueManager : MonoBehaviour {
 		StartCoroutine(TypeSentence(sentence));
 	}
 
-	//show the next sentence in the queue
+	/// <summary>
+	/// show the next sentence in the queue
+	/// </summary>
+	/// <param name="sentence">Sentence from dialog</param>
+	/// <returns></returns>
 	IEnumerator TypeSentence (string sentence)
 	{
 		dialogueText.text = "";
@@ -72,7 +83,9 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	//close the dialog box
+	/// <summary>
+	/// close the dialog box
+	/// </summary>
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);

@@ -129,9 +129,11 @@ public class FryingBasketHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When clicked on the pan, change the sprites
+    /// </summary>
     private void OnMouseDown()
     {
-        //When clicked on the pan, change the sprites and 
         if (hasSnack && !isDoneFrying)
         {
             sr.sprite = rawSprite;
@@ -160,7 +162,9 @@ public class FryingBasketHandler : MonoBehaviour
             isOverFryingpan = false;
         }
     }
-
+    /// <summary>
+    /// Returns to world after completion mini game
+    /// </summary>
     public void backToWorld()
     {
         world.SetActive(true);

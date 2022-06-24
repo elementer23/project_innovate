@@ -7,7 +7,9 @@ public class GameMenuScreen : MonoBehaviour
 {
 
 
-    //exit the game onclick when in unity or in the .exe or on the phone
+    /// <summary>
+    /// exit the game onclick when in unity or in the .exe or on the phone
+    /// </summary>
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -16,16 +18,25 @@ public class GameMenuScreen : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Quit app on phone
+    /// </summary>
     private void QuitOnPhone()
     {
         Input.backButtonLeavesApp = true;
     }
 
+    /// <summary>
+    /// loads scene to Main menu
+    /// </summary>
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
+    /// <summary>
+    /// Exits game in unity or on phone
+    /// </summary>
     public void ExitGame()
     {
         #if UNITY_EDITOR

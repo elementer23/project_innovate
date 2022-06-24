@@ -20,7 +20,12 @@ public class HairController : MonoBehaviour
         hairStyle = transform.parent.GetComponent<PlayerColorsLoader>().playerData.hairStyle;
         GetComponent<SpriteRenderer>().sprite = getSpriteFromVec(hairStyle, playerMovement.change);
     }
-
+    /// <summary>
+    /// Returns the player hairstyle
+    /// </summary>
+    /// <param name="hairStyle">Hairstyle code</param>
+    /// <param name="vec">Position</param>
+    /// <returns>Returns hairSprite</returns>
     private Sprite getSpriteFromVec(int hairStyle, Vector2 vec)
     {
         float xAbs = Mathf.Abs(vec.x);

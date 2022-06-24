@@ -38,6 +38,9 @@ public class SaveGame : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Save currunt player data
+    /// </summary>
     public void SavePlayer()
     {
         //read the json of playerdata
@@ -50,12 +53,20 @@ public class SaveGame : MonoBehaviour
         Debug.Log("Saved!");
     }
 
+    /// <summary>
+    /// gets scene name
+    /// </summary>
+    /// <returns>Returns string with scene name</returns>
     private string GetCurrentScene()
     {
         //get the current scene name
         return SceneManager.GetActiveScene().name;
     }
 
+    /// <summary>
+    /// get player preset
+    /// </summary>
+    /// <returns></returns>
     private string[] GetPlayerPreset()
     {
         //put all the body presets inside an array
@@ -71,13 +82,18 @@ public class SaveGame : MonoBehaviour
 
         return preset;
     }
-
+    /// <summary>
+    /// get the playername from the playerdata json file
+    /// </summary>
+    /// <returns>Returns string with playername</returns>
     private string GetPlayerName()
-    {
-        //get the playername from the playerdata json file
+    {    
         return playerData.playerName;
     }
 
+    /// <summary>
+    /// Load save data from Json
+    /// </summary>
     public void LoadSavaData()
     {
         //set the spawn position to the last saved player location
@@ -101,21 +117,31 @@ public class SaveGame : MonoBehaviour
         transform.Find("Shoes").GetComponent<SpriteRenderer>().color = Shoes;
     }
 
+    /// <summary>
+    /// return the player position
+    /// </summary>
+    /// <returns>Returns player x and y cordinate</returns>
     private float[] LoadPlayerLocation()
     {
-        //return the player position
         return playerData.playerPosition;
     }
 
+    /// <summary>
+    /// Loads right scene
+    /// </summary>
+    /// <returns>Retruns player scene name</returns>
     private string LoadCurrentScene()
     {
-        //return the scene where the player was
         return playerData.sceneName;
     }
 
+    /// <summary>
+    /// return the body preset of the player
+    /// </summary>
+    /// <returns>Returns body preset</returns>
     private string[] LoadPlayerPreset()
     {
-        //return the body preset of the player
+        
         return playerData.playerPreset;
     }
 

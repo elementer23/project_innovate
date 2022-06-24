@@ -6,6 +6,10 @@ public class ToggleLangConfirmPopup : MonoBehaviour
 {
     public GameObject popup;
 
+    /// <summary>
+    /// Gets popup
+    /// </summary>
+    /// <returns>Return the popup object</returns>
     public GameObject getPopup()
     {
         return this.popup;

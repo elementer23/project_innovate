@@ -49,13 +49,17 @@ public class JSONRESETTER : MonoBehaviour
         }
     }
 
-    //reset the json 
+    /// <summary>
+    /// reset the json 
+    /// </summary>
     public  void ResetJson()
     {
         this.reset = true;
     }
 
-    //reload the scene
+    /// <summary>
+    /// reload the scene
+    /// </summary>
     public void ReloadScene()
     {
         this.reloadScene = true;
