@@ -249,10 +249,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6171349440760966193, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91d711f24c4037640a89f6d885605029, type: 3}
     - target: {fileID: 6171349441078215854, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6171349441167068282, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91d711f24c4037640a89f6d885605029, type: 3}
     - target: {fileID: 6171349441201798337, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: m_Name
       value: MenuScreen
@@ -341,10 +349,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6171349441660815500, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91d711f24c4037640a89f6d885605029, type: 3}
     - target: {fileID: 6171349442497898057, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SavePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6171349442497898058, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91d711f24c4037640a89f6d885605029, type: 3}
     - target: {fileID: 6171349442497898060, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
       propertyPath: player
       value: 
@@ -353,6 +369,10 @@ PrefabInstance:
       propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 496315164378380708}
+    - target: {fileID: 6171349442533261244, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91d711f24c4037640a89f6d885605029, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce7e236d86d872644b971d582fcd3944, type: 3}
 --- !u!224 &5439879102067390103 stripped
@@ -792,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8832269472084495162, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
       propertyPath: sceneName
-      value: '[Scenename]'
+      value: Borger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f678e8fb02f0854fa17d99326460416, type: 3}
